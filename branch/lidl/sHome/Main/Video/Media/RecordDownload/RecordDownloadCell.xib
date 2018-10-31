@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="RecordDownloadCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lbt_01" translatesAutoresizingMaskIntoConstraints="NO" id="Gyh-WN-0Lw">
+                        <rect key="frame" x="5" y="5" width="80" height="59"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="Vaw-Ec-BZA"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.12777777777777777777777" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQr-W6-u5u">
+                        <rect key="frame" x="93" y="38" width="171.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手动录像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ls-P2-Z3D">
+                        <rect key="frame" x="93" y="15" width="49.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Gyh-WN-0Lw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="6VA-X0-5bt"/>
+                    <constraint firstItem="5ls-P2-Z3D" firstAttribute="leading" secondItem="Gyh-WN-0Lw" secondAttribute="trailing" constant="8" id="CnA-nm-Sz0"/>
+                    <constraint firstItem="wQr-W6-u5u" firstAttribute="leading" secondItem="Gyh-WN-0Lw" secondAttribute="trailing" constant="8" id="Dbc-VW-ovE"/>
+                    <constraint firstItem="5ls-P2-Z3D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="ZTf-mF-LNN"/>
+                    <constraint firstAttribute="bottom" secondItem="Gyh-WN-0Lw" secondAttribute="bottom" constant="5" id="cfs-Vc-JOU"/>
+                    <constraint firstItem="Gyh-WN-0Lw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="he7-47-aZ1"/>
+                    <constraint firstItem="wQr-W6-u5u" firstAttribute="top" secondItem="5ls-P2-Z3D" secondAttribute="bottom" constant="8.5" id="xvi-j4-olC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="decLbl" destination="5ls-P2-Z3D" id="sDV-fG-hmd"/>
+                <outlet property="recordThumbnail" destination="Gyh-WN-0Lw" id="dvs-EZ-wYV"/>
+                <outlet property="timeLabel" destination="wQr-W6-u5u" id="IJT-5F-NKb"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="lbt_01" width="320" height="234"/>
+    </resources>
+</document>

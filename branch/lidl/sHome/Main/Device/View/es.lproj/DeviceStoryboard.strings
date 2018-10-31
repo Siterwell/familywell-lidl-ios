@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "测试"; ObjectID = "4Zw-f3-cMC"; */
+"4Zw-f3-cMC.normalTitle" = "Ensayo";
+
+/* Class = "UILabel"; text = "设备告警"; ObjectID = "8VF-Wy-Iw1"; */
+"8VF-Wy-Iw1.text" = "El equipo de alarma";
+
+/* Class = "UIViewController"; title = "设备"; ObjectID = "J3m-IS-dUx"; */
+"J3m-IS-dUx.title" = "El equipo";
+
+/* Class = "UILabel"; text = "正常"; ObjectID = "TGV-2y-JfO"; */
+"TGV-2y-JfO.text" = "Normal";
+
+/* Class = "UIButton"; normalTitle = "紧急电话"; ObjectID = "pSf-3J-0EV"; */
+"pSf-3J-0EV.normalTitle" = "Teléfono de emergencia";

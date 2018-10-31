@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>inDevice</key>
+	<array>
+		<string>调光模块</string>
+		<string>双路开关</string>
+		<string>智能插座</string>
+		<string>网关灯</string>
+	</array>
+	<key>outDevice</key>
+	<array>
+		<string>温湿度探测器</string>
+		<string>情景开关</string>
+		<string>气体探测器</string>
+		<string>复合型烟感</string>
+		<string>门锁</string>
+		<string>门磁</string>
+		<string>PIR探测器</string>
+		<string>按钮</string>
+		<string>SOS按钮</string>
+	</array>
+</dict>
+</plist>
