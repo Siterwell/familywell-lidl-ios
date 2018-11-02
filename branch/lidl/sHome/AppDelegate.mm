@@ -13,7 +13,7 @@
 #import "addGatewayVC.h"
 #import "connectWifiVC.h"
 #import "NSBundle+Language.h"
-#import <AMapFoundationKit/AMapFoundationKit.h>
+
 #import "GeTuiSdk.h"
 #import "JSONHelp.h"
 #import "ScyDeviceModel.h"
@@ -271,8 +271,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
             lan = @"en";
         }
         [NSBundle setLanguage:lan];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AlarmDeviceListener) name:@"canListenAlert" object:nil];
-    [AMapServices sharedServices].apiKey =@"220b5789aca2c33b1a1fb608b334d6a8";
+// [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(AlarmDeviceListener) name:@"canListenAlert" object:nil];
+//    [AMapServices sharedServices].apiKey =@"220b5789aca2c33b1a1fb608b334d6a8";
     
     
     NSData *JSONData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"json"]];

@@ -2,8 +2,8 @@ platform :ios, '8.0'
 
 target "sHome" do
 
-#pod 'HekrSDK',:subspecs => ['Core','socialWeibo'], :path => './HEKR-IOS-SDK-global'
-pod 'HekrSDK',:subspecs => ['Core','socialWeibo'], :podspec => 'https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global/HekrSDK.podspec'
+#pod 'HekrSDK' :path => './HEKR-IOS-SDK-global'
+pod 'HekrSDK', :podspec => 'https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global/HekrSDK.podspec'
 
 pod 'ReactiveCocoa', '~> 2.5'
 pod 'SDWebImage', '~> 3.7.5'
@@ -21,7 +21,6 @@ pod 'LBXScan','~> 1.1.1'
 pod 'M13ProgressSuite', '~> 1.2.7'
 pod 'pop'
 pod 'YYText'
-pod 'AMapLocation'
 pod 'LCActionSheet'
 pod 'CocoaAsyncSocket'
 pod 'SAMKeychain'

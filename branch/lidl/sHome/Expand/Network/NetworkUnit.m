@@ -90,15 +90,15 @@
 }
 
 
--(void)addObserverReachabilityChanged:(void(^)(NetworkStatus netStatus)) netStatusBlock{
-
-    Reachability *_internetReach = [Reachability reachabilityWithHostName:@"www.baidu.com"];
-    [_internetReach startNotifier];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(reachabilityChangedNet:) name: kReachabilityChangedNotification object: nil];
-    self.netStatusBlock = [netStatusBlock copy];
-    
-}
+//-(void)addObserverReachabilityChanged:(void(^)(NetworkStatus netStatus)) netStatusBlock{
+//
+//    Reachability *_internetReach = [Reachability reachabilityWithHostName:@"www.baidu.com"];
+//    [_internetReach startNotifier];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector: @selector(reachabilityChangedNet:) name: kReachabilityChangedNotification object: nil];
+//    self.netStatusBlock = [netStatusBlock copy];
+//    
+//}
 
 -(void)reachabilityChangedNet:(NSNotification* )note{
     
