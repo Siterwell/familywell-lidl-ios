@@ -14,6 +14,6 @@
 //http://maps.google.cn/maps/api/geocode/json?latlng="+lat+","+lon+"&sensor=true&language=
 + (id)getWeatherWithParams:(NSDictionary *)params handler:(void (^)(NewWeatherModel *model, NSError *error))handler;
 
-+ (id)getLocationWithParams:(NSDictionary *)params handler:(void (^)(NSString *address, NSString *errorStr))handler;
+//+ (id)getLocationWithParams:(NSDictionary *)params handler:(void (^)(NSString *address, NSString *errorStr))handler;
 
 @end

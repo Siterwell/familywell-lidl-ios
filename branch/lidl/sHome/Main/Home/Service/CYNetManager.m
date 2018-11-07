@@ -9,7 +9,7 @@
 #import "CYNetManager.h"
 
 #define kWeatherPath  @"http://api.openweathermap.org/data/2.5/weather"
-#define kLocationPath  @"http://maps.google.cn/maps/api/geocode/json"
+
 
 @implementation CYNetManager
 
@@ -24,14 +24,14 @@
     }];
 }
 
-+ (id)getLocationWithParams:(NSDictionary *)params handler:(void (^)(NSString *, NSString *))handler {
-    return [self GET:kLocationPath parameters:params completionHandler:^(id responseObj, NSError *error) {
-        NSString *errStr = responseObj[@"status"];
-        NSArray *results = responseObj[@"results"];
-        NSArray *addresses = results.firstObject[@"address_components"];
-        NSString *address = addresses[1][@"long_name"];
-        !handler ?: handler(address, errStr);
-    }];
-}
+//+ (id)getLocationWithParams:(NSDictionary *)params handler:(void (^)(NSString *, NSString *))handler {
+//    return [self GET:kLocationPath parameters:params completionHandler:^(id responseObj, NSError *error) {
+//        NSString *errStr = responseObj[@"status"];
+//        NSArray *results = responseObj[@"results"];
+//        NSArray *addresses = results.firstObject[@"address_components"];
+//        NSString *address = addresses[1][@"long_name"];
+//        !handler ?: handler(address, errStr);
+//    }];
+//}
 
 @end

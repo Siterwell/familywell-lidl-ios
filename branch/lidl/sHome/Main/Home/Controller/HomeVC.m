@@ -963,17 +963,18 @@ BOOL flag_checkfireware = NO;
         }
     }];
 
-    NSDictionary *parames = @{@"latlng": [NSString stringWithFormat:@"%f,%f",self.locationMgr.location.coordinate.latitude, self.locationMgr.location.coordinate.longitude],
-                             @"sensor": @"true",
-                             @"language": lan
-                             };
-    [CYNetManager getLocationWithParams:parames handler:^(NSString *address, NSString *errorStr) {
-        if ([errorStr isEqualToString:@"OK"]) {
-            self.marquee.address = address;
-            [[NSUserDefaults standardUserDefaults] setObject:address forKey:@"address"];
-        } else {
-        }
-    }];
+//    NSDictionary *parames = @{@"latlng": [NSString stringWithFormat:@"%f,%f",self.locationMgr.location.coordinate.latitude, self.locationMgr.location.coordinate.longitude],
+//                              @"sensor": @"true",
+//                              @"language": lan
+//                              };
+//    [CYNetManager getLocationWithParams:parames handler:^(NSString *address, NSString *errorStr) {
+//        if ([errorStr isEqualToString:@"OK"]) {
+//            self.marquee.address = address;
+//            [[NSUserDefaults standardUserDefaults] setObject:address forKey:@"address"];
+//        } else {
+//        }
+//    }];
+
 }
 
 - (NSTimeInterval)getNowTimeTimestamp {
