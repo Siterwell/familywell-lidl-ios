@@ -83,7 +83,9 @@
             [_delegate sendNext:tag];
         }
     }]];
-    [self.viewController presentViewController:alert animated:YES completion:nil];
+    //TODO : [RYAN] need to check this
+//    [self.viewController presentViewController:alert animated:YES completion:nil];
+    [self.viewContainingController presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark ---- UICollectionViewDelegateFlowLayout

@@ -24,5 +24,7 @@ pod 'YYText'
 pod 'LCActionSheet'
 pod 'CocoaAsyncSocket'
 pod 'SAMKeychain'
+pod 'Fabric'
+pod 'Crashlytics'
 
 end

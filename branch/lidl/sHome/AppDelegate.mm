@@ -32,6 +32,9 @@
 #import <HekrSimpleTcpClient.h>
 #import "DeviceListModel.h"
 #import "InitVC.h"
+
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 // iOS10 及以上需导入 UserNotifications.framework
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
@@ -245,6 +248,9 @@ static void uncaughtExceptionHandler(NSException *exception) {
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [Fabric with:@[[Crashlytics class]]];
+    
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     NSString *lan;
         NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
