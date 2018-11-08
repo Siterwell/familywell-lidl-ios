@@ -351,7 +351,7 @@
 "操作过于频繁,请稍候再试" = "Zu viele Versuche. Bitte versuchen Sie es später erneut";
 "今日操作已达上限" = "Heutige Versuche haben das Limit erreicht";
 "服务器异常，请重新再试！" = "Serverausnahme, bitte versuchen Sie es erneut!";
-"空气湿度：%@%%" = "Luftfeuchtigkeit:%@%%";
+"空气湿度：%@%%" = "Luftfeuchte:%@%%";
 "市电断开" = "Kein Stromnetz";
 "市电恢复" = "Strom wieder da";
 "电池正常" = "Batterie normal";
@@ -430,7 +430,7 @@
 "左右翻转" = "horizontal kippen";
 "上下翻转" = "vertikal kippen";
 "温度" = "Temperatur";
-"湿度" = "Luftfeuchtigkeit";
+"湿度" = "Luftfeuchte";
 "同步摄像机时间" = "Kamera-Zeit synchronisieren";
 "获取验证码" = "Code anfordern";
 "请输入邮箱地址" = "Bitte e - mail - Adresse eingeben";
