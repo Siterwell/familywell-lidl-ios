@@ -8,7 +8,7 @@
 
 #import "CYNetManager.h"
 
-#define kWeatherPath  @"http://api.openweathermap.org/data/2.5/weather"
+#define kWeatherPath  @"https://api.openweathermap.org/data/2.5/weather"
 
 
 @implementation CYNetManager

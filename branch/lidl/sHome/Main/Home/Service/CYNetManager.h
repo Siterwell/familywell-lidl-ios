@@ -10,7 +10,7 @@
 #import "NewWeatherModel.h"
 
 @interface CYNetManager : CYBaseNetManager
-//http://api.openweathermap.org/data/2.5/weather?lat=39&lon=116&appid=b45eb4739891c226b7a36613ce3d1dbd
+//https://api.openweathermap.org/data/2.5/weather?lat=39&lon=116&appid=b45eb4739891c226b7a36613ce3d1dbd
 //http://maps.google.cn/maps/api/geocode/json?latlng="+lat+","+lon+"&sensor=true&language=
 + (id)getWeatherWithParams:(NSDictionary *)params handler:(void (^)(NewWeatherModel *model, NSError *error))handler;
 
