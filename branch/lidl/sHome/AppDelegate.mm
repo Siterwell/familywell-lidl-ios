@@ -462,22 +462,44 @@ static void uncaughtExceptionHandler(NSException *exception) {
     [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         VersionModel *model = [[VersionModel alloc] initWithString:request.responseString error:nil];
         if (model.results != nil && ![model.results isKindOfClass:[NSNull class]] && model.results.count != 0){
-        VersionResult *resulet = model.results[0];
-        NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
-        NSString *currentVersion = [infoDic objectForKey:@"CFBundleShortVersionString"];
-        CGFloat f_newVersion = [resulet.version floatValue];
-        CGFloat f_currentVersion = [currentVersion floatValue];
-
-        if (f_newVersion > f_currentVersion) {
-            _trackViewURL = resulet.trackViewUrl;
-            UIAlertView* alertview =[[UIAlertView alloc] initWithTitle: NSLocalizedString(@"版本升级",nil) message:[NSString stringWithFormat:@"%@%@%@", NSLocalizedString(@"新版本",nil),resulet.version, NSLocalizedString(@"是否升级？",nil)] delegate:self cancelButtonTitle:NSLocalizedString(@"稍后升级",nil) otherButtonTitles:NSLocalizedString(@"马上升级",nil), nil];
-            alertview.tag = 4;
-            [alertview show];
-        }
+            VersionResult *resulet = model.results[0];
+            NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
+            NSString *currentVersion = [infoDic objectForKey:@"CFBundleShortVersionString"];
+//            CGFloat f_newVersion = [resulet.version floatValue];
+//            CGFloat f_currentVersion = [currentVersion floatValue];
+            
+            Bool needUpdate = [self checkNeedToUpdate:resulet.version curVer:currentVersion];
+            if (needUpdate) {
+                _trackViewURL = resulet.trackViewUrl;
+                UIAlertView* alertview =[[UIAlertView alloc] initWithTitle: NSLocalizedString(@"版本升级",nil) message:[NSString stringWithFormat:@"%@%@%@", NSLocalizedString(@"新版本",nil),resulet.version, NSLocalizedString(@"是否升级？",nil)] delegate:self cancelButtonTitle:NSLocalizedString(@"稍后升级",nil) otherButtonTitles:NSLocalizedString(@"马上升级",nil), nil];
+                alertview.tag = 4;
+                [alertview show];
+            }
      }
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         
     }];
+}
+
+- (BOOL) checkNeedToUpdate:(NSString*)newVer curVer:(NSString*)curVer {
+    int newVersion = [self versionStringToInt:newVer];
+    int currentVersion = [self versionStringToInt:curVer];
+//    NSLog(@"[RYAN] newVersion >> version:%d", newVersion);
+//    NSLog(@"[RYAN] currentVersion >> version:%d", currentVersion);
+    
+    if (newVersion > currentVersion) {
+        return true;
+    }
+    return false;
+}
+
+- (int) versionStringToInt:(NSString *) version {
+    NSArray *array = [version componentsSeparatedByString:@"."];
+//    NSLog(@"[RYAN] version >> major:%@, minor:%@", array[0], array[1]);
+    
+    int major = [array[0] intValue];
+    int minor = [array[1] intValue];
+    return major*100 + minor;
 }
 
 
