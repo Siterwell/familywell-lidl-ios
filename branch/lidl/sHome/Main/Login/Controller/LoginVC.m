@@ -257,20 +257,23 @@
 - (void)bindGTId {
     MJWeakSelf
     NSString *lan;
-        NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
-        NSString *languageName = [appLanguages objectAtIndex:0];
-        if ([languageName containsString:@"zh"]) {
-            lan = @"zh";
-        } else if ([languageName containsString:@"de"]) {
-            lan = @"de";
-        } else if ([languageName containsString:@"fr"]) {
-            lan = @"fr";
-        } else if ([languageName containsString:@"es"]) {
-            lan = @"es";
-        }else {
-            lan = @"en";
-        }
+    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+    NSString *languageName = [appLanguages objectAtIndex:0];
+    if ([languageName containsString:@"zh"]) {
+        lan = @"zh";
+    } else if ([languageName containsString:@"de"]) {
+        lan = @"de";
+    } else if ([languageName containsString:@"fr"]) {
+        lan = @"fr";
+    } else if ([languageName containsString:@"es"]) {
+        lan = @"es";
+    }else {
+        lan = @"en";
+    }
+    
     NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
+    [config setValue:languageName forKey:CurrentLanguage];
+    
     if ([config objectForKey:AppClientID]) {
         NSDictionary *dic = @{
                               @"clientId" : [config objectForKey:AppClientID],

@@ -149,7 +149,7 @@
 
 #define DeviceSycStatus @"deviceSycStatus"
 
-
+#define CurrentLanguage @"currentLanguage"
 
 #define selectSystemItem @"selectSystemItem"
 #define ThemeColor RGB(40, 184, 215)
