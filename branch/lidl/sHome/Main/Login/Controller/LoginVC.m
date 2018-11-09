@@ -134,10 +134,12 @@
     _accountTableView.hidden = YES;
     [MBProgressHUD showMessage:NSLocalizedString(@"加载中", nil) ToView:self.view];
     WS(ws)
+    
+    //TODO : [RYAN] Hekr login api is not encryted
     [[Hekr sharedInstance] login:_userNameTextField.text password:_passwordTextField.text callbcak:^(id user, NSError *error) {
         if (!error) {
             NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-            
+
             [config setObject:self.userNameTextField.text forKey:@"UserName"];
             [config setObject:self.passwordTextField.text forKey:@"Password"];
             if (self.savePasswordBtn.selected) {
@@ -148,20 +150,64 @@
             [config synchronize];
             [ws save];
             [ws getDeviceList];
-            
+
             [[NSUserDefaults standardUserDefaults] setObject:_userNameTextField.text forKey:@"CurrentUserName"];
         }
         else{
             [MBProgressHUD hideHUDForView:ws.view animated:YES];
-            
+
             if (error.code == -1011) {
                 [MBProgressHUD showError:NSLocalizedString(@"用户名密码错误", nil) ToView:ws.view];
             }else{
                 [MBProgressHUD showError:NSLocalizedString(@"网络错误", nil) ToView:ws.view];
             }
-            
+
         }
     }];
+    
+    
+    //++ [RYAN] implement user login POST via HTTPS
+//    NSString* https = (ApiMap==nil?@"https://uaa-openapi.hekr.me":ApiMap[@"uaa-openapi.hekr.me"]);
+//    NSDictionary *dic = @{
+//                          @"username" : _userNameTextField.text,
+//                          @"password" : _passwordTextField.text,
+//                          @"clientType" : @"IOS",
+//                          @"pid" : @"01850775038"
+//                          };
+//    [[[Hekr sharedInstance] sessionWithDefaultAuthorization]
+//     POST:[NSString stringWithFormat:@"%@/login", https]
+//     parameters:dic
+//     progress:nil
+//     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//         printf("[RYAN] Login Successfully！");
+//         NSString* access_token = responseObject[@"access_token"];
+//         NSLog(@"[RYAN] Login >> access_token : %@", access_token);
+//
+//         NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+//
+//         [config setObject:self.userNameTextField.text forKey:@"UserName"];
+//         [config setObject:self.passwordTextField.text forKey:@"Password"];
+//         if (self.savePasswordBtn.selected) {
+//             [config setObject:@1 forKey:@"RememberLoginPasswd"];
+//         }else{
+//             [config setObject:@0 forKey:@"RememberLoginPasswd"];
+//         }
+//         [config synchronize];
+//         [ws save];
+//         [ws getDeviceList];
+//
+//         [[NSUserDefaults standardUserDefaults] setObject:_userNameTextField.text forKey:@"CurrentUserName"];
+//
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        [MBProgressHUD hideHUDForView:ws.view animated:YES];
+//
+//        if (error.code == -1011) {
+//            [MBProgressHUD showError:NSLocalizedString(@"用户名密码错误", nil) ToView:ws.view];
+//        }else{
+//            [MBProgressHUD showError:NSLocalizedString(@"网络错误", nil) ToView:ws.view];
+//        }
+//    }];
+    //-- https
     
 }
 
