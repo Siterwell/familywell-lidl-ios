@@ -713,6 +713,13 @@
 		DDA3A04A1F1709A6002DD920 /* ErrorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3A0491F1709A6002DD920 /* ErrorModel.m */; };
 		DDDB61461E9CBE4000BDEE25 /* FortgetPsdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDB61451E9CBE4000BDEE25 /* FortgetPsdCell.m */; };
 		DDDB61491E9CC57600BDEE25 /* AddDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDB61481E9CC57600BDEE25 /* AddDeviceCell.m */; };
+		E2432D0D219A6B3B00A76C2C /* PrivacyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2432D0C219A6B3B00A76C2C /* PrivacyVC.m */; };
+		E2432D10219A74F400A76C2C /* privacy_english.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D0F219A74F400A76C2C /* privacy_english.html */; };
+		E2432D12219A7B3500A76C2C /* privacy_czech.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D11219A7B3500A76C2C /* privacy_czech.html */; };
+		E2432D14219A7B4500A76C2C /* privacy_dutch.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D13219A7B4500A76C2C /* privacy_dutch.html */; };
+		E2432D16219A7B5800A76C2C /* privacy_french.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D15219A7B5800A76C2C /* privacy_french.html */; };
+		E2432D18219A7B6E00A76C2C /* privacy_italian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D17219A7B6E00A76C2C /* privacy_italian.html */; };
+		E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D19219A7B8500A76C2C /* privacy_slovenian.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2269,6 +2276,14 @@
 		DDDB61451E9CBE4000BDEE25 /* FortgetPsdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FortgetPsdCell.m; sourceTree = "<group>"; };
 		DDDB61471E9CC57600BDEE25 /* AddDeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDeviceCell.h; sourceTree = "<group>"; };
 		DDDB61481E9CC57600BDEE25 /* AddDeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeviceCell.m; sourceTree = "<group>"; };
+		E2432D0B219A6B3B00A76C2C /* PrivacyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivacyVC.h; sourceTree = "<group>"; };
+		E2432D0C219A6B3B00A76C2C /* PrivacyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrivacyVC.m; sourceTree = "<group>"; };
+		E2432D0F219A74F400A76C2C /* privacy_english.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_english.html; sourceTree = "<group>"; };
+		E2432D11219A7B3500A76C2C /* privacy_czech.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_czech.html; sourceTree = "<group>"; };
+		E2432D13219A7B4500A76C2C /* privacy_dutch.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_dutch.html; sourceTree = "<group>"; };
+		E2432D15219A7B5800A76C2C /* privacy_french.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_french.html; sourceTree = "<group>"; };
+		E2432D17219A7B6E00A76C2C /* privacy_italian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_italian.html; sourceTree = "<group>"; };
+		E2432D19219A7B8500A76C2C /* privacy_slovenian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_slovenian.html; sourceTree = "<group>"; };
 		EC225CD3BEEFCDEBB3A0A0B4 /* Pods-sHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.debug.xcconfig"; sourceTree = "<group>"; };
 		F953ED983735DAD1189E15F3 /* Pods-sHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3149,6 +3164,8 @@
 				0178914620648ACD004F8FD7 /* WarningListViewController.m */,
 				017891622064B4F4004F8FD7 /* NSString+CYTime.h */,
 				017891632064B4F5004F8FD7 /* NSString+CYTime.m */,
+				E2432D0B219A6B3B00A76C2C /* PrivacyVC.h */,
+				E2432D0C219A6B3B00A76C2C /* PrivacyVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4998,6 +5015,7 @@
 		75E523311DFEEF8A0093DECC /* Resource(资源) */ = {
 			isa = PBXGroup;
 			children = (
+				E2432D0E219A74D900A76C2C /* html */,
 				0586A95D1E76798000DA458A /* Voice */,
 				75E523321DFEEF8A0093DECC /* AppDelegate */,
 				75E523341DFEEF8A0093DECC /* Global */,
@@ -5341,6 +5359,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E2432D0E219A74D900A76C2C /* html */ = {
+			isa = PBXGroup;
+			children = (
+				E2432D0F219A74F400A76C2C /* privacy_english.html */,
+				E2432D11219A7B3500A76C2C /* privacy_czech.html */,
+				E2432D13219A7B4500A76C2C /* privacy_dutch.html */,
+				E2432D15219A7B5800A76C2C /* privacy_french.html */,
+				E2432D17219A7B6E00A76C2C /* privacy_italian.html */,
+				E2432D19219A7B8500A76C2C /* privacy_slovenian.html */,
+			);
+			path = html;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -5471,12 +5502,15 @@
 			files = (
 				017891602064B04F004F8FD7 /* Main.xcassets in Resources */,
 				05CEA0501E094E79008E9D90 /* Placeholder in Resources */,
+				E2432D16219A7B5800A76C2C /* privacy_french.html in Resources */,
+				E2432D10219A74F400A76C2C /* privacy_english.html in Resources */,
 				05B204311E57EB3000210D6E /* DeviceStoryboard.storyboard in Resources */,
 				05BDDCB11DFFEC2F00648F69 /* Placeholder in Resources */,
 				05BDDCB81DFFEC2F00648F69 /* Placeholder in Resources */,
 				05CEA0511E094E79008E9D90 /* Placeholder in Resources */,
 				75E523BE1DFEEF8A0093DECC /* NSDateTimeAgo.bundle in Resources */,
 				01A63F9C2063E947004FEC2F /* SVProgressHUD.bundle in Resources */,
+				E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */,
 				05BDDC7A1DFFBA3D00648F69 /* Placeholder in Resources */,
 				05BDDCBA1DFFEC2F00648F69 /* Placeholder in Resources */,
 				05BDDCB91DFFEC2F00648F69 /* Placeholder in Resources */,
@@ -5488,6 +5522,7 @@
 				05EFFDF31E078809002C3C71 /* BookCollectionViewCell.xib in Resources */,
 				05F62B5D1E56EFB7001104CB /* LoginStoryboard.storyboard in Resources */,
 				05E466AC1DF5368F0056E6FF /* config.json in Resources */,
+				E2432D14219A7B4500A76C2C /* privacy_dutch.html in Resources */,
 				05BDDCB61DFFEC2F00648F69 /* Placeholder in Resources */,
 				05CEA04F1E094E79008E9D90 /* Placeholder in Resources */,
 				05B204381E57FA2000210D6E /* HomeStoryboard.storyboard in Resources */,
@@ -5500,6 +5535,7 @@
 				05EFFDE71E078777002C3C71 /* BookShelfMainView.xib in Resources */,
 				01A63F722063E947004FEC2F /* RecordDownloadCell.xib in Resources */,
 				05BDDCB01DFFEC2F00648F69 /* Placeholder in Resources */,
+				E2432D12219A7B3500A76C2C /* privacy_czech.html in Resources */,
 				05BDDCBE1DFFEC2F00648F69 /* Placeholder in Resources */,
 				75E524961DFEEF8A0093DECC /* addressData.plist in Resources */,
 				05BDDCB41DFFEC2F00648F69 /* Placeholder in Resources */,
@@ -5519,6 +5555,7 @@
 				88105A6A2162EF5B0084C6D9 /* SGQRCode.bundle in Resources */,
 				880129CE214DCB370018E4BA /* LaunchScreen.storyboard in Resources */,
 				05BDDCB71DFFEC2F00648F69 /* Placeholder in Resources */,
+				E2432D18219A7B6E00A76C2C /* privacy_italian.html in Resources */,
 				01A63F742063E947004FEC2F /* RecordVideoByTimeCell.xib in Resources */,
 				05BDDCBC1DFFEC2F00648F69 /* Placeholder in Resources */,
 				05BDDCBD1DFFEC2F00648F69 /* Placeholder in Resources */,
@@ -5991,6 +6028,7 @@
 				0586A9621E76898E00DA458A /* SceneGroupSelectModel.m in Sources */,
 				051E91551E4C12AE006EABEC /* NoramlStatusVC.m in Sources */,
 				05CD99BA1E154E22007D569E /* changeSceneApi.m in Sources */,
+				E2432D0D219A6B3B00A76C2C /* PrivacyVC.m in Sources */,
 				050D8DDD1E34944700212348 /* addSceneListItemCell.m in Sources */,
 				05F121401E29CA380075D364 /* JSONModel+DeviceDic.m in Sources */,
 				015AFCF72068B9A900EDB87C /* CYMarquee.m in Sources */,

@@ -512,11 +512,12 @@
                     </tableView>
                     <connections>
                         <outlet property="aboutLabel" destination="gF3-h2-W2V" id="Ff7-ck-OzX"/>
+                        <segue destination="dsu-cf-7W8" kind="show" identifier="toPrivacy" id="KYN-O6-PIt"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K9B-Ea-w9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549.60000000000002" y="-1337.1814092953525"/>
+            <point key="canvasLocation" x="540" y="-1337"/>
         </scene>
         <!--智能家居-->
         <scene sceneID="IEW-r8-Pn9">
@@ -548,7 +549,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eP0-bw-Geu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1268" y="-1334.4827586206898"/>
+            <point key="canvasLocation" x="1318" y="-2060"/>
+        </scene>
+        <!--隐私政策-->
+        <scene sceneID="91A-2y-ddr">
+            <objects>
+                <viewController title="隐私政策" id="dsu-cf-7W8" customClass="PrivacyVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O3A-hv-mG4"/>
+                        <viewControllerLayoutGuide type="bottom" id="EBD-rs-SvR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Uad-ll-7Dg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tj8-vB-TBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1317.5999999999999" y="-1337.1814092953525"/>
         </scene>
         <!--修改用户名-->
         <scene sceneID="ciC-fw-KBl">

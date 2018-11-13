@@ -58,9 +58,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.update == YES) {
-        return 3;
+        return 4;
     } else {
-        return 2;
+        return 3;
     }
 }
 
@@ -76,7 +76,7 @@
 
     
     if (indexPath.row == 0) {
-       AboutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"aboutCell" forIndexPath:indexPath];
+        AboutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"aboutCell" forIndexPath:indexPath];
         cell.textLabel.textColor = [UIColor darkGrayColor];
         cell.textLabel.font = [UIFont systemFontOfSize:14];
         cell.textLabel.text = NSLocalizedString(@"当前版本", nil) ;
@@ -87,22 +87,21 @@
         cell.subLabel.text = [NSString stringWithFormat:@"%@%@",[infoDic objectForKey:@"CFBundleDisplayName"],currentVersion];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
-    } else if(indexPath.row == 1){
-        
+    } else if(indexPath.row == 1) {
         if(self.update == YES){
             AboutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"aboutCell" forIndexPath:indexPath];
-        cell.textLabel.textColor = [UIColor darkGrayColor];
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
-        cell.textLabel.text = NSLocalizedString(@"固件版本", nil) ;
-        cell.textLabel.backgroundColor = [UIColor clearColor];
+            cell.textLabel.textColor = [UIColor darkGrayColor];
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
+            cell.textLabel.text = NSLocalizedString(@"固件版本", nil) ;
+            cell.textLabel.backgroundColor = [UIColor clearColor];
             
-        RAC(cell.subLabel,text) = RACObserve(self, versionCode);
-        
-        UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_version_new"]];
-        [image setFrame:CGRectMake(0, 0, 30, 15)];
-        cell.accessoryView = image;
+            RAC(cell.subLabel,text) = RACObserve(self, versionCode);
+            
+            UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_version_new"]];
+            [image setFrame:CGRectMake(0, 0, 30, 15)];
+            cell.accessoryView = image;
             return cell;
-        }else {
+        } else {
             UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.textLabel.textColor = [UIColor darkGrayColor];
@@ -112,18 +111,35 @@
             cell.detailTextLabel.text = @"+31(0)76-5977401";
             cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
             return cell;
-    }
-
-    }else {
+        }
+    } else if (indexPath.row == 2) {
+        if(self.update == YES){
+            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.textColor = [UIColor darkGrayColor];
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
+            cell.textLabel.text = NSLocalizedString(@"售后电话", nil);
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            cell.detailTextLabel.text = @"+31(0)76-5977401";
+            cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
+            return cell;
+        } else {
+            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.textColor = [UIColor darkGrayColor];
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
+            cell.textLabel.text = NSLocalizedString(@"隐私政策", nil);
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            return cell;
+        }
+    } else {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.textColor = [UIColor darkGrayColor];
         cell.textLabel.font = [UIFont systemFontOfSize:14];
-        cell.textLabel.text = NSLocalizedString(@"售后电话", nil);
+        cell.textLabel.text = NSLocalizedString(@"隐私政策", nil);
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.detailTextLabel.text = @"+31(0)76-5977401";
-        cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
-    return cell;
+        return cell;
     }
 }
 
@@ -135,32 +151,39 @@
     }
     else if(indexPath.row == 1){
         if(self.update == YES){
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示",nil) message:NSLocalizedString(@"有可用更新, 是否升级",nil) preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示",nil) message:NSLocalizedString(@"有可用更新, 是否升级",nil) preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
-        [MBProgressHUD showSuccess:NSLocalizedString(@"版本升级中，请耐心等待",nil) ToView:GetWindow];
-        self.tableView.userInteractionEnabled = NO;
-        UpdateDeviceApi *api = [[UpdateDeviceApi alloc] initWithGatewayVersionModel:self.verModel];
-        [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
-        } failure:^(id data, NSError *error) {
-        }];
+                [MBProgressHUD showSuccess:NSLocalizedString(@"版本升级中，请耐心等待",nil) ToView:GetWindow];
+                self.tableView.userInteractionEnabled = NO;
+                UpdateDeviceApi *api = [[UpdateDeviceApi alloc] initWithGatewayVersionModel:self.verModel];
+                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+                    
+                } failure:^(id data, NSError *error) {
+                    
+                }];
         
-    }]];
-    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"暂不升级",nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-    }]];
-    [self presentViewController:alert animated:YES completion:nil];
+            }]];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"暂不升级",nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            }]];
+            [self presentViewController:alert animated:YES completion:nil];
         }else{
             NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"+31(0)76-5977401"];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
         }
-    }else if(indexPath.row == 2){
-        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"+31(0)76-5977401"];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+        
+    } else if (indexPath.row == 2) {
+        if(self.update == YES) {
+            NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"+31(0)76-5977401"];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+        } else {
+            [self performSegueWithIdentifier:@"toPrivacy" sender:nil];
+        }
+        
+    } else if (indexPath.row == 3) {
+        [self performSegueWithIdentifier:@"toPrivacy" sender:nil];
     }
     
-    
-
-
 }
 
 //获取网关信息
