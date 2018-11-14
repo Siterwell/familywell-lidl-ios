@@ -31,7 +31,7 @@
     
     NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
     NSString *languageName = [appLanguages objectAtIndex:0];
-    NSLog(@"[RYAN] +++++++ languageName = %@", languageName);
+//    NSLog(@"[RYAN] +++++++ languageName = %@", languageName);
     
     NSString* path = @"privacy_english";
     if ([languageName containsString:@"cs"]) {

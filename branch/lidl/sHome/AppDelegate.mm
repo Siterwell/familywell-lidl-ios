@@ -311,6 +311,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
         ApiMap = @{@"user-openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
                    @"uaa-openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
                    @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
+        
+//        NSLog(@"[RYAN] application >> domain = %@", domain);
     }];
     
     
