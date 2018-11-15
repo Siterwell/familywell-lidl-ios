@@ -295,11 +295,15 @@ static void uncaughtExceptionHandler(NSException *exception) {
             NSString* domain = [[NSUserDefaults standardUserDefaults] objectForKey:@"hekr_domain"];
             if(domain.length != 0 && [domain containsString:@"hekr"]){
                 ApiMap = @{@"user-openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
+                           @"user.openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
                            @"uaa-openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
+                           @"uaa.openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
                            @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
             }else{
                 ApiMap = @{@"user-openapi.hekr.me":@"https://user-openapi.hekr.me",
+                           @"user.openapi.hekr.me":@"https://user-openapi.hekr.me",
                            @"uaa-openapi.hekr.me":@"https://uaa-openapi.hekr.me",
+                           @"uaa.openapi.hekr.me":@"https://uaa-openapi.hekr.me",
                            @"console-openapi.hekr.me":@"https://console-openapi.hekr.me"};
             }
         }
@@ -309,10 +313,12 @@ static void uncaughtExceptionHandler(NSException *exception) {
         [[NSUserDefaults standardUserDefaults] setObject:domain forKey:@"hekr_domain"];
         
         ApiMap = @{@"user-openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
+                   @"user.openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
                    @"uaa-openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
+                   @"uaa.openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
                    @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
         
-//        NSLog(@"[RYAN] application >> domain = %@", domain);
+        NSLog(@"[RYAN] application >> domain = %@", domain);
     }];
     
     
