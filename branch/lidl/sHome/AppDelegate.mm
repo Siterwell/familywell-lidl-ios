@@ -300,11 +300,11 @@ static void uncaughtExceptionHandler(NSException *exception) {
                            @"uaa.openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
                            @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
             }else{
-                ApiMap = @{@"user-openapi.hekr.me":@"https://user-openapi.hekr.me",
-                           @"user.openapi.hekr.me":@"https://user-openapi.hekr.me",
-                           @"uaa-openapi.hekr.me":@"https://uaa-openapi.hekr.me",
-                           @"uaa.openapi.hekr.me":@"https://uaa-openapi.hekr.me",
-                           @"console-openapi.hekr.me":@"https://console-openapi.hekr.me"};
+                ApiMap = @{@"user-openapi.hekr.me":@"https://user-openapi.hekreu.me",
+                           @"user.openapi.hekr.me":@"https://user-openapi.hekreu.me",
+                           @"uaa-openapi.hekr.me":@"https://uaa-openapi.hekreu.me",
+                           @"uaa.openapi.hekr.me":@"https://uaa-openapi.hekreu.me",
+                           @"console-openapi.hekr.me":@"https://console-openapi.hekreu.me"};
             }
         }
     } successCallback:^(HekrSimpleTcpClient *client, NSDictionary *data) {
