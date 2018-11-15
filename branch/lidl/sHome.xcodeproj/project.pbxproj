@@ -6575,7 +6575,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.silvercrest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -6613,7 +6613,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.silvercrest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
