@@ -720,6 +720,8 @@
 		E2432D16219A7B5800A76C2C /* privacy_french.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D15219A7B5800A76C2C /* privacy_french.html */; };
 		E2432D18219A7B6E00A76C2C /* privacy_italian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D17219A7B6E00A76C2C /* privacy_italian.html */; };
 		E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D19219A7B8500A76C2C /* privacy_slovenian.html */; };
+		E2DB982F219E631E00B7A7DD /* privacy_german.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB982E219E631E00B7A7DD /* privacy_german.html */; };
+		E2DB9831219E632C00B7A7DD /* privacy_spanish.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB9830219E632C00B7A7DD /* privacy_spanish.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2284,6 +2286,8 @@
 		E2432D15219A7B5800A76C2C /* privacy_french.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_french.html; sourceTree = "<group>"; };
 		E2432D17219A7B6E00A76C2C /* privacy_italian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_italian.html; sourceTree = "<group>"; };
 		E2432D19219A7B8500A76C2C /* privacy_slovenian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_slovenian.html; sourceTree = "<group>"; };
+		E2DB982E219E631E00B7A7DD /* privacy_german.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_german.html; sourceTree = "<group>"; };
+		E2DB9830219E632C00B7A7DD /* privacy_spanish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_spanish.html; sourceTree = "<group>"; };
 		EC225CD3BEEFCDEBB3A0A0B4 /* Pods-sHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.debug.xcconfig"; sourceTree = "<group>"; };
 		F953ED983735DAD1189E15F3 /* Pods-sHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -5368,6 +5372,8 @@
 				E2432D15219A7B5800A76C2C /* privacy_french.html */,
 				E2432D17219A7B6E00A76C2C /* privacy_italian.html */,
 				E2432D19219A7B8500A76C2C /* privacy_slovenian.html */,
+				E2DB982E219E631E00B7A7DD /* privacy_german.html */,
+				E2DB9830219E632C00B7A7DD /* privacy_spanish.html */,
 			);
 			path = html;
 			sourceTree = "<group>";
@@ -5505,7 +5511,9 @@
 				E2432D16219A7B5800A76C2C /* privacy_french.html in Resources */,
 				E2432D10219A74F400A76C2C /* privacy_english.html in Resources */,
 				05B204311E57EB3000210D6E /* DeviceStoryboard.storyboard in Resources */,
+				E2DB982F219E631E00B7A7DD /* privacy_german.html in Resources */,
 				05BDDCB11DFFEC2F00648F69 /* Placeholder in Resources */,
+				E2DB9831219E632C00B7A7DD /* privacy_spanish.html in Resources */,
 				05BDDCB81DFFEC2F00648F69 /* Placeholder in Resources */,
 				05CEA0511E094E79008E9D90 /* Placeholder in Resources */,
 				75E523BE1DFEEF8A0093DECC /* NSDateTimeAgo.bundle in Resources */,
