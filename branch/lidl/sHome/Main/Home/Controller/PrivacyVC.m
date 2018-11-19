@@ -37,12 +37,16 @@
     if ([languageName containsString:@"cs"]) {
         path = @"privacy_czech";
     } else if ([languageName containsString:@"de"]) {
+        path = @"privacy_german";
+    } else if ([languageName containsString:@"es"]) {
+        path = @"privacy_spanish";
+    } else if ([languageName containsString:@"nl"]) {
         path = @"privacy_dutch";
     } else if ([languageName containsString:@"fr"]) {
         path = @"privacy_french";
     } else if ([languageName containsString:@"it"]) {
         path = @"privacy_italian";
-    } else if ([languageName containsString:@"sk"]) {
+    } else if ([languageName containsString:@"sl"]) {
         path = @"privacy_slovenian";
     }
     
