@@ -13,6 +13,7 @@
 #import "ErrorCodeUtil.h"
 #import "CYAlertView.h"
 #import "NSString+CY.h"
+#import "PatternUtil.h"
 
 @interface RegistVC ()<ClickCellDelegate>
 @property (strong, nonatomic)  UIButton *registBtn;
@@ -197,39 +198,45 @@
 }
 
 -(void)regist{
-    [self.view endEditing:YES];
+//    NSLog(@"[RYAN] regist");
     
-    
     [self.view endEditing:YES];
-    [MBProgressHUD showMessage:NSLocalizedString(@"请稍后...", nil) ToView:self.view];
     
     if([NSString isBlankString:self.user_textField.text] || [NSString isBlankString:self.pass_textField.text]
        || [NSString isBlankString:self.verifycode_textField.text] || [NSString isBlankString:self.confirm_textField.text]){
-        [MBProgressHUD hideHUDForView:self.view];
         [MBProgressHUD showError:NSLocalizedString(@"请输入完整信息", nil) ToView:self.view];
         return;
     }
     
     //邮箱正则表达判断
-    NSString *regex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES%@", regex];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES%@", EmailPattern];
     if (![predicate evaluateWithObject:_user_textField.text] && !_phone_reset){
-            [MBProgressHUD hideHUDForView:self.view];
             [MBProgressHUD showError:NSLocalizedString(@"邮箱格式错误", nil) ToView:self.view];
         return;
     }
     
-    if(![self.confirm_textField.text isEqualToString:self.pass_textField.text]){
-        [MBProgressHUD hideHUDForView:self.view];
-        [MBProgressHUD showError:NSLocalizedString(@"密码输入不一致", nil) ToView:self.view];
+    if([NSString isBlankString:self.user_textField.text] || [NSString isBlankString:self.pass_textField.text]
+       || [NSString isBlankString:self.verifycode_textField.text] || [NSString isBlankString:self.confirm_textField.text]){
+        [MBProgressHUD showError:NSLocalizedString(@"请输入完整信息", nil) ToView:self.view];
         return;
     }
     
+    if (self.pass_textField.text.length < 10) {
+        [MBProgressHUD showError:NSLocalizedString(@"The password must contain at least 10 characters and number!", nil) ToView:GetWindow];
+        return;
+    }
     if(![self.confirm_textField.text isEqualToString:self.pass_textField.text]){
-        [MBProgressHUD hideHUDForView:self.view];
         [MBProgressHUD showError:NSLocalizedString(@"密码输入不一致", nil) ToView:self.view];
         return;
     }
+    predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES%@", PasswordPattern];
+    if (![predicate evaluateWithObject:self.pass_textField.text]){
+        [MBProgressHUD
+         showError:NSLocalizedString(@"Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters.", nil) ToView:self.view];
+        return;
+    }
+    
+    [MBProgressHUD showMessage:NSLocalizedString(@"请稍后...", nil) ToView:self.view];
     
     NSDictionary *param1 = @{
                              @"pid" :HekrPid,

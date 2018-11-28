@@ -9,6 +9,8 @@
 #import "ChangePsdVC.h"
 #import "ChangePsdCell.h"
 #import "ErrorCodeUtil.h"
+#import "PatternUtil.h"
+
 @interface ChangePsdVC ()
 @property (weak, nonatomic) UITextField *theOldPsd;
 @property (weak, nonatomic) UITextField *theNewPsd;
@@ -24,9 +26,20 @@
 }
 
 -(void)compelet{
-    //判断密码长度6-14位
-    if (_theNewPsd.text.length<6||_theNewPsd.text.length>14) {
-        [MBProgressHUD showError:NSLocalizedString(@"密码长度错误", nil) ToView:GetWindow];
+    
+    if (_theOldPsd.text.length == 0) {
+        [MBProgressHUD showError:NSLocalizedString(@"无效的旧密码", nil) ToView:GetWindow];
+        return;
+    }
+    if (_theNewPsd.text.length<10) {
+        [MBProgressHUD showError:NSLocalizedString(@"The password must contain at least 10 characters and number!", nil) ToView:GetWindow];
+        return;
+    }
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES%@", PasswordPattern];
+    if (![predicate evaluateWithObject:_theNewPsd.text]){
+        [MBProgressHUD
+         showError:NSLocalizedString(@"Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters.", nil) ToView:self.view];
         return;
     }
     
