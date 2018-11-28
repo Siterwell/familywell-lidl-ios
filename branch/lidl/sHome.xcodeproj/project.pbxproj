@@ -2286,6 +2286,7 @@
 		E2432D15219A7B5800A76C2C /* privacy_french.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_french.html; sourceTree = "<group>"; };
 		E2432D17219A7B6E00A76C2C /* privacy_italian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_italian.html; sourceTree = "<group>"; };
 		E2432D19219A7B8500A76C2C /* privacy_slovenian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_slovenian.html; sourceTree = "<group>"; };
+		E2565C6621AE77AF00571EBE /* PatternUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PatternUtil.h; sourceTree = "<group>"; };
 		E2DB982E219E631E00B7A7DD /* privacy_german.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_german.html; sourceTree = "<group>"; };
 		E2DB9830219E632C00B7A7DD /* privacy_spanish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_spanish.html; sourceTree = "<group>"; };
 		EC225CD3BEEFCDEBB3A0A0B4 /* Pods-sHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2958,6 +2959,7 @@
 				05BDDC6E1DFFBA3D00648F69 /* Placeholder */,
 				05135E721E72DF4F0035A478 /* WarnModel.h */,
 				05135E731E72DF4F0035A478 /* WarnModel.m */,
+				E2565C6621AE77AF00571EBE /* PatternUtil.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
