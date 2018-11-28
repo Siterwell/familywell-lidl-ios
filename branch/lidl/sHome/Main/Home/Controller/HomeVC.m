@@ -164,6 +164,8 @@ BOOL flag_checkfireware = NO;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    NSLog(@"[RYAN] HomeVC > viewDidLoad 1111");
+    
 //    self.isShowAlert = YES;
 //    self.canShowAlert = YES;
     self.title = NSLocalizedString(@"首页", nil);
@@ -222,6 +224,8 @@ BOOL flag_checkfireware = NO;
     }else{
         //正常情况
 //        [self deviceSycn];
+        
+//        NSLog(@"[RYAN] HomeVC > viewDidLoad 2222");
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self getLocation];
         });
@@ -258,6 +262,8 @@ BOOL flag_checkfireware = NO;
 
 - (void)checkLanguageForBindGT {
     WS(ws)
+    
+//    NSLog(@"[RYAN] HomeVC > checkLanguageForBindGT");
     
     NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
     NSString *languageName = [appLanguages objectAtIndex:0];
@@ -329,6 +335,33 @@ BOOL flag_checkfireware = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
+//    NSLog(@"[RYAN] HomeVC > viewDidAppear 1111");
+    
+    //++ [RYAN] login again when Home page appear (for checking password changed)
+    WS(ws);
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    NSString *username = [config objectForKey:@"UserName"];
+    NSString *password = [config objectForKey:@"Password"];
+    if([Hekr sharedInstance].user && username.length != 0 && password.length != 0){
+        [[Hekr sharedInstance] login:username password:password callbcak:^(id user, NSError *error) {
+            
+            if (!error) {
+                NSLog(@"重新登录成功");
+            }else{
+                if (error.code == -1011) {
+                    [[Hekr sharedInstance] logout];
+                    NSLog(@"重新登录失败：密码错误");
+                    [MBProgressHUD showError:NSLocalizedString(@"用户名密码错误", nil) ToView:ws.view];
+                    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
+                    LoginVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"LoginVC"];
+                    BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
+                    [self.navigationController presentViewController:nav animated:YES completion:nil];
+                }
+            }
+        }];
+    }
+    //-- [RYAN]
+    
     self.titleView.hidden = NO;
     //圆形菜单
     _menuVc = [[CircleMenuVc alloc] initWithButtonCount:[_systemSceneListArray count]
@@ -389,6 +422,8 @@ BOOL flag_checkfireware = NO;
 
 - (void)viewDidDisappear:(BOOL)animated{
     [_menuVc.view removeFromSuperview];
+    
+//    NSLog(@"[RYAN] HomeVC > viewDidDisappear 1111");
 }
 
 - (void)showCircleMenu{
