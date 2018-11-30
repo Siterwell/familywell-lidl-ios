@@ -578,44 +578,54 @@ BOOL flag_checkfireware = NO;
             NSDictionary *names = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"deviceName" ofType:@"plist"]] valueForKey:@"names"];
             NSString * aaa = NSLocalizedString([names objectForKey:[model.device_name substringFromIndex:1] ],nil);
             content = [aaa stringByAppendingString:[NSString stringWithFormat:@"%d",model.device_ID]];
-          [VoiceHelp playMainBoundAudioWithName:@"phonering"];
+            [VoiceHelp playMainBoundAudioWithName:@"phonering"];
+        }
+        
+        self.devTypeName = deviceName;
+        self.alarmName = alarmType;
+        if ([deviceName isEqualToString:@"0000"]) {
+            if([deviceStatus isEqualToString:@"00000000"]){
+                content = NSLocalizedString(@"市电断开", nil);
+            }else if([deviceStatus isEqualToString:@"00000001"]){
+                content = NSLocalizedString(@"市电恢复", nil);
+            }else if([deviceStatus isEqualToString:@"00000002"]){
+                content = NSLocalizedString(@"电池正常", nil);
+            }else if([deviceStatus isEqualToString:@"00000003"]){
+                content = NSLocalizedString(@"电池异常", nil);
+            }else if([deviceStatus isEqualToString:@"00000004"]){
+                content = NSLocalizedString(@"老人可能长时间未移动", nil);
             }
-            self.devTypeName = deviceName;
-            self.alarmName = alarmType;
-            if ([deviceName isEqualToString:@"0000"]) {
-                if([deviceStatus isEqualToString:@"00000000"]){
-                    content = NSLocalizedString(@"市电断开", nil);
-                }else if([deviceStatus isEqualToString:@"00000001"]){
-                    content = NSLocalizedString(@"市电恢复", nil);
-                }else if([deviceStatus isEqualToString:@"00000002"]){
-                    content = NSLocalizedString(@"电池正常", nil);
-                }else if([deviceStatus isEqualToString:@"00000003"]){
-                    content = NSLocalizedString(@"电池异常", nil);
-                }else if([deviceStatus isEqualToString:@"00000004"]){
-                    content = NSLocalizedString(@"老人可能长时间未移动", nil);
-                }
+        }
+            
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil)
+                                                                       message:[NSString stringWithFormat:NSLocalizedString(@"请注意，%@(%@) 的 %@告警", nil),gatewayId ,lastFour , content]
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        UIAlertAction* silenceAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"静音", nil)
+                                                                style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [VoiceHelp disposeSystemSoundIDWithName:@"phonering"];
+            
+            //发送静音指令
+            NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+            DeviceListModel *devmodel = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+            
+            if ([self.devTypeName isEqualToString:@"0005"]) {
+                NSString *deviceStatus = [self.alarmName stringByAppendingString:@"000000"];
+                
+                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:deviceStatus];
+                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
+            } else {
+                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
+                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
             }
             
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:[NSString stringWithFormat:NSLocalizedString(@"请注意，%@(%@) 的 %@告警", nil),gatewayId ,lastFour , content] preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"静音", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [VoiceHelp disposeSystemSoundIDWithName:@"phonering"];
-                
-                //发送静音指令
-                NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-                DeviceListModel *devmodel = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
-                
-                if ([self.devTypeName isEqualToString:@"0005"]) {
-                    NSString *deviceStatus = [self.alarmName stringByAppendingString:@"000000"];
-                    
-                    PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:deviceStatus];
-                    [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-                } else {
-                    PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
-                    [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-                }
-                
-            }]];
-            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+        }];
+        
+        [alert addAction:defaultAction];
+        [alert addAction:silenceAction];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
        
         
     } else if (model.answer_content.length > 8 && [[model.answer_content substringWithRange:NSMakeRange(4, 2)] isEqualToString:@"AC"]){
