@@ -330,37 +330,13 @@ BOOL flag_checkfireware = NO;
             NSString *nowTime = [NSString cy_getCurrentDateTransformTimeStamp];
             [config setObject:nowTime forKey:@"onceAWeek"];
         }];
+        
     }
     
 }
 
 - (void)viewDidAppear:(BOOL)animated{
 //    NSLog(@"[RYAN] HomeVC > viewDidAppear 1111");
-    
-    //++ [RYAN] login again when Home page appear (for checking password changed)
-    WS(ws);
-    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-    NSString *username = [config objectForKey:@"UserName"];
-    NSString *password = [config objectForKey:@"Password"];
-    if([Hekr sharedInstance].user && username.length != 0 && password.length != 0){
-        [[Hekr sharedInstance] login:username password:password callbcak:^(id user, NSError *error) {
-            
-            if (!error) {
-                NSLog(@"重新登录成功");
-            }else{
-                if (error.code == -1011) {
-                    [[Hekr sharedInstance] logout];
-                    NSLog(@"重新登录失败：密码错误");
-                    [MBProgressHUD showError:NSLocalizedString(@"用户名密码错误", nil) ToView:ws.view];
-                    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
-                    LoginVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"LoginVC"];
-                    BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
-                    [self.navigationController presentViewController:nav animated:YES completion:nil];
-                }
-            }
-        }];
-    }
-    //-- [RYAN]
     
     self.titleView.hidden = NO;
     //圆形菜单

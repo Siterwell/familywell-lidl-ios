@@ -10,6 +10,8 @@
 #import "HekrAPI.h"
 #import "UIWindow+Hierarchy.h"
 #import "addWifiCell.h"
+#import "LoginVC.h"
+#import "BaseNC.h"
 #import "addGatewayVC.h"
 #import "connectWifiVC.h"
 #import "NSBundle+Language.h"
@@ -368,17 +370,57 @@ static void uncaughtExceptionHandler(NSException *exception) {
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+    
+//    NSLog(@"[RYAN] AppDelegate > applicationWillResignActive");
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [GeTuiSdk resetBadge];
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [GeTuiSdk resetBadge];
+    
+//    NSLog(@"[RYAN] AppDelegate > applicationWillEnterForeground");
 }
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+//    NSLog(@"[RYAN] AppDelegate > applicationDidBecomeActive");
+    
+    //++ [RYAN] login again when Home page appear (for checking password changed)
+    [self checkUserLoginState];
+    //-- [RYAN]
 }
 - (void)applicationWillTerminate:(UIApplication *)application {
     [GeTuiSdk resetBadge];
+}
+
+- (void)checkUserLoginState {
+    WS(ws);
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    NSString *username = [config objectForKey:@"UserName"];
+    NSString *password = [config objectForKey:@"Password"];
+    if([Hekr sharedInstance].user && username.length != 0 && password.length != 0){
+        [[Hekr sharedInstance] login:username password:password callbcak:^(id user, NSError *error) {
+
+            if (!error) {
+                NSLog(@"[RYAN] login success");
+            }else{
+                if (error.code == -1011) {
+                    [[Hekr sharedInstance] logout];
+                    NSLog(@"[RYAN] login failed : password incorrect");
+                    
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"注意", nil) message:[NSString stringWithFormat:@"用户名密码错误"] delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+                    alertView.tag = 2;
+                    [alertView show];
+                    
+                    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
+                    LoginVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"LoginVC"];
+                    BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
+//                    self.window.rootViewController =nil;
+                    self.window.rootViewController = nav;
+                    [self.window makeKeyAndVisible];
+                }
+            }
+        }];
+    }
 }
 
 - (void)updateInterface {
