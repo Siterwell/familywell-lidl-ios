@@ -30,7 +30,7 @@
 #import "CheckVersionApi.h"
 #import "VersionModel.h"
 #import "PostControllerApi.h"
-#import "FunSupport.h"
+//#import "FunSupport.h"
 #import <HekrSimpleTcpClient.h>
 #import "DeviceListModel.h"
 #import "InitVC.h"
@@ -355,8 +355,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
     
     //网络摄像头
     [self launchSomething];
-    FunSupport *funSup = [[FunSupport alloc] init];
-    [funSup initSDK];
+//    FunSupport *funSup = [[FunSupport alloc] init];
+//    [funSup initSDK];
     
 //    NSString *storyboardName = @"Main";
 //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
@@ -518,7 +518,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 //            CGFloat f_newVersion = [resulet.version floatValue];
 //            CGFloat f_currentVersion = [currentVersion floatValue];
             
-            Bool needUpdate = [self checkNeedToUpdate:resulet.version curVer:currentVersion];
+            bool needUpdate = [self checkNeedToUpdate:resulet.version curVer:currentVersion];
             if (needUpdate) {
                 _trackViewURL = resulet.trackViewUrl;
                 UIAlertView* alertview =[[UIAlertView alloc] initWithTitle: NSLocalizedString(@"版本升级",nil) message:[NSString stringWithFormat:@"%@%@%@", NSLocalizedString(@"新版本",nil),resulet.version, NSLocalizedString(@"是否升级？",nil)] delegate:self cancelButtonTitle:NSLocalizedString(@"稍后升级",nil) otherButtonTitles:NSLocalizedString(@"马上升级",nil), nil];
