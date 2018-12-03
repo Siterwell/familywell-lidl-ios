@@ -161,7 +161,7 @@
             make.center.equalTo(imageView1);
             make.width.and.height.mas_equalTo(60);
         }];
-        [playIcon setImage:[UIImage imageNamed:@"video_play_icon"]];
+//        [playIcon setImage:[UIImage imageNamed:@"video_play_icon"]];
         
         //tap手势
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];
