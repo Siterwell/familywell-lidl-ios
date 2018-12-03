@@ -84,7 +84,7 @@
         
         NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
         NSString *currentVersion = [infoDic objectForKey:@"CFBundleShortVersionString"];
-        cell.subLabel.text = [NSString stringWithFormat:@"%@%@",[infoDic objectForKey:@"CFBundleDisplayName"],currentVersion];
+        cell.subLabel.text = [NSString stringWithFormat:@"%@",currentVersion];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else if(indexPath.row == 1) {

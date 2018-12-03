@@ -164,6 +164,8 @@ BOOL flag_checkfireware = NO;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    NSLog(@"[RYAN] HomeVC > viewDidLoad 1111");
+    
 //    self.isShowAlert = YES;
 //    self.canShowAlert = YES;
     self.title = NSLocalizedString(@"首页", nil);
@@ -222,6 +224,8 @@ BOOL flag_checkfireware = NO;
     }else{
         //正常情况
 //        [self deviceSycn];
+        
+//        NSLog(@"[RYAN] HomeVC > viewDidLoad 2222");
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self getLocation];
         });
@@ -258,6 +262,8 @@ BOOL flag_checkfireware = NO;
 
 - (void)checkLanguageForBindGT {
     WS(ws)
+    
+//    NSLog(@"[RYAN] HomeVC > checkLanguageForBindGT");
     
     NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
     NSString *languageName = [appLanguages objectAtIndex:0];
@@ -324,11 +330,14 @@ BOOL flag_checkfireware = NO;
             NSString *nowTime = [NSString cy_getCurrentDateTransformTimeStamp];
             [config setObject:nowTime forKey:@"onceAWeek"];
         }];
+        
     }
     
 }
 
 - (void)viewDidAppear:(BOOL)animated{
+//    NSLog(@"[RYAN] HomeVC > viewDidAppear 1111");
+    
     self.titleView.hidden = NO;
     //圆形菜单
     _menuVc = [[CircleMenuVc alloc] initWithButtonCount:[_systemSceneListArray count]
@@ -389,6 +398,8 @@ BOOL flag_checkfireware = NO;
 
 - (void)viewDidDisappear:(BOOL)animated{
     [_menuVc.view removeFromSuperview];
+    
+//    NSLog(@"[RYAN] HomeVC > viewDidDisappear 1111");
 }
 
 - (void)showCircleMenu{
@@ -567,44 +578,54 @@ BOOL flag_checkfireware = NO;
             NSDictionary *names = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"deviceName" ofType:@"plist"]] valueForKey:@"names"];
             NSString * aaa = NSLocalizedString([names objectForKey:[model.device_name substringFromIndex:1] ],nil);
             content = [aaa stringByAppendingString:[NSString stringWithFormat:@"%d",model.device_ID]];
-          [VoiceHelp playMainBoundAudioWithName:@"phonering"];
+            [VoiceHelp playMainBoundAudioWithName:@"phonering"];
+        }
+        
+        self.devTypeName = deviceName;
+        self.alarmName = alarmType;
+        if ([deviceName isEqualToString:@"0000"]) {
+            if([deviceStatus isEqualToString:@"00000000"]){
+                content = NSLocalizedString(@"市电断开", nil);
+            }else if([deviceStatus isEqualToString:@"00000001"]){
+                content = NSLocalizedString(@"市电恢复", nil);
+            }else if([deviceStatus isEqualToString:@"00000002"]){
+                content = NSLocalizedString(@"电池正常", nil);
+            }else if([deviceStatus isEqualToString:@"00000003"]){
+                content = NSLocalizedString(@"电池异常", nil);
+            }else if([deviceStatus isEqualToString:@"00000004"]){
+                content = NSLocalizedString(@"老人可能长时间未移动", nil);
             }
-            self.devTypeName = deviceName;
-            self.alarmName = alarmType;
-            if ([deviceName isEqualToString:@"0000"]) {
-                if([deviceStatus isEqualToString:@"00000000"]){
-                    content = NSLocalizedString(@"市电断开", nil);
-                }else if([deviceStatus isEqualToString:@"00000001"]){
-                    content = NSLocalizedString(@"市电恢复", nil);
-                }else if([deviceStatus isEqualToString:@"00000002"]){
-                    content = NSLocalizedString(@"电池正常", nil);
-                }else if([deviceStatus isEqualToString:@"00000003"]){
-                    content = NSLocalizedString(@"电池异常", nil);
-                }else if([deviceStatus isEqualToString:@"00000004"]){
-                    content = NSLocalizedString(@"老人可能长时间未移动", nil);
-                }
+        }
+            
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil)
+                                                                       message:[NSString stringWithFormat:NSLocalizedString(@"请注意，%@(%@) 的 %@告警", nil),gatewayId ,lastFour , content]
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        UIAlertAction* silenceAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"静音", nil)
+                                                                style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [VoiceHelp disposeSystemSoundIDWithName:@"phonering"];
+            
+            //发送静音指令
+            NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+            DeviceListModel *devmodel = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+            
+            if ([self.devTypeName isEqualToString:@"0005"]) {
+                NSString *deviceStatus = [self.alarmName stringByAppendingString:@"000000"];
+                
+                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:deviceStatus];
+                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
+            } else {
+                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
+                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
             }
             
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:[NSString stringWithFormat:NSLocalizedString(@"请注意，%@(%@) 的 %@告警", nil),gatewayId ,lastFour , content] preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"静音", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [VoiceHelp disposeSystemSoundIDWithName:@"phonering"];
-                
-                //发送静音指令
-                NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-                DeviceListModel *devmodel = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
-                
-                if ([self.devTypeName isEqualToString:@"0005"]) {
-                    NSString *deviceStatus = [self.alarmName stringByAppendingString:@"000000"];
-                    
-                    PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:deviceStatus];
-                    [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-                } else {
-                    PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
-                    [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-                }
-                
-            }]];
-            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+        }];
+        
+        [alert addAction:defaultAction];
+        [alert addAction:silenceAction];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
        
         
     } else if (model.answer_content.length > 8 && [[model.answer_content substringWithRange:NSMakeRange(4, 2)] isEqualToString:@"AC"]){
@@ -1129,8 +1150,9 @@ BOOL flag_checkfireware = NO;
     
     if ([vInfo.devid isEqualToString:@"lbt_01"]) {
         //新增摄像头
-        UIStoryboard *board = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
-        [self.navigationController pushViewController:[board instantiateViewControllerWithIdentifier:@"ChooseConnectTypeVC"] animated:YES];
+//        UIStoryboard *board = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
+//        [self.navigationController pushViewController:[board instantiateViewControllerWithIdentifier:@"ChooseConnectTypeVC"]
+//                                             animated:YES];
 
     }else{
         VideoLiveViewController *videoLive = [[VideoLiveViewController alloc] init];
