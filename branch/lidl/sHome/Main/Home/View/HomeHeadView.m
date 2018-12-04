@@ -142,17 +142,17 @@
             UIImage *imgFromUrl3=[[UIImage alloc]initWithContentsOfFile:imagePath];
     
             [imageView1 setImage:imgFromUrl3];
-            nameLbl.text = vInfo.name;
+//            nameLbl.text = vInfo.name;
         }else{
             [imageView1 setImage:[UIImage imageNamed:@"lbt_01"]];
             
         }
         
-        if ([@"lbt_01" isEqualToString:vInfo.devid]) {
-            nameLbl.text = NSLocalizedString(@"无视频，点击添加", nil);
-        }else{
-            nameLbl.text = vInfo.name;
-        }
+//        if ([@"lbt_01" isEqualToString:vInfo.devid]) {
+//            nameLbl.text = NSLocalizedString(@"无视频，点击添加", nil);
+//        }else{
+//            nameLbl.text = vInfo.name;
+//        }
         
         UIImageView *playIcon = [UIImageView new];
         [contView addSubview:playIcon];
