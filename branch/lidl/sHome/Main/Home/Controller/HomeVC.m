@@ -985,19 +985,29 @@ BOOL flag_checkfireware = NO;
 
 - (void)getLocationWeather {
     NSString *lan;
-        NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
-        NSString *languageName = [appLanguages objectAtIndex:0];
-        if ([languageName containsString:@"zh"]) {
-            lan = @"zh";
-        } else if ([languageName containsString:@"de"]) {
-            lan = @"de";
-        } else if ([languageName containsString:@"fr"]) {
-            lan = @"fr";
-        }else if ([languageName containsString:@"es"]) {
-            lan = @"es";
-        } else {
-            lan = @"en";
-        }
+    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+    NSString *languageName = [appLanguages objectAtIndex:0];
+    if ([languageName containsString:@"zh"]) {
+        lan = @"zh";
+    } else if ([languageName containsString:@"cs"]) {
+        lan = @"cs";
+    } else if ([languageName containsString:@"de"]) {
+        lan = @"de";
+    }else if ([languageName containsString:@"es"]) {
+        lan = @"es";
+    }else if ([languageName containsString:@"nl"]) {
+        lan = @"nl";
+    }else if ([languageName containsString:@"fr"]) {
+        lan = @"fr";
+    }else if ([languageName containsString:@"it"]) {
+        lan = @"it";
+    }else if ([languageName containsString:@"sl"]) {
+        lan = @"sl";
+    }else if ([languageName containsString:@"fi"]) {
+        lan = @"fi";
+    } else {
+        lan = @"en";
+    }
     
     int subtract = 100;
     double nowTime =  [self getNowTimeTimestamp];
