@@ -12,7 +12,7 @@
 "CF4-Gk-cuf.text" = "title";
 
 /* Class = "UILabel"; text = "卧室空调9点关"; ObjectID = "Egx-Z8-ipz"; */
-"Egx-Z8-ipz.text" = "卧室空调9点关";
+"Egx-Z8-ipz.text" = "Bedroom air conditioner 9 o'clock off";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FKK-ow-WMg"; */
 "FKK-ow-WMg.normalTitle" = "Button";
@@ -36,19 +36,19 @@
 "WJl-cv-VAC.normalTitle" = "Tue";
 
 /* Class = "UIButton"; normalTitle = "+情景快捷键按钮"; ObjectID = "XPb-Co-ijA"; */
-"XPb-Co-ijA.normalTitle" = "+情景快捷键按钮";
+"XPb-Co-ijA.normalTitle" = "Scene shortcut button";
 
 /* Class = "UILabel"; text = "按钮"; ObjectID = "Xcq-Ft-6Cd"; */
 "Xcq-Ft-6Cd.text" = "Button";
 
 /* Class = "UILabel"; text = "启动条件"; ObjectID = "YdV-EZ-bU1"; */
-"YdV-EZ-bU1.text" = "启动条件";
+"YdV-EZ-bU1.text" = "Launch condition";
 
 /* Class = "UIButton"; normalTitle = "编辑"; ObjectID = "aHc-4x-QG6"; */
 "aHc-4x-QG6.normalTitle" = "Eidt";
 
 /* Class = "UILabel"; text = "1 键按钮"; ObjectID = "az7-jk-spl"; */
-"az7-jk-spl.text" = "1 键按钮";
+"az7-jk-spl.text" = "1 button";
 
 /* Class = "UILabel"; text = "重复"; ObjectID = "bjN-ag-FZ7"; */
 "bjN-ag-FZ7.text" = "Repeat";
