@@ -884,7 +884,7 @@ BOOL flag_checkfireware = NO;
             break;
         default:{
             SystemSceneModel *sysModel = [_systemSceneListArray objectAtIndex:mselectSystemItem];
-            _homeSystemSceneImageView.image = [UIImage imageNamed:NSLocalizedString(@"home01_icon", nil)];
+            _homeSystemSceneImageView.image = [UIImage imageNamed:NSLocalizedString(@"other01_icon", nil)];
             _autoLbe.text = sysModel.scene_name;
         }
             break;
