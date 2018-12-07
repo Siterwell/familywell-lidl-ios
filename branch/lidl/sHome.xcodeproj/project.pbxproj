@@ -2278,6 +2278,15 @@
 		DDDB61451E9CBE4000BDEE25 /* FortgetPsdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FortgetPsdCell.m; sourceTree = "<group>"; };
 		DDDB61471E9CC57600BDEE25 /* AddDeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDeviceCell.h; sourceTree = "<group>"; };
 		DDDB61481E9CC57600BDEE25 /* AddDeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeviceCell.m; sourceTree = "<group>"; };
+		E2126DE021B6771C00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		E2126DE121B6771C00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LoginStoryboard.strings; sourceTree = "<group>"; };
+		E2126DE221B6771C00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/BookGroupCollectionViewCell.strings; sourceTree = "<group>"; };
+		E2126DE321B6771C00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/DeviceStoryboard.strings; sourceTree = "<group>"; };
+		E2126DE521B6771D00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/SceneStoryboard.strings; sourceTree = "<group>"; };
+		E2126DE721B6771D00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/BookShelfGroupMainView.strings; sourceTree = "<group>"; };
+		E2126DE821B6771D00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E2126DEE21B6812900812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/HomeStoryboard.strings; sourceTree = "<group>"; };
+		E2126DF021B6885700812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
 		E2432D0B219A6B3B00A76C2C /* PrivacyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivacyVC.h; sourceTree = "<group>"; };
 		E2432D0C219A6B3B00A76C2C /* PrivacyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrivacyVC.m; sourceTree = "<group>"; };
 		E2432D0F219A74F400A76C2C /* privacy_english.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_english.html; sourceTree = "<group>"; };
@@ -5490,6 +5499,7 @@
 				sl,
 				nl,
 				cs,
+				fi,
 			);
 			mainGroup = 05E4666A1DF4FA170056E6FF;
 			productRefGroup = 05E466741DF4FA1A0056E6FF /* Products */;
@@ -6329,6 +6339,7 @@
 				C4C9D98C20FD8BC700C89AD9 /* sl */,
 				C4C9D99320FD8BD800C89AD9 /* nl */,
 				C4C9D9A120FD8C8000C89AD9 /* cs */,
+				E2126DE321B6771C00812F2C /* fi */,
 			);
 			name = DeviceStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -6346,6 +6357,7 @@
 				C4C9D98D20FD8BC700C89AD9 /* sl */,
 				C4C9D99420FD8BD800C89AD9 /* nl */,
 				C4C9D9A220FD8C8000C89AD9 /* cs */,
+				E2126DEE21B6812900812F2C /* fi */,
 			);
 			name = HomeStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -6363,6 +6375,7 @@
 				C4C9D98B20FD8BC700C89AD9 /* sl */,
 				C4C9D99220FD8BD800C89AD9 /* nl */,
 				C4C9D9A020FD8C8000C89AD9 /* cs */,
+				E2126DE121B6771C00812F2C /* fi */,
 			);
 			name = LoginStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -6380,6 +6393,7 @@
 				C4C9D98F20FD8BC700C89AD9 /* sl */,
 				C4C9D99620FD8BD800C89AD9 /* nl */,
 				C4C9D9A420FD8C8000C89AD9 /* cs */,
+				E2126DF021B6885700812F2C /* fi */,
 			);
 			name = Main.storyboard;
 			path = sHome;
@@ -6398,6 +6412,7 @@
 				C4C9D98E20FD8BC700C89AD9 /* sl */,
 				C4C9D99520FD8BD800C89AD9 /* nl */,
 				C4C9D9A320FD8C8000C89AD9 /* cs */,
+				E2126DE521B6771D00812F2C /* fi */,
 			);
 			name = SceneStoryboard.storyboard;
 			sourceTree = "<group>";
@@ -6414,6 +6429,7 @@
 				C4C9D99120FD8BC700C89AD9 /* sl */,
 				C4C9D99820FD8BD900C89AD9 /* nl */,
 				C4C9D9A620FD8C8000C89AD9 /* cs */,
+				E2126DE821B6771D00812F2C /* fi */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -6431,6 +6447,7 @@
 				880129AE214DC75D0018E4BA /* sl */,
 				880129B0214DC75E0018E4BA /* nl */,
 				880129B2214DC75F0018E4BA /* cs */,
+				E2126DE221B6771C00812F2C /* fi */,
 			);
 			name = BookGroupCollectionViewCell.xib;
 			sourceTree = "<group>";
@@ -6448,6 +6465,7 @@
 				880129C3214DC8340018E4BA /* sl */,
 				880129C5214DC8360018E4BA /* nl */,
 				880129C7214DC8380018E4BA /* cs */,
+				E2126DE721B6771D00812F2C /* fi */,
 			);
 			name = BookShelfGroupMainView.xib;
 			sourceTree = "<group>";
@@ -6459,6 +6477,7 @@
 				880129D3214DCB730018E4BA /* fr */,
 				880129D4214DCB760018E4BA /* de */,
 				880129D5214DCB790018E4BA /* es */,
+				E2126DE021B6771C00812F2C /* fi */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

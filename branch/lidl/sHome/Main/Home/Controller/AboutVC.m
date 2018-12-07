@@ -57,11 +57,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.update == YES) {
-        return 4;
-    } else {
-        return 3;
-    }
+    return 4;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -73,7 +69,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
     
     if (indexPath.row == 0) {
         AboutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"aboutCell" forIndexPath:indexPath];
@@ -88,50 +83,32 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else if(indexPath.row == 1) {
+        AboutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"aboutCell" forIndexPath:indexPath];
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.text = NSLocalizedString(@"固件版本", nil) ;
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+        
+        cell.subLabel.text = self.versionCode;
+//        RAC(cell.subLabel, text) = RACObserve(self, versionCode);
+
         if(self.update == YES){
-            AboutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"aboutCell" forIndexPath:indexPath];
-            cell.textLabel.textColor = [UIColor darkGrayColor];
-            cell.textLabel.font = [UIFont systemFontOfSize:14];
-            cell.textLabel.text = NSLocalizedString(@"固件版本", nil) ;
-            cell.textLabel.backgroundColor = [UIColor clearColor];
-            
-            RAC(cell.subLabel,text) = RACObserve(self, versionCode);
-            
             UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_version_new"]];
             [image setFrame:CGRectMake(0, 0, 30, 15)];
             cell.accessoryView = image;
-            return cell;
-        } else {
-            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.textColor = [UIColor darkGrayColor];
-            cell.textLabel.font = [UIFont systemFontOfSize:14];
-            cell.textLabel.text = NSLocalizedString(@"售后电话", nil);
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.detailTextLabel.text = @"+31(0)76-5977401";
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
-            return cell;
         }
+        
+        return cell;
     } else if (indexPath.row == 2) {
-        if(self.update == YES){
-            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.textColor = [UIColor darkGrayColor];
-            cell.textLabel.font = [UIFont systemFontOfSize:14];
-            cell.textLabel.text = NSLocalizedString(@"售后电话", nil);
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.detailTextLabel.text = @"+31(0)76-5977401";
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
-            return cell;
-        } else {
-            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.textColor = [UIColor darkGrayColor];
-            cell.textLabel.font = [UIFont systemFontOfSize:14];
-            cell.textLabel.text = NSLocalizedString(@"隐私政策", nil);
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            return cell;
-        }
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.text = NSLocalizedString(@"售后电话", nil);
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.detailTextLabel.text = @"+31(0)76-5977401";
+        cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
+        return cell;
     } else {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -145,7 +122,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
     if (indexPath.row == 0) {
         return;
     }
@@ -168,18 +145,12 @@
             }]];
             [self presentViewController:alert animated:YES completion:nil];
         }else{
-            NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"+31(0)76-5977401"];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+            return;
         }
         
     } else if (indexPath.row == 2) {
-        if(self.update == YES) {
-            NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"+31(0)76-5977401"];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
-        } else {
-            [self performSegueWithIdentifier:@"toPrivacy" sender:nil];
-        }
-        
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"+31(0)76-5977401"];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
     } else if (indexPath.row == 3) {
         [self performSegueWithIdentifier:@"toPrivacy" sender:nil];
     }
@@ -241,8 +212,9 @@
         self.verModel = mmodel;
         if (mmodel.update == 1) {
             self.update = YES;
-            [self.tableView reloadData];
         }
+        
+        [self.tableView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSString* errResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];

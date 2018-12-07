@@ -130,7 +130,7 @@
     [highlight setFont:[UIFont boldSystemFontOfSize:13]];
     [highlight setUnderline:[YYTextDecoration decorationWithStyle:YYTextLineStyleSingle]];
     highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
-        [self performSegueWithIdentifier:@"toRule" sender:nil];
+        [self performSegueWithIdentifier:@"toPrivacy" sender:nil];
     };
     [text yy_setColor:RGB(51, 51, 51) range:NSMakeRange(0, text.length)];
     [text yy_setFont:[UIFont boldSystemFontOfSize:13] range:NSMakeRange(0, text.length)];

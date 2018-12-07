@@ -190,7 +190,7 @@
     }
     else {
         cell.scenelB.text = model.scene_name;
-        [cell.sceneIcon setImage:[[UIImage imageNamed:@"zjms_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+        [cell.sceneIcon setImage:[[UIImage imageNamed:@"other_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     }
 
     NSString *idstr = self.data.devID;
@@ -214,7 +214,7 @@
                 [cell.selectIcon setBackgroundImage:[[UIImage imageNamed:@"smms_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
             }
             else {
-                [cell.selectIcon setBackgroundImage:[[UIImage imageNamed:@"zjms_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+                [cell.selectIcon setBackgroundImage:[[UIImage imageNamed:@"other_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
             }
         }
     }];
@@ -318,7 +318,7 @@
                         [cell.selectIcon setBackgroundImage:[[UIImage imageNamed:@"smms_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
                     }
                     else {
-                        [cell.selectIcon setBackgroundImage:[[UIImage imageNamed:@"zjms_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+                        [cell.selectIcon setBackgroundImage:[[UIImage imageNamed:@"other_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
                     }
                     
                     model.answer_content = [content substringWithRange:NSMakeRange(0, content.length - 4)];
