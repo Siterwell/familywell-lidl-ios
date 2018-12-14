@@ -42,10 +42,10 @@
 }
 
 - (IBAction)actionNext:(id)sender {
-    if ([[HekrConfig getWifiName] containsString:@" "]) {
-        [MBProgressHUD showError:NSLocalizedString(@"WIFI名不能含有空格",nil) ToView:self.view];
-        return;
-    }
+//    if ([[HekrConfig getWifiName] containsString:@" "]) {
+//        [MBProgressHUD showError:NSLocalizedString(@"WIFI名不能含有空格",nil) ToView:self.view];
+//        return;
+//    }
     if ([HekrConfig getWifiName] == nil || [[HekrConfig getWifiName] isEqualToString:@""]) {
         [MBProgressHUD showError:NSLocalizedString(@"没有WIFI",nil) ToView:self.view];
         return;
