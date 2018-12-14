@@ -198,7 +198,7 @@ centerButtonBackgroundImageName:(NSString *)centerButtonBackgroundImageName cent
           [imageView setImage:[UIImage imageNamed:@"sleep00_icon"]];
       }else{
           label.text = sysModel.scene_name;
-          [imageView setImage:[UIImage imageNamed:@"home00_icon"]];
+          [imageView setImage:[UIImage imageNamed:@"other00_icon"]];
       }
       
       label.font = [UIFont systemFontOfSize:13.0f];

@@ -610,10 +610,10 @@
                 
                 cell.titleLabel.text = model.scene_name;
                 if ([thisModel.sence_group isEqualToString:model.sence_group]) {
-                    cell.headerImageView.image = [UIImage imageNamed:@"zjms_hover_icon"];
+                    cell.headerImageView.image = [UIImage imageNamed:@"other_hover_icon"];
                     cell.titleLabel.textColor = RGB(40, 184, 215);
                 }else{
-                    cell.headerImageView.image = [UIImage imageNamed:@"zjms_icon"];
+                    cell.headerImageView.image = [UIImage imageNamed:@"other_icon"];
                     cell.titleLabel.textColor = RGB(51, 51, 51);
                 }
                 break;
@@ -1333,10 +1333,10 @@
         default:{
      
             if (isNoYes) {
-                cell.headerImageView.image = [UIImage imageNamed:@"zjms_hover_icon"];
+                cell.headerImageView.image = [UIImage imageNamed:@"other_hover_icon"];
                 cell.titleLabel.textColor = RGB(40, 184, 215);
             }else{
-                cell.headerImageView.image = [UIImage imageNamed:@"zjms_icon"];
+                cell.headerImageView.image = [UIImage imageNamed:@"other_icon"];
                 cell.titleLabel.textColor = RGB(51, 51, 51);
             }
             break;

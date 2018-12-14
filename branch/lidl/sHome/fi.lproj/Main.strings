@@ -1,0 +1,36 @@
+
+/* Class = "UILabel"; text = "自动执行列表"; ObjectID = "0id-s9-yNo"; */
+"0id-s9-yNo.text" = "Säännöt";
+
+/* Class = "UITabBarItem"; title = "设备"; ObjectID = "1Xx-Rc-5si"; */
+"1Xx-Rc-5si.title" = "Laitteet";
+
+/* Class = "UILabel"; text = "在家模式"; ObjectID = "6oB-1H-Rn8"; */
+"6oB-1H-Rn8.text" = "Kotona";
+
+/* Class = "UITabBarItem"; title = "情景列表"; ObjectID = "IRA-Gm-9kv"; */
+"IRA-Gm-9kv.title" = "Teemat";
+
+/* Class = "UIButton"; normalTitle = "点击"; ObjectID = "NZw-mW-LqS"; */
+"NZw-mW-LqS.normalTitle" = "Klikkaa";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Z6r-Qu-NR9"; */
+"Z6r-Qu-NR9.text" = "Label";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "bqj-BL-z8A"; */
+"bqj-BL-z8A.text" = "0";
+
+/* Class = "UITabBarItem"; title = "我的家"; ObjectID = "h3g-KB-3KA"; */
+"h3g-KB-3KA.title" = "Koti";
+
+/* Class = "UILabel"; text = "01"; ObjectID = "j20-dR-Onk"; */
+"j20-dR-Onk.text" = "01";
+
+/* Class = "UILabel"; text = "卧室空调9点关"; ObjectID = "mkn-y3-bNn"; */
+"mkn-y3-bNn.text" = "卧室空调9点关";
+
+/* Class = "UILabel"; text = "℃"; ObjectID = "tkz-EZ-tYK"; */
+"tkz-EZ-tYK.text" = "℃";
+
+/* Class = "UILabel"; text = "设备告警"; ObjectID = "zdo-mI-9qg"; */
+"zdo-mI-9qg.text" = "Laitehälytys";

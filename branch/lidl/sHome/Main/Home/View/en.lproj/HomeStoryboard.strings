@@ -36,7 +36,7 @@
 "MXf-Ek-1WQ.placeholder" = "Wifi Password";
 
 /* Class = "UIViewController"; title = "智能家居"; ObjectID = "dHT-Ih-oPZ"; */
-"dHT-Ih-oPZ.title" = "智能家居";
+"dHT-Ih-oPZ.title" = "Smart Home";
 
 /* Class = "UITextField"; placeholder = "请设置紧急号码"; ObjectID = "go1-NS-fqe"; */
 "go1-NS-fqe.placeholder" = "please set emergency number";
