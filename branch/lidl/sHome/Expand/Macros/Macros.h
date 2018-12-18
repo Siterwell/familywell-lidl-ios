@@ -155,14 +155,14 @@
 #define ThemeColor RGB(40, 184, 215)
 #if DEBUG
 // 测试环境
-#define kGtAppId           @"QdrGH5nq6m6BDx4ATwKJF9"
-#define kGtAppKey          @"FWbcn1p7Ym5hBUdMS9naQ7"
-#define kGtAppSecret       @"79AGJOFRvy8FotbAAYYxu9"
+#define kGtAppId           @"Z4oQtHjgSIAF9Jxs2Ggy83"
+#define kGtAppKey          @"vG7nGkpZMZ8i0j8AdfUTqA"
+#define kGtAppSecret       @"lYCtUPsZH96v02qAajLCB9"
 #else
 // 正式环境
-#define kGtAppId           @"QdrGH5nq6m6BDx4ATwKJF9"
-#define kGtAppKey          @"FWbcn1p7Ym5hBUdMS9naQ7"
-#define kGtAppSecret       @"79AGJOFRvy8FotbAAYYxu9"
+#define kGtAppId           @"Z4oQtHjgSIAF9Jxs2Ggy83"
+#define kGtAppKey          @"vG7nGkpZMZ8i0j8AdfUTqA"
+#define kGtAppSecret       @"lYCtUPsZH96v02qAajLCB9"
 #endif
 
 
