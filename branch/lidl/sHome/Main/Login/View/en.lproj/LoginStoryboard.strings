@@ -19,7 +19,7 @@
 一旦成功注册成为会员，您将有一个密码和用户名。"; ObjectID = "0mT-cd-RLi"; */
 "0mT-cd-RLi.text" ="Privacy Policy
 Effective date: August 01, 2018
-ELRO Europe ('us', 'we', or 'our') operates the ELRO Connects and the SilverCrest Alarm mobile application (the 'Service').
+ELRO Europe ('us', 'we', or 'our') operates the ELRO Connects and the Base mobile application (the 'Service').
 This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. This Privacy Policy for ELRO Europe is powered by FreePrivacyPolicy.com.
 We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions.
 Information Collection And Use
@@ -86,8 +86,8 @@ We will let you know via email and/or a prominent notice on our Service, prior t
 You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.
 Contact Us
 If you have any questions about this Privacy Policy, please contact us:
-By email: info@elro.eu
-By visiting this page on our website: www.elro.eu/privacy-policy";
+By email: info@safewith.me
+By visiting this page on our website: https://be1ce773.dream.press/privacy-policy/";
 
 /* Class = "UIButton"; normalTitle = "用户注册"; ObjectID = "1oE-6O-w9q"; */
 "1oE-6O-w9q.normalTitle" = "Register";

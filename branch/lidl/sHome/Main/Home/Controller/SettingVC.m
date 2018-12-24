@@ -199,7 +199,7 @@
         }else{
                 
                 UIApplication *application = [UIApplication sharedApplication];
-                NSURL *URL = [NSURL URLWithString:@"http://www.elro.eu"];
+                NSURL *URL = [NSURL URLWithString:@"https://be1ce773.dream.press/"];
                 
                 if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
                     [application openURL:URL options:@{}
