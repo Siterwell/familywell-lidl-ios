@@ -44,12 +44,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopScynDevice) name:@"updateDeviceOver" object:nil];
 
     
-    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(add) Title:NSLocalizedString(@"新增",nil) withTintColor:RGB(40, 184, 215)];
+    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(add) Title:NSLocalizedString(@"新增",nil) withTintColor:RGB(255, 255, 255)];
     
     self.title = NSLocalizedString(@"设备",nil);
     
     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, 144)];
-    backView.backgroundColor = [UIColor whiteColor];
+//    backView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:backView];
     
     //添加 分组组建
@@ -98,6 +98,7 @@
     redLb.textAlignment = NSTextAlignmentCenter;
     redLb.text = NSLocalizedString(@"触发", nil);
     redLb.font = [UIFont systemFontOfSize:13];
+    redLb.textColor = RGB(255, 255, 255);
     [self.view addSubview:redLb];
     [redLb mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(20);
@@ -109,6 +110,7 @@
     greenLb.text = NSLocalizedString(@"正常", nil);
     greenLb.textAlignment = NSTextAlignmentCenter;
     greenLb.font = [UIFont systemFontOfSize:13];
+    greenLb.textColor = RGB(255, 255, 255);
     [self.view addSubview:greenLb];
     [greenLb mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.centerY.equalTo(redLb);
@@ -135,6 +137,7 @@
     grayLb.textAlignment = NSTextAlignmentCenter;
     grayLb.text = NSLocalizedString(@"离线", nil);
     grayLb.font = [UIFont systemFontOfSize:13];
+    grayLb.textColor = RGB(255, 255, 255);
     [self.view addSubview:grayLb];
     [grayLb makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(gray.mas_right).offset(10);
@@ -269,8 +272,8 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor whiteColor]];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
+//    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor whiteColor]];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];

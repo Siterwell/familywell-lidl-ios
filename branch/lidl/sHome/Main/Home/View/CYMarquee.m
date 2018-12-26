@@ -36,7 +36,7 @@
 
 - (void)setupIB {
     UIImageView *back = [[UIImageView alloc] initWithFrame:self.bounds];
-    [back setImage:[UIImage imageNamed:@"index_bg"]];
+//    [back setImage:[UIImage imageNamed:@"index_bg"]];
     [self addSubview:back];
     
     self.page = 1;

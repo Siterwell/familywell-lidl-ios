@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.22280041149999999" green="0.75089756299999999" blue="0.79746986040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.22280041149999999" green="0.75089756299999999" blue="0.79746986040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.22280041149999999" green="0.75089756299999999" blue="0.79746986040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
@@ -47,7 +47,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vAi-5D-YRH">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.99321080269999995" blue="0.97273770500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="sPr-oP-Oxf" kind="relationship" relationship="rootViewController" id="WKf-ME-gqq"/>
@@ -93,15 +96,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bc-bh-Cmx">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="207.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="index_bg" translatesAutoresizingMaskIntoConstraints="NO" id="vR3-Ow-zFa">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vR3-Ow-zFa">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="207.5"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather_icon" translatesAutoresizingMaskIntoConstraints="NO" id="rVL-tn-cKj">
-                                        <rect key="frame" x="13" y="132.5" width="49" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="IFN-QU-GO7"/>
-                                            <constraint firstAttribute="width" constant="48.5" id="eek-nc-MOJ"/>
-                                        </constraints>
+                                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Epm-DB-rcw">
                                         <rect key="frame" x="156" y="80" width="8" height="17"/>
@@ -113,49 +110,29 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYb-xk-JXJ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYb-xk-JXJ">
                                         <rect key="frame" x="69" y="132.5" width="0.0" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcp-S0-9zc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcp-S0-9zc">
                                         <rect key="frame" x="69" y="172.5" width="0.0" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqj-BL-z8A">
-                                        <rect key="frame" x="209" y="96" width="51" height="101"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="84"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="℃" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkz-EZ-tYK">
-                                        <rect key="frame" x="262" y="109" width="45" height="49"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="41"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="vcp-S0-9zc" firstAttribute="bottom" secondItem="rVL-tn-cKj" secondAttribute="bottom" id="3vD-t8-1xv"/>
-                                    <constraint firstItem="kYb-xk-JXJ" firstAttribute="leading" secondItem="rVL-tn-cKj" secondAttribute="trailing" constant="7.5" id="6Rz-Np-vek"/>
                                     <constraint firstItem="vR3-Ow-zFa" firstAttribute="leading" secondItem="0bc-bh-Cmx" secondAttribute="leading" id="90j-KT-vZg"/>
-                                    <constraint firstItem="rVL-tn-cKj" firstAttribute="leading" secondItem="0bc-bh-Cmx" secondAttribute="leading" constant="13" id="BYD-0y-mrQ"/>
                                     <constraint firstAttribute="trailing" secondItem="vR3-Ow-zFa" secondAttribute="trailing" id="E6f-Wt-Q8o"/>
-                                    <constraint firstItem="tkz-EZ-tYK" firstAttribute="leading" secondItem="bqj-BL-z8A" secondAttribute="trailing" constant="2" id="Em1-i0-iQc"/>
                                     <constraint firstItem="Epm-DB-rcw" firstAttribute="top" secondItem="0bc-bh-Cmx" secondAttribute="top" constant="80" id="JiW-b2-IV0"/>
-                                    <constraint firstItem="vcp-S0-9zc" firstAttribute="leading" secondItem="rVL-tn-cKj" secondAttribute="trailing" constant="7.5" id="UWH-0z-ONb"/>
-                                    <constraint firstItem="tkz-EZ-tYK" firstAttribute="top" secondItem="bqj-BL-z8A" secondAttribute="top" constant="13" id="Vy4-W5-xRt"/>
-                                    <constraint firstItem="rVL-tn-cKj" firstAttribute="centerY" secondItem="0bc-bh-Cmx" secondAttribute="centerY" constant="48" id="ZKu-7K-weU"/>
                                     <constraint firstItem="vR3-Ow-zFa" firstAttribute="top" secondItem="0bc-bh-Cmx" secondAttribute="top" id="esE-DS-tcD"/>
-                                    <constraint firstAttribute="trailing" secondItem="tkz-EZ-tYK" secondAttribute="trailing" constant="13" id="rt3-JB-aWI"/>
-                                    <constraint firstItem="bqj-BL-z8A" firstAttribute="centerY" secondItem="rVL-tn-cKj" secondAttribute="centerY" constant="-6" id="sqV-Ng-F0h"/>
                                     <constraint firstItem="Epm-DB-rcw" firstAttribute="centerX" secondItem="0bc-bh-Cmx" secondAttribute="centerX" id="t5D-xc-8gA"/>
                                     <constraint firstAttribute="bottom" secondItem="vR3-Ow-zFa" secondAttribute="bottom" id="uws-m7-0Ee"/>
-                                    <constraint firstItem="kYb-xk-JXJ" firstAttribute="top" secondItem="rVL-tn-cKj" secondAttribute="top" id="zIZ-eo-0Vc"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzA-uz-uJq" customClass="HomeHeadView">
@@ -265,10 +242,8 @@
                         <outlet property="imageView" destination="yzA-uz-uJq" id="FLa-HX-wtc"/>
                         <outlet property="sceneName" destination="Z6r-Qu-NR9" id="Q78-QO-iCP"/>
                         <outlet property="sceneView" destination="ZUl-M3-hAf" id="j8H-fr-9AK"/>
-                        <outlet property="weatherIcon" destination="rVL-tn-cKj" id="LLJ-N4-ZbL"/>
                         <outlet property="weatherLabel1" destination="kYb-xk-JXJ" id="Exx-BG-OrN"/>
                         <outlet property="weatherLabel2" destination="vcp-S0-9zc" id="tYX-T7-w2r"/>
-                        <outlet property="weatherLabel3" destination="bqj-BL-z8A" id="204-fJ-uCW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbn-ns-hnN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -283,7 +258,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e1Y-xz-QwN">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="4fD-39-Cae" kind="relationship" relationship="rootViewController" id="exv-c4-OoS"/>
@@ -304,7 +279,7 @@
                     <view key="view" contentMode="scaleToFill" id="hqA-qt-cAM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="ywW-9O-g94"/>
                 </viewController>
@@ -518,12 +493,10 @@
         <image name="bottom_sy_icon" width="22" height="22"/>
         <image name="circle_icon00" width="60" height="60"/>
         <image name="enter_icon" width="11" height="13"/>
-        <image name="index_bg" width="320" height="210"/>
         <image name="ljms_icon" width="46" height="46"/>
         <image name="sbgjblue_bg" width="320" height="31"/>
         <image name="select_blue_icon" width="20" height="20"/>
         <image name="tj01_icon" width="19" height="19"/>
-        <image name="weather_icon" width="48" height="40"/>
     </resources>
     <color key="tintColor" red="0.22280041149999999" green="0.75089756299999999" blue="0.79746986040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
