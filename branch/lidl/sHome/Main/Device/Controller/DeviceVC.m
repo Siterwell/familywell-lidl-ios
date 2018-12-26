@@ -323,6 +323,7 @@
  载入数据
  */
 -(void)lodaData{
+    NSLog(@"[RYAN] lodaData");
     
     NSMutableArray *mainItems = [[DeviceDataBase sharedDataBase] selectDevice];
     

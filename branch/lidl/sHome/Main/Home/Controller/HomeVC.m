@@ -900,7 +900,7 @@ BOOL flag_checkfireware = NO;
  */
 -(void)setView{
     WS(ws)
-    _imageView.videoArray = @[@{@"devid":@"lbt_01",@"name":NSLocalizedString(@"无视频，点击添加", nil)}];
+    _imageView.videoArray = @[@{@"devid":@"lbt_01",@"name":NSLocalizedString(@"无视/频，点击添加", nil)}];
     
 //    _addressView.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"address_icon"]];
     _addressView.enabled = NO;

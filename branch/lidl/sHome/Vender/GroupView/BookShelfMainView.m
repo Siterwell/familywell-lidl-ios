@@ -93,6 +93,8 @@
         self.model = [[ShelfModel alloc] init];
     }
     self.model.itemsDataArr = [[NSMutableArray alloc]initWithArray:itemDatas];
+    
+    NSLog(@"[RYAN] initWithData > itemsDataArr size: %d", [self.model.itemsDataArr count]);
 }
 
 - (UICollectionViewLayout *)createLayout{
@@ -110,9 +112,9 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    
     id itemData = [self.model.itemsDataArr objectAtIndex:indexPath.row];
-
+    NSLog(@"[RYAN] collectionView > ");
+    
     if (![itemData isKindOfClass:[NSArray class]]){
         
         BookCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BookCollectionViewCell" forIndexPath:indexPath];
@@ -165,8 +167,9 @@
         }];
     
     }else{
-
         ItemData *data = itemData;
+        NSLog(@"[RYAN] collectionView > data.title: %@", data.title);
+        
         if([data.title isEqualToString:@"温控器"]){
             TempControlDetailVC *vc = [[TempControlDetailVC alloc] init];
             vc.data = data;
