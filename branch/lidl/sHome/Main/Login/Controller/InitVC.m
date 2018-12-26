@@ -58,8 +58,8 @@
 
 -(void)SetView{
     //[self.navigationController.navigationBar setTranslucent:NO];
-    self.view.backgroundColor = RGB(255, 255, 255);
-    UIImageView *logoIMG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"appLogo"]];
+    self.view.backgroundColor = RGB(0, 157, 224);
+    UIImageView *logoIMG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"appLogo_white"]];
     [self.view addSubview:logoIMG];
     [logoIMG mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(0);
