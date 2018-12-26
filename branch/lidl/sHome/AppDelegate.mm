@@ -30,7 +30,7 @@
 #import "CheckVersionApi.h"
 #import "VersionModel.h"
 #import "PostControllerApi.h"
-//#import "FunSupport.h"
+#import "FunSupport.h"
 #import <HekrSimpleTcpClient.h>
 #import "DeviceListModel.h"
 #import "InitVC.h"
@@ -355,8 +355,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
     
     //网络摄像头
     [self launchSomething];
-//    FunSupport *funSup = [[FunSupport alloc] init];
-//    [funSup initSDK];
+    FunSupport *funSup = [[FunSupport alloc] init];
+    [funSup initSDK];
     
 //    NSString *storyboardName = @"Main";
 //    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];

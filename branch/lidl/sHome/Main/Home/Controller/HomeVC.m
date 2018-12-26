@@ -1160,9 +1160,9 @@ BOOL flag_checkfireware = NO;
     
     if ([vInfo.devid isEqualToString:@"lbt_01"]) {
         //新增摄像头
-//        UIStoryboard *board = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
-//        [self.navigationController pushViewController:[board instantiateViewControllerWithIdentifier:@"ChooseConnectTypeVC"]
-//                                             animated:YES];
+        UIStoryboard *board = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
+        [self.navigationController pushViewController:[board instantiateViewControllerWithIdentifier:@"ChooseConnectTypeVC"]
+                                             animated:YES];
 
     }else{
         VideoLiveViewController *videoLive = [[VideoLiveViewController alloc] init];
