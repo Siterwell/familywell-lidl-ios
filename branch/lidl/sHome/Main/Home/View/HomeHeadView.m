@@ -150,18 +150,20 @@
         
         if ([@"lbt_01" isEqualToString:vInfo.devid]) {
             nameLbl.text = NSLocalizedString(@"无视频，点击添加", nil);
+        } else if ([@"dev_list" isEqualToString:vInfo.devid]) {
+            nameLbl.text = NSLocalizedString(@"This is device list", nil);
         }else{
             nameLbl.text = vInfo.name;
+            
+            UIImageView *playIcon = [UIImageView new];
+            [contView addSubview:playIcon];
+            
+            [playIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.center.equalTo(imageView1);
+                make.width.and.height.mas_equalTo(60);
+            }];
+            [playIcon setImage:[UIImage imageNamed:@"video_play_icon"]];
         }
-        
-        UIImageView *playIcon = [UIImageView new];
-        [contView addSubview:playIcon];
-        
-        [playIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(imageView1);
-            make.width.and.height.mas_equalTo(60);
-        }];
-        [playIcon setImage:[UIImage imageNamed:@"video_play_icon"]];
         
         //tap手势
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];
@@ -286,6 +288,8 @@
 }
 
 -(void)tapImage:(id *)sender{
+    NSLog(@"[RYAN] tapImage");
+    
     //设置代理
     if ([_delegate respondsToSelector:@selector(cycleScrollView:didSelectImageView:videoInfos:)]) {
         [_delegate cycleScrollView:self didSelectImageView:_curPage videoInfos:_curImageArray];

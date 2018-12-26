@@ -900,7 +900,7 @@ BOOL flag_checkfireware = NO;
  */
 -(void)setView{
     WS(ws)
-    _imageView.videoArray = @[@{@"devid":@"lbt_01",@"name":NSLocalizedString(@"无视/频，点击添加", nil)}];
+    [self initNoVideo];
     
 //    _addressView.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"address_icon"]];
     _addressView.enabled = NO;
@@ -1080,7 +1080,8 @@ BOOL flag_checkfireware = NO;
         NSDictionary *extraPropertiesDic = ((NSDictionary *)responseObject)[@"extraProperties"];
     
         NSLog(@"koyang===koyang====%@",extraPropertiesDic);
-        
+     
+        NSLog(@"[RYAN] getUserIonfo > extraPropertiesDic");
         if (extraPropertiesDic[@"monitor"] !=nil) {
             
             NSMutableArray *monitor = [(NSArray*)[extraPropertiesDic[@"monitor"] arrayValue] mutableCopy];
@@ -1099,14 +1100,10 @@ BOOL flag_checkfireware = NO;
                 }
             }
             
-            if (monitor != nil&&[monitor count] > 0) {
-                _imageView.videoArray = monitor;
-            }else{
-                _imageView.videoArray = @[@{@"devid":@"lbt_01",@"name":NSLocalizedString(@"无视频，点击添加", nil)}];
-            }
+            [self setVideoArray:monitor];
 
         }else{
-            _imageView.videoArray = @[@{@"devid":@"lbt_01",@"name":NSLocalizedString(@"无视频，点击添加", nil)}];
+            [self initNoVideo];
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -1174,6 +1171,7 @@ BOOL flag_checkfireware = NO;
 }
 
 - (void)getVideoInfo{
+    NSLog(@"[RYAN] getVideoInfo");
 
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     
@@ -1206,11 +1204,25 @@ BOOL flag_checkfireware = NO;
             }
         }
         
-        if (monitor != nil&&[monitor count] > 0) {
-            _imageView.videoArray = monitor;
-        }else{
-            _imageView.videoArray = @[@{@"devid":@"lbt_01",@"name":NSLocalizedString(@"无视频，点击添加", nil)}];
-        }
+        [self setVideoArray:monitor];
+    }
+}
+
+- (void)initNoVideo {
+    _imageView.videoArray = @[@{@"devid":@"lbt_01",@"name":NSLocalizedString(@"无视频，点击添加", nil),
+                                @"devid":@"dev_list",@"name":NSLocalizedString(@"dev_list", nil)
+                                }];
+//    _imageView.videoArray = @[@{@"devid":@"dev_list",@"name":NSLocalizedString(@"dev_list", nil),
+//                                @"devid":@"lbt_01",@"name":NSLocalizedString(@"无视频，点击添加", nil)
+//                                }];
+}
+
+- (void)setVideoArray:(NSMutableArray *) monitor {
+    if (monitor != nil&&[monitor count] > 0) {
+        [monitor addObject:@{@"devid":@"dev_list",@"name":NSLocalizedString(@"dev_list", nil)}];
+        _imageView.videoArray = monitor;
+    }else{
+        [self initNoVideo];
     }
 }
 
