@@ -100,6 +100,7 @@
     for (int i=0; i<[_curImageArray count]; i++) {
         
         VideoInfoModel *vInfo = [_curImageArray objectAtIndex:i];
+        NSLog(@"[RYAN] setImages > vInfo.devid : %@", vInfo.devid);
         
 //        NSString *imagePath = [[VideoDataBase sharedDataBase] selectVideoInfoByDevid:vInfo.devid].imagePath;
         NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"];
@@ -144,14 +145,21 @@
             [imageView1 setImage:imgFromUrl3];
             nameLbl.text = vInfo.name;
         }else{
-            [imageView1 setImage:[UIImage imageNamed:@"lbt_01"]];
-            
+            if ([@"dev_list" isEqualToString:vInfo.devid]) {
+                UIColor* color = [UIColor colorWithRed:0.0f/255.0f
+                                                 green:157.0f/255.0f
+                                                  blue:224.0f/255.0f
+                                                 alpha:1.0f];
+                [imageView1 setBackgroundColor:color];
+            } else {
+                [imageView1 setImage:[UIImage imageNamed:@"lbt_01"]];
+            }
         }
         
         if ([@"lbt_01" isEqualToString:vInfo.devid]) {
             nameLbl.text = NSLocalizedString(@"无视频，点击添加", nil);
         } else if ([@"dev_list" isEqualToString:vInfo.devid]) {
-            nameLbl.text = NSLocalizedString(@"This is device list", nil);
+            nameLbl.text = NSLocalizedString(@"", nil);
         }else{
             nameLbl.text = vInfo.name;
             
