@@ -144,17 +144,20 @@
     
             [imageView1 setImage:imgFromUrl3];
             nameLbl.text = vInfo.name;
-        }else{
-            if ([@"dev_list" isEqualToString:vInfo.devid]) {
-                UIColor* color = [UIColor colorWithRed:0.0f/255.0f
-                                                 green:157.0f/255.0f
-                                                  blue:224.0f/255.0f
-                                                 alpha:1.0f];
-                [imageView1 setBackgroundColor:color];
-            } else {
-                [imageView1 setImage:[UIImage imageNamed:@"lbt_01"]];
+        }else if ([@"dev_list" isEqualToString:vInfo.devid]) {
+            UIColor* color = [UIColor colorWithRed:0.0f/255.0f
+                                             green:157.0f/255.0f
+                                              blue:224.0f/255.0f
+                                             alpha:1.0f];
+            [imageView1 setBackgroundColor:color];
+            
+            for (int i=0 ; i<6 ; i++) {
+                [self addDeviceItem:imageView1 name:@"Device_1" index:i];
             }
+        } else {
+            [imageView1 setImage:[UIImage imageNamed:@"lbt_01"]];
         }
+        
         
         if ([@"lbt_01" isEqualToString:vInfo.devid]) {
             nameLbl.text = NSLocalizedString(@"无视频，点击添加", nil);
@@ -185,6 +188,55 @@
     }
     [_scrollView setContentOffset:CGPointMake(self.mj_size.width*_curPage, 0)];
     
+}
+
+- (void)addDeviceItem:(UIImageView *)imageView name:(NSString *)text index:(int)i {
+    UIImageView *imageItem = [UIImageView new];
+    [imageView addSubview:imageItem];
+    imageItem.userInteractionEnabled = FALSE;
+    [imageItem setImage:[UIImage imageNamed:@"aq_rg_icon"]];
+    
+    UILabel *textName = [UILabel new];
+    [imageView addSubview:textName];
+    
+    textName.textColor = RGB(0, 0, 0);
+    textName.font = [UIFont boldSystemFontOfSize:14.0f];
+    textName.text = text;
+    
+    NSLog(@"[RYAN] Main_Screen_Width w:%f", Main_Screen_Width);
+    
+    float rangeW = Main_Screen_Width/3;
+    float rangeH = Main_Screen_Width/4 + 20;
+    float left = rangeW/2;
+    float offsetY = 0.0f;
+    float offsetX = left;
+    if (i==0) {
+        offsetY = rangeH;
+    } else if (i==1) {
+        offsetY = rangeH;
+        offsetX += rangeW;
+    } else if (i==2) {
+        offsetY = rangeH;
+        offsetX += rangeW*2;
+    } else if (i==3) {
+        offsetY = rangeH*2;
+    } else if (i==4) {
+        offsetY = rangeH*2;
+        offsetX += rangeW;
+    } else if (i==5) {
+        offsetY = rangeH*2;
+        offsetX += rangeW*2;
+    }
+    
+    [textName mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(imageView.mas_top).offset(offsetY);
+        make.centerX.mas_equalTo(imageView.left).offset(offsetX);
+    }];
+    
+    [imageItem mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(imageView.mas_top).offset(offsetY);
+        make.centerX.mas_equalTo(imageView.left).offset(offsetX);
+    }];
 }
 
 #pragma mark - UIScrollViewDelegate
