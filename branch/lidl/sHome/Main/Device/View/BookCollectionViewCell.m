@@ -36,7 +36,7 @@
         self.numberIndexLabel.text = itemData.customTitle;
     }
     self.mainImageView.image = [UIImage imageNamed:itemData.image];
-
+    self.numberIndexLabel.textColor = RGB(255, 255, 255);
 }
 
 - (void)prepareForReuse{
