@@ -89,12 +89,13 @@
 }
 
 - (void)initWithData:(NSArray *)itemDatas{
+    NSLog(@"[RYAN] +++ initWithData > itemDatas size: %d", [itemDatas count]);
     if (!self.model) {
         self.model = [[ShelfModel alloc] init];
     }
     self.model.itemsDataArr = [[NSMutableArray alloc]initWithArray:itemDatas];
     
-    NSLog(@"[RYAN] initWithData > itemsDataArr size: %d", [self.model.itemsDataArr count]);
+    NSLog(@"[RYAN] --- initWithData > itemsDataArr size: %d", [self.model.itemsDataArr count]);
 }
 
 - (UICollectionViewLayout *)createLayout{
@@ -113,7 +114,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     id itemData = [self.model.itemsDataArr objectAtIndex:indexPath.row];
-    NSLog(@"[RYAN] collectionView > ");
+    NSLog(@"[RYAN] collectionView > indexPath: %@", indexPath);
     
     if (![itemData isKindOfClass:[NSArray class]]){
         

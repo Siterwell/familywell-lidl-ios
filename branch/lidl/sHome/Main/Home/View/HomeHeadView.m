@@ -9,7 +9,12 @@
 #import "HomeHeadView.h"
 #import "VideoInfoModel.h"
 #import "VideoDataBase.h"
+#import "DeviceDataBase.h"
+#import "ArrayTool.h"
 
+@interface HomeHeadView ()
+@property (nonatomic, strong) NSMutableArray *modelSource;
+@end
 
 @implementation HomeHeadView
 {
@@ -151,8 +156,10 @@
                                              alpha:1.0f];
             [imageView1 setBackgroundColor:color];
             
-            for (int i=0 ; i<6 ; i++) {
-                [self addDeviceItem:imageView1 name:@"Device_1" index:i];
+            [self lodaData];
+            
+            for (int i=0 ; i<[self.modelSource count] ; i++) {
+                [self addDeviceItem:imageView1 index:i];
             }
         } else {
             [imageView1 setImage:[UIImage imageNamed:@"lbt_01"]];
@@ -190,18 +197,41 @@
     
 }
 
-- (void)addDeviceItem:(UIImageView *)imageView name:(NSString *)text index:(int)i {
+-(void)lodaData{
+    NSLog(@"[RYAN] HomeHeadView > lodaData");
+    
+    NSMutableArray *mainItems = [[DeviceDataBase sharedDataBase] selectDevice];
+    
+    if (!self.modelSource) {
+        self.modelSource = [[NSMutableArray alloc]init];
+    }
+    
+    self.modelSource  = [NSKeyedUnarchiver unarchiveObjectWithFile:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/devices.archiver"]];
+    
+    self.modelSource = [ArrayTool addJudgeArr:self.modelSource UpdateArr:mainItems];
+    self.modelSource = [ArrayTool deletJundgeArr:self.modelSource UpdateArr:mainItems];
+    self.modelSource = [ArrayTool updateJundgeArr:self.modelSource UpdateArr:mainItems];
+    
+    NSLog(@"[RYAN] HomeHeadView > modelSource size : %d", [self.modelSource count]);
+    
+//    [self.bookShelfMainView initWithData:self.modelSource];
+//    [self.bookShelfMainView reloadData];
+}
+
+- (void)addDeviceItem:(UIImageView *)imageView index:(int)i {
+    ItemData *device = [self.modelSource objectAtIndex:i];
+    
     UIImageView *imageItem = [UIImageView new];
     [imageView addSubview:imageItem];
     imageItem.userInteractionEnabled = FALSE;
-    [imageItem setImage:[UIImage imageNamed:@"aq_rg_icon"]];
+    [imageItem setImage:[UIImage imageNamed:device.image]];
     
     UILabel *textName = [UILabel new];
     [imageView addSubview:textName];
     
     textName.textColor = RGB(0, 0, 0);
-    textName.font = [UIFont boldSystemFontOfSize:14.0f];
-    textName.text = text;
+    textName.font = [UIFont systemFontOfSize:14.0f];
+    textName.text = device.customTitle;
     
     NSLog(@"[RYAN] Main_Screen_Width w:%f", Main_Screen_Width);
     
