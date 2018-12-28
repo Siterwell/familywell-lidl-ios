@@ -11,9 +11,14 @@
 #import "VideoDataBase.h"
 #import "DeviceDataBase.h"
 #import "ArrayTool.h"
+#import "DeviceDetailVC.h"
+#import "TempControlDetailVC.h"
+#import "SceneDetailVC.h"
+#import "LightDetailVC.h"
 
 @interface HomeHeadView ()
 @property (nonatomic, strong) NSMutableArray *modelSource;
+@property (nonatomic, strong) NSMutableArray *deviceItems;
 @end
 
 @implementation HomeHeadView
@@ -70,6 +75,7 @@
         make.bottom.equalTo(ws.mas_bottom).offset(-36);
     }];
     
+    self.deviceItems = [[NSMutableArray alloc]init];
 
     [self setImages];
 
@@ -156,10 +162,12 @@
                                              alpha:1.0f];
             [imageView1 setBackgroundColor:color];
             
+            [self.deviceItems removeAllObjects];
             [self lodaData];
             
             for (int i=0 ; i<[self.modelSource count] ; i++) {
-                [self addDeviceItem:imageView1 index:i];
+                UIImageView *deviceImage = [self addDeviceItem:imageView1 index:i];
+                [self.deviceItems addObject:deviceImage];
             }
         } else {
             [imageView1 setImage:[UIImage imageNamed:@"lbt_01"]];
@@ -218,20 +226,20 @@
 //    [self.bookShelfMainView reloadData];
 }
 
-- (void)addDeviceItem:(UIImageView *)imageView index:(int)i {
+- (UIImageView*)addDeviceItem:(UIImageView *)imageView index:(int)i {
     ItemData *device = [self.modelSource objectAtIndex:i];
     
-    UIImageView *imageItem = [UIImageView new];
-    [imageView addSubview:imageItem];
-    imageItem.userInteractionEnabled = FALSE;
-    [imageItem setImage:[UIImage imageNamed:device.image]];
+    UIImageView *deviceImage = [UIImageView new];
+    [imageView addSubview:deviceImage];
+    deviceImage.userInteractionEnabled = FALSE;
+    [deviceImage setImage:[UIImage imageNamed:device.image]];
     
-    UILabel *textName = [UILabel new];
-    [imageView addSubview:textName];
+    UILabel *deviceName = [UILabel new];
+    [imageView addSubview:deviceName];
     
-    textName.textColor = RGB(0, 0, 0);
-    textName.font = [UIFont systemFontOfSize:14.0f];
-    textName.text = device.customTitle;
+    deviceName.textColor = RGB(0, 0, 0);
+    deviceName.font = [UIFont systemFontOfSize:14.0f];
+    deviceName.text = device.customTitle;
     
     NSLog(@"[RYAN] Main_Screen_Width w:%f", Main_Screen_Width);
     
@@ -258,15 +266,72 @@
         offsetX += rangeW*2;
     }
     
-    [textName mas_makeConstraints:^(MASConstraintMaker *make) {
+    [deviceName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(imageView.mas_top).offset(offsetY);
         make.centerX.mas_equalTo(imageView.left).offset(offsetX);
     }];
     
-    [imageItem mas_makeConstraints:^(MASConstraintMaker *make) {
+    [deviceImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(imageView.mas_top).offset(offsetY);
         make.centerX.mas_equalTo(imageView.left).offset(offsetX);
     }];
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+    singleTap.numberOfTapsRequired = 1;
+    [deviceImage setUserInteractionEnabled:YES];
+//    [deviceImage addGestureRecognizer:singleTap];
+    [deviceImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickCategory:)]];
+
+    return deviceImage;
+}
+
+//-(void)tapDetected{
+//    NSLog(@"[RYAN] single Tap on imageview");
+//    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"DeviceStoryboard" bundle:nil];
+//    DeviceDetailVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"DeviceDetailVC"];
+//    vc.data = [self.modelSource objectAtIndex:0];
+//    [self.subVC.navigationController pushViewController:vc animated:YES];
+//}
+
+-(void)clickCategory:(UITapGestureRecognizer *)gestureRecognizer
+{
+    NSLog(@"[RYAN] clickCategory");
+    
+    UIView *viewClicked=[gestureRecognizer view];
+    
+    int index=0;
+    for (int i=0; i<[self.deviceItems count]; i++) {
+        if (viewClicked == [self.deviceItems objectAtIndex:i]) {
+            index = i;
+            break;
+        }
+    }
+    NSLog(@"[RYAN] viewClicked index: %d", index);
+    
+    ItemData *data = [self.modelSource objectAtIndex:index];
+    
+    if([data.title isEqualToString:@"温控器"]){
+        TempControlDetailVC *vc = [[TempControlDetailVC alloc] init];
+        vc.data = data;
+        [self.subVC.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([data.title isEqualToString:@"情景开关"]) {
+        SceneDetailVC *sdVC = [[SceneDetailVC alloc] init];
+        sdVC.data = data;
+        [self.subVC.navigationController pushViewController:sdVC animated:YES];
+    }
+    else if ([data.title isEqualToString:@"调光模块"]) {
+        LightDetailVC *ldVC = [[LightDetailVC alloc] init];
+        ldVC.data = data;
+        [self.subVC.navigationController pushViewController:ldVC animated:YES];
+    }
+    else {
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"DeviceStoryboard" bundle:nil];
+        DeviceDetailVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"DeviceDetailVC"];
+        vc.data = data;
+        [self.subVC.navigationController pushViewController:vc animated:YES];
+    }
+    
 }
 
 #pragma mark - UIScrollViewDelegate

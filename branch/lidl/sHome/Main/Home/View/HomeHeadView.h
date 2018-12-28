@@ -15,6 +15,8 @@
 
 @property (nonatomic, weak) id<HomeHeadViewDelegate> delegate;
 
+@property (nonatomic ,strong) UIViewController *subVC;
+
 @property (nonatomic , strong) UIScrollView *scrollView;
 
 @property (nonatomic , strong) NSArray *videoArray;

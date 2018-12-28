@@ -76,6 +76,8 @@
             [ws.delegate sendNext:nil];
         }
     }];
+    
+    self.collectionView.backgroundColor = RGB(33, 33, 33);
 }
 
 - (void)startScycn{

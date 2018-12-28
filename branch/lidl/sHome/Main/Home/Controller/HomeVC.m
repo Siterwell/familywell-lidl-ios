@@ -243,6 +243,7 @@ BOOL flag_checkfireware = NO;
     _sceneView.userInteractionEnabled = YES;
     
     self.imageView.delegate = self;
+    self.imageView.subVC = self;
     
     //紧急号码弹框
     
@@ -1152,15 +1153,16 @@ BOOL flag_checkfireware = NO;
 }
 
 - (void)cycleScrollView:(HomeHeadView *)cycleScrollView didSelectImageView:(NSInteger)index videoInfos:(NSArray *)videosArray{
+    NSLog(@"[RYAN] HomeVC > cycleScrollView > index: %d", index);
     
     VideoInfoModel *vInfo = [videosArray objectAtIndex:index];
-    
-    if ([vInfo.devid isEqualToString:@"lbt_01"]) {
+    if ([vInfo.devid isEqualToString:@"dev_list"]) {
+        
+    } else if ([vInfo.devid isEqualToString:@"lbt_01"]) {
         //新增摄像头
         UIStoryboard *board = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
         [self.navigationController pushViewController:[board instantiateViewControllerWithIdentifier:@"ChooseConnectTypeVC"]
                                              animated:YES];
-
     }else{
         VideoLiveViewController *videoLive = [[VideoLiveViewController alloc] init];
         videoLive.vInfo = vInfo;
@@ -1210,11 +1212,8 @@ BOOL flag_checkfireware = NO;
 
 - (void)initNoVideo {
     NSLog(@"[RYAN] HomeVC > initNoVideo ");
-    _imageView.videoArray = @[@{@"devid":@"lbt_01",@"name":NSLocalizedString(@"无视频，点击添加", nil)},
-                              @{@"devid":@"dev_list",@"name":NSLocalizedString(@"dev_list", nil)}];
-//    _imageView.videoArray = @[@{@"devid":@"dev_list",@"name":NSLocalizedString(@"dev_list", nil),
-//                                @"devid":@"lbt_01",@"name":NSLocalizedString(@"无视频，点击添加", nil)
-//                                }];
+    _imageView.videoArray = @[@{@"devid":@"dev_list",@"name":NSLocalizedString(@"dev_list", nil)},
+                              @{@"devid":@"lbt_01",@"name":NSLocalizedString(@"无视频，点击添加", nil)}];
 }
 
 - (void)setVideoArray:(NSMutableArray *) monitor {
