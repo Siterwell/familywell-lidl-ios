@@ -237,7 +237,7 @@
     UILabel *deviceName = [UILabel new];
     [imageView addSubview:deviceName];
     
-    deviceName.textColor = RGB(0, 0, 0);
+    deviceName.textColor = RGB(255, 255, 255);
     deviceName.font = [UIFont systemFontOfSize:14.0f];
     deviceName.text = device.customTitle;
     

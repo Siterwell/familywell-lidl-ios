@@ -1219,7 +1219,7 @@ BOOL flag_checkfireware = NO;
 - (void)setVideoArray:(NSMutableArray *) monitor {
     NSLog(@"[RYAN] HomeVC > setVideoArray ");
     if (monitor != nil&&[monitor count] > 0) {
-        [monitor addObject:@{@"devid":@"dev_list",@"name":NSLocalizedString(@"dev_list", nil)}];
+        [monitor insertObject:@{@"devid":@"dev_list",@"name":NSLocalizedString(@"dev_list", nil)} atIndex:0];
         _imageView.videoArray = monitor;
     }else{
         [self initNoVideo];
