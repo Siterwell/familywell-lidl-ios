@@ -351,7 +351,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
 //    }];
 //    [afNetworkReachabilityManager startMonitoring];  //开启网络监视器；
     
-    [self checkVersion];
+    // [RYAN] TODO: Mark this for BASE test
+//    [self checkVersion];
     
     //网络摄像头
     [self launchSomething];
