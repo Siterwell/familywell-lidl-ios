@@ -720,6 +720,7 @@
 		E2432D16219A7B5800A76C2C /* privacy_french.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D15219A7B5800A76C2C /* privacy_french.html */; };
 		E2432D18219A7B6E00A76C2C /* privacy_italian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D17219A7B6E00A76C2C /* privacy_italian.html */; };
 		E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D19219A7B8500A76C2C /* privacy_slovenian.html */; };
+		E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */ = {isa = PBXBuildFile; fileRef = E28F923521D0D567008EA9EB /* privacy_finnish.html */; };
 		E2DB982F219E631E00B7A7DD /* privacy_german.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB982E219E631E00B7A7DD /* privacy_german.html */; };
 		E2DB9831219E632C00B7A7DD /* privacy_spanish.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB9830219E632C00B7A7DD /* privacy_spanish.html */; };
 /* End PBXBuildFile section */
@@ -2296,6 +2297,7 @@
 		E2432D17219A7B6E00A76C2C /* privacy_italian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_italian.html; sourceTree = "<group>"; };
 		E2432D19219A7B8500A76C2C /* privacy_slovenian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_slovenian.html; sourceTree = "<group>"; };
 		E2565C6621AE77AF00571EBE /* PatternUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PatternUtil.h; sourceTree = "<group>"; };
+		E28F923521D0D567008EA9EB /* privacy_finnish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_finnish.html; sourceTree = "<group>"; };
 		E2DB982E219E631E00B7A7DD /* privacy_german.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_german.html; sourceTree = "<group>"; };
 		E2DB9830219E632C00B7A7DD /* privacy_spanish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_spanish.html; sourceTree = "<group>"; };
 		EC225CD3BEEFCDEBB3A0A0B4 /* Pods-sHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.debug.xcconfig"; sourceTree = "<group>"; };
@@ -5385,6 +5387,7 @@
 				E2432D19219A7B8500A76C2C /* privacy_slovenian.html */,
 				E2DB982E219E631E00B7A7DD /* privacy_german.html */,
 				E2DB9830219E632C00B7A7DD /* privacy_spanish.html */,
+				E28F923521D0D567008EA9EB /* privacy_finnish.html */,
 			);
 			path = html;
 			sourceTree = "<group>";
@@ -5459,8 +5462,9 @@
 				TargetAttributes = {
 					05E466721DF4FA170056E6FF = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = SZKCT5EZKN;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -5532,6 +5536,7 @@
 				E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */,
 				05BDDC7A1DFFBA3D00648F69 /* Placeholder in Resources */,
 				05BDDCBA1DFFEC2F00648F69 /* Placeholder in Resources */,
+				E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */,
 				05BDDCB91DFFEC2F00648F69 /* Placeholder in Resources */,
 				05BDDCBB1DFFEC2F00648F69 /* Placeholder in Resources */,
 				75AABC431E573BB8001529FC /* Localizable.strings in Resources */,
@@ -6587,8 +6592,8 @@
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6625,7 +6630,7 @@
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6643,8 +6648,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.silvercrest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3c754714-32ac-4053-a37d-13f749675feb";
-				PROVISIONING_PROFILE_SPECIFIER = adhoc_sivercrest;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

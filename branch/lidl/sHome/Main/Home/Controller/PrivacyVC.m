@@ -48,6 +48,8 @@
         path = @"privacy_italian";
     } else if ([languageName containsString:@"sl"]) {
         path = @"privacy_slovenian";
+    } else if ([languageName containsString:@"fi"]) {
+        path = @"privacy_finnish";
     }
     
     NSString *htmlFile = [[NSBundle mainBundle] pathForResource:path ofType:@"html"];
