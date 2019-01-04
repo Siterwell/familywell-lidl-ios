@@ -134,7 +134,7 @@
 #define kImageCollectionCell_Width floorf((Main_Screen_Width - 10*2- 10*3)/6)
 //最大的上传图片张数
 #define kupdateMaximumNumberOfImage 6
-#define HekrPid @"01850775038"
+#define HekrPid @"01396372313"
 //个推 cid
 #define AppClientID @"appClientID"
 

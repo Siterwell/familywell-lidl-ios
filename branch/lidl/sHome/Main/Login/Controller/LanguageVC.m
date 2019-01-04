@@ -209,7 +209,7 @@
     if ([config objectForKey:AppClientID]) {
         NSDictionary *dic = @{
                               @"clientId" : [config objectForKey:AppClientID],
-                              @"pushPlatform" : @"GETUI",
+                              @"pushPlatform" : @"FCM",
                               @"locale" : lan
                               };
         NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
