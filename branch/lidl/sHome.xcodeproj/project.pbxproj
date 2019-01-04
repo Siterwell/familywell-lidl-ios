@@ -713,6 +713,8 @@
 		DDA3A04A1F1709A6002DD920 /* ErrorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3A0491F1709A6002DD920 /* ErrorModel.m */; };
 		DDDB61461E9CBE4000BDEE25 /* FortgetPsdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDB61451E9CBE4000BDEE25 /* FortgetPsdCell.m */; };
 		DDDB61491E9CC57600BDEE25 /* AddDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDB61481E9CC57600BDEE25 /* AddDeviceCell.m */; };
+		E23DB69F21DF329F003D55EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E23DB69E21DF329F003D55EE /* GoogleService-Info.plist */; };
+		E23DB6A121DF331C003D55EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E23DB6A021DF331C003D55EE /* GoogleService-Info.plist */; };
 		E2432D0D219A6B3B00A76C2C /* PrivacyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2432D0C219A6B3B00A76C2C /* PrivacyVC.m */; };
 		E2432D10219A74F400A76C2C /* privacy_english.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D0F219A74F400A76C2C /* privacy_english.html */; };
 		E2432D12219A7B3500A76C2C /* privacy_czech.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D11219A7B3500A76C2C /* privacy_czech.html */; };
@@ -2288,6 +2290,8 @@
 		E2126DE821B6771D00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2126DEE21B6812900812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/HomeStoryboard.strings; sourceTree = "<group>"; };
 		E2126DF021B6885700812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
+		E23DB69E21DF329F003D55EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E23DB6A021DF331C003D55EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E2432D0B219A6B3B00A76C2C /* PrivacyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivacyVC.h; sourceTree = "<group>"; };
 		E2432D0C219A6B3B00A76C2C /* PrivacyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrivacyVC.m; sourceTree = "<group>"; };
 		E2432D0F219A74F400A76C2C /* privacy_english.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_english.html; sourceTree = "<group>"; };
@@ -3593,6 +3597,7 @@
 		05E466751DF4FA1A0056E6FF /* sHome */ = {
 			isa = PBXGroup;
 			children = (
+				E23DB6A021DF331C003D55EE /* GoogleService-Info.plist */,
 				880129CC214DCB370018E4BA /* LaunchScreen.storyboard */,
 				753562B01E5C550A00DEA1CA /* sHome.entitlements */,
 				75E520C61DFEEF890093DECC /* Expand(拓展) */,
@@ -3607,6 +3612,7 @@
 		05E466761DF4FA1A0056E6FF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E23DB69E21DF329F003D55EE /* GoogleService-Info.plist */,
 				05E466871DF4FA1A0056E6FF /* Info.plist */,
 				05E466AB1DF5368F0056E6FF /* config.json */,
 				017891512064A617004F8FD7 /* deviceName.plist */,
@@ -5464,7 +5470,7 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = SZKCT5EZKN;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -5548,6 +5554,7 @@
 				05E466AC1DF5368F0056E6FF /* config.json in Resources */,
 				E2432D14219A7B4500A76C2C /* privacy_dutch.html in Resources */,
 				05BDDCB61DFFEC2F00648F69 /* Placeholder in Resources */,
+				E23DB6A121DF331C003D55EE /* GoogleService-Info.plist in Resources */,
 				05CEA04F1E094E79008E9D90 /* Placeholder in Resources */,
 				05B204381E57FA2000210D6E /* HomeStoryboard.storyboard in Resources */,
 				05CEA04E1E094E79008E9D90 /* Placeholder in Resources */,
@@ -5586,6 +5593,7 @@
 				05BDDCB51DFFEC2F00648F69 /* Placeholder in Resources */,
 				05E466831DF4FA1A0056E6FF /* Assets.xcassets in Resources */,
 				0586A95F1E76798000DA458A /* phonering.mp3 in Resources */,
+				E23DB69F21DF329F003D55EE /* GoogleService-Info.plist in Resources */,
 				759FD7FF1E1D321900381A6B /* EspTouchDemo-Info.plist in Resources */,
 				05BDDC8C1DFFE5AB00648F69 /* Switch.xcassets in Resources */,
 				75E524C01DFEEF8A0093DECC /* MJRefresh.bundle in Resources */,
@@ -6590,9 +6598,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6610,8 +6618,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.silvercrest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "3c754714-32ac-4053-a37d-13f749675feb";
+				PROVISIONING_PROFILE_SPECIFIER = adhoc_sivercrest;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -6630,8 +6638,8 @@
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SZKCT5EZKN;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

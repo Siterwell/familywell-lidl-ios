@@ -37,6 +37,7 @@
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import <Firebase/Firebase.h>
 // iOS10 及以上需导入 UserNotifications.framework
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
@@ -69,6 +70,7 @@
  报警设备监听
  */
 - (void)AlarmDeviceListener{
+    NSLog(@"[RYAN] AppDelegate >> AlarmDeviceListener >> ");
     
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
@@ -131,6 +133,7 @@
  @param data 内容
  */
 - (void)doAlert:(NSDictionary *)data{
+    NSLog(@"[RYAN] AppDelegate >> doAlert >> ");
     
     NSDictionary *dic = data;
     ScyDeviceModel *model = [[ScyDeviceModel alloc] initWithDivicedictionary:dic error:nil];
@@ -252,6 +255,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Fabric with:@[[Crashlytics class]]];
+    [FIRApp configure];
     
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     NSString *lan;
@@ -288,43 +292,43 @@ static void uncaughtExceptionHandler(NSException *exception) {
     
     [[Hekr sharedInstance] config:config startPage:nil launchOptions:launchOptions];
     [[Hekr sharedInstance] firstPage];
-    self.tcpClient = [[HekrSimpleTcpClient alloc] init];
-    [self.tcpClient createTcpSocket:@"info.hekr.me" onPort:91 connect:^(HekrSimpleTcpClient *client ,BOOL isConnect) {
-        if (isConnect) {
-            [client writeDict:@{@"action":@"getAppDomain"}];
-        }else{
-//            NSLog(@"get domain error:TCP连接不成功");
-            NSString* domain = [[NSUserDefaults standardUserDefaults] objectForKey:@"hekr_domain"];
-            if(domain.length != 0 && [domain containsString:@"hekr"]){
-                ApiMap = @{@"user-openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
-                           @"user.openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
-                           @"uaa-openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
-                           @"uaa.openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
-                           @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
-            }else{
+//    self.tcpClient = [[HekrSimpleTcpClient alloc] init];
+//    [self.tcpClient createTcpSocket:@"info.hekr.me" onPort:91 connect:^(HekrSimpleTcpClient *client ,BOOL isConnect) {
+//        if (isConnect) {
+//            [client writeDict:@{@"action":@"getAppDomain"}];
+//        }else{
+////            NSLog(@"get domain error:TCP连接不成功");
+//            NSString* domain = [[NSUserDefaults standardUserDefaults] objectForKey:@"hekr_domain"];
+//            if(domain.length != 0 && [domain containsString:@"hekr"]){
+//                ApiMap = @{@"user-openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
+//                           @"user.openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
+//                           @"uaa-openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
+//                           @"uaa.openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
+//                           @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
+//            }else{
                 ApiMap = @{@"user-openapi.hekr.me":@"https://user-openapi.hekreu.me",
                            @"user.openapi.hekr.me":@"https://user-openapi.hekreu.me",
                            @"uaa-openapi.hekr.me":@"https://uaa-openapi.hekreu.me",
                            @"uaa.openapi.hekr.me":@"https://uaa-openapi.hekreu.me",
                            @"console-openapi.hekr.me":@"https://console-openapi.hekreu.me"};
-            }
-        }
-    } successCallback:^(HekrSimpleTcpClient *client, NSDictionary *data) {
-        NSString* domain = [[data objectForKey:@"dcInfo"] objectForKey:@"domain"];
-//        自己本地保存domain的参数
-        [[NSUserDefaults standardUserDefaults] setObject:domain forKey:@"hekr_domain"];
-        
-        ApiMap = @{@"user-openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
-                   @"user.openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
-                   @"uaa-openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
-                   @"uaa.openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
-                   @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
-        
-        NSLog(@"[RYAN] application >> domain = %@", domain);
-    }];
+//            }
+//        }
+//    } successCallback:^(HekrSimpleTcpClient *client, NSDictionary *data) {
+//        NSString* domain = [[data objectForKey:@"dcInfo"] objectForKey:@"domain"];
+////        自己本地保存domain的参数
+//        [[NSUserDefaults standardUserDefaults] setObject:domain forKey:@"hekr_domain"];
+//
+//        ApiMap = @{@"user-openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
+//                   @"user.openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
+//                   @"uaa-openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
+//                   @"uaa.openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
+//                   @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
+//
+//        NSLog(@"[RYAN] application >> domain = %@", domain);
+//    }];
     
     
-    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
+//    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
     // 注册 APNs
     [self registerRemoteNotification];
     
@@ -374,10 +378,10 @@ static void uncaughtExceptionHandler(NSException *exception) {
 //    NSLog(@"[RYAN] AppDelegate > applicationWillResignActive");
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [GeTuiSdk resetBadge];
+//    [GeTuiSdk resetBadge];
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [GeTuiSdk resetBadge];
+//    [GeTuiSdk resetBadge];
     
 //    NSLog(@"[RYAN] AppDelegate > applicationWillEnterForeground");
 }
@@ -389,7 +393,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     //-- [RYAN]
 }
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [GeTuiSdk resetBadge];
+//    [GeTuiSdk resetBadge];
 }
 
 - (void)checkUserLoginState {
@@ -557,19 +561,21 @@ static void uncaughtExceptionHandler(NSException *exception) {
     [[Hekr sharedInstance] didRegisterUserNotificationSettings:notificationSettings];
 }
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    NSLog(@"[RYAN] AppDelegate >> didRegisterForRemoteNotificationsWithDeviceToken >> ");
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     // 向个推服务器注册deviceToken
-    [GeTuiSdk registerDeviceToken:token];
+//    [GeTuiSdk registerDeviceToken:token];
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     /// Background Fetch 恢复SDK 运行
-    [GeTuiSdk resume];
+//    [GeTuiSdk resume];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    NSLog(@"[RYAN] AppDelegate >> didReceiveRemoteNotification >> ");
     [[Hekr sharedInstance] didReceiveRemoteNotification:userInfo];
 }
 
