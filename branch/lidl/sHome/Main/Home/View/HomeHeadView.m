@@ -167,7 +167,8 @@
             [self.deviceItems removeAllObjects];
             [self lodaData];
             
-            for (int i=0 ; i<[self.modelSource count] ; i++) {
+            NSUInteger size = ([self.modelSource count]>6 ? 6 : [self.modelSource count]);
+            for (int i=0 ; i<size ; i++) {
                 UIImageView *deviceImage = [self addDeviceItem:imageView1 index:i];
                 [self.deviceItems addObject:deviceImage];
             }
