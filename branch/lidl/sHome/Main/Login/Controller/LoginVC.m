@@ -243,11 +243,11 @@
     if ([config objectForKey:AppClientID]) {
         NSDictionary *dic = @{
                               @"clientId" : [config objectForKey:AppClientID],
-                              @"pushPlatform" : @"FCM",
+                              @"pushPlatform" : @"GETUI",
                               @"locale" : lan
                               };
         [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"绑定成功！");
+            NSLog(@"[RYAN] 绑定成功！");
 
             //        [self save];
             
@@ -257,6 +257,8 @@
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"[RYAN] 绑定失敗！ >> %@", error._IQDescription);
+            
             [weakSelf bindGTId];
         }];
     }
