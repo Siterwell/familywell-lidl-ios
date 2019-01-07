@@ -44,7 +44,7 @@
             <objects>
                 <navigationController id="93B-Cj-UjG" customClass="BaseNC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="情景列表" image="bottom_qj_icon" selectedImage="bottom_qj_hover_icon" id="IRA-Gm-9kv"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vAi-5D-YRH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="vAi-5D-YRH">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -65,7 +65,7 @@
             <objects>
                 <navigationController id="iLY-2d-WtF" customClass="BaseNC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我的家" image="bottom_sy_icon" selectedImage="bottom_sy_hover_icon" id="h3g-KB-3KA"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6at-XQ-A2j">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="6at-XQ-A2j">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -215,7 +215,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0bc-bh-Cmx" secondAttribute="trailing" id="2Sd-Tw-Rs2"/>
                             <constraint firstItem="ZUl-M3-hAf" firstAttribute="centerX" secondItem="40j-qk-YFY" secondAttribute="centerX" id="512-kr-qVU"/>
@@ -255,10 +255,13 @@
             <objects>
                 <navigationController id="jTK-QI-22L" customClass="BaseNC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="设备" image="bottom_sb_icon" selectedImage="bottom_sb_hover_icon" id="1Xx-Rc-5si"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e1Y-xz-QwN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="e1Y-xz-QwN">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="0.99321080269999995" blue="0.97273770500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="4fD-39-Cae" kind="relationship" relationship="rootViewController" id="exv-c4-OoS"/>
@@ -492,7 +495,7 @@
         <image name="bottom_sy_hover_icon" width="22" height="22"/>
         <image name="bottom_sy_icon" width="22" height="22"/>
         <image name="circle_icon00" width="60" height="60"/>
-        <image name="enter_icon" width="11" height="13"/>
+        <image name="enter_icon" width="9" height="15"/>
         <image name="ljms_icon" width="46" height="46"/>
         <image name="sbgjblue_bg" width="320" height="31"/>
         <image name="select_blue_icon" width="20" height="20"/>

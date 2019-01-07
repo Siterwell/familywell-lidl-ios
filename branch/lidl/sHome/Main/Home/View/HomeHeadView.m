@@ -59,6 +59,8 @@
     
     WS(ws)
     
+    [self setBackgroundColor:RGB(33, 33, 33)];
+    
     _scrollView = [UIScrollView new];
     _scrollView.bounces = NO;
     _scrollView.showsHorizontalScrollIndicator = NO;

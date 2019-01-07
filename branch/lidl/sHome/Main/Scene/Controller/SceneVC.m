@@ -107,7 +107,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     self.tabBarController.tabBar.alpha = 1;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     
     
     
