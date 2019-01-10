@@ -77,7 +77,7 @@
     self.nChannel = chn;
     self.window = wnd;
     self.nStreamType = streamType;
-    self.hPlayer = FUN_MediaRealPlay(self.hPlayer, SZSTR(deviceId), chn, streamType, (__bridge void *)wnd, _nSeq);
+    self.hPlayer = FUN_MediaRealPlay(SDK_HANDLE, SZSTR(deviceId), chn, streamType, (__bridge void *)wnd, _nSeq);
     return 0;
 }
 
@@ -242,7 +242,7 @@
                     
                 }
                 //显示模式   0:360VR
-//                NSLog(@"%d",pFishFrameInfo->lensType);
+                //                NSLog(@"%d",pFishFrameInfo->lensType);
                 if (pFishFrameInfo->lensType == SDK_FISHEYE_LENS_360VR || pFishFrameInfo->lensType == SDK_FISHEYE_LENS_360LVR) {//360vr
                     
                     fishSceneType = XMVR_TYPE_360D;
@@ -286,10 +286,12 @@
             break;
         }
         case EMSG_ON_Media_Thumbnail:{
+            NSLog(@"[RYAN] NSSDKMediaPlayer > EMSG_ON_Media_Thumbnail > path: %@", NSSTR(szStr));
             [self.delegate OnSnapThumbnail:self  Result:param1 FilePath:NSSTR(szStr)];
             break;
         }
         case EMSG_SAVE_IMAGE_FILE:{
+            NSLog(@"[RYAN] NSSDKMediaPlayer > EMSG_SAVE_IMAGE_FILE > path: %@", NSSTR(szStr));
             [self.delegate OnSnapImage:self  Result:param1 FilePath:NSSTR(szStr)];
             break;
         }

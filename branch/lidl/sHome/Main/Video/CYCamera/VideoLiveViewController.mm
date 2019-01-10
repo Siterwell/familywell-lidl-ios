@@ -72,7 +72,7 @@
     [_icon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(0);
         make.centerY.equalTo(0).offset(-15);
-//        make.width.height.equalTo(44);
+        //        make.width.height.equalTo(44);
     }];
     
     _name = [[UILabel alloc] init];
@@ -92,7 +92,7 @@
 
 
 @interface VideoLiveViewController ()<SDKMediaPlayerDelegate, NSSDKTalkerDelegate, UIAlertViewDelegate, UIActionSheetDelegate, UICollectionViewDelegate, UICollectionViewDataSource> {
-        
+    
     CGFloat showY;
     CGFloat hiddenY;
     SystemInfo JSystemInfo;
@@ -155,7 +155,7 @@
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.videoShowWindow.showWindow.frame), SCREEN_WIDTH, 130) collectionViewLayout:layout];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
-//        _collectionView.pagingEnabled = YES;
+        //        _collectionView.pagingEnabled = YES;
         _collectionView.bounces = YES;
         _collectionView.showsHorizontalScrollIndicator = NO;
         [_collectionView registerClass:[CYCameraCell class] forCellWithReuseIdentifier:@"CYCameraCell"];
@@ -191,7 +191,7 @@
     
     if ([self.videoArray[indexPath.row][@"name"] isEqualToString:self.vInfo.name] && [self.videoArray[indexPath.row][@"devid"] isEqualToString:self.vInfo.devid]) {
         [cell.icon setImage:[UIImage imageNamed:@"15-摄像头当前选中"]];
-//        self.selectIndex = indexPath.row;
+        //        self.selectIndex = indexPath.row;
     } else {
         [cell.icon setImage:[UIImage imageNamed:@"16-摄像头当前未选中"]];
     }
@@ -213,10 +213,10 @@
     self.title = self.vInfo.name;
     
     _stateBarShow = NO;
-//    NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"];
-//    VideoInfoModel *vinfoa = [[VideoDataBase sharedDataBase] selectVideoInfoByDevid:self.deviceSn andUserName:userName];
-//    self.devName = (vinfoa==nil||vinfoa.name == nil) ? self.vInfo.name : vinfoa.name;
-//    self.title = self.devName;
+    //    NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"];
+    //    VideoInfoModel *vinfoa = [[VideoDataBase sharedDataBase] selectVideoInfoByDevid:self.deviceSn andUserName:userName];
+    //    self.devName = (vinfoa==nil||vinfoa.name == nil) ? self.vInfo.name : vinfoa.name;
+    //    self.title = self.devName;
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
@@ -242,7 +242,7 @@
     //获取设备信息
     FUN_DevGetConfig_Json(SELF,CSTR(_deviceSn),"SystemInfo",0);
     
-//    [self creatSubViews];//创建子视图
+    //    [self creatSubViews];//创建子视图
     if (self.deviceSn.length > 0) {//如果之前有操作过某个设备 会被保存下来 下次播放这个设备
         [self toPlay];
     }
@@ -254,7 +254,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    int page = (scrollView.contentOffset.x / scrollView.frame.size.width) ;
+    //    int page = (scrollView.contentOffset.x / scrollView.frame.size.width) ;
     int page = floor((scrollView.contentOffset.x - scrollView.frame.size.width / 2) / scrollView.frame.size.width) + 1;
     [self.pageControl setCurrentPage:page];
 }
@@ -336,11 +336,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _stateBarShow = NO;
-//    NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"];
-//    VideoInfoModel *vinfoa = [[VideoDataBase sharedDataBase] selectVideoInfoByDevid:self.deviceSn andUserName:userName];
-//    [XMSingleton sharedXM].vInfo = self.vInfo;
-//    self.devName = (vinfoa == nil || vinfoa.name == nil) ? [XMSingleton sharedXM].vInfo.name : vinfoa.name;
-//    self.title = self.devName;
+    //    NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"];
+    //    VideoInfoModel *vinfoa = [[VideoDataBase sharedDataBase] selectVideoInfoByDevid:self.deviceSn andUserName:userName];
+    //    [XMSingleton sharedXM].vInfo = self.vInfo;
+    //    self.devName = (vinfoa == nil || vinfoa.name == nil) ? [XMSingleton sharedXM].vInfo.name : vinfoa.name;
+    //    self.title = self.devName;
     self.devName = (![XMSingleton sharedXM].vInfo || ![XMSingleton sharedXM].vInfo.name) ? self.vInfo.name : [XMSingleton sharedXM].vInfo.name;
     self.title = self.devName;
     
@@ -365,7 +365,7 @@
     
     //获取设备信息
     FUN_DevGetConfig_Json(SELF,CSTR(_deviceSn),"SystemInfo",0);
-
+    
     [self creatSubViews];//创建子视图
     
     if (self.deviceSn.length > 0) { //如果之前有操作过某个设备 会被保存下来 下次播放这个设备
@@ -376,7 +376,7 @@
     [self timerShowHidden];
     
     [(DisplayView*)self.window addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tuchShow)]];
-//     [ requestGetConfigWithChannel:self.channelNum andJObject:&JSupportExtRecord];//是否支持主副码流
+    //     [ requestGetConfigWithChannel:self.channelNum andJObject:&JSupportExtRecord];//是否支持主副码流
     
     /** 添加上下左右方向旋转 */
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
@@ -422,59 +422,37 @@
     _downBtn.hidden = YES;
     [self.view addSubview:_downBtn];
     
-//    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.selectIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+    //    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.selectIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
     
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    if (self.player.playState == ENSMEDIA_STATE_PLAY) {
-        if (_talker != nil) {
-            [self.talker stop];
-        }
-        [self.player stop];
-    }
-    [self.player stop];
-    [self.ptzController PTZControl:PAN_LEFT | PAN_RIGHT | TILT_UP | TILT_DOWN IsStop:YES Speed:4];
+    // [self.ptzController PTZControl:PAN_LEFT | PAN_RIGHT | TILT_UP | TILT_DOWN IsStop:YES Speed:4];
     self.leftBtn.hidden = self.rightBtn.hidden = self.upBtn.hidden = self.downBtn.hidden = YES;
     
-//    FUN_DevLogout(self.MsgHandle, [self.deviceSn UTF8String]);
+    //    FUN_DevLogout(self.MsgHandle, [self.deviceSn UTF8String]);
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
-    if (self.player.playState == ENSMEDIA_STATE_PLAY) {
-        [self snapImage];
-    }
     if (_talker != nil) {
         [self.talker stop];
     }
     [self.player stop];
-    
-//    FUN_DevLogout(self.MsgHandle, [self.deviceSn UTF8String]);
-}
-
-- (void)snapImage {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSData *data = UIImageJPEGRepresentation([self convertViewToImage:self.videoShowWindow.showWindow], 1);
-    //删除本地图片
-    if([[NSFileManager defaultManager] fileExistsAtPath:[NSString getJPGFilePathByDevSn:self.deviceSn]]){
-        [[NSFileManager defaultManager]  removeItemAtPath:[NSString getJPGFilePathByDevSn:self.deviceSn] error:nil];
+    NSArray *viewControllers = self.navigationController.viewControllers;//获取当前的视图控制其
+    if (viewControllers.count > 1 && [viewControllers objectAtIndex:viewControllers.count-2] == self) {
+        //当前视图控制器在栈中，故为push操作
+        NSLog(@"push");
+    } else{
+        //当前视图控制器不在栈中，故为pop操作
+        NSLog(@"pop");
+        FUN_DevLogout(self.MsgHandle, [self.deviceSn UTF8String]);
     }
-    [fileManager createFileAtPath:[NSString getJPGFilePathByDevSn:self.deviceSn] contents:data attributes:nil];
-    //保存到沙盒中
-    self.vInfo.imagePath = [NSString getJPGFilePathByDevSn:self.deviceSn];
-    [[VideoDataBase sharedDataBase] updateVideoInfo:self.vInfo];
+    
 }
 
-- (UIImage *)convertViewToImage:(UIView *)view {
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(SCREEN_WIDTH, self.videoShowWindow.showWindow.frame.size.height), NO, [UIScreen mainScreen].scale);
-    [view drawViewHierarchyInRect:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height) afterScreenUpdates:YES];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
 
 - (id)getWindow {
     self.window = [self.videoShowWindow getAndShowWindow];
@@ -509,7 +487,7 @@
     //设备管理
     UIBarButtonItem *rightBar = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"01-设置"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(mrgVideo)];
     self.navigationItem.rightBarButtonItem = rightBar;
-
+    
     self.videoShowWindow = [[VideoShowWindow alloc]initWithFrame:CGRectMake(0, TOP_HEIGHT, self.view.frame.size.width, self.view.frame.size.width*9/16)];
     self.videoShowWindow.parentVC = self;
     self.player.fishDelegate = self.videoShowWindow;
@@ -545,12 +523,12 @@
     self.subView.focusDownBtn.tag = FOCUS_NEAR;
     self.subView.irisUpBtn.tag = IRIS_OPEN;
     self.subView.irisDownBtn.tag = IRIS_CLOSE;
-//    BUTTON_TARGET(self.subView.zoomUpBtn, BtnPtzFunUp);
-//    BUTTON_TARGET(self.subView.zoomDownBtn, BtnPtzFunUp);
-//    BUTTON_TARGET(self.subView.focusUpBtn, BtnPtzFunUp);
-//    BUTTON_TARGET(self.subView.focusDownBtn, BtnPtzFunUp);
-//    BUTTON_TARGET(self.subView.irisUpBtn, BtnPtzFunUp);
-//    BUTTON_TARGET(self.subView.irisDownBtn, BtnPtzFunUp);
+    //    BUTTON_TARGET(self.subView.zoomUpBtn, BtnPtzFunUp);
+    //    BUTTON_TARGET(self.subView.zoomDownBtn, BtnPtzFunUp);
+    //    BUTTON_TARGET(self.subView.focusUpBtn, BtnPtzFunUp);
+    //    BUTTON_TARGET(self.subView.focusDownBtn, BtnPtzFunUp);
+    //    BUTTON_TARGET(self.subView.irisUpBtn, BtnPtzFunUp);
+    //    BUTTON_TARGET(self.subView.irisDownBtn, BtnPtzFunUp);
     
     //对讲按钮
     BUTTON_TARGET_DOWN(self.subView.intercomBtn, intercomStar);
@@ -567,13 +545,13 @@
     } else {
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.selectIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
     }
-//    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.selectIndex+2 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+    //    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.selectIndex+2 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
     
 }
 
 - (void)setResolution:(UIButton *)sender {
     if (self.player.nStreamType == 1) {
-//        [self.player setSound:100];
+        //        [self.player setSound:100];
         [self.player play:self.deviceSn andWnd:[self getWindow] andChannel:self.channelNum andStreamType:0 andSeq:0];
     } else {
         [self.player play:self.deviceSn andWnd:[self getWindow] andChannel:self.channelNum andStreamType:1 andSeq:0];
@@ -582,7 +560,7 @@
 }
 
 - (void)lookImage:(UIButton *)btn {
-//    [self showSheet:23];
+    //    [self showSheet:23];
     LCActionSheet *sheet = [LCActionSheet sheetWithTitle:NSLocalizedString(@"照片管理", nil) cancelButtonTitle:NSLocalizedString(@"取消", nil) clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
         if (buttonIndex == 0) {
             return ;
@@ -606,34 +584,34 @@
     RemoteVideoVc *rVideo = [[RemoteVideoVc alloc] init];
     [self.navigationController pushViewController:rVideo animated:YES];
     
-//    RemoteImageVc *rImage = [[RemoteImageVc alloc] init];
-//    [self.navigationController pushViewController:rImage animated:YES];
+    //    RemoteImageVc *rImage = [[RemoteImageVc alloc] init];
+    //    [self.navigationController pushViewController:rImage animated:YES];
     
     
     
-//    [self showSheet:22];
-//    LCActionSheet *sheet = [LCActionSheet sheetWithTitle:NSLocalizedString(@"视频管理", nil) cancelButtonTitle:NSLocalizedString(@"取消", nil) clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
-//        if (buttonIndex == 0) {
-//            return ;
-//        }
-//        else if (buttonIndex == 1) {
-//    RemoteVideoVc *rVideo = [[RemoteVideoVc alloc] init];
-//    [self.navigationController pushViewController:rVideo animated:YES];
-//        }
-//        else if (buttonIndex == 2) {
-//            LocalImgVdieoVc *local = [[LocalImgVdieoVc alloc] init];
-//            local.devsn = self.deviceSn;
-//            local.ivFlag = 1;
-//            [self.navigationController pushViewController:local animated:YES];
-//        }
-//
-//    } otherButtonTitles:NSLocalizedString(@"查看远程视频", nil), NSLocalizedString(@"查看本地视频", nil), nil];
-//    [sheet show];
+    //    [self showSheet:22];
+    //    LCActionSheet *sheet = [LCActionSheet sheetWithTitle:NSLocalizedString(@"视频管理", nil) cancelButtonTitle:NSLocalizedString(@"取消", nil) clicked:^(LCActionSheet * _Nonnull actionSheet, NSInteger buttonIndex) {
+    //        if (buttonIndex == 0) {
+    //            return ;
+    //        }
+    //        else if (buttonIndex == 1) {
+    //    RemoteVideoVc *rVideo = [[RemoteVideoVc alloc] init];
+    //    [self.navigationController pushViewController:rVideo animated:YES];
+    //        }
+    //        else if (buttonIndex == 2) {
+    //            LocalImgVdieoVc *local = [[LocalImgVdieoVc alloc] init];
+    //            local.devsn = self.deviceSn;
+    //            local.ivFlag = 1;
+    //            [self.navigationController pushViewController:local animated:YES];
+    //        }
+    //
+    //    } otherButtonTitles:NSLocalizedString(@"查看远程视频", nil), NSLocalizedString(@"查看本地视频", nil), nil];
+    //    [sheet show];
 }
 
 - (void)mrgVideo {
-//    ManagerViewController *vc = [[ManagerViewController alloc] init];
-//    [self.navigationController pushViewController:vc animated:YES];
+    //    ManagerViewController *vc = [[ManagerViewController alloc] init];
+    //    [self.navigationController pushViewController:vc animated:YES];
     MrgVideoVc *mrgVideo = [[MrgVideoVc alloc] init];
     mrgVideo.vInfo = self.vInfo;
     [XMSingleton sharedXM].deviceSn = self.deviceSn;
@@ -695,6 +673,15 @@
     [self.player snapImage:[NSString getJPGFilePath:self.deviceSn Channel:self.channelNum]];
 }
 
+- (void)captureVideoAuto {
+    
+    if (self.player.playState != ENSMEDIA_STATE_PLAY) {
+        return;
+    }
+    [self.player snapImage:[NSString getJPGFilePathByDevSn:self.deviceSn]];
+    self.vInfo.imagePath = [NSString getJPGFilePathByDevSn:self.deviceSn];
+}
+
 //计时显示隐藏
 - (void)timerShowHidden {
     if (_funViewShowing == 1) {
@@ -716,7 +703,7 @@
                 self.funView.hidden = NO;
                 _funViewShowing = 1;
             }else{
-//                self.funView.frame = CGRectMake(0, hiddenY, 0, 0);
+                //                self.funView.frame = CGRectMake(0, hiddenY, 0, 0);
                 self.funView.hidden = YES;
                 _funViewShowing = 0;
             }
@@ -777,7 +764,7 @@
             self.videoShowWindow.showWindow.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.videoShowWindow.showWindow.bounds = CGRectMake(0, 0, CGRectGetHeight(self.view.bounds), CGRectGetWidth(self.view.superview.bounds));
             self.videoShowWindow.showWindow.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
-    
+            
             self.funView.transform = CGAffineTransformMakeRotation(M_PI_2);
             self.funView.frame = CGRectMake(25, (SCREEN_HEIGHT - SCREEN_WIDTH)/2, 44, self.view.frame.size.width);
             [self.funView.fullScreenBtn setImage:[UIImage imageNamed:@"narrow_icon"] forState:UIControlStateNormal];
@@ -858,7 +845,7 @@
             [SVProgressHUD showErrorWithStatus: [self resultPrase:result] duration:3];
         }
     } else {
-
+        
     }
 }
 
@@ -887,6 +874,8 @@
 }
 
 - (void)OnSnapImage:(NSSDKMediaPlayer *)sender Result:(int)result FilePath:(NSString *)filePath {
+    NSLog(@"[RYAN] 截图了 > %@", filePath);
+    
     if (filePath!=nil) {
         
         if (![filePath hasSuffix:@"currentImage.jpg"]) {
@@ -931,12 +920,16 @@
                 [[VideoLocalDataBase sharedDataBase] updateVideoInfo:vInfo];
                 
                 [self loadImageFinished:imgFromUrl3];
+                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"成功", nil)];
             } dismissBlock:^{
-                                  
-                              }];
+                
+            }];
         } else {
             //保存到沙盒中
+            NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"];
+            self.vInfo.userName = userName;
             self.vInfo.imagePath = filePath;
+            NSLog(@"[RYAN] 截图了 > %@, %@, %@", self.vInfo.devid, self.vInfo.userName, self.vInfo.name);
             [[VideoDataBase sharedDataBase] updateVideoInfo:self.vInfo];
         }
     }
@@ -947,7 +940,7 @@
 
 - (void)OnTalkerStateChannage:(NSSDKTalker *)sender Result:(int)result State:(ETALKER_STATE)state {
     if(result == EE_DVR_PASSWORD_NOT_VALID){
-//        NSDeviceInfo *dev = [DATACENTER GetDeviceBySN:self.deviceSn];
+        //        NSDeviceInfo *dev = [DATACENTER GetDeviceBySN:self.deviceSn];
     }
 }
 
@@ -1040,9 +1033,9 @@
             default:
                 break;
         }
-
+        
     } else {
-    
+        
         local.ivFlag = 0;
         //图片
         switch (buttonIndex) {
@@ -1077,19 +1070,19 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     NSInteger nAddr = [pParam integerValue];
     MsgContent *msg = (MsgContent*)nAddr;
-    if (msg->param1 == -11301) {
+    if (msg->param1 > 0) {
+        [self captureVideoAuto];
+        return;
+    }  else if (msg->param1 == EE_DVR_PASSWORD_NOT_VALID) { //密码错误
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"请输入设备登录密码", nil) message:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
         [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
         UITextField *txtName = [alert textFieldAtIndex:0];
         txtName.placeholder = NSLocalizedString(@"请输入密码", nil);
         alert.tag = 201;
         [alert show];
-    } else {
-        if (msg->param1 > 0) {
-            return;
-        }
-        [MBProgressHUD showMessage:[NSString stringWithFormat:@"%d", msg->param1] ToView:self.view RemainTime:2.0];
+        return;
     }
+    [MBProgressHUD showMessage:[NSString stringWithFormat:@"%d", msg->param1] ToView:self.view RemainTime:2.0];
 }
 
 
