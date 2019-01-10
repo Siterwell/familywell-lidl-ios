@@ -1,96 +1,28 @@
-
-/* Class = "UIButton"; normalTitle = "用户注册"; ObjectID = "1oE-6O-w9q"; */
-"1oE-6O-w9q.normalTitle" = "用户注册";
-
-/* Class = "UIButton"; normalTitle = "请确认网关蓝灯闪烁，然后点击下一步。"; ObjectID = "2E2-mS-zvz"; */
-"2E2-mS-zvz.normalTitle" = "请确认网关蓝灯闪烁，然后点击下一步。";
-
-/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "2fA-Tg-EhO"; */
-"2fA-Tg-EhO.title" = "Root View Controller";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4Aj-3m-9Bs"; */
-"4Aj-3m-9Bs.normalTitle" = "Button";
-
-/* Class = "UITableViewController"; title = "用户注册"; ObjectID = "4KX-5N-BEg"; */
-"4KX-5N-BEg.title" = "用户注册";
-
-/* Class = "UITextField"; placeholder = "邮箱地址"; ObjectID = "4xj-P2-H2o"; */
-"4xj-P2-H2o.placeholder" = "邮箱地址";
-
-/* Class = "UIViewController"; title = "连接WLAN"; ObjectID = "9dB-Ju-qby"; */
-"9dB-Ju-qby.title" = "连接WLAN";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "EWq-G2-cxO"; */
-"EWq-G2-cxO.normalTitle" = "Button";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "IqC-bc-QgR"; */
-"IqC-bc-QgR.normalTitle" = "Button";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Lcb-9f-5eI"; */
-"Lcb-9f-5eI.normalTitle" = "Button";
-
-/* Class = "UIButton"; normalTitle = "密码重置"; ObjectID = "NWY-FH-7HM"; */
-"NWY-FH-7HM.normalTitle" = "密码重置";
-
-/* Class = "UIButton"; normalTitle = "登录"; ObjectID = "O8f-xt-8A7"; */
-"O8f-xt-8A7.normalTitle" = "登录";
-
-/* Class = "UIButton"; normalTitle = "记住密码"; ObjectID = "OHK-KG-Kue"; */
-"OHK-KG-Kue.normalTitle" = "记住密码";
-
-/* Class = "UITextField"; placeholder = "邮箱地址"; ObjectID = "PiC-bC-D9B"; */
-"PiC-bC-D9B.placeholder" = "邮箱地址";
-
-/* Class = "UIButton"; normalTitle = "下一步"; ObjectID = "QCD-oa-PN9"; */
-"QCD-oa-PN9.normalTitle" = "下一步";
-
-/* Class = "UITextField"; placeholder = "请输入用户名"; ObjectID = "Rai-uZ-1S7"; */
-"Rai-uZ-1S7.placeholder" = "请输入用户名";
-
-/* Class = "UIViewController"; title = "添加网关"; ObjectID = "X4o-PI-i7F"; */
-"X4o-PI-i7F.title" = "添加网关";
-
-/* Class = "UITextField"; placeholder = "请输入用户名"; ObjectID = "bLQ-ct-4rA"; */
-"bLQ-ct-4rA.placeholder" = "请输入用户名";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "epV-Rg-lpZ"; */
-"epV-Rg-lpZ.normalTitle" = "Button";
-
-/* Class = "UIViewController"; title = "隐私政策"; ObjectID = "gD8-Aj-CRS"; */
-"gD8-Aj-CRS.title" = "隐私政策";
-
-/* Class = "UIButton"; normalTitle = "连接"; ObjectID = "lGl-3E-WUI"; */
-"lGl-3E-WUI.normalTitle" = "连接";
-
-/* Class = "UITextField"; placeholder = "邮箱地址"; ObjectID = "mRx-Qp-gdE"; */
-"mRx-Qp-gdE.placeholder" = "邮箱地址";
-
-/* Class = "UILabel"; text = "长按网关按钮三秒以上"; ObjectID = "nC5-y5-eN1"; */
-"nC5-y5-eN1.text" = "长按网关按钮三秒以上";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "nwo-au-Rj2"; */
-"nwo-au-Rj2.normalTitle" = "Button";
-
-/* Class = "UIButton"; normalTitle = "记住密码"; ObjectID = "q0K-y9-24v"; */
-"q0K-y9-24v.normalTitle" = "记住密码";
-
-/* Class = "UITableViewController"; title = "添加设备"; ObjectID = "rPH-4M-dKj"; */
-"rPH-4M-dKj.title" = "添加设备";
-
-/* Class = "UILabel"; text = "连接中"; ObjectID = "sAP-6n-1Qa"; */
-"sAP-6n-1Qa.text" = "连接中";
-
-/* Class = "UITextField"; placeholder = "请输入密码"; ObjectID = "udc-jc-uJX"; */
-"udc-jc-uJX.placeholder" = "请输入密码";
-
-/* Class = "UITextField"; placeholder = "邮箱地址"; ObjectID = "wlw-RN-3f7"; */
-"wlw-RN-3f7.placeholder" = "邮箱地址";
-
-/* Class = "UIButton"; normalTitle = "发送"; ObjectID = "xhx-kz-lue"; */
-"xhx-kz-lue.normalTitle" = "发送";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "yMk-Bs-UZb"; */
-"yMk-Bs-UZb.normalTitle" = "Button";
-
-/* Class = "UITableViewController"; title = "密码重置"; ObjectID = "yg5-0P-wiF"; */
-"yg5-0P-wiF.title" = "密码重置";
+"1oE-6O-w9q.normalTitle" = "Rekisteröidy";
+"2E2-mS-zvz.normalTitle" = "Varmista, että tukiaseman sininen valo vilkkuu \n ja siirry seuraavaan vaiheeseen.";
+"4KX-5N-BEg.title" = "Rekisteröidy";
+"9dB-Ju-qby.title" = "WLAN";
+"Lcb-9f-5eI.normalTitle" = "Painike";
+"MLA-sA-6kN.title" = "Ohjeet";
+"NWY-FH-7HM.normalTitle" = "Aseta uudelleen";
+"O8f-xt-8A7.normalTitle" = "Kirjaudu";
+"OHK-KG-Kue.normalTitle" = "Muista salasana";
+"QCD-oa-PN9.normalTitle" = "Seuraava";
+"QQg-ME-6G0.text" = "NIMI";
+"QyD-ba-k6e.placeholder" = "Syötä sähköpostiosoite";
+"Rai-uZ-1S7.placeholder" = "Syötä käyttätunnus";
+"Rml-yw-Z0l.text" = "NIMI";
+"X4o-PI-i7F.title" = "Tukiaseman asetukset";
+"aJ3-ex-MII.text" = "Klikkaa tilataksesi uusi salasana. Uusi salasana lähetetään sähköpostiisi.";
+"bLQ-ct-4rA.placeholder" = "Syötä käyttätunnus";
+"lGl-3E-WUI.normalTitle" = "Yhdistä";
+"nC5-y5-eN1.text" = "\nResetoidaksesi tukiaseman, paina tukiaseman painiketta yli 3 sekuntia.";
+"nwo-au-Rj2.normalTitle" = "Painike";
+"qoA-97-xW4.text" = "PWD";
+"rPH-4M-dKj.title" = "Lisää laite";
+"q0K-y9-24v.normalTitle" = "Muista salasana";
+"sAP-6n-1Qa.text" = "Yhdistää...";
+"udc-jc-uJX.placeholder" = "Syötä salasana";
+"wlw-RN-3f7.placeholder" = "Sähköposti";
+"xhx-kz-lue.normalTitle" = "LÄHETÄ";
+"yg5-0P-wiF.title" = "ASETA UUDELLEEN";
