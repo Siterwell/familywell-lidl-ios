@@ -259,6 +259,11 @@
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [weakSelf bindGTId];
         }];
+    } else {
+        // TODO : [RYAN] need to fix this issue
+        NSLog(@"[RYAN] no App client ID！");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginUser" object:nil];
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

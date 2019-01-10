@@ -227,42 +227,49 @@
 - (void)logoutUser {
     MJWeakSelf
     NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
-
+    
     NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
-    NSDictionary *params = @{@"clientId": [config objectForKey:AppClientID],
-                             @"pushPlatform": @"GETUI"
-                             };
-    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/unbindPushAlias", https] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    if ([config objectForKey:AppClientID]) {
+        NSDictionary *params = @{@"clientId": [config objectForKey:AppClientID],
+                                 @"pushPlatform": @"GETUI"
+                                 };
+        [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/unbindPushAlias", https] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            [self logout];
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [weakSelf logoutUser];
+        }];
+    } else {
+        [self logout];
+    }
+}
 
-        //氦氪登出
-        [[Hekr sharedInstance] logout];
-        //删除NSUserDefaults数据
-        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-        
-        [config setObject:[config objectForKey:DeviceInfo] forKey:@"LastDeviceInfo"];
-        [config setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"] forKey:@"USERNAMELOGOUT"];
-        
-        [config removeObjectForKey:DeviceInfo];
-        [config removeObjectForKey:UserInfos];
-        [config removeObjectForKey:selectSystemItem];
-        //删除数据库数据
-        [[DeviceDataBase sharedDataBase] deletDevice];
-        [[SceneDataBase sharedDataBase] deletAllScene];
-        [[SystemSceneDataBase sharedDataBase] deletAllSystemScene];
-        [[TimeScenedDataBase sharedDataBase] deletAllTimerScene];
-        [[VideoDataBase sharedDataBase] deletAllVideoInfo];
-        //删除归档数据
-        [[NSFileManager defaultManager] removeItemAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/devices.archiver"] error:nil];
-        
-        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        NSString *storyboardName = @"Main";
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
-        delegate.window.rootViewController = [storyboard instantiateInitialViewController];
-
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        [weakSelf logoutUser];
-    }];
+- (void)logout{
+    //氦氪登出
+    [[Hekr sharedInstance] logout];
+    //删除NSUserDefaults数据
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    
+    [config setObject:[config objectForKey:DeviceInfo] forKey:@"LastDeviceInfo"];
+    [config setObject:[[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"] forKey:@"USERNAMELOGOUT"];
+    
+    [config removeObjectForKey:DeviceInfo];
+    [config removeObjectForKey:UserInfos];
+    [config removeObjectForKey:selectSystemItem];
+    //删除数据库数据
+    [[DeviceDataBase sharedDataBase] deletDevice];
+    [[SceneDataBase sharedDataBase] deletAllScene];
+    [[SystemSceneDataBase sharedDataBase] deletAllSystemScene];
+    [[TimeScenedDataBase sharedDataBase] deletAllTimerScene];
+    [[VideoDataBase sharedDataBase] deletAllVideoInfo];
+    //删除归档数据
+    [[NSFileManager defaultManager] removeItemAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/devices.archiver"] error:nil];
+    
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSString *storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    delegate.window.rootViewController = [storyboard instantiateInitialViewController];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
