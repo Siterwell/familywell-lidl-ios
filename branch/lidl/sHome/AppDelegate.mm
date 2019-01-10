@@ -255,7 +255,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Fabric with:@[[Crashlytics class]]];
-    [FIRApp configure];
+//    [FIRApp configure];
     
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     NSString *lan;
@@ -328,7 +328,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     }];
 
     
-//    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
+    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
     // 注册 APNs
     [self registerRemoteNotification];
     
@@ -378,10 +378,10 @@ static void uncaughtExceptionHandler(NSException *exception) {
 //    NSLog(@"[RYAN] AppDelegate > applicationWillResignActive");
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-//    [GeTuiSdk resetBadge];
+    [GeTuiSdk resetBadge];
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-//    [GeTuiSdk resetBadge];
+    [GeTuiSdk resetBadge];
     
 //    NSLog(@"[RYAN] AppDelegate > applicationWillEnterForeground");
 }
@@ -393,7 +393,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     //-- [RYAN]
 }
 - (void)applicationWillTerminate:(UIApplication *)application {
-//    [GeTuiSdk resetBadge];
+    [GeTuiSdk resetBadge];
 }
 
 - (void)checkUserLoginState {
@@ -565,12 +565,12 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     // 向个推服务器注册deviceToken
-//    [GeTuiSdk registerDeviceToken:token];
+    [GeTuiSdk registerDeviceToken:token];
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     /// Background Fetch 恢复SDK 运行
-//    [GeTuiSdk resume];
+    [GeTuiSdk resume];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 

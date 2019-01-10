@@ -243,7 +243,7 @@
     if ([config objectForKey:AppClientID]) {
         NSDictionary *dic = @{
                               @"clientId" : [config objectForKey:AppClientID],
-                              @"pushPlatform" : @"FCM",
+                              @"pushPlatform" : @"GETUI",
                               @"locale" : lan
                               };
         [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
