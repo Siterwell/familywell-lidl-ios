@@ -136,8 +136,10 @@
     WS(ws)
     
     //TODO : [RYAN] Hekr login api is not encryted
+    NSLog(@"[RYAN] +++++++ start login");
     [[Hekr sharedInstance] login:_userNameTextField.text password:_passwordTextField.text callbcak:^(id user, NSError *error) {
         if (!error) {
+            NSLog(@"[RYAN] +++++++ login success");
             NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
 
             [config setObject:self.userNameTextField.text forKey:@"UserName"];
@@ -154,6 +156,7 @@
             [[NSUserDefaults standardUserDefaults] setObject:_userNameTextField.text forKey:@"CurrentUserName"];
         }
         else{
+            NSLog(@"[RYAN] +++++++ login fail");
             [MBProgressHUD hideHUDForView:ws.view animated:YES];
 
             if (error.code == -1011) {
@@ -169,7 +172,10 @@
 
 - (void)getDeviceList{
     WS(ws)
+    
+    NSLog(@"[RYAN] +++++++ start getDeviceList");
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/device", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:@{@"page":@(0),@"size":@(5)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
         [MBProgressHUD hideHUDForView:ws.view animated:YES];
         NSArray *arr = responseObject;
         
@@ -180,6 +186,7 @@
         }];
         [[Hekr sharedInstance] setCloudControlWithGlobals:dcs.allObjects];
         
+        NSLog(@"[RYAN] +++++++ getDeviceList success > size: %d", arr.count);
         if (arr != nil && arr.count>0) {
             NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
             [config setValue:arr forKey:Devices];
@@ -240,12 +247,14 @@
     NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
     [config setValue:languageName forKey:CurrentLanguage];
     
+    NSLog(@"[RYAN] +++++++ pre bindGTId > clientId: %@", [config objectForKey:AppClientID]);
     if ([config objectForKey:AppClientID]) {
         NSDictionary *dic = @{
                               @"clientId" : [config objectForKey:AppClientID],
                               @"pushPlatform" : @"GETUI",
                               @"locale" : lan
                               };
+        
         [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSLog(@"[RYAN] 绑定成功！");
 

@@ -679,6 +679,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
 }
 
 - (void)GeTuiSdkDidRegisterClient:(NSString *)clientId{
+    NSLog(@"[RYAN] AppDelegate > GeTuiSdkDidRegisterClient > clientId: %@", clientId);
+    
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     [config setObject:clientId forKey:AppClientID];
     [config synchronize];
