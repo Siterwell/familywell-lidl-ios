@@ -240,10 +240,11 @@
     NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
     [config setValue:languageName forKey:CurrentLanguage];
     
+    NSLog(@"[RYAN] bindGTId > app client ID : %@", [config objectForKey:AppClientID]);
     if ([config objectForKey:AppClientID]) {
         NSDictionary *dic = @{
                               @"clientId" : [config objectForKey:AppClientID],
-                              @"pushPlatform" : @"GETUI",
+                              @"pushPlatform" : @"FCM",
                               @"locale" : lan
                               };
         [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
