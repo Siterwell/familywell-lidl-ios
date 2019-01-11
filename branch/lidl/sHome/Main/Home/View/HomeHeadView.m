@@ -231,21 +231,31 @@
 
 - (UIImageView*)addDeviceItem:(UIImageView *)imageView index:(int)i {
     ItemData *device = [self.modelSource objectAtIndex:i];
+
+    BOOL isGroup = [device isKindOfClass:[NSArray class]];
     
     UIImageView *deviceImage = [UIImageView new];
     [imageView addSubview:deviceImage];
     deviceImage.userInteractionEnabled = FALSE;
-    [deviceImage setImage:[UIImage imageNamed:device.image]];
-    
+    if (isGroup) {
+        [deviceImage setImage:[UIImage imageNamed:@"sbz_icon"]];
+    } else {
+        [deviceImage setImage:[UIImage imageNamed:device.image]];
+    }
+
     UILabel *deviceName = [UILabel new];
     [imageView addSubview:deviceName];
-    
+
     deviceName.textColor = RGB(255, 255, 255);
     deviceName.font = [UIFont systemFontOfSize:14.0f];
-    deviceName.text = device.customTitle;
-    
+    if (isGroup) {
+        deviceName.text = @"Group";
+    } else {
+        deviceName.text = device.customTitle;
+    }
+
     NSLog(@"[RYAN] Main_Screen_Width w:%f", Main_Screen_Width);
-    
+
     float rangeW = Main_Screen_Width/3;
     float rangeH = Main_Screen_Width/4 + 20;
     float left = rangeW/2;
@@ -268,22 +278,24 @@
         offsetY = rangeH*2;
         offsetX += rangeW*2;
     }
-    
+
     [deviceName mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(imageView.mas_top).offset(offsetY);
         make.centerX.mas_equalTo(imageView.left).offset(offsetX);
     }];
-    
+
     [deviceImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(imageView.mas_top).offset(offsetY);
         make.centerX.mas_equalTo(imageView.left).offset(offsetX);
     }];
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
-    singleTap.numberOfTapsRequired = 1;
-    [deviceImage setUserInteractionEnabled:YES];
-//    [deviceImage addGestureRecognizer:singleTap];
-    [deviceImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickCategory:)]];
+    if (!isGroup) {
+//        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
+//        singleTap.numberOfTapsRequired = 1;
+//        [deviceImage addGestureRecognizer:singleTap];
+        [deviceImage setUserInteractionEnabled:YES];
+        [deviceImage addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickCategory:)]];
+    }
 
     return deviceImage;
 }
