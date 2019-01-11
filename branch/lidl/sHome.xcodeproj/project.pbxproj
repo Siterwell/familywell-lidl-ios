@@ -723,6 +723,7 @@
 		E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */ = {isa = PBXBuildFile; fileRef = E28F923521D0D567008EA9EB /* privacy_finnish.html */; };
 		E2DB982F219E631E00B7A7DD /* privacy_german.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB982E219E631E00B7A7DD /* privacy_german.html */; };
 		E2DB9831219E632C00B7A7DD /* privacy_spanish.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB9830219E632C00B7A7DD /* privacy_spanish.html */; };
+		E2E8ED6921E865C600DAC17A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2E8ED6821E865C600DAC17A /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2300,6 +2301,7 @@
 		E28F923521D0D567008EA9EB /* privacy_finnish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_finnish.html; sourceTree = "<group>"; };
 		E2DB982E219E631E00B7A7DD /* privacy_german.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_german.html; sourceTree = "<group>"; };
 		E2DB9830219E632C00B7A7DD /* privacy_spanish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_spanish.html; sourceTree = "<group>"; };
+		E2E8ED6821E865C600DAC17A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC225CD3BEEFCDEBB3A0A0B4 /* Pods-sHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.debug.xcconfig"; sourceTree = "<group>"; };
 		F953ED983735DAD1189E15F3 /* Pods-sHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.release.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3593,6 +3595,7 @@
 		05E466751DF4FA1A0056E6FF /* sHome */ = {
 			isa = PBXGroup;
 			children = (
+				E2E8ED6821E865C600DAC17A /* GoogleService-Info.plist */,
 				880129CC214DCB370018E4BA /* LaunchScreen.storyboard */,
 				753562B01E5C550A00DEA1CA /* sHome.entitlements */,
 				75E520C61DFEEF890093DECC /* Expand(拓展) */,
@@ -5586,6 +5589,7 @@
 				05BDDCB51DFFEC2F00648F69 /* Placeholder in Resources */,
 				05E466831DF4FA1A0056E6FF /* Assets.xcassets in Resources */,
 				0586A95F1E76798000DA458A /* phonering.mp3 in Resources */,
+				E2E8ED6921E865C600DAC17A /* GoogleService-Info.plist in Resources */,
 				759FD7FF1E1D321900381A6B /* EspTouchDemo-Info.plist in Resources */,
 				05BDDC8C1DFFE5AB00648F69 /* Switch.xcassets in Resources */,
 				75E524C01DFEEF8A0093DECC /* MJRefresh.bundle in Resources */,
