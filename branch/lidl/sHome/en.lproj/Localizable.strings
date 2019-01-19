@@ -155,8 +155,8 @@
 "非法入侵报警" = "ILLEGAL ENCROACHMENT";
 "静音" = "MUTE";
 "门铃报警" = "DOORBELL ALARM";
-"插座开" = "SOCKET OPEN";
-"插座关" = "SOCKET CLOSE";
+"插座开" = "SOCKET TURN ON";
+"插座关" = "SOCKET TURN OFF";
 "插座切换" = "SOCKET SWITCH";
 "门打开" = "DOOR OPEN";
 "门没有关" = "DOOR AWAIT";
@@ -507,3 +507,5 @@
 "隐私政策" = "Privacy Policy";
 "The password must contain at least 10 characters and number!" = "The password must contain at least 10 characters and number!";
 "Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters." = "Passwords must contain at least 10 characters, of which 1 uppercase letter, 1 lowercase letter, 1 number and/or special character";
+"Socket ON" = "Socket ON";
+"Socket OFF" = "Socket OFF";

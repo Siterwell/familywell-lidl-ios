@@ -461,6 +461,7 @@
 "正在格式化" = "Le formatage";
 "是否格式化设备磁盘" = "Si le dispositif de formatage de disque";
 "必须含有输入条件" = "Doit contenir des conditions d'entrée";
+"%@(%@)的%@触发了" = "%@(%@) %@ Triggered!";
 "定位" = "De positionnement";
 "不定位" = "Pas de positionnement";
 "定位设置" = "Configuration de positionnement";

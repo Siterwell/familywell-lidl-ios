@@ -474,7 +474,7 @@
     if ([_data.status isEqualToString:@"aq"]) {
         [_bgImageView setImage:[UIImage imageNamed:@"sbgreen_bg"]];
         if ([_data.title isEqualToString:@"智能插座"]) {
-            _MainLabel.text = NSLocalizedString(@"关闭",nil);
+            _MainLabel.text = NSLocalizedString(@"Socket OFF",nil);
             [_deviceSwitch setOn:NO animated:YES];
         }
         else if ([_data.title isEqualToString:@"门锁"]) {
@@ -538,7 +538,7 @@
         
         if ([_data.title isEqualToString:@"智能插座"]) {
             [_bgImageView setImage:[UIImage imageNamed:@"sbred_bg"]];//
-            _MainLabel.text = NSLocalizedString(@"打开",nil);
+            _MainLabel.text = NSLocalizedString(@"Socket ON",nil);
             [_deviceSwitch setOn:YES animated:YES];
         }
         else if([_data.title isEqualToString:@"门磁"]){

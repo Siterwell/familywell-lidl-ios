@@ -18,7 +18,7 @@
 "绑定成功！" = "Tili liitetty onnistuneesti";
 "重试" = "Yritä uudelleen";
 "新增" = "Lisää";
-"设备" = "Teemat";
+"设备" = "Laitteet";
 "管理" = "Hallinta";
 "确定" = "OK";
 "取消" = "Peruuta";
@@ -129,8 +129,8 @@
 "选择执行条件" = "Valitse toteutettavat ehdot";
 "手机通知" = "Puhelinilmoitus";
 "通知手机" = "Puhelinilmoitus";
-"如果你添加了一个或者多个启动条件时，达到其中任何一个条件都会执行任务。" = "Jos lisätään useita aloitusehtoja, kaikkien ehtojen tulee täyttyä ennen kuin toiminto toteutetaan";
-"如果添加了多个启动条件时，必须达到所有条件才会执行任务；\n 如果只添加了一个启动条件，此时满足该条件即执行任务；\n如果您还未理解此选项功能，选择默认选项或者咨询我们。" = "Jos lisätään vain yksi aloitusehto, toiminto toteutetaan. ;\nMikäli et ymmärrä tätä vaihtoehtoa, valitse oletusvaihtoehto tai ole yhteydessä meihin.";
+"如果你添加了一个或者多个启动条件时，达到其中任何一个条件都会执行任务。" = "Yhden ehdon tulee täyttyä ennen kuin toiminto toteutetaan";
+"如果添加了多个启动条件时，必须达到所有条件才会执行任务；\n 如果只添加了一个启动条件，此时满足该条件即执行任务；\n如果您还未理解此选项功能，选择默认选项或者咨询我们。" = "Kaikkien ehtojen tulee täyttyä ennen kuin toiminto toteutetaan";
 "没有找到相关设备，可能被删除" = "Laitetta ei löydy, se on ehkä poistettu?";
 "配网失败" = "Jakeluverkko epäonnistui";
 "首页" = "Etusivu";
@@ -393,7 +393,7 @@
 "始终录像" = "Jatkuva tallennus";
 "从不录像" = "Ei tallenna koskaan";
 "联动录像" = "Yhdistetty tallennus";
-"录像音频" = "Videon ääni";
+"录像音频" = "Tallenna ääni";
 "移动侦测" = "Liiketunnistus";
 "设备检测到移动物体就会触发报警事件" = "Laite aktivoi hälytyksen havaittuaan liikkuvan kohteen";
 "设备检查到移动物体就会开始录像" = "Laite aloittaa videotallennuksen havaittuaan liikkuvan kohteen";
@@ -415,7 +415,7 @@
 "查看远程图像" = "Hallinnoi kuvia";
 "查看本地截图" = "Näyttökuvat";
 "确定删除历史告警记录" = "Haluatko varmasti poistaa hälytyshistorian?";
-"设备已添加" = "Teemat";
+"设备已添加" = "Laite on lisätty";
 "请设置%@%@名称" = "aseta%@%@ nimi";
 "开锁" = "avattu";
 "密码开锁" = "avaa";
@@ -434,7 +434,7 @@
 "同步摄像机时间" = "Synkronoi aika";
 "获取验证码" = "Varmistus koodi";
 "请输入邮箱地址" = "Syötä sähköpostiosoite";
-"请输入验证码" = "Säppäile koodi";
+"请输入验证码" = "Näppäile koodi";
 "请确认密码" = "Vahvista salasana";
 "请输入手机号" = "Syötä puhelinnumero";
 "手机注册" = "Rekisteröinti puhelinnmerolla";
@@ -455,8 +455,8 @@
 "老人可能长时间未移动" = "Liikuntakyvytön henkilö";
 "低电压" = "Virta vähissä";
 "确定删除摄像机" = "Oletko varma, että haluat poistaa?";
-"预录" = "Äänitetyt";
-"录像长度" = "Videon pituus";
+"预录" = "Esitallennus";
+"录像长度" = "Tallenteen pituus";
 "格式化成功" = "Muotoiltu onnistuneesti";
 "正在格式化" = "Alustus";
 "是否格式化设备磁盘" = "Haluatko alustaa laitteen?";
@@ -473,7 +473,7 @@
 "添加摄像机" = "Lisää kamera";
 "是否听到设备提示\"开始快速配置\"或\"等待连接\"" = "Kuulitko laitteen kehoituksen \"Wait to be configured\"?";
 "若确认，点击进入\"下一步\"" = "Jos kuulit, niin klikkaa \"Seuraava\".";
-"有些设备为指示灯快闪，无语音提示" = "Jotkut laitteet saattavat vilkkuvat kevyesti ilman ääniä";
+"有些设备为指示灯快闪，无语音提示" = "Jotkut laitteet saattavat vilkkua kevyesti ilman ääniä";
 "(暂不支持5GHz频段的WIFI)" = "(Ei tue 5GHz WIFI-taajuutta)";
 "若观察到上述现象，请点击" = "Jos edellämainittu tapahtuu, paina";
 "1.请插好电源和数据线，确保设备商店并已经正常运行;" = "1. Liitä virtakaapeli varmistaaksesi, että laite on käynnissä.";
