@@ -37,6 +37,7 @@
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import <Firebase/Firebase.h>
 // iOS10 及以上需导入 UserNotifications.framework
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
@@ -45,7 +46,7 @@
 
 //extern NSDictionary * ApiMap;
 
-@interface AppDelegate ()<GeTuiSdkDelegate, UNUserNotificationCenterDelegate, UIAlertViewDelegate>
+@interface AppDelegate ()<GeTuiSdkDelegate, FIRMessagingDelegate, UNUserNotificationCenterDelegate, UIAlertViewDelegate>
 
 @property (nonatomic) HekrSimpleTcpClient *tcpClient;
 
@@ -252,6 +253,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Fabric with:@[[Crashlytics class]]];
+    [FIRApp configure];
+    [FIRMessaging messaging].delegate = self;
     
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     NSString *lan;
@@ -324,7 +327,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     }];
     
     
-    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
+//    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
     // 注册 APNs
     [self registerRemoteNotification];
     
@@ -374,10 +377,10 @@ static void uncaughtExceptionHandler(NSException *exception) {
 //    NSLog(@"[RYAN] AppDelegate > applicationWillResignActive");
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [GeTuiSdk resetBadge];
+//    [GeTuiSdk resetBadge];
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [GeTuiSdk resetBadge];
+//    [GeTuiSdk resetBadge];
     
 //    NSLog(@"[RYAN] AppDelegate > applicationWillEnterForeground");
 }
@@ -389,7 +392,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     //-- [RYAN]
 }
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [GeTuiSdk resetBadge];
+//    [GeTuiSdk resetBadge];
 }
 
 - (void)checkUserLoginState {
@@ -560,12 +563,12 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     // 向个推服务器注册deviceToken
-    [GeTuiSdk registerDeviceToken:token];
+//    [GeTuiSdk registerDeviceToken:token];
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     /// Background Fetch 恢复SDK 运行
-    [GeTuiSdk resume];
+//    [GeTuiSdk resume];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
@@ -676,6 +679,20 @@ static void uncaughtExceptionHandler(NSException *exception) {
 - (void)GeTuiSdkDidRegisterClient:(NSString *)clientId{
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     [config setObject:clientId forKey:AppClientID];
+    [config synchronize];
+}
+
+- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
+    NSLog(@"[RYAN] FCM registration token: %@", fcmToken);
+    // Notify about received token.
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:
+     @"FCMToken" object:nil userInfo:dataDict];
+    // TODO: If necessary send token to application server.
+    // Note: This callback is fired at each app startup and whenever a new token is generated.
+    
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    [config setObject:fcmToken forKey:AppClientID];
     [config synchronize];
 }
 

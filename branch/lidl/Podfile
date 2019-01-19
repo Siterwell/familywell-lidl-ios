@@ -28,5 +28,7 @@ pod 'CocoaAsyncSocket'
 pod 'SAMKeychain'
 pod 'Fabric'
 pod 'Crashlytics'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
 
 end
