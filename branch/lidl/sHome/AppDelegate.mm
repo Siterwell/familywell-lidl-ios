@@ -573,6 +573,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    NSLog(@"[RYAN] AppDelegate >> didReceiveRemoteNotification >> %@", [userInfo description]);
     [[Hekr sharedInstance] didReceiveRemoteNotification:userInfo];
 }
 
