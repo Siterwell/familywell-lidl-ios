@@ -6614,7 +6614,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.silvercrest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "79ffa9ad-830d-40fb-a49d-d2795bb8dd6d";
+				PROVISIONING_PROFILE = "cf54d466-ef78-400f-ae56-d9c0a2da29a8";
 				PROVISIONING_PROFILE_SPECIFIER = Silvercrest_development;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
