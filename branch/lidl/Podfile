@@ -1,5 +1,7 @@
 platform :ios, '8.0'
 
+xcodeproj 'sHome.xcodeproj'
+
 target "sHome" do
 
 #pod 'HekrSDK' :path => './HEKR-IOS-SDK-global'
