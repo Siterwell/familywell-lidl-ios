@@ -18,7 +18,7 @@
 "绑定成功！" = "Tili liitetty onnistuneesti";
 "重试" = "Yritä uudelleen";
 "新增" = "Lisää";
-"设备" = "Teemat";
+"设备" = "Laitteet";
 "管理" = "Hallinta";
 "确定" = "OK";
 "取消" = "Peruuta";
@@ -393,7 +393,7 @@
 "始终录像" = "Jatkuva tallennus";
 "从不录像" = "Ei tallenna koskaan";
 "联动录像" = "Yhdistetty tallennus";
-"录像音频" = "Videon ääni";
+"录像音频" = "Tallenna ääni";
 "移动侦测" = "Liiketunnistus";
 "设备检测到移动物体就会触发报警事件" = "Laite aktivoi hälytyksen havaittuaan liikkuvan kohteen";
 "设备检查到移动物体就会开始录像" = "Laite aloittaa videotallennuksen havaittuaan liikkuvan kohteen";
@@ -415,7 +415,7 @@
 "查看远程图像" = "Hallinnoi kuvia";
 "查看本地截图" = "Näyttökuvat";
 "确定删除历史告警记录" = "Haluatko varmasti poistaa hälytyshistorian?";
-"设备已添加" = "Teemat";
+"设备已添加" = "Laite on lisätty";
 "请设置%@%@名称" = "aseta%@%@ nimi";
 "开锁" = "avattu";
 "密码开锁" = "avaa";
@@ -455,8 +455,8 @@
 "老人可能长时间未移动" = "Liikuntakyvytön henkilö";
 "低电压" = "Virta vähissä";
 "确定删除摄像机" = "Oletko varma, että haluat poistaa?";
-"预录" = "Äänitetyt";
-"录像长度" = "Videon pituus";
+"预录" = "Esitallennus";
+"录像长度" = "Tallenteen pituus";
 "格式化成功" = "Muotoiltu onnistuneesti";
 "正在格式化" = "Alustus";
 "是否格式化设备磁盘" = "Haluatko alustaa laitteen?";
