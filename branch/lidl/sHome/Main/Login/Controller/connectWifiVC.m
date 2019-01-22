@@ -563,39 +563,66 @@
 -(void)getToken:(NSString *)str WithObj:(id)obj{
     NSLog(@">>>>>>>>%@",str);
 
-    if([str rangeOfString:@"NAME"].location != NSNotFound && [str rangeOfString:@"BIND"].location != NSNotFound) {
-        if([_statusLabel.text isEqualToString:NSLocalizedString(@"已找到设备，绑定账号中",nil)]){
-            _statusLabel.text = NSLocalizedString(@"设备得到响应", nil);
+    if(![MyUdp shared].flag_en){
+        if([str rangeOfString:@"NAME"].location != NSNotFound && [str rangeOfString:@"BIND"].location != NSNotFound) {
+            if([_statusLabel.text isEqualToString:NSLocalizedString(@"已找到设备，绑定账号中",nil)]){
+                _statusLabel.text = NSLocalizedString(@"设备得到响应", nil);
+            }
+            
+            NSRange startRange1 = [str rangeOfString:@"NAME:"];
+            NSRange endRange1 = [str rangeOfString:@"BIND:"];
+            NSRange range1 = NSMakeRange(startRange1.location + startRange1.length, endRange1.location - startRange1.location - startRange1.length);
+            NSString *result1 = [str substringWithRange:range1];
+            result1 = [result1 substringWithRange:NSMakeRange(0, [result1 length] - 1)];
+            if ([result1 isEqualToString:@"NULL"]) {
+                return;
+            }
+            obj = nil;
+            _devTid = result1;
+            yo_name = result1;
+            
+            NSRange startRange = [str rangeOfString:@"BIND:"];
+            NSRange endRange = [str rangeOfString:@"KEY:"];
+            NSRange range = NSMakeRange(startRange.location + startRange.length, endRange.location - startRange.location - startRange.length);
+            NSString *result = [str substringWithRange:range];
+            result = [result substringWithRange:NSMakeRange(0, [result length] - 1)];
+            NSLog(@"%@",result);
+            _bindId = result;
+            
+            NSString *ctrlKey = [str componentsSeparatedByString:@"KEY:"].lastObject;
+            ctrlKey = [ctrlKey stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            _ctrlKey = ctrlKey;
+            
+            self.result9999 = result;
+            [self performSelector:@selector(DeviceMethod:) withObject:result afterDelay:5.0];
+            
         }
-        
-        NSRange startRange1 = [str rangeOfString:@"NAME:"];
-        NSRange endRange1 = [str rangeOfString:@"BIND:"];
-        NSRange range1 = NSMakeRange(startRange1.location + startRange1.length, endRange1.location - startRange1.location - startRange1.length);
-        NSString *result1 = [str substringWithRange:range1];
-        result1 = [result1 substringWithRange:NSMakeRange(0, [result1 length] - 1)];
-        if ([result1 isEqualToString:@"NULL"]) {
-            return;
+    }else{
+        if([str rangeOfString:@"NAME"].location != NSNotFound && [str rangeOfString:@"BIND"].location != NSNotFound) {
+            if([_statusLabel.text isEqualToString:NSLocalizedString(@"已找到设备，绑定账号中",nil)]){
+                _statusLabel.text = NSLocalizedString(@"设备得到响应", nil);
+            }
+            
+            NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data
+                                                                options:NSJSONReadingMutableLeaves
+                                                                  error:nil];
+            NSString *result1 = dic[@"NAME"];
+            NSString *result = dic[@"BIND"];
+            NSString *ctrlKey = dic[@"KEY"];
+            
+            _devTid = result1;
+            yo_name = result1;
+            _bindId = result;
+            _ctrlKey = ctrlKey;
+            
+            self.result9999 = result;
+            [self performSelector:@selector(DeviceMethod:) withObject:result afterDelay:5.0];
         }
-        obj = nil;
-        _devTid = result1;
-        yo_name = result1;
 
-        NSRange startRange = [str rangeOfString:@"BIND:"];
-        NSRange endRange = [str rangeOfString:@"KEY:"];
-        NSRange range = NSMakeRange(startRange.location + startRange.length, endRange.location - startRange.location - startRange.length);
-        NSString *result = [str substringWithRange:range];
-        result = [result substringWithRange:NSMakeRange(0, [result length] - 1)];
-        NSLog(@"%@",result);
-        _bindId = result;
-        
-        NSString *ctrlKey = [str componentsSeparatedByString:@"KEY:"].lastObject;
-        ctrlKey = [ctrlKey stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-        _ctrlKey = ctrlKey;
-        
-        self.result9999 = result;
-        [self performSelector:@selector(DeviceMethod:) withObject:result afterDelay:5.0];
-        
     }
+    
+
 
 }
 

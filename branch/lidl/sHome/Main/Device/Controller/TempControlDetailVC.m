@@ -453,6 +453,10 @@
                         _isDeleting = NO;
                         [MBProgressHUD showError:NSLocalizedString(@"删除失败",nil) ToView:ws.view];
                         obj = nil;
+                        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                        if ([[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]){
+                            [config setObject:NetworkAppStatus forKey:AppStatus];
+                        }
                     }
                 });
             }
@@ -489,6 +493,10 @@
                     if (_isReplcing) {
                         obj = nil;
                         _isReplcing = NO;
+                        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                        if ([[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]){
+                            [config setObject:NetworkAppStatus forKey:AppStatus];
+                        }
                     }
                 });
             }
