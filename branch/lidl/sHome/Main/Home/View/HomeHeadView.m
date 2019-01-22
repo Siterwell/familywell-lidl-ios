@@ -459,7 +459,6 @@
 
 -(void)tapImage:(id *)sender{
     NSLog(@"[RYAN] tapImage");
-    
     //设置代理
     if ([_delegate respondsToSelector:@selector(cycleScrollView:didSelectImageView:videoInfos:)]) {
         [_delegate cycleScrollView:self didSelectImageView:_curPage videoInfos:_curImageArray];

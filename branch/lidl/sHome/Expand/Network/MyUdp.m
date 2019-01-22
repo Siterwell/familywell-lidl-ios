@@ -12,6 +12,7 @@
 #import "ESP_NetUtil.h"
 #import "AppStatusHelp.h"
 #import "DeviceListModel.h"
+#import "Encryptools.h"
 
 static MyUdp *_UDP = nil;
 
@@ -78,7 +79,7 @@ static MyUdp *_UDP = nil;
     }
     [_asyncUdpSocket beginReceiving:&err];
     if (deviceId) {
-        NSData *data = [[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":LIDL01"] dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *data = [[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":LIDL01EN"] dataUsingEncoding:NSUTF8StringEncoding];
             NSLog(@"\n\n\n\n\n发送到了\%@\n\n\n\n\n",[AppStatusHelp getWifiIP]);
             [_asyncUdpSocket sendData:data toHost:[AppStatusHelp getWifiIP] port:1025 withTimeout:-1 tag:0x00012];
         }
@@ -93,11 +94,12 @@ static MyUdp *_UDP = nil;
     }
     [_asyncUdpSocket beginReceiving:&err];
     
-    NSData *data = [[[@"IOT_SWITCH:" stringByAppendingString:deviceId] stringByAppendingString:@":LIDL01"] dataUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"发送切换服务器命令%@",[[@"IOT_SWITCH:" stringByAppendingString:deviceId] stringByAppendingString:@":LIDL01"]);
+    NSData *data = [[[@"IOT_SWITCH:" stringByAppendingString:deviceId] stringByAppendingString:@":LIDL01EN"] dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"发送切换服务器命令%@",[[@"IOT_SWITCH:" stringByAppendingString:deviceId] stringByAppendingString:@":LIDL01EN"]);
     NSLog(@"\n\n\n\n\n发送IOT_SWITCH到了\%@\n\n\n\n\n",ipaddress);
     [_asyncUdpSocket sendData:data toHost:ipaddress port:1025 withTimeout:-1 tag:0x00012];
 }
+
 
 - (void)sendGetTokenEmptynNew:(NSString *)ipaddress withDeviceID:(NSString *)deviceId {
     NSError *err = nil;
@@ -106,8 +108,8 @@ static MyUdp *_UDP = nil;
         [_asyncUdpSocket bindToPort:1025 error:&err];
     }
     [_asyncUdpSocket beginReceiving:&err];
-    NSData *data = [[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":LIDL01"] dataUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"\n\n\n\n\n发送嘿嘿%@",[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":LIDL01"]);
+    NSData *data = [[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":LIDL01EN"] dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"\n\n\n\n\n发送嘿嘿%@",[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":LIDL01EN"]);
     NSLog(@"\n\n\n\n\n发送IOT_KEY?到了\%@\n\n\n\n\n",ipaddress);
     [_asyncUdpSocket sendData:data toHost:ipaddress port:1025 withTimeout:-1 tag:0x00012];
 }
@@ -116,12 +118,18 @@ static MyUdp *_UDP = nil;
 - (void)senData:(NSDictionary *)dics{
     NSLog(@"内网发送信息：%@",dics);
     NSError *err = nil;
+    NSData *data;
     if ([_asyncUdpSocket isClosed]) {
         [_asyncUdpSocket enableBroadcast:YES error:&err];
         [_asyncUdpSocket bindToPort:1025 error:&err];
     }
     NSString *str = [self convertToJsonData:dics];
-    NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+
+    if(_flag_en){
+        data =[Encryptools getAllEncryption:str];
+    }else{
+        data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    }
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     if ([config objectForKey:@"ipV4"]) {
         NSString *ip = [config objectForKey:@"ipV4"];
@@ -146,14 +154,13 @@ static MyUdp *_UDP = nil;
     }];
 }
 
-
 - (void)recvTokenObj:(id)obj Callback:(void(^)(id obj, id data, NSError *error)) block{
     NSObject __weak *sobj = obj;
     
     [RACObserve(self, data) subscribeNext:^(id x) {
         if (sobj) {
             NSString *str = [[NSString alloc] initWithData:x encoding:NSUTF8StringEncoding];
-            if ([str rangeOfString:@"NAME:"].location != NSNotFound) {
+            if ([str rangeOfString:@"NAME"].location != NSNotFound) {
                 block(sobj,str,nil);
             }
         }
@@ -171,7 +178,7 @@ static MyUdp *_UDP = nil;
             NSLog(@"内网收到数据：%@",receiveStr);
             NSData * data = [receiveStr dataUsingEncoding:NSUTF8StringEncoding];
             NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            if (jsonDict!= nil && [self checkDic:jsonDict WithDic:filter]) {
+            if (jsonDict!= nil && filter!=nil && [self checkDic:jsonDict WithDic:filter]) {
                 block(sobj,jsonDict,nil);
             }
         }
@@ -184,7 +191,7 @@ static MyUdp *_UDP = nil;
 }
 
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext{
-    self.data = data;
+
     
     
     if ([GCDAsyncUdpSocket isIPv4Address:address]) {
@@ -193,22 +200,66 @@ static MyUdp *_UDP = nil;
         
         //NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
         if(strAddress  && ![strAddress isEqualToString:localAddress]){
-            NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            if([str rangeOfString:@"NAME:"].location != NSNotFound && [str rangeOfString:@"BIND:"].location != NSNotFound)
-            {
-                NSRange startRange1 = [str rangeOfString:@"NAME:"];
-                NSRange endRange1 = [str rangeOfString:@"BIND:"];
-                NSRange range1 = NSMakeRange(startRange1.location + startRange1.length, endRange1.location - startRange1.location - startRange1.length);
-                NSString *result1 = [str substringWithRange:range1];
-                result1 = [result1 substringWithRange:NSMakeRange(0, [result1 length] - 1)];
-                NSString *devTid = result1;
+            NSString *str = @"";
+            char *d = (char *)[data bytes];
+            NSString *asdes = [Encryptools getAllDescryption:d];
+            if(asdes.length>=2){
+                NSString *start = [asdes substringWithRange:NSMakeRange(0, 2)];
+                
+                if([start isEqualToString:@"7B"]){
+                    _flag_en = YES;
+                }else{
+                    _flag_en = NO;
+                }
+            }else{
+                _flag_en = NO;
+            }
+
+            if(_flag_en){
+                for(int i=0;i<asdes.length/2;i++){ 
+                    NSString * ds = [asdes substringWithRange:NSMakeRange(2*i, 2)];
+                    int asciiCode = [[BatterHelp numberHexString:ds] intValue];
+                    NSString *str2 =[NSString stringWithFormat:@"%c",asciiCode];
+                    str = [str stringByAppendingString:str2];
+                }
+//                NSRange startRange1 = [str rangeOfString:@"}" options:NSBackwardsSearch];
+//                NSString *last = [str substringToIndex:(startRange1.location+1)];
+                NSString *last = [Encryptools converFromAllWithJson:str];
+                
+                NSData* xmlData = [last dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:xmlData
+                                                                    options:NSJSONReadingMutableLeaves
+                                                                      error:nil];
+                NSString *devTid = dic[@"NAME"];
                 NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
                 DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
                 if ([devTid isEqualToString:model.devTid]) {
                     [config setObject:[GCDAsyncUdpSocket hostFromAddress:address] forKey:@"ipV4"];
                     [config synchronize];
                 }
-            }else if([str rangeOfString:@"devSend"].location !=NSNotFound){
+
+               self.data = xmlData;
+            }else{
+                self.data = data;
+                str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                if([str rangeOfString:@"NAME:"].location != NSNotFound && [str rangeOfString:@"BIND:"].location != NSNotFound)
+                {
+                    NSRange startRange1 = [str rangeOfString:@"NAME:"];
+                    NSRange endRange1 = [str rangeOfString:@"BIND:"];
+                    NSRange range1 = NSMakeRange(startRange1.location + startRange1.length, endRange1.location - startRange1.location - startRange1.length);
+                    NSString *result1 = [str substringWithRange:range1];
+                    result1 = [result1 substringWithRange:NSMakeRange(0, [result1 length] - 1)];
+                    NSString *devTid = result1;
+                    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                    DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+                    if ([devTid isEqualToString:model.devTid]) {
+                        [config setObject:[GCDAsyncUdpSocket hostFromAddress:address] forKey:@"ipV4"];
+                        [config synchronize];
+                    }
+                }
+            }
+            
+            if([str rangeOfString:@"devSend"].location !=NSNotFound){
                    NSLog(@"内网收到原始数据：%@",str);
                  NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
                 DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
@@ -219,7 +270,7 @@ static MyUdp *_UDP = nil;
                 
                 if ([gatewayId isEqualToString:model.devTid]) {
                     //返回应答
-                    NSData *dataa = [@"APP_answer_OK" dataUsingEncoding:NSUTF8StringEncoding];
+                    NSData *dataa = [@"{'anwser':'APP_answer_OK'}" dataUsingEncoding:NSUTF8StringEncoding];
                     [_asyncUdpSocket sendData:dataa toHost:[GCDAsyncUdpSocket hostFromAddress:address] port:1025 withTimeout:-1 tag:0x00012];
                 }
                 
@@ -235,7 +286,7 @@ static MyUdp *_UDP = nil;
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel * model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
     if(model!=nil){
-            [self sendGetTokenWithDeviceID:model.devTid];
+        [config setObject:NetworkAppStatus forKey:AppStatus];
     }
 
 }
@@ -292,6 +343,27 @@ static MyUdp *_UDP = nil;
     [mutStr replaceOccurrencesOfString:@"\n" withString:@"" options:NSLiteralSearch range:range2];
     return mutStr;
     
+}
+
+- (NSString *)convertDataToHexStr:(NSData *)data {
+    if (!data || [data length] == 0) {
+        return @"";
+    }
+    NSMutableString *string = [[NSMutableString alloc] initWithCapacity:[data length]];
+    
+    [data enumerateByteRangesUsingBlock:^(const void *bytes, NSRange byteRange, BOOL *stop) {
+        unsigned char *dataBytes = (unsigned char*)bytes;
+        for (NSInteger i = 0; i < byteRange.length; i++) {
+            NSString *hexStr = [NSString stringWithFormat:@"%x", (dataBytes[i]) & 0xff];
+            if ([hexStr length] == 2) {
+                [string appendString:hexStr];
+            } else {
+                [string appendFormat:@"0%@", hexStr];
+            }
+        }
+    }];
+    
+    return string;
 }
 
 @end
