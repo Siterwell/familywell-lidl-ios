@@ -53,6 +53,8 @@
 #import "LEEAlert.h"
 #import "Encryptools.h"
 #import "SceneDataBase.h"
+#import "UploadTimeApi.h"
+#import "AppStatusHelp.h"
 BOOL flag_checkfireware = NO;
 @interface HomeVC ()<UIAlertViewDelegate,HomeHeadViewDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *addressView;
@@ -115,6 +117,9 @@ BOOL flag_checkfireware = NO;
         [_titleView setBackgroundColor:[UIColor clearColor]];
         [self.navigationController.navigationBar addSubview:_titleView];
         [_titleView addTarget:self action:@selector(selectGateWays) forControlEvents:UIControlEventTouchUpInside];
+        UILongPressGestureRecognizer *pin = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(nettest)];
+        pin.minimumPressDuration =1.0;
+        [_titleView addGestureRecognizer:pin];
         [_titleView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(0);
             make.centerX.equalTo(0);
@@ -132,33 +137,52 @@ BOOL flag_checkfireware = NO;
 }
 
 -(void)getDeviceToken:(NSString *)str{
-    if([str rangeOfString:@"NAME"].location != NSNotFound) {
-        NSRange startRange1 = [str rangeOfString:@"NAME:"];
-        NSRange endRange1 = [str rangeOfString:@"\n"];
-
-        NSString *result1 = [str substringWithRange:NSMakeRange(startRange1.location+5, endRange1.location-(startRange1.location+5))];
-        NSString *devTid = result1;
+    if(![MyUdp shared].flag_en){
+        if([str rangeOfString:@"NAME"].location != NSNotFound) {
+            NSRange startRange1 = [str rangeOfString:@"NAME:"];
+            NSRange endRange1 = [str rangeOfString:@"\n"];
+            
+            NSString *result1 = [str substringWithRange:NSMakeRange(startRange1.location+5, endRange1.location-(startRange1.location+5))];
+            NSString *devTid = result1;
+            NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+            DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+            if ([devTid isEqualToString:model.devTid]) {
+                _obj = nil;
+                if (![[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]) {
+                    //                //网内有数据，如果此时app是外网状态，则切换成内网
+                    //                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"提示", nil) message:[NSString stringWithFormat:NSLocalizedString(@"检测到内网内设备，是否进入内网模式", nil)] delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+                    //                alertView.tag = 1;
+                    //                [alertView show];
+                    
+                    //自动切换
+                    [config setObject:IntranetAppStatus forKey:AppStatus];
+                    
+                }
+            }
+        }
+    }else{
+        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data
+                                                            options:NSJSONReadingMutableLeaves
+                                                              error:nil];
+        NSString *devTid = dic[@"NAME"];
         NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
         DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
         if ([devTid isEqualToString:model.devTid]) {
             _obj = nil;
             if (![[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]) {
-                //网内有数据，如果此时app是外网状态，则切换成内网
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"提示", nil) message:[NSString stringWithFormat:NSLocalizedString(@"检测到内网内设备，是否进入内网模式", nil)] delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
-                alertView.tag = 1;
-                [alertView show];
-
+                //                //网内有数据，如果此时app是外网状态，则切换成内网
+                //                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"提示", nil) message:[NSString stringWithFormat:NSLocalizedString(@"检测到内网内设备，是否进入内网模式", nil)] delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+                //                alertView.tag = 1;
+                //                [alertView show];
+                
                 //自动切换
                 [config setObject:IntranetAppStatus forKey:AppStatus];
-//                NSString *storyboardName = @"Main";
-//                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
-//                self.window.rootViewController = [storyboard instantiateInitialViewController];
-
-            }else{
-                //网内有数据，如果此时app是内网状态，则不变
+                
             }
         }
     }
+
 }
 
 - (void)viewDidLoad {
@@ -223,12 +247,7 @@ BOOL flag_checkfireware = NO;
         [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
         //正常情况
-//        [self deviceSycn];
-        
-//        NSLog(@"[RYAN] HomeVC > viewDidLoad 2222");
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self getLocation];
-        });
+        [self getLocation];
     }
     
     [self setView];
@@ -386,6 +405,10 @@ BOOL flag_checkfireware = NO;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if (obj) {
                 obj = nil;
+                NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                if ([[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]){
+                    [config setObject:NetworkAppStatus forKey:AppStatus];
+                }
             }
         });
     };
@@ -453,6 +476,17 @@ BOOL flag_checkfireware = NO;
     }];
 }
 
+-(void) uploadTime{
+    __block NSObject *obj = [[NSObject alloc] init];
+    UploadTimeApi *api = [[UploadTimeApi alloc] initWithDrivce:_model.devTid andCtrlKey:_model.ctrlKey];
+    [api startWLanWithObject:obj CompletionBlockWithSuccess:^(id data, NSError *error) {
+        
+        obj = nil;
+    } failure:^(id data, NSError *error) {
+        obj = nil;
+    }];
+}
+
 ///**
 // 报警设备监听
 // */
@@ -460,65 +494,113 @@ BOOL flag_checkfireware = NO;
     
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     _model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
-    
-    NSDictionary *dic = @{
-                          @"action" : @"devSend",
-                          @"params" : @{
-                                  @"devTid" : _model.devTid,
-                                  @"data" : @{
-                                          @"cmdId" : @25
+    if(_model!=nil){
+        NSDictionary *dic = @{
+                              @"action" : @"devSend",
+                              @"params" : @{
+                                      @"devTid" : _model.devTid,
+                                      @"data" : @{
+                                              @"cmdId" : @25
+                                              }
+                                      }
+                              };
+        
+        NSDictionary *dic2 = @{
+                               @"action" : @"devSend",
+                               @"params" : @{
+                                       @"data" : @{
+                                               @"cmdId" : @25
+                                               }
+                                       }
+                               };
+        
+        NSDictionary *loginin = @{
+                                  @"action":@"devLogin",
+                                  @"params":@{
+                                          @"devTid":_model.devTid
                                           }
-                                  }
-                          };
-    
-    NSDictionary *dic2 = @{
-                          @"action" : @"devSend",
-                          @"params" : @{
-                                  @"data" : @{
-                                          @"cmdId" : @25
-                                          }
-                                  }
-                          };
-    
-    @weakify(self)
-    if (![[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]){
-        [[Hekr sharedInstance] recv:dic2 obj:self callback:^(id obj, id data, NSError *error) {
+                                  };
+        NSDictionary *loginout = @{
+                                   @"action":@"devLogout",
+                                   @"params":@{
+                                           @"devTid":_model.devTid
+                                           }
+                                   };
+        
+        @weakify(self)
+        
+        [[Hekr sharedInstance] recv:loginin obj:self callback:^(id obj, id data, NSError *error) {
             @strongify(self)
-            if (!error) {
-                if (![self.lastAlertContent isEqualToString:data[@"params"][@"data"][@"answer_content"]]) {
-                    self.canShowAlert = YES;
-                    if (self.canShowAlert == YES) {
-                        self.canShowAlert = NO;
-                        [self doAlert:data];
-                        self.lastAlertContent = data[@"params"][@"data"][@"answer_content"];
-                    }
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        self.canShowAlert = YES;
-                        self.lastAlertContent = nil;
-                    });
+            if(!error){
+                if ([_model.deviceName isEqualToString:@"报警器"]) {
+                    self.navigationItem.title = [NSString stringWithFormat:@"%@(%@)", NSLocalizedString(@"我的家", nil),NSLocalizedString(@"在线", nil)];
+                    
+                }else{
+                    self.navigationItem.title =[NSString stringWithFormat:@"%@(%@)", NSLocalizedString(_model.deviceName, nil),NSLocalizedString(@"在线", nil)];
                 }
+                
+                NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                NSMutableDictionary *ddd = [[NSMutableDictionary alloc] initWithDictionary:[config objectForKey:DeviceInfo]];
+                [ddd setValue:@"1" forKey:@"online"];
+                [config setValue:ddd forKey:DeviceInfo];
+                //            [config synchronize];
             }
         }];
         
-    } else {
-        [[MyUdp shared] recv:dic obj:self callback:^(id obj, id data, NSError *error) {
+        [[Hekr sharedInstance] recv:loginout obj:self callback:^(id obj, id data, NSError *error) {
             @strongify(self)
-            if (!error) {
-                if (![self.lastAlertContent isEqualToString:data[@"params"][@"data"][@"answer_content"]]) {
-                    self.canShowAlert = YES;
-                    if (self.canShowAlert == YES) {
-                        self.canShowAlert = NO;
-                        [self doAlert:data];
-                        self.lastAlertContent = data[@"params"][@"data"][@"answer_content"];
-                    }
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        self.canShowAlert = YES;
-                        self.lastAlertContent = nil;
-                    });
+            if(!error){
+                if ([_model.deviceName isEqualToString:@"报警器"]) {
+                    self.navigationItem.title = [NSString stringWithFormat:@"%@(%@)", NSLocalizedString(@"我的家", nil),NSLocalizedString(@"离线", nil)];
+                }else{
+                    self.navigationItem.title =[NSString stringWithFormat:@"%@(%@)", NSLocalizedString(_model.deviceName, nil),NSLocalizedString(@"离线", nil)];
                 }
+                NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                NSMutableDictionary *ddd = [[NSMutableDictionary alloc] initWithDictionary:[config objectForKey:DeviceInfo]];
+                [ddd setValue:@"0" forKey:@"online"];
+                [config setValue:ddd forKey:DeviceInfo];
+                //            [config synchronize];
             }
         }];
+        
+
+            [[Hekr sharedInstance] recv:dic2 obj:self callback:^(id obj, id data, NSError *error) {
+                @strongify(self)
+                if (!error) {
+                    if (![self.lastAlertContent isEqualToString:data[@"params"][@"data"][@"answer_content"]]) {
+                        self.canShowAlert = YES;
+                        if (self.canShowAlert == YES) {
+                            self.canShowAlert = NO;
+                            [self doAlert:data];
+                            self.lastAlertContent = data[@"params"][@"data"][@"answer_content"];
+                        }
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            self.canShowAlert = YES;
+                            self.lastAlertContent = nil;
+                        });
+                    }
+                }
+            }];
+            [[MyUdp shared] recv:dic obj:self callback:^(id obj, id data, NSError *error) {
+                @strongify(self)
+                if (!error) {
+                    if (![self.lastAlertContent isEqualToString:data[@"params"][@"data"][@"answer_content"]]) {
+                        self.canShowAlert = YES;
+                        if (self.canShowAlert == YES) {
+                            self.canShowAlert = NO;
+                            [self doAlert:data];
+                            self.lastAlertContent = data[@"params"][@"data"][@"answer_content"];
+                        }
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            self.canShowAlert = YES;
+                            self.lastAlertContent = nil;
+                        });
+                    }
+                }
+            }];
+    
     }
+
 }
 
 /**
@@ -966,12 +1048,53 @@ BOOL flag_checkfireware = NO;
  */
 -(void)getLocation{
     
-    [self getGatewayStatus];
-    [self divceStatusListener];
-    [self AlarmDeviceListener];
-//    [self getUserIonfo];
-//    [self upTime];
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    _model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
     
+    if(_model!=nil){
+        /**
+         *  发送IOT_KEY?+devTid，重发策略是：1秒3次；如果发现选定的网关在内网中，则转内网，否则转外网；
+         */
+        _obj = [[TestObject alloc] init];
+        @weakify(self)
+        [[MyUdp shared] recvTokenObj:_obj Callback:^(id obj, id data, NSError *error) {
+            @strongify(self)
+            [_obj description];
+            [self getDeviceToken:data];
+        }];
+        
+        //发三次udp
+        [[MyUdp shared] sendGetTokenWithDeviceID:_model.devTid];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (_obj) {
+                [[MyUdp shared] sendGetTokenWithDeviceID:_model.devTid];
+            }
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (_obj) {
+                [[MyUdp shared] sendGetTokenWithDeviceID:_model.devTid];
+            }
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if(_model!=nil){
+                [self uploadTime];
+            }
+            [self divceStatusListener];
+            AFNetworkReachabilityManager *afNetworkReachabilityManager = [AFNetworkReachabilityManager sharedManager];
+            [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateInterface) name:AFNetworkingReachabilityDidChangeNotification object:nil];//这个可以放在需要侦听的页面
+            [afNetworkReachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+               
+            }];
+            [afNetworkReachabilityManager startMonitoring];  //开启网络监视器；
+        });
+        
+        
+        
+        
+    }
+    
+    [self getGatewayStatus];
+    [self AlarmDeviceListener];
     if ([CLLocationManager locationServicesEnabled]) {
         self.locationMgr = [[CLLocationManager alloc] init];
         self.locationMgr.delegate = self;
@@ -1292,6 +1415,42 @@ BOOL flag_checkfireware = NO;
     }
     
     
+}
+
+-(void)nettest{
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    NSString *status = [config objectForKey:AppStatus];
+    [MBProgressHUD showSuccess:status ToView:self.view];
+}
+
+
+- (void)updateInterface {
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    [config setObject:NetworkAppStatus forKey:AppStatus];
+    
+    _model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    
+    if ([AppStatusHelp getWifiIP].length > 0) {
+        _obj = [[TestObject alloc] init];
+        @weakify(self)
+        [[MyUdp shared] recvTokenObj:_obj Callback:^(id obj, id data, NSError *error) {
+            @strongify(self)
+            [_obj description];
+            [self getDeviceToken:data];
+        }];
+        //发三次udp
+        [[MyUdp shared] sendGetTokenWithDeviceID:_model.devTid];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (_obj) {
+                [[MyUdp shared] sendGetTokenWithDeviceID:_model.devTid];
+            }
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (_obj) {
+                [[MyUdp shared] sendGetTokenWithDeviceID:_model.devTid];
+            }
+        });
+    }
 }
 
 @end

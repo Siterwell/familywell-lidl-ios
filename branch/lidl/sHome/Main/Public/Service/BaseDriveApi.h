@@ -22,4 +22,5 @@
 
 - (void)startUdpObj:(id)obj CompletionBlockWithSuccess:(void(^)(id data,NSError* error))success failure:(void(^)(id data,NSError* error))failure;
 
+-(void)startWLanWithObject:(id)obj CompletionBlockWithSuccess:(void(^)(id data,NSError* error))success failure:(void(^)(id data,NSError* error))failure;
 @end
