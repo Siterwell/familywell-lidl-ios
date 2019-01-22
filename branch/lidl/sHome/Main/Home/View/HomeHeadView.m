@@ -286,10 +286,11 @@
 }
 
 -(void)tapImage:(id *)sender{
+    // [RYAN] disable IPC Video
     //设置代理
-    if ([_delegate respondsToSelector:@selector(cycleScrollView:didSelectImageView:videoInfos:)]) {
-        [_delegate cycleScrollView:self didSelectImageView:_curPage videoInfos:_curImageArray];
-    }
+//    if ([_delegate respondsToSelector:@selector(cycleScrollView:didSelectImageView:videoInfos:)]) {
+//        [_delegate cycleScrollView:self didSelectImageView:_curPage videoInfos:_curImageArray];
+//    }
 }
 
 - (void)dealloc
