@@ -196,7 +196,6 @@
                                      };
         
         @weakify(self)
-        if (![[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]){
             ////* 外网26 */
             [[Hekr sharedInstance] recv:dic obj:self callback:^(id obj, id data, NSError *error) {
                 if (!error) {
@@ -218,7 +217,7 @@
                             //TODO:小于3代表系统情景，在这里进行颜色重新划分
                                 [[SystemSceneDataBase sharedDataBase] updateScene:model];
                                 [self lodaSystemData];
-                        }
+                            }
                         
                     }
                 }
@@ -348,7 +347,6 @@
                     }
                 }
             }];
-        }else{
             ////* 内网26 */
             [[MyUdp shared] recv:dic obj:self callback:^(id obj, id data, NSError *error) {
                 if (!error) {
@@ -476,7 +474,6 @@
                 }
             }];
         }
-    }
     
     _runDevice = model.devTid;
 //    [self syncScene];
@@ -892,16 +889,20 @@
             } failure:^(id data, NSError *error) {
                 [MBProgressHUD hideHUDForView:GetWindow animated:YES];
                 //            [obj setValue:@"1" forKey:@"1"];
+            obj = nil;
+        }];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (obj) {
+                [MBProgressHUD hideHUDForView:GetWindow animated:YES];
+                [MBProgressHUD showError:NSLocalizedString(@"删除失败", nil) ToView:GetWindow];
                 obj = nil;
-            }];
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                if (obj) {
-                    [MBProgressHUD hideHUDForView:GetWindow animated:YES];
-                    [MBProgressHUD showError:NSLocalizedString(@"删除失败", nil) ToView:GetWindow];
-                    obj = nil;
+                NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                if ([[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]){
+                    [config setObject:NetworkAppStatus forKey:AppStatus];
                 }
-            });
+            }
+        });
         }
 
     }else if (indexPath.section == 0 && indexPath.row > 2){
@@ -974,6 +975,10 @@
                 [MBProgressHUD hideHUDForView:GetWindow animated:YES];
                 [MBProgressHUD showError:NSLocalizedString(@"删除失败", nil) ToView:GetWindow];
                 obj = nil;
+                NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                if ([[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]){
+                    [config setObject:NetworkAppStatus forKey:AppStatus];
+                }
             }
         });
         
@@ -1246,6 +1251,10 @@
                 if (obj) {
                     _isSelecting = NO;
                     obj = nil;
+                    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                    if ([[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]){
+                        [config setObject:NetworkAppStatus forKey:AppStatus];
+                    }
                 }
             });
         }
@@ -1291,6 +1300,10 @@
                         if (obj) {
                             _isSelecting = NO;
                             obj = nil;
+                            NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                            if ([[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]){
+                                [config setObject:NetworkAppStatus forKey:AppStatus];
+                            }
                         }
                     });
     }

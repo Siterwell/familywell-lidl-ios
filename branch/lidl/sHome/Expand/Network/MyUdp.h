@@ -11,7 +11,7 @@
 @interface MyUdp : NSObject
 
 +(instancetype)shared;
-
+@property (nonatomic, assign) BOOL flag_en;
 - (void)sendGetTokenEmptynNew:(NSString *)ipaddress withDeviceID:(NSString *)deviceId ;
 - (void)sendSwitchServer:(NSString *)ipaddress withDeviceID:(NSString *)deviceId;
 - (void)sendGetTokenWithDeviceID:(NSString *)deviceId ;
