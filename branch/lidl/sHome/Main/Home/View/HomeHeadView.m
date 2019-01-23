@@ -251,7 +251,11 @@
     if (isGroup) {
         deviceName.text = @"Group";
     } else {
-        deviceName.text = device.customTitle;
+        if([device.customTitle isEqualToString:@""]){
+            deviceName.text = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(device.title, nil) ,device.devID];
+        }else{
+            deviceName.text = device.customTitle;
+        }
     }
 
     NSLog(@"[RYAN] Main_Screen_Width w:%f", Main_Screen_Width);
