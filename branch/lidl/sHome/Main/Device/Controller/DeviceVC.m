@@ -163,6 +163,11 @@
 - (void)deviceSycn{
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    if (model == nil) {
+        NSLog(@"[RYAN] deviceSycn > no avaible device");
+        return;
+    }
+    
     
     NSMutableArray *array = [[DeviceDataBase sharedDataBase] selectDevice];
     
@@ -277,6 +282,7 @@
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+
     [self lodaData];
     [self scynDeviceName];
 }
@@ -290,6 +296,14 @@
     
     ScynDeviceName *api = [[ScynDeviceName alloc] initWithDevTid:model.devTid CtrlKey:model.ctrlKey Device:[[DeviceDataBase sharedDataBase] selectDevice]];
 
+    NSLog(@"[RYAN] scynDeviceName >> _runDevice = %@", _runDevice);
+    NSLog(@"[RYAN] scynDeviceName >> model = %@", model);
+    
+    if (_runDevice==nil || model==nil) {
+        NSLog(@"[RYAN] scynDeviceName > no avaible device");
+        return;
+    }
+    
     if (![_runDevice isEqualToString:model.devTid]) {
         [api startWithObject:self CompletionBlockWithSuccess:^(id data, NSError *error) {
             DeviceNameModel *model = [[DeviceNameModel alloc] initWithDivicedictionary:data error:nil];

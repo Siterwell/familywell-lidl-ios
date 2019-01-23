@@ -109,14 +109,21 @@
     self.tabBarController.tabBar.alpha = 1;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     
-    
-    
-    [self syncScene];
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    if (model != nil) {
+        [self syncScene];
+    }
 }
 
 - (void)sendAndRecvSenceData {
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    if (model == nil) {
+        NSLog(@"[RYAN] sendAndRecvSenceData > no avaible device");
+        return;
+    }
+    
     //判断运行的设备是否发生变化
     if (![_runDevice isEqualToString:model.devTid]) {
         
@@ -537,6 +544,7 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     
     if (indexPath.section == 1 && indexPath.row == 0){
         //情景列表标题
@@ -1195,6 +1203,10 @@
 - (void)selectSystemCell:(id)sender{
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    
+    if (model == nil) {
+        return;
+    }
     
     UIButton *selectBtn = (UIButton*)sender;
     if ((int)(selectBtn.tag - 100) != _selectSystemItem){
