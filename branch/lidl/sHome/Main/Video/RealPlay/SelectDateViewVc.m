@@ -24,7 +24,7 @@
     self.view.backgroundColor = RGB(239, 239, 244);
     [self initFyCalendarView];
     
-    UIBarButtonItem *cancelBar = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"返回", nil) style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
+    UIBarButtonItem *cancelBar = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"取消", nil) style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
     [self.navigationController.navigationBar setTintColor:RGB(40, 184, 254)];
     self.navigationItem.leftBarButtonItem = cancelBar;
 }
