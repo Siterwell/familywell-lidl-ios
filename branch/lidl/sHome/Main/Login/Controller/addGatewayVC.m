@@ -41,7 +41,7 @@
     [_imagView startAnimating];
     
     if (!_isFromeSeeting) {
-        self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(logout) Title:NSLocalizedString(@"登出", nil) withTintColor:RGB(40, 184, 215)];
+        self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(cancel) Title:NSLocalizedString(@"取消", nil) withTintColor:RGB(40, 184, 215)];
     }
     
 }
@@ -62,6 +62,13 @@
     //删除归档数据
     [[NSFileManager defaultManager] removeItemAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/devices.archiver"] error:nil];
     
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSString *storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
+    delegate.window.rootViewController = [storyboard instantiateInitialViewController];
+}
+
+-(void)cancel{
     AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     NSString *storyboardName = @"Main";
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
