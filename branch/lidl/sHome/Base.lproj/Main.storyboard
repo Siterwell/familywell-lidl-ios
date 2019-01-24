@@ -258,7 +258,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="e1Y-xz-QwN">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.057384200507614169" green="0.057384200507614169" blue="0.057384200507614169" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="0.99321080269999995" blue="0.97273770500000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
@@ -495,11 +495,11 @@
         <image name="bottom_sy_hover_icon" width="22" height="22"/>
         <image name="bottom_sy_icon" width="22" height="22"/>
         <image name="circle_icon00" width="60" height="60"/>
-        <image name="enter_icon" width="9" height="15"/>
+        <image name="enter_icon" width="11" height="13"/>
         <image name="ljms_icon" width="46" height="46"/>
         <image name="sbgjblue_bg" width="320" height="31"/>
         <image name="select_blue_icon" width="20" height="20"/>
         <image name="tj01_icon" width="19" height="19"/>
     </resources>
-    <color key="tintColor" red="0.22280041149999999" green="0.75089756299999999" blue="0.79746986040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
