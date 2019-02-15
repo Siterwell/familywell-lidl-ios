@@ -24,10 +24,10 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
-  - Crashlytics (3.12.0):
-    - Fabric (~> 1.9.0)
+  - Crashlytics (3.11.0):
+    - Fabric (~> 1.8.0)
   - DACircularProgress (2.3.1)
-  - Fabric (1.9.0)
+  - Fabric (1.8.0)
   - FMDB/common (2.5)
   - FMDB/SQLCipher (2.5):
     - FMDB/common
@@ -71,10 +71,10 @@ PODS:
   - SDWebImage/Core (3.7.6)
   - SHAlertViewBlocks (1.2.1)
   - SocketRocket (0.5.1)
-  - SQLCipher (4.0.1):
-    - SQLCipher/standard (= 4.0.1)
-  - SQLCipher/common (4.0.1)
-  - SQLCipher/standard (4.0.1):
+  - SQLCipher (3.4.2):
+    - SQLCipher/standard (= 3.4.2)
+  - SQLCipher/common (3.4.2)
+  - SQLCipher/standard (3.4.2):
     - SQLCipher/common
   - XAspect (1.0.5):
     - XAspect/Core (= 1.0.5)
@@ -84,9 +84,9 @@ PODS:
   - XAspect/Macros (1.0.5)
   - YYText (1.0.7)
   - ZipArchive (1.4.0)
-  - ZXingObjC (3.6.4):
-    - ZXingObjC/All (= 3.6.4)
-  - ZXingObjC/All (3.6.4)
+  - ZXingObjC (3.6.0):
+    - ZXingObjC/All (= 3.6.0)
+  - ZXingObjC/All (3.6.0)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
@@ -150,9 +150,9 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
-  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Crashlytics: 1448070c1d2731ab71ea7c3faf84ac0f69657287
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  Fabric: 4ac1cdfef3004ccd83ce0959b91eda8a6e37df72
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   GTSDK: b27e433447371587c823353d37af981e4682c008
   HekrSDK: 66259abbbe607fe178c806c5d5c537f4caa85c0a
@@ -170,12 +170,12 @@ SPEC CHECKSUMS:
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SHAlertViewBlocks: cf5b26019efa88190e5ce1a46878a99b545c1a62
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
-  SQLCipher: 4636a257060f6f1b4e143a143028b61a2b462d0d
+  SQLCipher: f9fcf29b2e59ced7defc2a2bdd0ebe79b40d4990
   XAspect: db50bf487f92dbb8557a7a5365556966c8493af8
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
-  ZXingObjC: 512b34b9b6920e8ef0461a4159d0814c5e48c28a
+  ZXingObjC: 1d5991f4a75418dee15705c865a8e8b2443bc2af
 
-PODFILE CHECKSUM: 15836ec938168211d887888e7b6d51176bf8419f
+PODFILE CHECKSUM: 7a19ef4283e18e5110f7bfbf6a020c390cebab84
 
 COCOAPODS: 1.5.3
