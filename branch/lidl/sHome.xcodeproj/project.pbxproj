@@ -205,29 +205,11 @@
 		05BDDC761DFFBA3D00648F69 /* BaseNC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDC5E1DFFBA3D00648F69 /* BaseNC.m */; };
 		05BDDC771DFFBA3D00648F69 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDC601DFFBA3D00648F69 /* BaseVC.m */; };
 		05BDDC791DFFBA3D00648F69 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDC641DFFBA3D00648F69 /* BaseModel.m */; };
-		05BDDC7A1DFFBA3D00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDC661DFFBA3D00648F69 /* Placeholder */; };
 		05BDDC7B1DFFBA3D00648F69 /* BaseRequestService.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDC691DFFBA3D00648F69 /* BaseRequestService.m */; };
-		05BDDC7C1DFFBA3D00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDC6B1DFFBA3D00648F69 /* Placeholder */; };
-		05BDDC7D1DFFBA3D00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDC6E1DFFBA3D00648F69 /* Placeholder */; };
 		05BDDC7E1DFFBA3D00648F69 /* MPRequstFailedHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDC711DFFBA3D00648F69 /* MPRequstFailedHelper.m */; };
 		05BDDC851DFFDC6900648F69 /* BaseDriveApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDC841DFFDC6900648F69 /* BaseDriveApi.m */; };
 		05BDDC881DFFDECB00648F69 /* TestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDC871DFFDECB00648F69 /* TestApi.m */; };
 		05BDDC8C1DFFE5AB00648F69 /* Switch.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDC8B1DFFE5AB00648F69 /* Switch.xcassets */; };
-		05BDDCB01DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDC911DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCB11DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDC931DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCB21DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDC951DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCB31DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDC971DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCB41DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDC991DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCB51DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDC9C1DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCB61DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDC9E1DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCB71DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDCA01DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCB81DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDCA21DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCB91DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDCA41DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCBA1DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDCA71DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCBB1DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDCA91DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCBC1DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDCAB1DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCBD1DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDCAD1DFFEC2F00648F69 /* Placeholder */; };
-		05BDDCBE1DFFEC2F00648F69 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05BDDCAF1DFFEC2F00648F69 /* Placeholder */; };
 		05BDDCC71DFFECB100648F69 /* DeviceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BDDCC61DFFECB100648F69 /* DeviceVC.m */; };
 		05C3677B1E0A1C7100A21390 /* addGatewayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3677A1E0A1C7100A21390 /* addGatewayVC.m */; };
 		05C3677E1E0A234300A21390 /* addWifiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C3677D1E0A234300A21390 /* addWifiVC.m */; };
@@ -246,11 +228,6 @@
 		05CD99BA1E154E22007D569E /* changeSceneApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD99B91E154E22007D569E /* changeSceneApi.m */; };
 		05CD99BD1E154E57007D569E /* deleteSceneApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD99BC1E154E57007D569E /* deleteSceneApi.m */; };
 		05CEA03B1E094D45008E9D90 /* addSceneListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA03A1E094D45008E9D90 /* addSceneListVC.m */; };
-		05CEA04E1E094E79008E9D90 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05CEA0451E094E79008E9D90 /* Placeholder */; };
-		05CEA04F1E094E79008E9D90 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05CEA0471E094E79008E9D90 /* Placeholder */; };
-		05CEA0501E094E79008E9D90 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05CEA0491E094E79008E9D90 /* Placeholder */; };
-		05CEA0511E094E79008E9D90 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05CEA04B1E094E79008E9D90 /* Placeholder */; };
-		05CEA0521E094E79008E9D90 /* Placeholder in Resources */ = {isa = PBXBuildFile; fileRef = 05CEA04D1E094E79008E9D90 /* Placeholder */; };
 		05CEA0571E09592B008E9D90 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA0561E09592B008E9D90 /* LoginVC.m */; };
 		05D03EFA1E05863000983C8F /* ChangeUserNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D03EF91E05863000983C8F /* ChangeUserNameVC.m */; };
 		05D353741E1232CE0047197D /* RegistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D353731E1232CE0047197D /* RegistCell.m */; };
@@ -1235,11 +1212,8 @@
 		05BDDC601DFFBA3D00648F69 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
 		05BDDC631DFFBA3D00648F69 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		05BDDC641DFFBA3D00648F69 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
-		05BDDC661DFFBA3D00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
 		05BDDC681DFFBA3D00648F69 /* BaseRequestService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequestService.h; sourceTree = "<group>"; };
 		05BDDC691DFFBA3D00648F69 /* BaseRequestService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequestService.m; sourceTree = "<group>"; };
-		05BDDC6B1DFFBA3D00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDC6E1DFFBA3D00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
 		05BDDC701DFFBA3D00648F69 /* MPRequstFailedHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPRequstFailedHelper.h; sourceTree = "<group>"; };
 		05BDDC711DFFBA3D00648F69 /* MPRequstFailedHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPRequstFailedHelper.m; sourceTree = "<group>"; };
 		05BDDC831DFFDC6900648F69 /* BaseDriveApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDriveApi.h; sourceTree = "<group>"; };
@@ -1247,21 +1221,6 @@
 		05BDDC861DFFDECB00648F69 /* TestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestApi.h; sourceTree = "<group>"; };
 		05BDDC871DFFDECB00648F69 /* TestApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestApi.m; sourceTree = "<group>"; };
 		05BDDC8B1DFFE5AB00648F69 /* Switch.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Switch.xcassets; sourceTree = "<group>"; };
-		05BDDC911DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDC931DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDC951DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDC971DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDC991DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDC9C1DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDC9E1DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDCA01DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDCA21DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDCA41DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDCA71DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDCA91DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDCAB1DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDCAD1DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05BDDCAF1DFFEC2F00648F69 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
 		05BDDCBF1DFFEC6900648F69 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
 		05BDDCC21DFFEC9800648F69 /* SceneVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneVC.h; sourceTree = "<group>"; };
 		05BDDCC51DFFECB100648F69 /* DeviceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceVC.h; sourceTree = "<group>"; };
@@ -1301,11 +1260,6 @@
 		05CEA0391E094D45008E9D90 /* addSceneListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addSceneListVC.h; sourceTree = "<group>"; };
 		05CEA03A1E094D45008E9D90 /* addSceneListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addSceneListVC.m; sourceTree = "<group>"; };
 		05CEA03C1E094D5D008E9D90 /* AddSceneListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSceneListCell.h; sourceTree = "<group>"; };
-		05CEA0451E094E79008E9D90 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05CEA0471E094E79008E9D90 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05CEA0491E094E79008E9D90 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05CEA04B1E094E79008E9D90 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
-		05CEA04D1E094E79008E9D90 /* Placeholder */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Placeholder; sourceTree = "<group>"; };
 		05CEA0551E09592B008E9D90 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		05CEA0561E09592B008E9D90 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		05D03EF81E05863000983C8F /* ChangeUserNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeUserNameVC.h; sourceTree = "<group>"; };
@@ -2928,7 +2882,6 @@
 		05BDDC651DFFBA3D00648F69 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				05BDDC661DFFBA3D00648F69 /* Placeholder */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -2947,7 +2900,6 @@
 		05BDDC6A1DFFBA3D00648F69 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				05BDDC6B1DFFBA3D00648F69 /* Placeholder */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2967,7 +2919,6 @@
 		05BDDC6D1DFFBA3D00648F69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				05BDDC6E1DFFBA3D00648F69 /* Placeholder */,
 				05135E721E72DF4F0035A478 /* WarnModel.h */,
 				05135E731E72DF4F0035A478 /* WarnModel.m */,
 				E2565C6621AE77AF00571EBE /* PatternUtil.h */,
@@ -3033,7 +2984,6 @@
 				88105A712162EF810084C6D9 /* TempControlDetailVC.m */,
 				88105A742162EF820084C6D9 /* TempControlSettingVC.h */,
 				88105A722162EF820084C6D9 /* TempControlSettingVC.m */,
-				05BDDC911DFFEC2F00648F69 /* Placeholder */,
 				05BDDCC51DFFECB100648F69 /* DeviceVC.h */,
 				05BDDCC61DFFECB100648F69 /* DeviceVC.m */,
 				05EFFDFA1E07C99D002C3C71 /* DeviceDetailVC.h */,
@@ -3057,7 +3007,6 @@
 			children = (
 				05EFFDE91E0787EA002C3C71 /* ItemData.h */,
 				05EFFDEA1E0787EA002C3C71 /* ItemData.m */,
-				05BDDC931DFFEC2F00648F69 /* Placeholder */,
 				05A0292A1E14B8EF00E98005 /* setNewArr.h */,
 				05A0292B1E14B8EF00E98005 /* setNewArr.m */,
 				05F1213B1E29C81B0075D364 /* DeviceModel.h */,
@@ -3071,7 +3020,6 @@
 		05BDDC941DFFEC2F00648F69 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				05BDDC951DFFEC2F00648F69 /* Placeholder */,
 				05A0292D1E14EE0600E98005 /* ArrayTool.h */,
 				05A0292E1E14EE0600E98005 /* ArrayTool.m */,
 				056726581E2C9D2A0013FE78 /* DeviceMapHelp.h */,
@@ -3085,7 +3033,6 @@
 		05BDDC961DFFEC2F00648F69 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				05BDDC971DFFEC2F00648F69 /* Placeholder */,
 				05CD99A61E1539A5007D569E /* GetDeviceListApi.h */,
 				05CD99A71E1539A5007D569E /* GetDeviceListApi.m */,
 				05CD99A91E153C3A007D569E /* GetDeviceStatusApi.h */,
@@ -3124,7 +3071,6 @@
 				05EFFDEF1E078809002C3C71 /* BookGroupCollectionViewCell.h */,
 				05EFFDF01E078809002C3C71 /* BookGroupCollectionViewCell.m */,
 				880129A0214DC7520018E4BA /* BookGroupCollectionViewCell.xib */,
-				05BDDC991DFFEC2F00648F69 /* Placeholder */,
 				05B204331E57EB3000210D6E /* DeviceStoryboard.storyboard */,
 				75D8A3D01E5F0CFE009A5DBB /* RenameCell.h */,
 				75D8A3D11E5F0CFE009A5DBB /* RenameCell.m */,
@@ -3152,7 +3098,6 @@
 			children = (
 				88105A892162F11D0084C6D9 /* ChooseLocationVC.h */,
 				88105A8A2162F11D0084C6D9 /* ChooseLocationVC.m */,
-				05BDDC9C1DFFEC2F00648F69 /* Placeholder */,
 				05BDDCBF1DFFEC6900648F69 /* HomeVC.h */,
 				011230B81FBC123C000853B9 /* HomeVC.m */,
 				056B37401E03D041004744BC /* SettingVC.h */,
@@ -3190,7 +3135,6 @@
 		05BDDC9D1DFFEC2F00648F69 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				05BDDC9E1DFFEC2F00648F69 /* Placeholder */,
 				011230C51FBC2FCD000853B9 /* NewWeatherModel.h */,
 				011230C61FBC2FCD000853B9 /* NewWeatherModel.m */,
 				05D3537B1E123E070047197D /* WeatherModel.h */,
@@ -3216,7 +3160,6 @@
 		05BDDC9F1DFFEC2F00648F69 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				05BDDCA01DFFEC2F00648F69 /* Placeholder */,
 				0586A95A1E7678BB00DA458A /* VoiceHelp.h */,
 				0586A95B1E7678BB00DA458A /* VoiceHelp.m */,
 			);
@@ -3226,7 +3169,6 @@
 		05BDDCA11DFFEC2F00648F69 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				05BDDCA21DFFEC2F00648F69 /* Placeholder */,
 				011230BF1FBC29F7000853B9 /* CYBaseNetManager.h */,
 				011230C01FBC29F7000853B9 /* CYBaseNetManager.m */,
 				01A354201FC80F1400A0DD8B /* HKBaseNetManager.h */,
@@ -3262,7 +3204,6 @@
 				88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */,
 				05B12C251E028EC7005CE351 /* HomeHeadView.h */,
 				05B12C261E028EC7005CE351 /* HomeHeadView.m */,
-				05BDDCA41DFFEC2F00648F69 /* Placeholder */,
 				7595C34A1E02E2C40012723E /* WarningTableView.h */,
 				7595C34B1E02E2C40012723E /* WarningTableView.m */,
 				05B2043A1E57FA2000210D6E /* HomeStoryboard.storyboard */,
@@ -3309,7 +3250,6 @@
 				182888271EE2EFEE00EC6EBB /* TimeSwitch(定时切换) */,
 				05DE7C2A1E519B79003BCE33 /* SystemScene(系统情景) */,
 				05D84CBA1E3725F4002366F5 /* SceneList(情景列表) */,
-				05BDDCA71DFFEC2F00648F69 /* Placeholder */,
 				05BDDCC21DFFEC9800648F69 /* SceneVC.h */,
 				0130A4881F7C8B0500CF78C5 /* SceneVC.m */,
 			);
@@ -3321,7 +3261,6 @@
 			children = (
 				DD8E404C1EEFB9D300B5E433 /* TimeSceneModel.h */,
 				DD8E404D1EEFB9D300B5E433 /* TimeSceneModel.m */,
-				05BDDCA91DFFEC2F00648F69 /* Placeholder */,
 				050D8DD81E3491A300212348 /* SceneListItemData.h */,
 				050D8DD91E3491A300212348 /* SceneListItemData.m */,
 				05D84CB41E371A42002366F5 /* TimeModel.h */,
@@ -3347,7 +3286,6 @@
 				0178915A2064AD9F004F8FD7 /* ItemDataHelp.m */,
 				DD8E40461EEFB98D00B5E433 /* TimerSceneHelp.h */,
 				DD8E40471EEFB98D00B5E433 /* TimerSceneHelp.m */,
-				05BDDCAB1DFFEC2F00648F69 /* Placeholder */,
 				055516181E52F4BA00434BEE /* SystemSceneHelp.h */,
 				055516191E52F4BA00434BEE /* SystemSceneHelp.m */,
 				1830A2B41EE997F5005479A9 /* TimerSceneHelp.h */,
@@ -3361,7 +3299,6 @@
 			children = (
 				DD8E40491EEFB9B700B5E433 /* TimeScenedDataBase.h */,
 				DD8E404A1EEFB9B700B5E433 /* TimeScenedDataBase.m */,
-				05BDDCAD1DFFEC2F00648F69 /* Placeholder */,
 				05CD99B21E154BC5007D569E /* ChooseSceneApi.h */,
 				05CD99B31E154BC5007D569E /* ChooseSceneApi.m */,
 				05CD99B51E154DE1007D569E /* addSceneApi.h */,
@@ -3405,7 +3342,6 @@
 			children = (
 				05CEA03C1E094D5D008E9D90 /* AddSceneListCell.h */,
 				0178916B2064CF65004F8FD7 /* AddSceneListCell.m */,
-				05BDDCAF1DFFEC2F00648F69 /* Placeholder */,
 				053092C71E06B94800B777D8 /* SceneTitleCell.h */,
 				053092C81E06B94800B777D8 /* SceneTitleCell.m */,
 				7523E5B21E583F4200866910 /* SceneStoryboard.storyboard */,
@@ -3461,7 +3397,6 @@
 			children = (
 				C475017A20D24B6300F6255E /* InitVC.h */,
 				C475017B20D24B6400F6255E /* InitVC.m */,
-				05CEA0451E094E79008E9D90 /* Placeholder */,
 				05CEA0551E09592B008E9D90 /* LoginVC.h */,
 				05CEA0561E09592B008E9D90 /* LoginVC.m */,
 				05ECB30B1E096B1000B4DD58 /* ForgetPsdVC.h */,
@@ -3485,7 +3420,6 @@
 		05CEA0461E094E79008E9D90 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				05CEA0471E094E79008E9D90 /* Placeholder */,
 				053F11D11E0ACC2F00E5DD1F /* DeviceListModel.h */,
 				053F11D21E0ACC2F00E5DD1F /* DeviceListModel.m */,
 				DDA3A0481F1709A6002DD920 /* ErrorModel.h */,
@@ -3497,7 +3431,6 @@
 		05CEA0481E094E79008E9D90 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				05CEA0491E094E79008E9D90 /* Placeholder */,
 				050BA7A61E702D83004CA70A /* ErrorCodeUtil.h */,
 				050BA7A71E702D83004CA70A /* ErrorCodeUtil.m */,
 			);
@@ -3507,7 +3440,6 @@
 		05CEA04A1E094E79008E9D90 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				05CEA04B1E094E79008E9D90 /* Placeholder */,
 				0187C4A51F66351A00F4D971 /* TimeZoneCmdApi.h */,
 				0187C4A61F66351A00F4D971 /* TimeZoneCmdApi.m */,
 			);
@@ -3525,7 +3457,6 @@
 				05D353731E1232CE0047197D /* RegistCell.m */,
 				05C367821E0A2EC600A21390 /* CustomView.h */,
 				05C367831E0A2EC600A21390 /* CustomView.m */,
-				05CEA04D1E094E79008E9D90 /* Placeholder */,
 				05F62B5F1E56EFB7001104CB /* LoginStoryboard.storyboard */,
 				05133DFC1E0CFCC200DFB779 /* addWifiCell.h */,
 				05133DFD1E0CFCC200DFB779 /* addWifiCell.m */,
@@ -5522,68 +5453,45 @@
 			buildActionMask = 2147483647;
 			files = (
 				017891602064B04F004F8FD7 /* Main.xcassets in Resources */,
-				05CEA0501E094E79008E9D90 /* Placeholder in Resources */,
 				E2432D16219A7B5800A76C2C /* privacy_french.html in Resources */,
 				E2432D10219A74F400A76C2C /* privacy_english.html in Resources */,
 				05B204311E57EB3000210D6E /* DeviceStoryboard.storyboard in Resources */,
 				E2DB982F219E631E00B7A7DD /* privacy_german.html in Resources */,
-				05BDDCB11DFFEC2F00648F69 /* Placeholder in Resources */,
 				E2DB9831219E632C00B7A7DD /* privacy_spanish.html in Resources */,
-				05BDDCB81DFFEC2F00648F69 /* Placeholder in Resources */,
-				05CEA0511E094E79008E9D90 /* Placeholder in Resources */,
 				75E523BE1DFEEF8A0093DECC /* NSDateTimeAgo.bundle in Resources */,
 				01A63F9C2063E947004FEC2F /* SVProgressHUD.bundle in Resources */,
 				E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */,
-				05BDDC7A1DFFBA3D00648F69 /* Placeholder in Resources */,
-				05BDDCBA1DFFEC2F00648F69 /* Placeholder in Resources */,
 				E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */,
-				05BDDCB91DFFEC2F00648F69 /* Placeholder in Resources */,
-				05BDDCBB1DFFEC2F00648F69 /* Placeholder in Resources */,
 				75AABC431E573BB8001529FC /* Localizable.strings in Resources */,
-				05CEA0521E094E79008E9D90 /* Placeholder in Resources */,
 				8801299E214DC7520018E4BA /* BookGroupCollectionViewCell.xib in Resources */,
 				05F62B6A1E56F1B8001104CB /* Main.storyboard in Resources */,
 				05EFFDF31E078809002C3C71 /* BookCollectionViewCell.xib in Resources */,
 				05F62B5D1E56EFB7001104CB /* LoginStoryboard.storyboard in Resources */,
 				05E466AC1DF5368F0056E6FF /* config.json in Resources */,
 				E2432D14219A7B4500A76C2C /* privacy_dutch.html in Resources */,
-				05BDDCB61DFFEC2F00648F69 /* Placeholder in Resources */,
-				05CEA04F1E094E79008E9D90 /* Placeholder in Resources */,
 				05B204381E57FA2000210D6E /* HomeStoryboard.storyboard in Resources */,
-				05CEA04E1E094E79008E9D90 /* Placeholder in Resources */,
 				017891562064A618004F8FD7 /* enableClickDevice.plist in Resources */,
-				05BDDCB31DFFEC2F00648F69 /* Placeholder in Resources */,
 				75E524CD1DFEEF8A0093DECC /* QBImagePickerController.strings in Resources */,
 				017891532064A618004F8FD7 /* enableShowDevice.plist in Resources */,
 				017891552064A618004F8FD7 /* deviceName.plist in Resources */,
 				05EFFDE71E078777002C3C71 /* BookShelfMainView.xib in Resources */,
 				01A63F722063E947004FEC2F /* RecordDownloadCell.xib in Resources */,
-				05BDDCB01DFFEC2F00648F69 /* Placeholder in Resources */,
 				E2432D12219A7B3500A76C2C /* privacy_czech.html in Resources */,
-				05BDDCBE1DFFEC2F00648F69 /* Placeholder in Resources */,
 				75E524961DFEEF8A0093DECC /* addressData.plist in Resources */,
-				05BDDCB41DFFEC2F00648F69 /* Placeholder in Resources */,
 				010FD09E1FC6C5E200BF8749 /* MJPhotoBrowser.bundle in Resources */,
 				0178915F2064B04F004F8FD7 /* Device.xcassets in Resources */,
-				05BDDC7C1DFFBA3D00648F69 /* Placeholder in Resources */,
 				017891612064B04F004F8FD7 /* Camera.xcassets in Resources */,
 				7523E5B01E583F4200866910 /* SceneStoryboard.storyboard in Resources */,
 				75E524981DFEEF8A0093DECC /* city_province.plist in Resources */,
-				05BDDC7D1DFFBA3D00648F69 /* Placeholder in Resources */,
 				880129B3214DC8260018E4BA /* BookShelfGroupMainView.xib in Resources */,
 				017891542064A618004F8FD7 /* sceneDeviceStatus.plist in Resources */,
 				01A63F642063E947004FEC2F /* SexViewPicker.xib in Resources */,
 				01A63F762063E947004FEC2F /* VideoPlayStoryboard.storyboard in Resources */,
-				05BDDCB21DFFEC2F00648F69 /* Placeholder in Resources */,
 				75E524991DFEEF8A0093DECC /* street.plist in Resources */,
 				88105A6A2162EF5B0084C6D9 /* SGQRCode.bundle in Resources */,
 				880129CE214DCB370018E4BA /* LaunchScreen.storyboard in Resources */,
-				05BDDCB71DFFEC2F00648F69 /* Placeholder in Resources */,
 				E2432D18219A7B6E00A76C2C /* privacy_italian.html in Resources */,
 				01A63F742063E947004FEC2F /* RecordVideoByTimeCell.xib in Resources */,
-				05BDDCBC1DFFEC2F00648F69 /* Placeholder in Resources */,
-				05BDDCBD1DFFEC2F00648F69 /* Placeholder in Resources */,
-				05BDDCB51DFFEC2F00648F69 /* Placeholder in Resources */,
 				05E466831DF4FA1A0056E6FF /* Assets.xcassets in Resources */,
 				0586A95F1E76798000DA458A /* phonering.mp3 in Resources */,
 				759FD7FF1E1D321900381A6B /* EspTouchDemo-Info.plist in Resources */,
