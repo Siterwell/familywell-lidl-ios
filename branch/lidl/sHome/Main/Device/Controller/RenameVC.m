@@ -33,9 +33,11 @@
     @weakify(self);
     [api startWithObject:self CompletionBlockWithSuccess:^(id data, NSError *error) {
         @strongify(self);
+        NSLog(@"[RYAN] RenameVC > success");
         [[DeviceDataBase sharedDataBase] addDeviceName:self.textField.text ID:[self.deviceId intValue]];
         [self dismiss];
     } failure:^(id data, NSError *error) {
+        NSLog(@"[RYAN] RenameVC > failure");
     }];
 }
 
