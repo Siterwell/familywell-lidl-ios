@@ -43,7 +43,7 @@
 - (NSString *)getDeviceName:(NSString *)deviceName{
     NSString *content = @"";
     NSString *nameString = @"";
-    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSStringEncoding enc = NSUTF8StringEncoding;//CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSData *namedata = [deviceName dataUsingEncoding:enc];
     
     NSInteger countf = 15 - namedata.length;

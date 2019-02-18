@@ -61,7 +61,7 @@
 }
 
 - (NSString *)getNameFromConeten{
-    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSStringEncoding enc = NSUTF8StringEncoding;//CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     
     NSString *nameString = [self.answer_content substringWithRange:NSMakeRange(6, 32)];
     NSData *data = [self hexStringToData:nameString];

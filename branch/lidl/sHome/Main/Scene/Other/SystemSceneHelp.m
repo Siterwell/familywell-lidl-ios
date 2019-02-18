@@ -65,7 +65,7 @@
         name = @"";
     }
     NSString *nameString = @"";
-    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSStringEncoding enc = NSUTF8StringEncoding;//CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSData *namedata = [name dataUsingEncoding:enc];
     
     NSInteger countf = 15 - namedata.length;
@@ -234,7 +234,7 @@
     if(name == nil) {
         name = @"";
     }
-    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSStringEncoding enc = NSUTF8StringEncoding;//CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSData *namedata = [name dataUsingEncoding:enc];
     
     NSInteger countf = 15 - namedata.length;

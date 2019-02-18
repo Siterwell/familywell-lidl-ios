@@ -182,7 +182,7 @@
         return;
     }
     
-    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    NSStringEncoding enc = NSUTF8StringEncoding;//CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSData *namedata = [_titleTextFiled.text dataUsingEncoding:enc];
     if (namedata.length >= 15) {
         [MBProgressHUD showError:NSLocalizedString(@"情景名称过长", nil) ToView:self.view];
