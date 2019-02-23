@@ -88,7 +88,7 @@
     red.backgroundColor = [UIColor redColor];
     [self.view addSubview:red];
     [red mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(-30);
+        make.centerX.equalTo(0);
         make.height.equalTo(12);
         make.width.equalTo(25);
         make.top.equalTo(12+64);
@@ -116,30 +116,30 @@
     }];
     
     UIView *green = [[UIView alloc] init];
-    green.backgroundColor = RGB(63, 195, 128);
+    green.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:green];
     [green mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.top.equalTo(red);
         make.right.equalTo(greenLb.mas_left).offset(-10);
     }];
     
-    UIView *gray = [[UIView alloc] init];
-    gray.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:gray];
-    [gray makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(redLb.mas_right).offset(10);
-        make.top.height.width.equalTo(red);
-    }];
-    
-    UILabel *grayLb = [[UILabel alloc] init];
-    grayLb.textAlignment = NSTextAlignmentCenter;
-    grayLb.text = NSLocalizedString(@"离线", nil);
-    grayLb.font = [UIFont systemFontOfSize:13];
-    [self.view addSubview:grayLb];
-    [grayLb makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(gray.mas_right).offset(10);
-        make.centerY.equalTo(gray);
-    }];
+//    UIView *gray = [[UIView alloc] init];
+//    gray.backgroundColor = [UIColor lightGrayColor];
+//    [self.view addSubview:gray];
+//    [gray makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(redLb.mas_right).offset(10);
+//        make.top.height.width.equalTo(red);
+//    }];
+//
+//    UILabel *grayLb = [[UILabel alloc] init];
+//    grayLb.textAlignment = NSTextAlignmentCenter;
+//    grayLb.text = NSLocalizedString(@"离线", nil);
+//    grayLb.font = [UIFont systemFontOfSize:13];
+//    [self.view addSubview:grayLb];
+//    [grayLb makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(gray.mas_right).offset(10);
+//        make.centerY.equalTo(gray);
+//    }];
 
 }
 

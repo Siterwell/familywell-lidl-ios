@@ -52,7 +52,7 @@
                 if ([[BatterHelp getBatterFormDevice:battery] intValue] <= 15) {
                     return @"gz";
                 } else {
-                    return @"aq";
+                    return @"no";
                 }
             }
         }
@@ -60,14 +60,14 @@
             if ([switchStatus isEqualToString:@"01"]) {
                 return @"bj";
             } else if ([switchStatus isEqualToString:@"00"]) {
-                return @"aq";
+                return @"no";
             } else {
                 return @"no";
             }
         }
         else if ([name isEqualToString:@"双路开关"]) {
             if ([switchStatus isEqualToString:@"00"]) {
-                return @"aq";
+                return @"no";
             } else if ([switchStatus isEqualToString:@"01"] || [switchStatus isEqualToString:@"02"] || [switchStatus isEqualToString:@"03"]) {
                 return @"bj";
             } else {
@@ -81,7 +81,7 @@
                 if ([[BatterHelp getBatterFormDevice:battery] intValue] <= 15) {
                     return @"gz";
                 } else {
-                    return @"aq";
+                    return @"no";
                 }
             }
         }
@@ -92,7 +92,7 @@
                 if ([[BatterHelp getBatterFormDevice:battery] intValue] <= 15) {
                     return @"gz";
                 } else {
-                    return @"aq";
+                    return @"no";
                 }
             }
         }
@@ -117,7 +117,7 @@
         }
         else if ([status isEqualToString:STATE_TRIGGERED] || [status isEqualToString:@"56"]) {
             if ([name isEqualToString:@"门锁"]) {
-                return @"aq";
+                return @"no";
             } else {
                 return @"bj";
             }
@@ -139,11 +139,11 @@
                 if ([battery intValue] <= 15) {
                     return @"gz";
                 } else {
-                    return @"aq";
+                    return @"no";
                 }
             }
             
-            return @"aq";
+            return @"no";
         }
         else if ([status isEqualToString:@"40"]) {
             return @"gz";

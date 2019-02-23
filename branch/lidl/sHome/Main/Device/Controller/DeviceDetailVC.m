@@ -480,8 +480,8 @@
  设备背景图片
  */
 -(void)setPageBackground{
-    if ([_data.status isEqualToString:@"aq"]) {
-        [_bgImageView setImage:[UIImage imageNamed:@"sbgreen_bg"]];
+    if ([_data.status isEqualToString:@"aq"] || [_data.status isEqualToString:@"no"]) {
+        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
         if ([_data.title isEqualToString:@"智能插座"]) {
             _MainLabel.text = NSLocalizedString(@"Socket OFF",nil);
             [_deviceSwitch setOn:NO animated:YES];
@@ -529,8 +529,8 @@
         else{
             _MainLabel.text = NSLocalizedString(@"正常",nil);
         }
-        _MainLabel.textColor = RGB(0, 191, 102);
-        _centerLine.backgroundColor = RGB(0, 191, 102);
+        _MainLabel.textColor = RGB(192, 203, 223);
+        _centerLine.backgroundColor = RGB(192, 203, 223);
     }
     else if ([_data.status isEqualToString:@"gz"]){
         [_bgImageView setImage:[UIImage imageNamed:@"sborange_bg"]];
@@ -625,12 +625,12 @@
         }
         _centerLine.backgroundColor = RGB(245, 52, 35);
     }
-    else if ([_data.status isEqualToString:@"no"]){
-        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
-        _MainLabel.text = NSLocalizedString(@"NO",nil);
-        _MainLabel.textColor = RGB(192, 203, 223);
-        _centerLine.backgroundColor = RGB(192, 203, 223);
-    }
+//    else if ([_data.status isEqualToString:@"no"]){
+//        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
+//        _MainLabel.text = NSLocalizedString(@"NO",nil);
+//        _MainLabel.textColor = RGB(192, 203, 223);
+//        _centerLine.backgroundColor = RGB(192, 203, 223);
+//    }
 }
 
 /**
@@ -638,8 +638,8 @@
  */
 - (void)analysisStatus{
     
-    if (![self.data.status isEqualToString:@"no"]) {
-        
+//    if (![self.data.status isEqualToString:@"no"]) {
+    
         NSString *signal = [_data.statuCode substringWithRange:NSMakeRange(0, 2)];
         if ([signal isEqualToString:@"04"]) {
             [self.wifiImgV setImage:[UIImage imageNamed:@"wifi04"]];
@@ -717,11 +717,11 @@
                 [_MainLabel setText:statusString];
             }
         }
-    }
-    else{
-        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
-        _batteryLabel.text = NSLocalizedString(@"",nil);
-    }
+//    }
+//    else{
+//        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
+//        _batteryLabel.text = NSLocalizedString(@"",nil);
+//    }
 }
 
 - (IBAction)switchAction:(id)sender {

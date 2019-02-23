@@ -272,23 +272,23 @@
  设备背景图片
  */
 -(void)setPageBackground{
-    if ([_data.status isEqualToString:@"aq"]) {
-        [_bgImageView setImage:[UIImage imageNamed:@"sbgreen_bg"]];
+    if ([_data.status isEqualToString:@"aq"] || [_data.status isEqualToString:@"no"]) {
+        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
         _MainLabel.text = NSLocalizedString(@"正常",nil);
     }
     else if ([_data.status isEqualToString:@"gz"]){
         [_bgImageView setImage:[UIImage imageNamed:@"sborange_bg"]];
         _MainLabel.text = NSLocalizedString(@"低电压",nil);
     }
-    else if ([_data.status isEqualToString:@"no"]){
-        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
-        _MainLabel.text = NSLocalizedString(@"NO",nil);
-    }
+//    else if ([_data.status isEqualToString:@"no"]){
+//        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
+//        _MainLabel.text = NSLocalizedString(@"NO",nil);
+//    }
 }
 
 - (void)analysisStatus{
     self.data = [[DeviceDataBase sharedDataBase] selectDevice:self.data.devID];
-    if (![self.data.status isEqualToString:@"no"]) {
+//    if (![self.data.status isEqualToString:@"no"]) {
         NSString *signal = [_data.statuCode substringWithRange:NSMakeRange(0, 2)];
         
         NSNumber *num = [BatterHelp numberHexString:signal];
@@ -309,11 +309,11 @@
         else{
             [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
         }
-    }
-    else {
-        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
-
-    }
+//    }
+//    else {
+//        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
+//
+//    }
     NSString *battery = [_data.statuCode substringWithRange:NSMakeRange(2, 2)];
     if (![self.data.title containsString:@"插座"] && ![self.data.title containsString:@"双路开关"]) {
         if ([battery isEqualToString:@"FF"]) {
