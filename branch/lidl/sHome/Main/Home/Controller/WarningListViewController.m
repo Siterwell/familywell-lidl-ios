@@ -16,6 +16,7 @@
 #import "DeviceDataBase.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "BatterHelp.h"
+#import "EquipmentState.h"
 
 @interface WarningListViewController () <UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource>
 
@@ -237,15 +238,15 @@
     NSString *battery = [statusa substringWithRange:NSMakeRange(2, 2)];
     NSString *status = [statusa substringWithRange:NSMakeRange(4, 2)];
     if([@"门磁" isEqualToString:[dic objectForKey:type]]){
-        if([@"55" isEqualToString:status]){
+        if([STATE_TRIGGERED isEqualToString:status]){
              return  NSLocalizedString(@"门打开", nil);
-        }else if([@"AA" isEqualToString:status]){
+        }else if([STATE_NORMAL isEqualToString:status]){
             if([[BatterHelp numberHexString:battery] integerValue] < 15){
                 return  NSLocalizedString(@"低电压", nil);
             }else{
             return  NSLocalizedString(@"门关闭", nil);
             }
-        }else if([@"66" isEqualToString:status]){
+        }else if([STATE_DOOR_NOT_CLOSED isEqualToString:status]){
             return  NSLocalizedString(@"门没有关", nil);
         }else if([@"FF" isEqualToString:status]){
             return  NSLocalizedString(@"离线", nil);
@@ -257,13 +258,13 @@
             }
         }
     } else if([@"SOS按钮" isEqualToString:[dic objectForKey:type]]){
-        if([@"55" isEqualToString:status]){
+        if([STATE_TRIGGERED isEqualToString:status]){
             return  NSLocalizedString(@"求救", nil);
-        }else if([@"66" isEqualToString:status] || [@"FF" isEqualToString:status]){
+        }else if([STATE_DOOR_NOT_CLOSED isEqualToString:status] || [@"FF" isEqualToString:status]){
             return  NSLocalizedString(@"离线", nil);
         }else if([@"FF" isEqualToString:status]){
             return NSLocalizedString(@"离线", nil);
-        }else if([@"AA" isEqualToString:status]){
+        }else if([STATE_NORMAL isEqualToString:status]){
             if([[BatterHelp numberHexString:battery] integerValue] < 15){
                 return  NSLocalizedString(@"低电压", nil);
             }else{
@@ -277,9 +278,9 @@
             }
         }
     }else if([@"PIR探测器" isEqualToString:[dic objectForKey:type]]){
-        if([@"55" isEqualToString:status]){
+        if([STATE_TRIGGERED isEqualToString:status]){
             return  NSLocalizedString(@"有人移动报警", nil);
-        }else if([@"AA" isEqualToString:status]){
+        }else if([STATE_NORMAL isEqualToString:status]){
             if([[BatterHelp numberHexString:battery] integerValue] < 15){
                 return  NSLocalizedString(@"低电压", nil);
             }else{
@@ -295,49 +296,49 @@
             }
         }
     }else if([@"SM报警器" isEqualToString:[dic objectForKey:type]]){
-        if([@"BB" isEqualToString:status]){
+        if([STATE_TEST isEqualToString:status]){
             return  NSLocalizedString(@"测试报警", nil);
-        }else if([@"55" isEqualToString:status]){
+        }else if([STATE_TRIGGERED isEqualToString:status]){
             return  NSLocalizedString(@"报警", nil);
         }else if([@"FF" isEqualToString:status]){
             return NSLocalizedString(@"离线", nil);
         }else {
-            if([[BatterHelp numberHexString:battery] integerValue] < 15 && [@"AA" isEqualToString:status]){
+            if([[BatterHelp numberHexString:battery] integerValue] < 15 && [STATE_NORMAL isEqualToString:status]){
                 return  NSLocalizedString(@"低电压", nil);
             }else{
                 return  NSLocalizedString(@"报警", nil);
             }
         }
     }else if([@"CO报警器" isEqualToString:[dic objectForKey:type]]){
-        if([@"BB" isEqualToString:status]){
+        if([STATE_TEST isEqualToString:status]){
             return  NSLocalizedString(@"测试报警", nil);
-        }else if([@"55" isEqualToString:status]){
+        }else if([STATE_TRIGGERED isEqualToString:status]){
             return  NSLocalizedString(@"报警", nil);
         }else if([@"FF" isEqualToString:status]){
             return NSLocalizedString(@"离线", nil);
         }else {
-            if([[BatterHelp numberHexString:battery] integerValue] < 15 && [@"AA" isEqualToString:status]){
+            if([[BatterHelp numberHexString:battery] integerValue] < 15 && [STATE_NORMAL isEqualToString:status]){
                 return  NSLocalizedString(@"低电压", nil);
             }else{
                 return  NSLocalizedString(@"报警", nil);
             }
         }
     }else if([@"水感报警器" isEqualToString:[dic objectForKey:type]]){
-        if([@"BB" isEqualToString:status]){
+        if([STATE_TEST isEqualToString:status]){
             return  NSLocalizedString(@"测试报警", nil);
-        }else if([@"55" isEqualToString:status]){
+        }else if([STATE_TRIGGERED isEqualToString:status]){
             return  NSLocalizedString(@"报警", nil);
         }else if([@"FF" isEqualToString:status]){
             return NSLocalizedString(@"离线", nil);
         }else {
-            if([[BatterHelp numberHexString:battery] integerValue] < 15 && [@"AA" isEqualToString:status]){
+            if([[BatterHelp numberHexString:battery] integerValue] < 15 && [STATE_NORMAL isEqualToString:status]){
                 return  NSLocalizedString(@"低电压", nil);
             }else{
                 return  NSLocalizedString(@"报警", nil);
             }
         }
     }else if([@"温湿度探测器" isEqualToString:[dic objectForKey:type]]){
-        if([@"AA" isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
+        if([STATE_NORMAL isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
             return NSLocalizedString(@"低电压", nil);
         }else if([@"FF" isEqualToString:status]){
             return NSLocalizedString(@"离线", nil);
@@ -358,54 +359,54 @@
         }else if([@"FF" isEqualToString:status]){
             return NSLocalizedString(@"离线", nil);
         }else{
-            if([@"AA" isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
+            if([STATE_NORMAL isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
                 return NSLocalizedString(@"低电压", nil);
             }else
             return NSLocalizedString(@"报警", nil);
         }
     }else if([@"气体探测器" isEqualToString:[dic objectForKey:type]]){
-        if([@"BB" isEqualToString:status]){
+        if([STATE_TEST isEqualToString:status]){
             return  NSLocalizedString(@"测试报警", nil);
-        }else if([@"55" isEqualToString:status]){
+        }else if([STATE_TRIGGERED isEqualToString:status]){
             return  NSLocalizedString(@"报警", nil);
         }else if([@"FF" isEqualToString:status]){
             return NSLocalizedString(@"离线", nil);
         }else {
-            if([[BatterHelp numberHexString:battery] integerValue] < 15 && [@"AA" isEqualToString:status]){
+            if([[BatterHelp numberHexString:battery] integerValue] < 15 && [STATE_NORMAL isEqualToString:status]){
                 return  NSLocalizedString(@"低电压", nil);
             }else{
                 return  NSLocalizedString(@"报警", nil);
             }
         }
     }else if([@"热感报警器" isEqualToString:[dic objectForKey:type]]){
-        if([@"BB" isEqualToString:status]){
+        if([STATE_TEST isEqualToString:status]){
             return  NSLocalizedString(@"测试报警", nil);
-        }else if([@"55" isEqualToString:status]){
+        }else if([STATE_TRIGGERED isEqualToString:status]){
             return  NSLocalizedString(@"报警", nil);
         }else if([@"FF" isEqualToString:status]){
             return NSLocalizedString(@"离线", nil);
         }else {
-            if([[BatterHelp numberHexString:battery] integerValue] < 15 && [@"AA" isEqualToString:status]){
+            if([[BatterHelp numberHexString:battery] integerValue] < 15 && [STATE_NORMAL isEqualToString:status]){
                 return  NSLocalizedString(@"低电压", nil);
             }else{
                 return  NSLocalizedString(@"报警", nil);
             }
         }
     }else if([@"情景开关" isEqualToString:[dic objectForKey:type]]){
-        if([@"55" isEqualToString:status]){
+        if([STATE_TRIGGERED isEqualToString:status]){
             return  NSLocalizedString(@"求救", nil);
-        }else if([@"66" isEqualToString:status]){
+        }else if([STATE_DOOR_NOT_CLOSED isEqualToString:status]){
             return  NSLocalizedString(@"离线", nil);
         }else if([@"FF" isEqualToString:status]){
             return  NSLocalizedString(@"离线", nil);
         }else{
-            if([@"AA" isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
+            if([STATE_NORMAL isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
                 return NSLocalizedString(@"低电压", nil);
             }else
             return NSLocalizedString(@"报警", nil);
         }
     }else if([@"门锁" isEqualToString:[dic objectForKey:type]]){
-        if([@"50" isEqualToString:status]){
+        if([STATE_MUTE isEqualToString:status]){
             return  NSLocalizedString(@"开锁", nil);
         }else if([@"51" isEqualToString:status]){
             return  NSLocalizedString(@"密码开锁", nil);
@@ -422,7 +423,7 @@
         }else if([@"FF" isEqualToString:status]){
             return  NSLocalizedString(@"离线", nil);
         }else{
-            if([@"AA" isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
+            if([STATE_NORMAL isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
                 return NSLocalizedString(@"低电压", nil);
             }else
                 return NSLocalizedString(@"报警", nil);
@@ -440,7 +441,7 @@
             return NSLocalizedString(@"报警", nil);
         }
     }else if([@"按键" isEqualToString:[dic objectForKey:type]]){
-        if([@"AA" isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
+        if([STATE_NORMAL isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
             return NSLocalizedString(@"低电压", nil);
         }else if([@"FF" isEqualToString:status]){
             return NSLocalizedString(@"离线", nil);
@@ -448,7 +449,7 @@
             return NSLocalizedString(@"报警", nil);
         }
     }else if([@"调光模块" isEqualToString:[dic objectForKey:type]]){
-        if([@"AA" isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
+        if([STATE_NORMAL isEqualToString:status] && [[BatterHelp numberHexString:battery] integerValue] < 15){
             return NSLocalizedString(@"低电压", nil);
         }else if([@"FF" isEqualToString:status]){
             return NSLocalizedString(@"离线", nil);
