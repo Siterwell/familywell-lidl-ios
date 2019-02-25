@@ -2234,6 +2234,7 @@
 		DDDB61451E9CBE4000BDEE25 /* FortgetPsdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FortgetPsdCell.m; sourceTree = "<group>"; };
 		DDDB61471E9CC57600BDEE25 /* AddDeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDeviceCell.h; sourceTree = "<group>"; };
 		DDDB61481E9CC57600BDEE25 /* AddDeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeviceCell.m; sourceTree = "<group>"; };
+		E200940B222146B900B01238 /* EquipmentState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EquipmentState.h; sourceTree = "<group>"; };
 		E2126DE021B6771C00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E2126DE121B6771C00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/LoginStoryboard.strings; sourceTree = "<group>"; };
 		E2126DE221B6771C00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/BookGroupCollectionViewCell.strings; sourceTree = "<group>"; };
@@ -3028,6 +3029,7 @@
 				017891572064AA16004F8FD7 /* DeviceMapHelp.m */,
 				011463D61F5805A500725382 /* BatterHelp.h */,
 				011463D71F5805A500725382 /* BatterHelp.m */,
+				E200940B222146B900B01238 /* EquipmentState.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";

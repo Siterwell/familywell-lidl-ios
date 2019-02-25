@@ -26,6 +26,7 @@
 #import "MyUdp.h"
 #import "GetAlarmsApi.h"
 #import "HekrAlarmModel.h"
+#import "EquipmentState.h"
 
 #import "MainDeviceApi.h"
 #import "LEEAlert.h"
@@ -486,11 +487,11 @@
             [_deviceSwitch setOn:NO animated:YES];
         }
         else if ([_data.title isEqualToString:@"门锁"]) {
-            if ([_data.desc isEqualToString:@"AA"] || [_data.desc isEqualToString:@"60"] ) {
+            if ([_data.desc isEqualToString:STATE_NORMAL] || [_data.desc isEqualToString:@"60"] ) {
                 _MainLabel.text = NSLocalizedString(@"正常",nil);
             } else if ([_data.desc isEqualToString:@"AB"]) {
                 _MainLabel.text = NSLocalizedString(@"已激活",nil);
-            } else if ([_data.desc isEqualToString:@"55"]) {
+            } else if ([_data.desc isEqualToString:STATE_TRIGGERED]) {
                 _MainLabel.text = NSLocalizedString(@"远程密码开锁成功", nil);
                 _MainLabel.textColor = RGB(245, 52, 35);
                 _centerLine.backgroundColor = RGB(245, 52, 35);
@@ -934,7 +935,7 @@
             ///如果是门锁，则提示开锁成功和失败
             if ([[model.device_name substringFromIndex:1] isEqualToString:@"213"] && model.device_ID== [self.data.devID intValue]) {
                 NSString *msMsg = nil;
-                if (model.device_status.length == 8 && [[model.device_status substringWithRange:NSMakeRange(4, 2)] isEqualToString:@"55"]) {
+                if (model.device_status.length == 8 && [[model.device_status substringWithRange:NSMakeRange(4, 2)] isEqualToString:STATE_TRIGGERED]) {
                     msMsg = NSLocalizedString(@"远程开锁成功", nil);
                 } else if (model.device_status.length == 8 && [[model.device_status substringWithRange:NSMakeRange(4, 2)] isEqualToString:@"56"]) {
                     msMsg = NSLocalizedString(@"密码错误", nil);
