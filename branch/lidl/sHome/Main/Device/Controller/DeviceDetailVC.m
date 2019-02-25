@@ -640,6 +640,11 @@
     
 //    if (![self.data.status isEqualToString:@"no"]) {
     
+    if (![self.data.title containsString:@"复合型烟感"] &&
+        ![self.data.title containsString:@"CO报警器"] &&
+        ![self.data.title containsString:@"热感报警器"] &&
+        ![self.data.title containsString:@"水感报警器"]) {
+        
         NSString *signal = [_data.statuCode substringWithRange:NSMakeRange(0, 2)];
         if ([signal isEqualToString:@"04"]) {
             [self.wifiImgV setImage:[UIImage imageNamed:@"wifi04"]];
@@ -656,9 +661,15 @@
         else{
             [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
         }
+    }
         
         NSString *battery = [_data.statuCode substringWithRange:NSMakeRange(2, 2)];
-        if (![self.data.title containsString:@"插座"] && ![self.data.title containsString:@"双路开关"]) {
+        if (![self.data.title containsString:@"插座"] &&
+            ![self.data.title containsString:@"双路开关"] &&
+            ![self.data.title containsString:@"复合型烟感"] &&
+            ![self.data.title containsString:@"CO报警器"] &&
+            ![self.data.title containsString:@"热感报警器"] &&
+            ![self.data.title containsString:@"水感报警器"]) {
             if ([battery isEqualToString:@"FF"]) {
             }
             else if ([battery isEqualToString:@"80"]){
