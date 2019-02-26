@@ -162,9 +162,8 @@
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:url, self.https] parameters:(_phone_reset?param1:param2) progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         @strongify(self)
         NSLog(@"%@",responseObject);
-        [MBProgressHUD hideHUDForView:self.view];
-        [MBProgressHUD showSuccess:NSLocalizedString(@"重置成功", nil) ToView:GetWindow];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self autoLoginForUnbindPush:self.user_textField.text password:self.pass_textField.text];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);
         [MBProgressHUD hideHUDForView:self.view];
@@ -178,9 +177,48 @@
         [alertVc addAction:action1];
         [self presentViewController:alertVc animated:YES completion:nil];
     }];
-    
-    
 }
+
+-(void)autoLoginForUnbindPush:(NSString *)email password:(NSString *)password {
+    //TODO : [RYAN] Hekr login api is not encryted
+    [[Hekr sharedInstance] login:email password:password callbcak:^(id user, NSError *error) {
+        if (!error) {
+            NSLog(@"[RYAN] autoLoginForUnbindPush > success: %@",error);
+            
+            NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+            
+            [config setObject:email forKey:@"UserName"];
+            [config setObject:password forKey:@"Password"];
+            [config synchronize];
+            
+            [self unbindAllPush];
+        }
+        else{
+            NSLog(@"[RYAN] autoLoginForUnbindPush > fail: %@",error);
+            [self resetPasswordCompleted];
+        }
+    }];
+}
+
+- (void)unbindAllPush {
+    NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+    
+    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] DELETE:[NSString stringWithFormat:@"%@/user/unbindAllPushAlias", https] parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"[RYAN] unbindAllPush > success");
+        [self resetPasswordCompleted];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"[RYAN] unbindAllPush > failed");
+        [self resetPasswordCompleted];
+    }];
+}
+
+-(void)resetPasswordCompleted {
+    [MBProgressHUD hideHUDForView:self.view];
+    [MBProgressHUD showSuccess:NSLocalizedString(@"重置成功", nil) ToView:GetWindow];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 -(void)clickItem{
     if(_phone_reset){
