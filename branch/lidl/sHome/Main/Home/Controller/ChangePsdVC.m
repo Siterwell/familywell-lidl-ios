@@ -50,6 +50,12 @@
     @weakify(self)
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/changePassword", https] parameters:@{@"pid":HekrPid,@"newPassword":_theNewPsd.text,@"oldPassword":_theOldPsd.text} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         @strongify(self)
+        
+        NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
+        [config setValue:_theNewPsd.text forKey:@"Password"];
+        
+        [self unbindAllPush];
+        
         [MBProgressHUD hideHUDForView:GetWindow animated:YES];
         [MBProgressHUD showSuccess:NSLocalizedString(@"修改成功", nil) ToView:GetWindow];
         [self.navigationController popViewControllerAnimated:YES];
@@ -59,6 +65,55 @@
         ErrorModel *model = [[ErrorModel alloc] initWithString:errResponse error:nil];
         [MBProgressHUD showError:[ErrorCodeUtil getMessageWithCode:model.code] ToView:GetWindow];
     }];
+}
+
+- (void)unbindAllPush {
+    MJWeakSelf
+    NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+    
+    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] DELETE:[NSString stringWithFormat:@"%@/user/unbindAllPushAlias", https] parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"[RYAN] unbindAllPush > success");
+        [self pushTagBind];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"[RYAN] unbindAllPush > failed");
+        [weakSelf unbindAllPush];
+    }];
+}
+
+- (void)pushTagBind {
+    MJWeakSelf
+    
+    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+    NSString *languageName = [appLanguages objectAtIndex:0];
+    
+    NSString* lan;
+    if ([languageName containsString:@"zh"]) {
+        lan = @"zh";
+    } else if ([languageName containsString:@"de"]) {
+        lan = @"de";
+    } else if ([languageName containsString:@"fr"]) {
+        lan = @"fr";
+    } else if ([languageName containsString:@"es"]) {
+        lan = @"es";
+    }else {
+        lan = @"en";
+    }
+    
+    NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
+    if ([config objectForKey:AppClientID]) {
+        NSDictionary *dic = @{
+                              @"clientId" : [config objectForKey:AppClientID],
+                              @"pushPlatform" : @"FCM",
+                              @"locale" : lan
+                              };
+        [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"绑定成功！");
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [weakSelf pushTagBind];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

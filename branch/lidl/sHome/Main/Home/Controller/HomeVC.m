@@ -239,12 +239,12 @@ BOOL flag_checkfireware = NO;
         LoginVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"LoginVC"];
         BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
         [self.navigationController presentViewController:nav animated:YES completion:nil];
-    }else if(_model == nil){
-        //没有设备
-        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
-        addGatewayVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"addGatewayVC"];
-        BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
-        [self.navigationController presentViewController:nav animated:YES completion:nil];
+//    }else if(_model == nil){
+//        //没有设备
+//        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
+//        addGatewayVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"addGatewayVC"];
+//        BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
+//        [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
         //正常情况
         [self getLocation];
@@ -426,8 +426,13 @@ BOOL flag_checkfireware = NO;
 }
 
 - (void)showCircleMenu{
-    _menuVc.view.hidden = NO;
-    [_menuVc open];
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    
+    if (model != nil) {
+        _menuVc.view.hidden = NO;
+        [_menuVc open];
+    }
 }
 
 /**
@@ -465,12 +470,13 @@ BOOL flag_checkfireware = NO;
                 [MBProgressHUD showSuccess:[NSString stringWithFormat:NSLocalizedString(@"网关修改为:%@", nil),mmodel.devTid] ToView:self.view];
             }
             [config synchronize];
-        }else{
-            UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
-            addGatewayVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"addGatewayVC"];
-            BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
-            [self.navigationController presentViewController:nav animated:YES completion:nil];
         }
+//        else{
+//            UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
+//            addGatewayVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"addGatewayVC"];
+//            BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
+//            [self.navigationController presentViewController:nav animated:YES completion:nil];
+//        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 //        [MBProgressHUD showError:NSLocalizedString(@"网络错误", nil) ToView:self.view];
     }];

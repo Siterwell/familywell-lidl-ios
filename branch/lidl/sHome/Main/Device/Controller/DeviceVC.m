@@ -160,6 +160,11 @@
 - (void)deviceSycn{
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    if (model == nil) {
+        NSLog(@"[RYAN] deviceSycn > no avaible device");
+        return;
+    }
+    
     
     NSMutableArray *array = [[DeviceDataBase sharedDataBase] selectDevice];
     
@@ -274,6 +279,7 @@
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
+    
     [self lodaData];
     [self scynDeviceName];
 }
@@ -287,13 +293,23 @@
     
     ScynDeviceName *api = [[ScynDeviceName alloc] initWithDevTid:model.devTid CtrlKey:model.ctrlKey Device:[[DeviceDataBase sharedDataBase] selectDevice]];
 
+    NSLog(@"[RYAN] scynDeviceName >> _runDevice = %@", _runDevice);
+    NSLog(@"[RYAN] scynDeviceName >> model = %@", model);
+    
+    if (model==nil) {
+        NSLog(@"[RYAN] scynDeviceName > no avaible device");
+        return;
+    }
+    
     if (![_runDevice isEqualToString:model.devTid]) {
+        NSLog(@"[RYAN] scynDeviceName > start sync name");
+        
         [api startWithObject:self CompletionBlockWithSuccess:^(id data, NSError *error) {
             DeviceNameModel *model = [[DeviceNameModel alloc] initWithDivicedictionary:data error:nil];
             if (model.answer_content.length == 36) {
                 NSString *device_id = [NSString stringWithFormat:@"%lu",strtoul([[model.answer_content substringWithRange:NSMakeRange(0, 4)] UTF8String],0,16)];
                 NSString *device_name = [model.answer_content substringWithRange:NSMakeRange(4, 32)];
-                NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+                NSStringEncoding enc = NSUTF8StringEncoding;//CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
                 
                 NSData *data = [BatterHelp hexStringToData:device_name];
                 NSString *result = [[NSString alloc] initWithData:data encoding:enc];
@@ -307,6 +323,7 @@
         } failure:^(id data, NSError *error) {
         }];
     }else{
+        NSLog(@"[RYAN] scynDeviceName > do nothing");
         [api startWithObject:self CompletionBlockWithSuccess:^(id data, NSError *error) {
         } failure:^(id data, NSError *error) {
         }];

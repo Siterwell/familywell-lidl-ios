@@ -8,7 +8,7 @@
 
 #import "DeviceMapHelp.h"
 #import "BatterHelp.h"
-
+#import "EquipmentState.h"
 
 @implementation DeviceMapHelp
 
@@ -97,15 +97,15 @@
             }
         }
 
-        else if ([status isEqualToString:@"66"]||
-                [status isEqualToString:@"50"]||
+        else if ([status isEqualToString:STATE_DOOR_NOT_CLOSED]||
+                [status isEqualToString:STATE_MUTE]||
 
                 [status isEqualToString:@"17"]||
                 [status isEqualToString:@"18"]||
                 [status isEqualToString:@"19"]||
                 [status isEqualToString:@"1A"]||
                 [status isEqualToString:@"1B"]||
-                [status isEqualToString:@"BB"]||
+                [status isEqualToString:STATE_TEST]||
                  
                 [status isEqualToString:@"10"]||
                 [status isEqualToString:@"20"]||
@@ -115,7 +115,7 @@
                  [status isEqualToString:@"53"]  ){
             return @"bj";
         }
-        else if ([status isEqualToString:@"55"] || [status isEqualToString:@"56"]) {
+        else if ([status isEqualToString:STATE_TRIGGERED] || [status isEqualToString:@"56"]) {
             if ([name isEqualToString:@"门锁"]) {
                 return @"aq";
             } else {
@@ -132,7 +132,7 @@
             return @"gz";
         }
         
-        else if ([status isEqualToString:@"AA"] || [status isEqualToString:@"01"] || [status isEqualToString:@"02"] || [status isEqualToString:@"04"] || [status isEqualToString:@"08"] || [status isEqualToString:@"60"] || [status isEqualToString:@"AB"]){
+        else if ([status isEqualToString:STATE_NORMAL] || [status isEqualToString:@"01"] || [status isEqualToString:@"02"] || [status isEqualToString:@"04"] || [status isEqualToString:@"08"] || [status isEqualToString:@"60"] || [status isEqualToString:@"AB"]){
             //电量
             if (![battery isEqualToString:@"80"] && ![battery isEqualToString:@"64"]) {
                 battery = [BatterHelp getBatterFormDevice:battery];
