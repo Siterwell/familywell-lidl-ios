@@ -232,6 +232,9 @@
 - (UIImageView*)addDeviceItem:(UIImageView *)imageView index:(int)i {
     ItemData *device = [self.modelSource objectAtIndex:i];
 
+    float rangeW = Main_Screen_Width/3;
+    float rangeH = Main_Screen_Width/4 + 20;
+    
     BOOL isGroup = [device isKindOfClass:[NSArray class]];
     
     UIImageView *deviceImage = [UIImageView new];
@@ -243,25 +246,33 @@
         [deviceImage setImage:[UIImage imageNamed:device.image]];
     }
 
-    UILabel *deviceName = [UILabel new];
-    [imageView addSubview:deviceName];
-
-    deviceName.textColor = RGB(255, 255, 255);
-    deviceName.font = [UIFont systemFontOfSize:14.0f];
+    NSString* deviceName;
     if (isGroup) {
-        deviceName.text = @"Group";
+        deviceName = @"Group";
     } else {
         if([device.customTitle isEqualToString:@""]){
-            deviceName.text = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(device.title, nil) ,device.devID];
+            deviceName = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(device.title, nil) ,device.devID];
         }else{
-            deviceName.text = device.customTitle;
+            deviceName = device.customTitle;
         }
     }
+    
+    UILabel *labelDevice = [UILabel new];
+    labelDevice.text = deviceName;
+    labelDevice.numberOfLines = 0;//表示label可以多行显示
+//    labelDevice.lineBreakMode = NSLineBreakByCharWrapping;//换行模式
+    [labelDevice sizeToFit];
+//    CGSize size = [labelDevice sizeThatFits:CGSizeMake(100, MAXFLOAT)];
+//    labelDevice.frame = CGRectMake(labelDevice.frame.origin.x, labelDevice.frame.origin.y, labelDevice.frame.size.width, size.height);
+    
+    labelDevice.textColor = RGB(255, 255, 255);
+    labelDevice.font = [UIFont systemFontOfSize:14.0f];
 
-    NSLog(@"[RYAN] Main_Screen_Width w:%f", Main_Screen_Width);
+    [imageView addSubview:labelDevice];
+    
+    NSLog(@"[RYAN] imageView.frame.size.width:%f", imageView.frame.size.width);
+    NSLog(@"[RYAN] labelDevice.frame.size.width:%f", labelDevice.frame.size.width);
 
-    float rangeW = Main_Screen_Width/3;
-    float rangeH = Main_Screen_Width/4 + 20;
     float left = rangeW/2;
     float offsetY = 0.0f;
     float offsetX = left;
@@ -283,7 +294,7 @@
         offsetX += rangeW*2;
     }
 
-    [deviceName mas_makeConstraints:^(MASConstraintMaker *make) {
+    [labelDevice mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(imageView.mas_top).offset(offsetY);
         make.centerX.mas_equalTo(imageView.left).offset(offsetX);
     }];
