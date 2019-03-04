@@ -5399,6 +5399,9 @@
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
