@@ -93,7 +93,7 @@
 "设备告警历史记录" = "Hälytyshistoria";
 "情景列表" = "Teemat";
 "定时切换" = "Aseta aika";
-"编辑定时" = "Muokkaa aikaa";
+"编辑定时" = "Muokkaa ajastinta";
 "自动执行列表" = "Säännöt";
 "在家模式" = "Kotona";
 "在家" = "Kotona";
@@ -104,7 +104,7 @@
 "删除" = "Poista";
 "系统情景最多8条" = "Järjestelmässä enintään 8 kohdetta";
 "请输入情景模式名称" = "Anna teemalle nimi";
-"定时" = "Ajastin";
+"定时" = "Ajastettu teeman vaihto";
 "添加" = "Lisää";
 "请选择星期" = "Aseta viikko";
 "延迟" = "Viive";
