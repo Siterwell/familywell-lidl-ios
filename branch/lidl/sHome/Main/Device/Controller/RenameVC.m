@@ -23,7 +23,7 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"重命名", nil);
-    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(rightItem) Title:NSLocalizedString(@"确定", nil) withTintColor:RGB(40, 184, 215)];
+    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(rightItem) Title:NSLocalizedString(@"确定", nil) withTintColor:RGB(255, 255, 255)];
 }
 
 - (void)rightItem{
@@ -42,11 +42,13 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor whiteColor]];
+//    [self.navigationController.navigationBar lt_setBackgroundColor:[UIColor whiteColor]];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
 - (void)dismiss{
