@@ -254,6 +254,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    UINavigationBar.appearance.tintColor = [UIColor whiteColor];
+    
     [Fabric with:@[[Crashlytics class]]];
     [FIRApp configure];
     [FIRMessaging messaging].delegate = self;

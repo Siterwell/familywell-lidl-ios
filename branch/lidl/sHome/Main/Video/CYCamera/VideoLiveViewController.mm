@@ -218,8 +218,7 @@
     //    self.devName = (vinfoa==nil||vinfoa.name == nil) ? self.vInfo.name : vinfoa.name;
     //    self.title = self.devName;
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
     [self.player stop];
     self.deviceSn = _vInfo.devid;
@@ -344,8 +343,7 @@
     self.devName = (![XMSingleton sharedXM].vInfo || ![XMSingleton sharedXM].vInfo.name) ? self.vInfo.name : [XMSingleton sharedXM].vInfo.name;
     self.title = self.devName;
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
     self.player = [[NSSDKMediaPlayer alloc] init];
     self.player.playType = RealPlay;
