@@ -235,45 +235,7 @@
     float rangeW = Main_Screen_Width/3;
     float rangeH = Main_Screen_Width/4 + 20;
     
-    BOOL isGroup = [device isKindOfClass:[NSArray class]];
-    
-    UIImageView *deviceImage = [UIImageView new];
-    [imageView addSubview:deviceImage];
-    deviceImage.userInteractionEnabled = FALSE;
-    if (isGroup) {
-        [deviceImage setImage:[UIImage imageNamed:@"sbz_icon"]];
-    } else {
-        [deviceImage setImage:[UIImage imageNamed:device.image]];
-    }
-
-    NSString* deviceName;
-    if (isGroup) {
-        deviceName = @"Group";
-    } else {
-        if([device.customTitle isEqualToString:@""]){
-            deviceName = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(device.title, nil) ,device.devID];
-        }else{
-            deviceName = device.customTitle;
-        }
-    }
-    
-    UILabel *labelDevice = [UILabel new];
-    labelDevice.text = deviceName;
-    labelDevice.numberOfLines = 0;//表示label可以多行显示
-//    labelDevice.lineBreakMode = NSLineBreakByCharWrapping;//换行模式
-    [labelDevice sizeToFit];
-//    CGSize size = [labelDevice sizeThatFits:CGSizeMake(100, MAXFLOAT)];
-//    labelDevice.frame = CGRectMake(labelDevice.frame.origin.x, labelDevice.frame.origin.y, labelDevice.frame.size.width, size.height);
-    
-    labelDevice.textColor = RGB(255, 255, 255);
-    labelDevice.font = [UIFont systemFontOfSize:14.0f];
-
-    [imageView addSubview:labelDevice];
-    
-    NSLog(@"[RYAN] imageView.frame.size.width:%f", imageView.frame.size.width);
-    NSLog(@"[RYAN] labelDevice.frame.size.width:%f", labelDevice.frame.size.width);
-
-    float left = rangeW/2;
+    float left = 0.0f;
     float offsetY = 0.0f;
     float offsetX = left;
     if (i==0) {
@@ -293,15 +255,55 @@
         offsetY = rangeH*2;
         offsetX += rangeW*2;
     }
+    
+    BOOL isGroup = [device isKindOfClass:[NSArray class]];
+    
+    UIImageView *deviceImage = [UIImageView new];
+    [imageView addSubview:deviceImage];
+    deviceImage.userInteractionEnabled = FALSE;
+    if (isGroup) {
+        [deviceImage setImage:[UIImage imageNamed:@"sbz_icon"]];
+    } else {
+        [deviceImage setImage:[UIImage imageNamed:device.image]];
+    }
+    
+    NSString* deviceName;
+    if (isGroup) {
+        deviceName = @"Group";
+    } else {
+        if([device.customTitle isEqualToString:@""]){
+            deviceName = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(device.title, nil) ,device.devID];
+        }else{
+            deviceName = device.customTitle;
+        }
+    }
+    
+    int labelHeight = 20;
+    CGRect rect = CGRectMake(offsetX, offsetY , rangeW, labelHeight);
+    UILabel *labelDevice = [[UILabel alloc] initWithFrame:rect];
+    labelDevice.textAlignment = NSTextAlignmentCenter;
+    labelDevice.text = deviceName;
+    labelDevice.numberOfLines = 0;//表示label可以多行显示
+    labelDevice.lineBreakMode = NSLineBreakByCharWrapping;//换行模式
+    [labelDevice sizeToFit];
+    
+    labelDevice.textColor = RGB(255, 255, 255);
+    labelDevice.font = [UIFont systemFontOfSize:14.0f];
+    
+    [imageView addSubview:labelDevice];
 
-    [labelDevice mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(imageView.mas_top).offset(offsetY);
-        make.centerX.mas_equalTo(imageView.left).offset(offsetX);
-    }];
+    
+    NSLog(@"[RYAN] imageView.frame.size.width:%f", imageView.frame.size.width);
+    NSLog(@"[RYAN] labelDevice.frame.size.width:%f", labelDevice.frame.size.width);
+
+//    [labelDevice mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.mas_equalTo(imageView.mas_top).offset(offsetY);
+//        make.centerX.mas_equalTo(imageView.left).offset(offsetX);
+//    }];
 
     [deviceImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(imageView.mas_top).offset(offsetY);
-        make.centerX.mas_equalTo(imageView.left).offset(offsetX);
+        make.centerX.mas_equalTo(imageView.left).offset(offsetX + rangeW/2);
     }];
     
     if (!isGroup) {
