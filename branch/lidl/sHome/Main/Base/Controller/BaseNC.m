@@ -7,7 +7,8 @@
 //
 
 #import "BaseNC.h"
-#import "DeviceDetailVC.h"
+#import "ForgetPsdVC.h"
+#import "RegistVC.h"
 @interface BaseNC ()
 
 @end
@@ -25,11 +26,11 @@
     [super pushViewController:viewController animated:animated];
     
     if (viewController.navigationItem.leftBarButtonItem==nil&&[self.viewControllers count]>1) {
-        if ([viewController isKindOfClass:[DeviceDetailVC class]]) {
+        if ([viewController isKindOfClass:[ForgetPsdVC class]] || [viewController isKindOfClass:[RegistVC class]]) {
+            viewController.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(popself) image:@"back_icon" highImage:@"back_icon" withTintColor:[UIColor blackColor]];
+        } else {
             viewController.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(popself) image:@"back_icon" highImage:@"back_icon" withTintColor:[UIColor whiteColor]];
-        }else{
-//            viewController.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(popself) image:@"back_icon" highImage:@"back_icon" withTintColor:[UIColor blackColor]];
-            viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(popself)];
+//            viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"back_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(popself)];
         }
     }
 }
