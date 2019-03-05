@@ -283,9 +283,9 @@
     UILabel *labelDevice = [[UILabel alloc] initWithFrame:rect];
     labelDevice.textAlignment = NSTextAlignmentCenter;
     labelDevice.text = deviceName;
-    labelDevice.numberOfLines = 0;//表示label可以多行显示
-    labelDevice.lineBreakMode = NSLineBreakByCharWrapping;//换行模式
-    [labelDevice sizeToFit];
+    labelDevice.numberOfLines = 1; //0 表示label可以多行显示
+//    labelDevice.lineBreakMode = NSLineBreakByCharWrapping;//换行模式
+//    [labelDevice sizeToFit];
     
     labelDevice.textColor = RGB(255, 255, 255);
     labelDevice.font = [UIFont systemFontOfSize:14.0f];
