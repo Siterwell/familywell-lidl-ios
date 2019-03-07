@@ -73,94 +73,85 @@ Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, kontaktieren Sie uns bitt
 • Per E-Mail: info@elro.eu • Durch den Besuch dieser Seite auf unserer Website: www.elro.eu/privacy-policy";
 
 /* Class = "UIButton"; normalTitle = "用户注册"; ObjectID = "1oE-6O-w9q"; */
-"1oE-6O-w9q.normalTitle" = "Registrieren";
+"1oE-6O-w9q.normalTitle" = "Registreren";
 
-/* Class = "UIButton"; normalTitle = "请确认网关蓝灯闪烁，然后点击下一步。"; ObjectID = "2E2-mS-zvz"; */
-"2E2-mS-zvz.normalTitle" = " Die blaue LED muss blinken, klicken sie dann WEITER.";
-
-/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "2fA-Tg-EhO"; */
-"2fA-Tg-EhO.title" = "Root View Controller";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4Aj-3m-9Bs"; */
-"4Aj-3m-9Bs.normalTitle" = "Taste";
+/* Class = "UIButton"; normalTitle = "如何进入配网模式？"; ObjectID = "2E2-mS-zvz"; */
+"2E2-mS-zvz.normalTitle" = "Zorg dat het licht van de connector blauw knippert,\n en klik dan op volgende";
 
 /* Class = "UITableViewController"; title = "用户注册"; ObjectID = "4KX-5N-BEg"; */
-"4KX-5N-BEg.title" = "Registrieren";
+"4KX-5N-BEg.title" = "Registreren";
 
 /* Class = "UIViewController"; title = "连接WLAN"; ObjectID = "9dB-Ju-qby"; */
-"9dB-Ju-qby.title" = "Verbinden WLAN";
-
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "EWq-G2-cxO"; */
-"EWq-G2-cxO.normalTitle" = "Taste";
+"9dB-Ju-qby.title" = "Verbinden met draadloos netwerk";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Lcb-9f-5eI"; */
-"Lcb-9f-5eI.normalTitle" = "Taste";
+"Lcb-9f-5eI.normalTitle" = "Knop";
 
 /* Class = "UIViewController"; title = "服务条款"; ObjectID = "MLA-sA-6kN"; */
-"MLA-sA-6kN.title" = "Anweisung";
+"MLA-sA-6kN.title" = "Instructies";
 
 /* Class = "UIButton"; normalTitle = "密码重置"; ObjectID = "NWY-FH-7HM"; */
-"NWY-FH-7HM.normalTitle" = "Zurücksetzen";
+"NWY-FH-7HM.normalTitle" = "Resetten";
 
 /* Class = "UIButton"; normalTitle = "登录"; ObjectID = "O8f-xt-8A7"; */
-"O8f-xt-8A7.normalTitle" = "Anmelden";
+"O8f-xt-8A7.normalTitle" = "Inloggen";
 
 /* Class = "UIButton"; normalTitle = "记住密码"; ObjectID = "OHK-KG-Kue"; */
-"OHK-KG-Kue.normalTitle" = "Passwort merken";
+"OHK-KG-Kue.normalTitle" = "Wachtwoord onthouden";
 
 /* Class = "UIButton"; normalTitle = "下一步"; ObjectID = "QCD-oa-PN9"; */
-"QCD-oa-PN9.normalTitle" = "WEITER";
+"QCD-oa-PN9.normalTitle" = "Volgende";
 
 /* Class = "UILabel"; text = "用户名"; ObjectID = "QQg-ME-6G0"; */
-"QQg-ME-6G0.text" = "NAME";
+"QQg-ME-6G0.text" = "Naam";
 
 /* Class = "UITextField"; placeholder = "请输入你的注册邮箱"; ObjectID = "QyD-ba-k6e"; */
-"QyD-ba-k6e.placeholder" = "Bitte geben Sie Ihre E-Mail-Adresse ein";
+"QyD-ba-k6e.placeholder" = "Voer e-mail in";
 
 /* Class = "UITextField"; placeholder = "请输入用户名"; ObjectID = "Rai-uZ-1S7"; */
-"Rai-uZ-1S7.placeholder" = "Bitte geben Sie Ihren Benutzernamen ein";
+"Rai-uZ-1S7.placeholder" = "Voer gebruikersnaam in";
 
 /* Class = "UILabel"; text = "用户名"; ObjectID = "Rml-yw-Z0l"; */
-"Rml-yw-Z0l.text" = "NAME";
+"Rml-yw-Z0l.text" = "Naam";
 
 /* Class = "UIViewController"; title = "添加网关"; ObjectID = "X4o-PI-i7F"; */
-"X4o-PI-i7F.title" = "Connector hinzufügen";
+"X4o-PI-i7F.title" = "Connector toevoegen";
 
 /* Class = "UILabel"; text = "点击发送，重置密码连接将被发送到您的电子邮件地址。"; ObjectID = "aJ3-ex-MII"; */
-"aJ3-ex-MII.text" = "Senden klicken, ein Link zum Zurücksetzen Ihres Passworts wird an Ihre E-Mail-Adresse geschickt.";
+"aJ3-ex-MII.text" = "Klik op verzenden, een snelkoppeling waarmee je je wachtwoord kunt resetten wordt naar je e-mail verzonden";
 
 /* Class = "UITextField"; placeholder = "请输入用户名"; ObjectID = "bLQ-ct-4rA"; */
-"bLQ-ct-4rA.placeholder" = "Bitte geben Sie Ihren Benutzernamen ein";
+"bLQ-ct-4rA.placeholder" = "Voer gebruikersnaam in";
 
 /* Class = "UIButton"; normalTitle = "连接"; ObjectID = "lGl-3E-WUI"; */
 "lGl-3E-WUI.normalTitle" = "Verbinden";
 
-/* Class = "UILabel"; text = "长按网关按钮三秒以上"; ObjectID = "nC5-y5-eN1"; */
-"nC5-y5-eN1.text" = "Nach Einstecken min. 5 Sekunden warten, dann für min. 3 Sekunden die Taste drücken";
+/* Class = "UILabel"; text = "请确认您要添加的设备进入配网模式"; ObjectID = "nC5-y5-eN1"; */
+"nC5-y5-eN1.text" = "Houd vijf seconden na het inpluggen van de connector de knop 3 of meer seconden ingedrukt om de netwerkmodus te activeren.";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "nwo-au-Rj2"; */
-"nwo-au-Rj2.normalTitle" = "Taste";
-
-/* Class = "UIButton"; normalTitle = "记住密码"; ObjectID = "q0K-y9-24v"; */
-"q0K-y9-24v.normalTitle" = "Passwort merken";
+"nwo-au-Rj2.normalTitle" = "Knop";
 
 /* Class = "UILabel"; text = "密码"; ObjectID = "qoA-97-xW4"; */
-"qoA-97-xW4.text" = "PASSWORT";
+"qoA-97-xW4.text" = "Wachtwoord";
 
 /* Class = "UITableViewController"; title = "添加设备"; ObjectID = "rPH-4M-dKj"; */
-"rPH-4M-dKj.title" = "Einrichtung hinzufügen";
+"rPH-4M-dKj.title" = "Apparaat toevoegen";
+
+/* Class = "UIButton"; normalTitle = "记住密码"; ObjectID = "q0K-y9-24v"; */
+"q0K-y9-24v.normalTitle" = "Wachtwoord onthouden";
 
 /* Class = "UILabel"; text = "连接中"; ObjectID = "sAP-6n-1Qa"; */
-"sAP-6n-1Qa.text" = "Verbinden...";
+"sAP-6n-1Qa.text" = "Verbinden…";
 
 /* Class = "UITextField"; placeholder = "请输入密码"; ObjectID = "udc-jc-uJX"; */
-"udc-jc-uJX.placeholder" = "Passwort eingeben";
+"udc-jc-uJX.placeholder" = "Wachtwoord invoeren";
 
 /* Class = "UITextField"; placeholder = "邮箱地址"; ObjectID = "wlw-RN-3f7"; */
-"wlw-RN-3f7.placeholder" = "E-Mail";
+"wlw-RN-3f7.placeholder" = "E-mail";
 
 /* Class = "UIButton"; normalTitle = "发送"; ObjectID = "xhx-kz-lue"; */
-"xhx-kz-lue.normalTitle" = "Senden";
+"xhx-kz-lue.normalTitle" = "Sturen";
 
 /* Class = "UITableViewController"; title = "密码重置"; ObjectID = "yg5-0P-wiF"; */
-"yg5-0P-wiF.title" = "Zurücksetzen";
+"yg5-0P-wiF.title" = "Resetten";

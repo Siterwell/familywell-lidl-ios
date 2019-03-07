@@ -1,21 +1,15 @@
 
-/* Class = "UITextField"; placeholder = "Name"; ObjectID = "0RI-nU-76k"; */
-"0RI-nU-76k.placeholder" = "Name";
-
 /* Class = "UITableViewController"; title = "设置紧急号码"; ObjectID = "0xw-Rx-ltg"; */
-"0xw-Rx-ltg.title" = "Noodnummer";
+"0xw-Rx-ltg.title" = "Stel noodnummer in";
 
 /* Class = "UILabel"; text = "退出登录"; ObjectID = "1tb-Er-wBJ"; */
 "1tb-Er-wBJ.text" = "Uitloggen";
 
 /* Class = "UITableViewController"; title = "修改网关名字"; ObjectID = "3s1-ZB-eTW"; */
-"3s1-ZB-eTW.title" = "修改网关名字";
+"3s1-ZB-eTW.title" = "";
 
 /* Class = "UITableViewController"; title = "设置"; ObjectID = "3tQ-PU-xGL"; */
-"3tQ-PU-xGL.title" = "设置";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "5PD-aI-Lfc"; */
-"5PD-aI-Lfc.text" = "Label";
+"3tQ-PU-xGL.title" = "";
 
 /* Class = "UITableViewController"; title = "紧急号码"; ObjectID = "6qq-7o-B5B"; */
 "6qq-7o-B5B.title" = "Noodnummer";
@@ -23,23 +17,11 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Fdz-Xq-8Ce"; */
 "Fdz-Xq-8Ce.normalTitle" = "Button";
 
-/* Class = "UIButton"; normalTitle = "快速配置WIFI"; ObjectID = "HT5-6m-FVp"; */
-"HT5-6m-FVp.normalTitle" = "Snelle configuratie";
-
 /* Class = "UILabel"; text = "label"; ObjectID = "HZq-i3-rKZ"; */
 "HZq-i3-rKZ.text" = "label";
 
-/* Class = "UITextField"; placeholder = "WIFI密码"; ObjectID = "MXf-Ek-1WQ"; */
-"MXf-Ek-1WQ.placeholder" = "WIFI密码";
-
 /* Class = "UITableViewController"; title = "网关"; ObjectID = "Qbx-sJ-0hU"; */
 "Qbx-sJ-0hU.title" = "Connector";
-
-/* Class = "UIViewController"; title = "新增摄像头"; ObjectID = "RLW-Hf-6L5"; */
-"RLW-Hf-6L5.title" = "新增摄像头";
-
-/* Class = "UITextField"; placeholder = "Name"; ObjectID = "ThQ-kI-XkM"; */
-"ThQ-kI-XkM.placeholder" = "Name";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "XTc-Ma-5Io"; */
 "XTc-Ma-5Io.text" = "Label";
@@ -47,17 +29,14 @@
 /* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "Xj1-Vg-FLY"; */
 "Xj1-Vg-FLY.title" = "Root View Controller";
 
-/* Class = "UILabel"; text = "1.0"; ObjectID = "b0Y-Xv-XUk"; */
-"b0Y-Xv-XUk.text" = "1.0";
-
 /* Class = "UILabel"; text = "Label"; ObjectID = "cyY-LH-6yx"; */
-"cyY-LH-6yx.text" = "Label";
+"cyY-LH-6yx.text" = "";
+
+/* Class = "UITextField"; placeholder = "WIFI密码"; ObjectID = "MXf-Ek-1WQ"; */
+"MXf-Ek-1WQ.placeholder" = "";
 
 /* Class = "UIViewController"; title = "智能家居"; ObjectID = "dHT-Ih-oPZ"; */
-"dHT-Ih-oPZ.title" = "智能家居";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "gF3-h2-W2V"; */
-"gF3-h2-W2V.text" = "Label";
+"dHT-Ih-oPZ.title" = "Nieuwe camera toevoegen";
 
 /* Class = "UITextField"; placeholder = "请设置紧急号码"; ObjectID = "go1-NS-fqe"; */
 "go1-NS-fqe.placeholder" = "Noodnummer instellen";
@@ -69,16 +48,20 @@
 "i8e-uK-8nk.title" = "Wachtwoord wijzigen";
 
 /* Class = "UIViewController"; title = "修改用户名"; ObjectID = "irK-pK-1ks"; */
-"irK-pK-1ks.title" = "修改用户名";
+"irK-pK-1ks.title" = "Verander gebruikersnaam";
 
 /* Class = "UILabel"; text = "点击拨打紧急号码"; ObjectID = "lF0-8h-bEB"; */
 "lF0-8h-bEB.text" = "Klik om te bellen";
 
-/* Class = "UILabel"; text = "       智能家居是以住宅为平台，利用综合布线技术、网络通信技术、 安全防范技术、自动控制技术、音视频技术将家居生活有关的设施集成，构建高效的住宅设施与家庭日程事务的管理系统，提升家居安全性、便利性、舒适性、艺术性，并实现环保节能的居住环境。        智能家居能给人们带来更舒适，更轻松的生活。现在，人们的工作和生活节奏越来越快，智能家居可以帮助人们减少繁琐的家务事，提高效率，节省时间，让人们有更多的时间休息，教育孩子，锻炼并获得培训，使人们的生活质量有了很大的提高。"; ObjectID = "uIx-5O-eRI"; */
-"uIx-5O-eRI.text" = "       智能家居是以住宅为平台，利用综合布线技术、网络通信技术、 安全防范技术、自动控制技术、音视频技术将家居生活有关的设施集成，构建高效的住宅设施与家庭日程事务的管理系统，提升家居安全性、便利性、舒适性、艺术性，并实现环保节能的居住环境。        智能家居能给人们带来更舒适，更轻松的生活。现在，人们的工作和生活节奏越来越快，智能家居可以帮助人们减少繁琐的家务事，提高效率，节省时间，让人们有更多的时间休息，教育孩子，锻炼并获得培训，使人们的生活质量有了很大的提高。";
+/* Class = "UILabel"; text = "       智能家居是以住宅为平台，利用综合布线技术、网络通信技术、 安全防范技术、自动控制技术、音视频技术将家居生活有关的设施集成，构建高效的住宅设施与家庭日程事务的管理系统，提升家居安全性、便利性、舒适性、艺术性，并实现环保节能的居住环境。
+ 智能家居能给人们带来更舒适，更轻松的生活。现在，人们的工作和生活节奏越来越快，智能家居可以帮助人们减少繁琐的家务事，提高效率，节省时间，让人们有更多的时间休息，教育孩子，锻炼并获得培训，使人们的生活质量有了很大的提高。"; ObjectID = "uIx-5O-eRI"; */
+"uIx-5O-eRI.text" = "Het FamilyWellsmart beveiligingssysteem bevat twee hoofdonderdelen: de connector en de slimme melders. De connector is een belangrijk onderdeel van het systeem en verzorgt de communicatie met de melders (met behulp van RF-signalen) en maakt verbinding met het wifi-netwerk om te communiceren met de Cloud Server (en op deze manier ook met uw smartphone en/of tablet). Gebruik uw apparaat en de app en bedien alle apparaten op een slimme en veilige manier. Met het systeem kunt u uw smartphone gebruiken om het systeem in te stellen en optimaal te gebruiken. Denk aan het toevoegen en verwijderen van componenten, inschakelen en uitschakelen van het systeem, pushmeldingen ontvangen wanneer het worden geactiveerd, het instellen van condities en acties (bijvoorbeeld: in de Thuisstand wordt bij bewegingsdetectie de deurbel geactiveerd) en andere aangepaste bewerkingen. Slimme melders zijn toe te voegen op basis van uw behoefte: rookmelder, CO-detector, waterdetector, deursensor, bewegingsmelder, noodknop, slimme schakelaar, slimme thermostaat, temperatuur- en vochtigheidsmeter enzovoort. De lijst met apparaten in FamilyWell wordt voortdurend bijgewerkt en verbeterd. Binnenkort verkrijgbaar: een netwerkcamera, deurslot, schakelpaneel, aansluitpaneel, slimme luchtzuivering, elektromagnetische waterklep.";
 
 /* Class = "UILabel"; text = "15706855098"; ObjectID = "xsp-Rc-9LA"; */
 "xsp-Rc-9LA.text" = "15706855098";
 
 /* Class = "UITableViewController"; title = "关于"; ObjectID = "yM1-zs-xsO"; */
 "yM1-zs-xsO.title" = "Over";
+
+/* Class = "UIButton"; normalTitle = "快速配置WIFI"; ObjectID = "HT5-6m-FVp"; */
+"HT5-6m-FVp.normalTitle" = "Snelle configuratie";
