@@ -1376,15 +1376,28 @@ BOOL flag_checkfireware = NO;
         [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/external/device/fw/ota/check", https] parameters:@[dic] progress:^(NSProgress * _Nonnull uploadProgress) {
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             @strongify(self)
-            
+
             GatewayVersionModel *mmodel = [[GatewayVersionModel alloc] initWithDictionary:responseObject[0] error:nil];
             if (mmodel.update == YES) {
 
                 [LEEAlert alert].config
                 .LeeAddTitle(^(UILabel *label) {
-                    label.text = NSLocalizedString(@"有可用更新, 是否升级", nil);
+                    NSString * message = NSLocalizedString(@"有可用更新, 是否升级",nil);
+                    message = [message stringByAppendingString:@"\n\n"];
+                    message = [message stringByAppendingString:NSLocalizedString(@"Important: This upgrade strongly changes the functionality of your system. Click the Link button to acknowledge and understand the changes. Upgrade now.", nil)];
+                    
+                    label.text = message;
                     label.textColor = RGB(40, 184, 215);
                     label.font = [UIFont systemFontOfSize:15];
+                })
+                .LeeAddAction(^(LEEAction *action) {
+                    action.type = LEEActionTypeCancel;
+                    action.title = NSLocalizedString(@"Link", nil);
+                    action.titleColor = [UIColor redColor];
+                    action.font = [UIFont systemFontOfSize:14];
+                    action.clickBlock = ^{
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://www.elro.eu/elro-connects-app-upgrade"]];
+                    };
                 })
                 .LeeAddAction(^(LEEAction *action) {
                     action.type = LEEActionTypeCancel;
@@ -1400,7 +1413,7 @@ BOOL flag_checkfireware = NO;
                     //__weak typeof(self) weakSelf = self;
                     action.clickBlock = ^{
                         [MBProgressHUD showSuccess:NSLocalizedString(@"版本升级中，请耐心等待",nil) ToView:GetWindow];
-    
+
                         UpdateDeviceApi *api = [[UpdateDeviceApi alloc] initWithGatewayVersionModel:mmodel];
                         [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
                         } failure:^(id data, NSError *error) {
@@ -1413,7 +1426,7 @@ BOOL flag_checkfireware = NO;
                 
                 
             }
-            
+
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(NSLocalizedString(@"读取失败",nil));
             //[MBProgressHUD showError: NSLocalizedString(@"读取失败",nil) ToView:GetWindow];
