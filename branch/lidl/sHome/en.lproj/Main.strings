@@ -12,7 +12,7 @@
 "6oB-1H-Rn8.text" = "Home";
 
 /* Class = "UITextField"; text = " 定位中..."; ObjectID = "Epm-DB-rcw"; */
-"Epm-DB-rcw.text" = " Positioning...";
+"Epm-DB-rcw.text" = "Positioning...";
 
 /* Class = "UITabBarItem"; title = "情景列表"; ObjectID = "IRA-Gm-9kv"; */
 "IRA-Gm-9kv.title" = "Scene";
@@ -27,7 +27,7 @@
 "h3g-KB-3KA.title" = "My Home";
 
 /* Class = "UILabel"; text = "01"; ObjectID = "j20-dR-Onk"; */
-"j20-dR-Onk.text" = "01";
+"j20-dR-Onk.text" = "1";
 
 /* Class = "UILabel"; text = "卧室空调9点关"; ObjectID = "mkn-y3-bNn"; */
 "mkn-y3-bNn.text" = "Bedroom air conditioner 9 o'clock off";
