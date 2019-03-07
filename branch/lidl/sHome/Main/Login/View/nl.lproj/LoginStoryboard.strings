@@ -24,7 +24,7 @@
 "EWq-G2-cxO.normalTitle" = "Button";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Lcb-9f-5eI"; */
-"Lcb-9f-5eI.normalTitle" = "Button";
+"Lcb-9f-5eI.normalTitle" = "Knop";
 
 /* Class = "UIViewController"; title = "服务条款"; ObjectID = "MLA-sA-6kN"; */
 "MLA-sA-6kN.title" = "Instructies";
@@ -41,11 +41,17 @@
 /* Class = "UIButton"; normalTitle = "下一步"; ObjectID = "QCD-oa-PN9"; */
 "QCD-oa-PN9.normalTitle" = "Volgende";
 
+/* Class = "UILabel"; text = "用户名"; ObjectID = "QQg-ME-6G0"; */
+"QQg-ME-6G0.text" = "Naam";
+
 /* Class = "UITextField"; placeholder = "请输入你的注册邮箱"; ObjectID = "QyD-ba-k6e"; */
 "QyD-ba-k6e.placeholder" = "Voer e-mail in";
 
 /* Class = "UITextField"; placeholder = "请输入用户名"; ObjectID = "Rai-uZ-1S7"; */
 "Rai-uZ-1S7.placeholder" = "Voer gebruikersnaam in";
+
+/* Class = "UILabel"; text = "用户名"; ObjectID = "Rml-yw-Z0l"; */
+"Rml-yw-Z0l.text" = "Naam";
 
 /* Class = "UIViewController"; title = "添加网关"; ObjectID = "X4o-PI-i7F"; */
 "X4o-PI-i7F.title" = "Connector toevoegen";
@@ -63,7 +69,7 @@
 "nC5-y5-eN1.text" = "Houd vijf seconden na het inpluggen van de connector de knop 3 of meer seconden ingedrukt om de netwerkmodus te activeren.";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "nwo-au-Rj2"; */
-"nwo-au-Rj2.normalTitle" = "Button";
+"nwo-au-Rj2.normalTitle" = "Knop";
 
 /* Class = "UIButton"; normalTitle = "记住密码"; ObjectID = "q0K-y9-24v"; */
 "q0K-y9-24v.normalTitle" = "Wachtwoord onthouden";
@@ -81,7 +87,7 @@
 "wlw-RN-3f7.placeholder" = "E-mail";
 
 /* Class = "UIButton"; normalTitle = "发送"; ObjectID = "xhx-kz-lue"; */
-"xhx-kz-lue.normalTitle" = "STUREN";
+"xhx-kz-lue.normalTitle" = "Sturen";
 
 /* Class = "UITableViewController"; title = "密码重置"; ObjectID = "yg5-0P-wiF"; */
-"yg5-0P-wiF.title" = "RESETTEN";
+"yg5-0P-wiF.title" = "Resetten";

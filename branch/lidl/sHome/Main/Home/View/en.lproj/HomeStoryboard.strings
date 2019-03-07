@@ -36,7 +36,7 @@
 "MXf-Ek-1WQ.placeholder" = "Wifi Password";
 
 /* Class = "UIViewController"; title = "智能家居"; ObjectID = "dHT-Ih-oPZ"; */
-"dHT-Ih-oPZ.title" = "Smart Home";
+"dHT-Ih-oPZ.title" = "Add new camera";
 
 /* Class = "UITextField"; placeholder = "请设置紧急号码"; ObjectID = "go1-NS-fqe"; */
 "go1-NS-fqe.placeholder" = "please set emergency number";
@@ -54,8 +54,8 @@
 "lF0-8h-bEB.text" = "click to call";
 
 /* Class = "UILabel"; text = "       智能家居是以住宅为平台，利用综合布线技术、网络通信技术、 安全防范技术、自动控制技术、音视频技术将家居生活有关的设施集成，构建高效的住宅设施与家庭日程事务的管理系统，提升家居安全性、便利性、舒适性、艺术性，并实现环保节能的居住环境。
-       智能家居能给人们带来更舒适，更轻松的生活。现在，人们的工作和生活节奏越来越快，智能家居可以帮助人们减少繁琐的家务事，提高效率，节省时间，让人们有更多的时间休息，教育孩子，锻炼并获得培训，使人们的生活质量有了很大的提高。"; ObjectID = "uIx-5O-eRI"; */
-"uIx-5O-eRI.text" = "FamilyWellsmart security system contains two main parts: Gateway and smart devices. Gateway, a key component of the system, communicates with smart devices using RF communication technology and connects to home Wi-Fi network so as to communicate with Cloud Server. Smart phone and an app via mobile internet store and access records of linked devices from Cloud Server so as to long-ranged monitor and control them. In this way the system allows you use your smart phone as a command center to complement various operations, including creating rules, adding and deleting components, arming and disarming, receiving push notifications when alarms are triggered and other customized operations. Smart devices in the system includes following devices that are selectable based on your needs: smoke alarm, gas alarm, CO detector, water detector, door sensor, passive infrared sensor, emergency button, smart socket, temperature and humidity device and so on. The list of devices in FamilyWellis continuously updating; network camera, door lock, switch panel, socket panel, smart air purification, electromagnetic water valve and others are coming soon!";
+ 智能家居能给人们带来更舒适，更轻松的生活。现在，人们的工作和生活节奏越来越快，智能家居可以帮助人们减少繁琐的家务事，提高效率，节省时间，让人们有更多的时间休息，教育孩子，锻炼并获得培训，使人们的生活质量有了很大的提高。"; ObjectID = "uIx-5O-eRI"; */
+"uIx-5O-eRI.text" = "FamilyWell smart security system contains two main parts: Gateway and smart devices. The Gateway, a key component of the system, communicates with smart devices using RF communication technology and connects to home Wi-Fi network so as to communicate with the Cloud Server. Use your device and an app and control all devices in a smart and safe way. The system allows you use your smart phone as a command center to complement various operations, including creating rules, adding and deleting components, arming and disarming, receiving push notifications when alarms are triggered and other customized operations. Smart devices are selectable based on your needs: smoke alarm, CO detector, water detector, door sensor, passive infrared sensor, emergency button, smart socket, temperature and humidity device and so on. The list of devices in FamilyWell is continuously being updated and improved. Coming soon: a network camera, door lock, switch panel, socket panel, smart air purification, electromagnetic water valve.";
 
 /* Class = "UILabel"; text = "15706855098"; ObjectID = "xsp-Rc-9LA"; */
 "xsp-Rc-9LA.text" = "15706855098";
@@ -64,4 +64,4 @@
 "yM1-zs-xsO.title" = "About";
 
 /* Class = "UIButton"; normalTitle = "快速配置WIFI"; ObjectID = "HT5-6m-FVp"; */
-"HT5-6m-FVp.normalTitle" = "Fast configuration ";
+"HT5-6m-FVp.normalTitle" = "Fast configuration";

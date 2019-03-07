@@ -1,9 +1,12 @@
 
-/* Class = "UILabel"; text = "自动执行列表"; ObjectID = "0id-s9-yNo"; */
+/* Class = "UILabel"; text = "系统情景"; ObjectID = "0id-s9-yNo"; */
 "0id-s9-yNo.text" = "Automatische Aktion";
 
 /* Class = "UITabBarItem"; title = "设备"; ObjectID = "1Xx-Rc-5si"; */
 "1Xx-Rc-5si.title" = "Geräte";
+
+/* Class = "UIButton"; normalTitle = "编辑"; ObjectID = "5MD-Wa-kYT"; */
+"5MD-Wa-kYT.normalTitle" = "bearbeiten";
 
 /* Class = "UILabel"; text = "在家模式"; ObjectID = "6oB-1H-Rn8"; */
 "6oB-1H-Rn8.text" = "Startseite";
@@ -12,25 +15,22 @@
 "Epm-DB-rcw.text" = " Standort...";
 
 /* Class = "UITabBarItem"; title = "情景列表"; ObjectID = "IRA-Gm-9kv"; */
-"IRA-Gm-9kv.title" = "Szenen";
-
-/* Class = "UIButton"; normalTitle = "点击"; ObjectID = "NZw-mW-LqS"; */
-"NZw-mW-LqS.normalTitle" = "Klick";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "Z6r-Qu-NR9"; */
-"Z6r-Qu-NR9.text" = "Label";
+"IRA-Gm-9kv.title" = "Szene";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "bqj-BL-z8A"; */
 "bqj-BL-z8A.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "添加"; ObjectID = "gPD-q1-ee0"; */
+"gPD-q1-ee0.normalTitle" = "";
 
 /* Class = "UITabBarItem"; title = "我的家"; ObjectID = "h3g-KB-3KA"; */
 "h3g-KB-3KA.title" = "Mein Haus";
 
 /* Class = "UILabel"; text = "01"; ObjectID = "j20-dR-Onk"; */
-"j20-dR-Onk.text" = "01";
+"j20-dR-Onk.text" = "1";
 
 /* Class = "UILabel"; text = "卧室空调9点关"; ObjectID = "mkn-y3-bNn"; */
-"mkn-y3-bNn.text" = "卧室空调9点关";
+"mkn-y3-bNn.text" = "";
 
 /* Class = "UILabel"; text = "℃"; ObjectID = "tkz-EZ-tYK"; */
 "tkz-EZ-tYK.text" = "℃";
