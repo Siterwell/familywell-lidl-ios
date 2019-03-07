@@ -120,7 +120,7 @@ By visiting this page on our website: www.elro.eu/privacy-policy";
 "QCD-oa-PN9.normalTitle" = "Next";
 
 /* Class = "UILabel"; text = "用户名"; ObjectID = "QQg-ME-6G0"; */
-"QQg-ME-6G0.text" = "NAME";
+"QQg-ME-6G0.text" = "Name";
 
 /* Class = "UITextField"; placeholder = "请输入你的注册邮箱"; ObjectID = "QyD-ba-k6e"; */
 "QyD-ba-k6e.placeholder" = "please input email";
@@ -129,13 +129,13 @@ By visiting this page on our website: www.elro.eu/privacy-policy";
 "Rai-uZ-1S7.placeholder" = "please input username";
 
 /* Class = "UILabel"; text = "用户名"; ObjectID = "Rml-yw-Z0l"; */
-"Rml-yw-Z0l.text" = "NAME";
+"Rml-yw-Z0l.text" = "Name";
 
 /* Class = "UIViewController"; title = "添加网关"; ObjectID = "X4o-PI-i7F"; */
 "X4o-PI-i7F.title" = "Add Gateway";
 
 /* Class = "UILabel"; text = "点击发送，重置密码连接将被发送到您的电子邮件地址。"; ObjectID = "aJ3-ex-MII"; */
-"aJ3-ex-MII.text" = "Click to send, reset the password The connection will be sent to your email address.";
+"aJ3-ex-MII.text" = "Click to send, a link to reset your password will be sent to your email address.";
 
 /* Class = "UITextField"; placeholder = "请输入用户名"; ObjectID = "bLQ-ct-4rA"; */
 "bLQ-ct-4rA.placeholder" = "please input username";
@@ -150,7 +150,7 @@ By visiting this page on our website: www.elro.eu/privacy-policy";
 "nwo-au-Rj2.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "密码"; ObjectID = "qoA-97-xW4"; */
-"qoA-97-xW4.text" = "PWD";
+"qoA-97-xW4.text" = "password";
 
 /* Class = "UITableViewController"; title = "添加设备"; ObjectID = "rPH-4M-dKj"; */
 "rPH-4M-dKj.title" = "Add Device";
@@ -168,9 +168,7 @@ By visiting this page on our website: www.elro.eu/privacy-policy";
 "wlw-RN-3f7.placeholder" = "email";
 
 /* Class = "UIButton"; normalTitle = "发送"; ObjectID = "xhx-kz-lue"; */
-"xhx-kz-lue.normalTitle" = "SEND";
+"xhx-kz-lue.normalTitle" = "Send";
 
 /* Class = "UITableViewController"; title = "密码重置"; ObjectID = "yg5-0P-wiF"; */
-"yg5-0P-wiF.title" = "RESET";
-
-
+"yg5-0P-wiF.title" = "Reset";
