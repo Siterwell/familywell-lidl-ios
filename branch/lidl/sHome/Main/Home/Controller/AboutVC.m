@@ -128,7 +128,15 @@
     }
     else if(indexPath.row == 1){
         if(self.update == YES){
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示",nil) message:NSLocalizedString(@"有可用更新, 是否升级",nil) preferredStyle:UIAlertControllerStyleAlert];
+            NSString * message = NSLocalizedString(@"有可用更新, 是否升级",nil);
+            message = [message stringByAppendingString:@"\n\n"];
+            message = [message stringByAppendingString:NSLocalizedString(@"Important: This upgrade strongly changes the functionality of your system. Click the Link button to acknowledge and understand the changes. Upgrade now.", nil)];
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示",nil) message:message preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Link",nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://www.elro.eu/elro-connects-app-upgrade"]];
+            }]];
             [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
                 [MBProgressHUD showSuccess:NSLocalizedString(@"版本升级中，请耐心等待",nil) ToView:GetWindow];
