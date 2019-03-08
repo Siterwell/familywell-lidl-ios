@@ -578,7 +578,44 @@ static void uncaughtExceptionHandler(NSException *exception) {
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    NSLog(@"[RYAN] AppDelegate >> didReceiveRemoteNotification >> %@", [userInfo description]);
     [[Hekr sharedInstance] didReceiveRemoteNotification:userInfo];
+    
+    //++ do alert by push notification
+    [self showAlert:userInfo];
+    //-- do alert by push notification
+}
+
+-(void) showAlert:(NSDictionary *)userInfo {
+    NSString * apsData = userInfo[@"data"];
+    NSData *webData = [apsData dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:webData options:0 error:&error];
+    NSDictionary *data = @{
+                           @"action" : @"devSend",
+                           @"msgId" : jsonDict[@"cmdId"],
+                           @"params" : @{
+                                   @"devTid" : userInfo[@"devTid"],
+                                   @"data" : @{
+                                           @"cmdId" : jsonDict[@"cmdId"],
+                                           @"answer_content" : jsonDict[@"answer_content"]
+                                           }
+                                   }
+                           };
+    
+    NSLog(@"[RYAN] AppDelegate >> didReceiveRemoteNotification >>  data : %@", data);
+    if (![self.lastAlertContent isEqualToString:jsonDict[@"answer_content"]]) {
+        self.canShowAlert = YES;
+        if (self.canShowAlert == YES) {
+            self.canShowAlert = NO;
+            [self doAlert:data];
+            self.lastAlertContent = jsonDict[@"answer_content"];
+        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.canShowAlert = YES;
+            self.lastAlertContent = nil;
+        });
+    }
 }
 
 - (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{

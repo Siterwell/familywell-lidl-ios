@@ -507,3 +507,6 @@
 "隐私政策" = "隐私政策";
 "The password must contain at least 10 characters and number!" = "密码必须包含至少10个字符和数字！";
 "Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters." = "密码必须至少包含三个大写字母，小写字母，数字/特殊字符。";
+"Socket ON" = "Socket ON";
+"Socket OFF" = "Socket OFF";
+"Link" = "链接";
