@@ -507,3 +507,6 @@
 "隐私政策" = "Tietosuojakäytäntö";
 "The password must contain at least 10 characters and number!" = "Salasanassa on oltava vähintään 10 merkkiä ja numeroa!";
 "Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters." = "Salasanojen on sisällettävä vähintään kolme isoa kirjainta, pienet kirjaimet, numerot / erikoismerkit.";
+"Socket ON" = "Socket ON";
+"Socket OFF" = "Socket OFF";
+"Link" = "Link";
