@@ -765,6 +765,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    if (![model.online isEqualToString:@"1"]) {
+        [MBProgressHUD showSuccess:[NSString stringWithFormat:NSLocalizedString(@"当前网关为:%@", nil),NSLocalizedString(@"离线", nil) ] ToView:self.view];
+        return;
+    }
+    
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"SceneStoryboard" bundle:nil];
 
     if (indexPath.section == 0) {
@@ -1204,7 +1211,8 @@
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
     
-    if (model == nil) {
+    if (model == nil || ![model.online isEqualToString:@"1"]) {
+        [MBProgressHUD showSuccess:[NSString stringWithFormat:NSLocalizedString(@"当前网关为:%@", nil),NSLocalizedString(@"离线", nil) ] ToView:self.view];
         return;
     }
     
