@@ -6531,7 +6531,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = Silvercrest_development;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -6568,7 +6568,7 @@
 				PROVISIONING_PROFILE = "3c754714-32ac-4053-a37d-13f749675feb";
 				PROVISIONING_PROFILE_SPECIFIER = adhoc_sivercrest;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
