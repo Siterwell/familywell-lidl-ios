@@ -562,9 +562,9 @@ static void uncaughtExceptionHandler(NSException *exception) {
     [[Hekr sharedInstance] didRegisterUserNotificationSettings:notificationSettings];
 }
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
-    NSLog(@"[RYAN] AppDelegate >> didRegisterForRemoteNotificationsWithDeviceToken >> ");
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"[RYAN] AppDelegate >> didRegisterForRemoteNotificationsWithDeviceToken >> token = %@", token);
     // 向个推服务器注册deviceToken
     [GeTuiSdk registerDeviceToken:token];
 }
