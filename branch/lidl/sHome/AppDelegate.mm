@@ -562,6 +562,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"[RYAN] AppDelegate >> didRegisterForRemoteNotificationsWithDeviceToken >> %@", token);
     // 向个推服务器注册deviceToken
 //    [GeTuiSdk registerDeviceToken:token];
 }
@@ -598,7 +599,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
                                    }
                            };
     
-    NSLog(@"[RYAN] AppDelegate >> didReceiveRemoteNotification >>  data : %@", data);
+    NSLog(@"[RYAN] AppDelegate >> showAlert >>  data : %@", data);
     if (![self.lastAlertContent isEqualToString:jsonDict[@"answer_content"]]) {
         self.canShowAlert = YES;
         if (self.canShowAlert == YES) {
