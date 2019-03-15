@@ -98,6 +98,35 @@
         }
     }
 
+-(void)startWithWan:(id)obj CompletionBlockWithSuccess:(void(^)(id data,NSError* error))success failure:(void(^)(id data,NSError* error))failure{
+    //外网
+    [[Hekr sharedInstance] recv:[self requestArgumentFilter] obj:obj callback:^(id obj, id data, NSError *error) {
+        if (data) {
+            success(data , error);
+        }
+    }];
+    [[Hekr sharedInstance] recv:[self requestArgumentFilterEncrypt] obj:obj callback:^(id obj, id data, NSError *error) {
+        if (data) {
+            success(data , error);
+        }
+    }];
+    NSLog(@">>>>>>%@",[self requestArgumentCommand]);
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    NSString *connectHost = [[[config objectForKey:DeviceInfo] objectForKey:@"dcInfo"] objectForKey:@"connectHost"];
+    [[Hekr sharedInstance] sendNet:[self requestArgumentCommand] toHost:connectHost timeout:20.0f callback:^(id data, NSError *err) {
+        //            typeof(self) sself = wself;
+        DDLogVerbose(@" recv response:%@",data);
+        NSNumber * d = data[@"code"];
+        if(data && [d intValue] == 200){
+            success(data, err);
+        }else{
+            if (err.code != -1) {
+                failure(data, err);
+            }
+        }
+    }];
+}
+
 - (void)startUdpObj:(id)obj CompletionBlockWithSuccess:(void (^)(id, NSError *))success failure:(void (^)(id, NSError *))failure {
     [[MyUdp shared] recv:[self requestArgumentFilter] obj:obj callback:^(id obj, id data, NSError *error) {
         if (data) {
