@@ -431,9 +431,16 @@ BOOL flag_checkfireware = NO;
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
     
-    if (model != nil) {
-        _menuVc.view.hidden = NO;
-        [_menuVc open];
+    if (model != nil && [model.online isEqualToString:@"1"]) {
+        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+        DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+        
+        if (model != nil) {
+            _menuVc.view.hidden = NO;
+            [_menuVc open];
+        }
+    } else {
+        [MBProgressHUD showSuccess:[NSString stringWithFormat:NSLocalizedString(@"当前网关为:%@", nil),NSLocalizedString(@"离线", nil) ] ToView:self.view];
     }
 }
 
@@ -1102,7 +1109,7 @@ BOOL flag_checkfireware = NO;
     }
     
     [self getGatewayStatus];
-    [self AlarmDeviceListener];
+//    [self AlarmDeviceListener];
     if ([CLLocationManager locationServicesEnabled]) {
         self.locationMgr = [[CLLocationManager alloc] init];
         self.locationMgr.delegate = self;

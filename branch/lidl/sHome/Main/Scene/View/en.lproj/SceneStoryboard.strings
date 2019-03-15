@@ -36,7 +36,7 @@
 "WJl-cv-VAC.normalTitle" = "Tue";
 
 /* Class = "UIButton"; normalTitle = "+情景快捷键按钮"; ObjectID = "XPb-Co-ijA"; */
-"XPb-Co-ijA.normalTitle" = "Scene shortcut button";
+"XPb-Co-ijA.normalTitle" = "＋Scene shortcut button";
 
 /* Class = "UILabel"; text = "按钮"; ObjectID = "Xcq-Ft-6Cd"; */
 "Xcq-Ft-6Cd.text" = "Button";
@@ -60,7 +60,7 @@
 "nkJ-o8-7DV.normalTitle" = "Fri";
 
 /* Class = "UILabel"; text = "01"; ObjectID = "p2r-yA-nPf"; */
-"p2r-yA-nPf.text" = "01";
+"p2r-yA-nPf.text" = "1";
 
 /* Class = "UIButton"; normalTitle = "周三"; ObjectID = "q3K-lp-AKU"; */
 "q3K-lp-AKU.normalTitle" = "Wed";

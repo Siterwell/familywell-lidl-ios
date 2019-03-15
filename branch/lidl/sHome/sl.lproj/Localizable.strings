@@ -507,3 +507,6 @@
 "隐私政策" = "Politika zasebnosti";
 "The password must contain at least 10 characters and number!" = "Geslo mora vsebovati najmanj 10 znakov in številk!";
 "Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters." = "Geslo mora vsebovati vsaj tri velike črke, male črke, številke / posebne znake.";
+"Socket ON" = "Socket ON";
+"Socket OFF" = "Socket OFF";
+"Link" = "Link";
