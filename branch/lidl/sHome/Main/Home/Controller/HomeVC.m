@@ -1391,7 +1391,11 @@ BOOL flag_checkfireware = NO;
                 
                 [LEEAlert alert].config
                 .LeeAddTitle(^(UILabel *label) {
-                    label.text = [NSString stringWithFormat:NSLocalizedString(@"当前网关固件版本%@，有可用更新%@, 是否升级", nil),self.model.binVersion, _verModel.devFirmwareOTARawRuleVO.latestBinVer];
+                    NSString * message = [NSString stringWithFormat:NSLocalizedString(@"当前网关固件版本%@，有可用更新%@, 是否升级", nil),self.model.binVersion, _verModel.devFirmwareOTARawRuleVO.latestBinVer];
+                    message = [message stringByAppendingString:@"\n\n"];
+                    message = [message stringByAppendingString:NSLocalizedString(@"Important: This upgrade strongly changes the functionality of your system. Click the Link button to acknowledge and understand the changes. Upgrade now.", nil)];
+                    
+                    label.text = message;
                     label.textColor = RGB(57, 166, 240);
                     label.font = [UIFont systemFontOfSize:15];
                 })
@@ -1400,6 +1404,15 @@ BOOL flag_checkfireware = NO;
                     action.title = NSLocalizedString(@"暂不升级", nil);
                     action.titleColor = [UIColor lightGrayColor];
                     action.font = [UIFont systemFontOfSize:14];
+                })
+                .LeeAddAction(^(LEEAction *action) {
+                    action.type = LEEActionTypeDestructive;
+                    action.title = NSLocalizedString(@"Link", nil);
+                    action.titleColor = [UIColor redColor];
+                    action.font = [UIFont systemFontOfSize:14];
+                    action.clickBlock = ^{
+                        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://www.elro.eu/elro-connects-app-upgrade"]];
+                    };
                 })
                 .LeeAddAction(^(LEEAction *action) {
                     action.type = LEEActionTypeDefault;
