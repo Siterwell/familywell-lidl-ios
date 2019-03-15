@@ -1423,7 +1423,7 @@ BOOL flag_checkfireware = NO;
                     action.clickBlock = ^{
                         [self showFireLoading];
                         UpdateDeviceApi *api = [[UpdateDeviceApi alloc] initWithGatewayVersionModel:_verModel];
-                        [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+                        [api startWithWan:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
                         } failure:^(id data, NSError *error) {
                         }];
                     };
