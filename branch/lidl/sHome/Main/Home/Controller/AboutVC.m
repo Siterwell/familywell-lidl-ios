@@ -132,7 +132,7 @@
     }
     else if(indexPath.row == 1){
         if(self.update == YES){
-            NSString * message = NSLocalizedString(@"有可用更新, 是否升级",nil);
+            NSString * message = [NSString stringWithFormat:NSLocalizedString(@"当前网关固件版本%@，有可用更新%@, 是否升级", nil),self.model.binVersion, _verModel.devFirmwareOTARawRuleVO.latestBinVer];
             message = [message stringByAppendingString:@"\n\n"];
             message = [message stringByAppendingString:NSLocalizedString(@"Important: This upgrade strongly changes the functionality of your system. Click the Link button to acknowledge and understand the changes. Upgrade now.", nil)];
             
