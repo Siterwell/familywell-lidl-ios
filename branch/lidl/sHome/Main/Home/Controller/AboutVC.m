@@ -12,7 +12,7 @@
 #import "GatewayVersionModel.h"
 #import "UpdateDeviceApi.h"
 #import "ErrorCodeUtil.h"
-
+#import "JhDownProgressController.h"
 @interface AboutVC ()
 @property (weak, nonatomic) IBOutlet UILabel *aboutLabel;
 @property (strong, nonatomic) NSString *versionCode;
@@ -20,7 +20,7 @@
 
 @property (nonatomic, assign) BOOL update;
 @property (nonatomic) GatewayVersionModel *verModel;
-
+@property (strong,nonatomic) JhDownProgressController *vc;
 @end
 
 @implementation AboutVC
@@ -96,6 +96,10 @@
             UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_version_new"]];
             [image setFrame:CGRectMake(0, 0, 30, 15)];
             cell.accessoryView = image;
+        }else{
+            UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
+            [image setFrame:CGRectMake(0, 0, 0, 0)];
+            cell.accessoryView = image;
         }
         
         return cell;
@@ -131,13 +135,10 @@
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示",nil) message:NSLocalizedString(@"有可用更新, 是否升级",nil) preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
-                [MBProgressHUD showSuccess:NSLocalizedString(@"版本升级中，请耐心等待",nil) ToView:GetWindow];
-                self.tableView.userInteractionEnabled = NO;
+                [self showFireLoading];
                 UpdateDeviceApi *api = [[UpdateDeviceApi alloc] initWithGatewayVersionModel:self.verModel];
                 [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
-                    
                 } failure:^(id data, NSError *error) {
-                    
                 }];
         
             }]];
@@ -203,24 +204,78 @@
     
     @weakify(self)
     NSString *https = (ApiMap==nil?@"https://console-openapi.hekr.me":ApiMap[@"console-openapi.hekr.me"]);
-
+    
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/external/device/fw/ota/check", https] parameters:@[dic] progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         @strongify(self)
-
+        
         GatewayVersionModel *mmodel = [[GatewayVersionModel alloc] initWithDictionary:responseObject[0] error:nil];
         self.verModel = mmodel;
         if (mmodel.update == 1) {
             self.update = YES;
+        }else {
+            self.update = NO;
         }
-        
         [self.tableView reloadData];
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSString* errResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         ErrorModel *model = [[ErrorModel alloc] initWithString:errResponse error:nil];
         [MBProgressHUD showError:[ErrorCodeUtil getMessageWithCode:model.code] ToView:self.view];
     }];
+}
+
+
+-(void) closefirem{
+    _vc.success = YES;
+}
+
+
+-(void)showFireLoading{
+    @weakify(self)
+    _vc=[[JhDownProgressController alloc] init];
+    _vc.timer1 = 1.0f;
+    _vc.timerApi = 5.0f;
+    _vc.hintMessage = NSLocalizedString(@"正在升级", nil);
+    _vc.finish = ^(BOOL success){
+        if(!success){
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"更新失败", nil) preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleDefault handler:nil]];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"重试", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                @strongify(self)
+                [self showFireLoading];
+                
+                UpdateDeviceApi *api = [[UpdateDeviceApi alloc] initWithGatewayVersionModel:self.verModel];
+                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+                } failure:^(id data, NSError *error) {
+                }];
+            }]];
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+        }else{
+            [MBProgressHUD showSuccess:NSLocalizedString(@"固件更新成功!", nil) ToView:GetWindow];
+        }
+        
+    };
+    _vc.getApi = ^{
+        @strongify(self)
+        
+        NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+        
+        [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/device?devTid=%@&ctrlKey=%@", https,self.model.devTid,self.model.ctrlKey] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            DeviceListModel *mmodel = [[DeviceListModel alloc] initWithDictionary:responseObject[0] error:nil];
+            if (![mmodel.binVersion isEqualToString:self.model.binVersion]) {
+                [self closefirem];
+                [self getGateWayInfo];
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        }];
+    };
+    GetWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    _vc.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    [GetWindow.rootViewController presentViewController:_vc animated:NO completion:^{
+        
+    }];
+    
 }
 
 

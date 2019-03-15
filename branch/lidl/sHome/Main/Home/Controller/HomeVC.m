@@ -55,6 +55,7 @@
 #import "SceneDataBase.h"
 #import "UploadTimeApi.h"
 #import "AppStatusHelp.h"
+#import "JhDownProgressController.h"
 BOOL flag_checkfireware = NO;
 @interface HomeVC ()<UIAlertViewDelegate,HomeHeadViewDelegate, CLLocationManagerDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *addressView;
@@ -97,6 +98,7 @@ BOOL flag_checkfireware = NO;
 @property (nonatomic, copy) NSString *lastAlertContent;
 @property (nonatomic,assign) NSString *versionCode;
 @property (nonatomic) GatewayVersionModel *verModel;
+@property (strong,nonatomic) JhDownProgressController *vc;
 @end
 
 @implementation HomeVC
@@ -1396,35 +1398,33 @@ BOOL flag_checkfireware = NO;
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             @strongify(self)
             
-            GatewayVersionModel *mmodel = [[GatewayVersionModel alloc] initWithDictionary:responseObject[0] error:nil];
-            if (mmodel.update == YES) {
-
+            _verModel = [[GatewayVersionModel alloc] initWithDictionary:responseObject[0] error:nil];
+            if (_verModel.update == YES) {
+                
                 [LEEAlert alert].config
                 .LeeAddTitle(^(UILabel *label) {
-                    label.text = NSLocalizedString(@"有可用更新, 是否升级", nil);
-                    label.textColor = RGB(40, 184, 215);
+                    label.text = [NSString stringWithFormat:NSLocalizedString(@"当前网关固件版本%@，有可用更新%@, 是否升级", nil),self.model.binVersion, _verModel.devFirmwareOTARawRuleVO.latestBinVer];
+                    label.textColor = RGB(57, 166, 240);
                     label.font = [UIFont systemFontOfSize:15];
                 })
                 .LeeAddAction(^(LEEAction *action) {
                     action.type = LEEActionTypeCancel;
-                    action.title = NSLocalizedString(@"取消", nil);
+                    action.title = NSLocalizedString(@"暂不升级", nil);
                     action.titleColor = [UIColor lightGrayColor];
                     action.font = [UIFont systemFontOfSize:14];
                 })
                 .LeeAddAction(^(LEEAction *action) {
                     action.type = LEEActionTypeDefault;
                     action.title = NSLocalizedString(@"确定", nil);
-                    action.titleColor = RGB(40, 184, 215);
+                    action.titleColor = RGB(57, 166, 240);
                     action.font = [UIFont systemFontOfSize:14];
                     //__weak typeof(self) weakSelf = self;
                     action.clickBlock = ^{
-                        [MBProgressHUD showSuccess:NSLocalizedString(@"版本升级中，请耐心等待",nil) ToView:GetWindow];
-    
-                        UpdateDeviceApi *api = [[UpdateDeviceApi alloc] initWithGatewayVersionModel:mmodel];
+                        [self showFireLoading];
+                        UpdateDeviceApi *api = [[UpdateDeviceApi alloc] initWithGatewayVersionModel:_verModel];
                         [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
                         } failure:^(id data, NSError *error) {
                         }];
-                        
                     };
                 })
                 .LeeShow();
@@ -1439,6 +1439,59 @@ BOOL flag_checkfireware = NO;
         }];
     }
     
+    
+}
+
+-(void) closefirem{
+    _vc.success = YES;
+}
+
+
+-(void)showFireLoading{
+    @weakify(self)
+    _vc=[[JhDownProgressController alloc] init];
+    _vc.timer1 = 1.0f;
+    _vc.timerApi = 5.0f;
+    _vc.hintMessage = NSLocalizedString(@"正在升级", nil);
+    _vc.finish = ^(BOOL flag) {
+        if(!flag){
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"更新失败", nil) preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"暂不升级", nil) style:UIAlertActionStyleDefault handler:nil]];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"重试", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                @strongify(self)
+                [self showFireLoading];
+                
+                UpdateDeviceApi *api = [[UpdateDeviceApi alloc] initWithGatewayVersionModel:self.verModel];
+                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+                } failure:^(id data, NSError *error) {
+                }];
+            }]];
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+        }else{
+            [MBProgressHUD showSuccess:NSLocalizedString(@"固件更新成功!", nil) ToView:GetWindow];
+        }
+        
+    };
+    _vc.getApi = ^{
+        @strongify(self)
+        
+        NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+        
+        [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/device?devTid=%@&ctrlKey=%@", https,self.model.devTid,self.model.ctrlKey] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            DeviceListModel *mmodel = [[DeviceListModel alloc] initWithDictionary:responseObject[0] error:nil];
+            if (![mmodel.binVersion isEqualToString:self.model.binVersion]) {
+                [self closefirem];
+                
+            }
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        }];
+    };
+    GetWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    _vc.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    [GetWindow.rootViewController presentViewController:_vc animated:NO completion:^{
+        
+    }];
     
 }
 

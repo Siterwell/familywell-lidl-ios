@@ -178,7 +178,7 @@
 "最后同步：无记录" = "Zadnja sinhronizacija: ni podatkov";
 "固件版本" = "Različica konektorja";
 "正在检查固件版本" = "Preverjanje različice konektorja";
-"有可用更新, 是否升级" = "Na voljo so posodobitve, želite posodobiti?";
+"当前网关固件版本%@，有可用更新%@, 是否升级" = "trenutna različica je na voljo na usb %@ gateway, obnovo ali nadgradnjo %@ ?";
 "版本升级中，请耐心等待" = "Nadgradnja na novo različico, počakajte...";
 "暂不升级" = "Ne zdaj";
 "固件已经是最新版本了" = "Vdelana programska oprema je posodobljena";
