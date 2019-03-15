@@ -132,7 +132,9 @@
     }
     else if(indexPath.row == 1){
         if(self.update == YES){
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示",nil) message:NSLocalizedString(@"有可用更新, 是否升级",nil) preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示",nil)
+                                                                           message:[NSString stringWithFormat:NSLocalizedString(@"当前网关固件版本%@，有可用更新%@, 是否升级", nil),self.model.binVersion, _verModel.devFirmwareOTARawRuleVO.latestBinVer]
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
             [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
                 [self showFireLoading];
