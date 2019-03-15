@@ -680,6 +680,8 @@
 		88105A882162F10C0084C6D9 /* GuideAddCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A832162F10C0084C6D9 /* GuideAddCamera.m */; };
 		88105A8B2162F11E0084C6D9 /* ChooseLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8A2162F11D0084C6D9 /* ChooseLocationVC.m */; };
 		88105A8E2162F1300084C6D9 /* ChooseLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */; };
+		BAF18C1C2226131B00AF7B5E /* JhDownProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF18C192226131B00AF7B5E /* JhDownProgressView.m */; };
+		BAF18C1D2226131B00AF7B5E /* JhDownProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF18C1A2226131B00AF7B5E /* JhDownProgressController.m */; };
 		C422E2002089E5D5000D9CE7 /* GeneralViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C422E1FE2089E5D5000D9CE7 /* GeneralViewController.mm */; };
 		C475017C20D24B6400F6255E /* InitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C475017B20D24B6400F6255E /* InitVC.m */; };
 		C4C9D97820FD815F00C89AD9 /* CYAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C9D97520FD815E00C89AD9 /* CYAlertView.m */; };
@@ -2180,6 +2182,10 @@
 		88105A8C2162F1300084C6D9 /* ChooseLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLocationCell.h; sourceTree = "<group>"; };
 		88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLocationCell.m; sourceTree = "<group>"; };
 		B02632B6F8A1220A05CD2670 /* libPods-sHome.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sHome.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAF18C182226131B00AF7B5E /* JhDownProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JhDownProgressController.h; sourceTree = "<group>"; };
+		BAF18C192226131B00AF7B5E /* JhDownProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhDownProgressView.m; sourceTree = "<group>"; };
+		BAF18C1A2226131B00AF7B5E /* JhDownProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhDownProgressController.m; sourceTree = "<group>"; };
+		BAF18C1B2226131B00AF7B5E /* JhDownProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JhDownProgressView.h; sourceTree = "<group>"; };
 		C422E1FD2089E5D4000D9CE7 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
 		C422E1FE2089E5D5000D9CE7 /* GeneralViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GeneralViewController.mm; sourceTree = "<group>"; };
 		C4261E3520914FE200DFC544 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LoginStoryboard.strings; sourceTree = "<group>"; };
@@ -5013,6 +5019,7 @@
 		75E523381DFEEF8A0093DECC /* Vender(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				BAF18C172226131B00AF7B5E /* JhDownProgressView */,
 				010FD08F1FC6C5E200BF8749 /* MJPhotoBrowser */,
 				015B8B6D1F4D559C00406DC9 /* FyCalendar */,
 				183AED6D1EF8254900E3FC3D /* TOWebView */,
@@ -5282,6 +5289,17 @@
 				88105A692162EF5B0084C6D9 /* SGQRCodeScanView.m */,
 			);
 			path = SGQRCode;
+			sourceTree = "<group>";
+		};
+		BAF18C172226131B00AF7B5E /* JhDownProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				BAF18C182226131B00AF7B5E /* JhDownProgressController.h */,
+				BAF18C192226131B00AF7B5E /* JhDownProgressView.m */,
+				BAF18C1A2226131B00AF7B5E /* JhDownProgressController.m */,
+				BAF18C1B2226131B00AF7B5E /* JhDownProgressView.h */,
+			);
+			path = JhDownProgressView;
 			sourceTree = "<group>";
 		};
 		E133AE07A9298F3494E4C1CE /* Frameworks */ = {
@@ -5916,9 +5934,11 @@
 				056153091E059C84004DD31C /* EditEmergentPhoneVC.m in Sources */,
 				7595C34C1E02E2C40012723E /* WarningTableView.m in Sources */,
 				75E523D71DFEEF8A0093DECC /* NSObject+Blocks.m in Sources */,
+				BAF18C1D2226131B00AF7B5E /* JhDownProgressController.m in Sources */,
 				01A63F8F2063E947004FEC2F /* NSString+Exsmaple.m in Sources */,
 				75E524661DFEEF8A0093DECC /* UITextView+Select.m in Sources */,
 				0178915B2064AD9F004F8FD7 /* ItemDataHelp.m in Sources */,
+				BAF18C1C2226131B00AF7B5E /* JhDownProgressView.m in Sources */,
 				05D8979C1E54071700889C21 /* SystemSceneModel.m in Sources */,
 				01A63F9E2063E947004FEC2F /* UICommbox.mm in Sources */,
 				0178916F2064DEFB004F8FD7 /* SceneDetailVC.m in Sources */,
