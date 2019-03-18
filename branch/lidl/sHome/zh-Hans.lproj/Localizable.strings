@@ -510,3 +510,5 @@
 "Socket ON" = "Socket ON";
 "Socket OFF" = "Socket OFF";
 "Link" = "链接";
+"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "重要提示：本次更新强烈改变你的系统的功能。点击\“信息\”下面，看看会做出什么样的变化。更新后，您需要重新连接的设备。";
+"Information" = "信息";

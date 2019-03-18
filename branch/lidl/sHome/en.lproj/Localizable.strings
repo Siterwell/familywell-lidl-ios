@@ -510,4 +510,5 @@
 "Socket ON" = "Socket ON";
 "Socket OFF" = "Socket OFF";
 "Link" = "Link";
-
+"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices.";
+"Information" = "Information";
