@@ -178,7 +178,7 @@
 "最后同步：无记录" = "Viimeisin synkronointi: ei tietoja";
 "固件版本" = "Tukiaseman versio";
 "正在检查固件版本" = "Tarkistetaan tukiaseman versiota";
-"当前网关固件版本%@，有可用更新%@, 是否升级" = "tällä hetkellä %@ gateway - vakaa versio on saatavilla, jos päivitys päivittää %@ ?";
+"Updates available, do you want to update?" = "Päivityksiä saatavilla, haluat päivittää?";
 "版本升级中，请耐心等待" = "Päivitetään versiota, ole hyvä ja odota";
 "暂不升级" = "Ei päivityksiä saatavilla";
 "固件已经是最新版本了" = "Laiteohjelmisto on ajan tasalla";

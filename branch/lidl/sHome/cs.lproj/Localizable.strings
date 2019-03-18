@@ -178,7 +178,7 @@
 "最后同步：无记录" = "Poslední synchronizace: žádný záznam";
 "固件版本" = "Verze konektoru";
 "正在检查固件版本" = "Kontroluje se verze konektoru";
-"当前网关固件版本%@，有可用更新%@, 是否升级" = "brána %@ současné verzi firmware je k dispozici %@ aktualizací aktualizace, bez ohledu na to, zda？";
+"Updates available, do you want to update?" = "K dispozici aktualizace, které chcete aktualizovat?";
 "版本升级中，请耐心等待" = "Upgrade na novou verzi, čekejte, prosím...";
 "暂不升级" = "Nyní ne";
 "固件已经是最新版本了" = "Firmware je aktuální";

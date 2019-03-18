@@ -178,7 +178,7 @@
 "最后同步：无记录" = "Letzte Synchronisation: kein Datensatz";
 "固件版本" = "Connector-Version";
 "正在检查固件版本" = "Geräteaktualisierung";
-"当前网关固件版本%@，有可用更新%@, 是否升级" = "Aktuelle firmware version %@ Tor, ob ein update verfügbar %@?";
+"Updates available, do you want to update?" = "Updates verfügbar, möchten Sie aktualisieren?";
 "版本升级中，请耐心等待" = "Versions-Upgrade läuft, bitte warten…";
 "暂不升级" = "nicht jetzt";
 "固件已经是最新版本了" = "Die Firmware wurde aktualisiert";
