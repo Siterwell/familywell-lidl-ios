@@ -178,7 +178,7 @@
 "最后同步：无记录" = "Last sync: no record";
 "固件版本" = "Gateway version";
 "正在检查固件版本" = "The gateway version is being checked";
-"当前网关固件版本%@，有可用更新%@, 是否升级" = "Current gateway firmware version:%@, available updates%@, whether to upgrade？";
+"Updates available, do you want to update?" = "Updates available, do you want to update?";
 "版本升级中，请耐心等待" = "Version of the upgrade, please be patient";
 "暂不升级" = "Not yet";
 "固件已经是最新版本了" = "This is the latest version";
@@ -510,4 +510,5 @@
 "Socket ON" = "Socket ON";
 "Socket OFF" = "Socket OFF";
 "Link" = "Link";
-
+"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices.";
+"Information" = "Information";

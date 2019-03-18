@@ -178,7 +178,7 @@
 "最后同步：无记录" = "Poslední synchronizace: žádný záznam";
 "固件版本" = "Verze konektoru";
 "正在检查固件版本" = "Kontroluje se verze konektoru";
-"当前网关固件版本%@，有可用更新%@, 是否升级" = "brána %@ současné verzi firmware je k dispozici %@ aktualizací aktualizace, bez ohledu na to, zda？";
+"Updates available, do you want to update?" = "K dispozici aktualizace, které chcete aktualizovat?";
 "版本升级中，请耐心等待" = "Upgrade na novou verzi, čekejte, prosím...";
 "暂不升级" = "Nyní ne";
 "固件已经是最新版本了" = "Firmware je aktuální";
@@ -510,3 +510,5 @@
 "Socket ON" = "Socket ON";
 "Socket OFF" = "Socket OFF";
 "Link" = "Link";
+"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Důležité: Tato aktualizace výrazně změní funkce systému. Kliknutím na \"informace\" níže a uvidíte, jaké změny budou provedeny. Po aktualizaci budete muset připojit zařízení.";
+"Information" = "informace";

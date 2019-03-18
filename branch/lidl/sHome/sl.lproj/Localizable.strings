@@ -178,7 +178,7 @@
 "最后同步：无记录" = "Zadnja sinhronizacija: ni podatkov";
 "固件版本" = "Različica konektorja";
 "正在检查固件版本" = "Preverjanje različice konektorja";
-"当前网关固件版本%@，有可用更新%@, 是否升级" = "trenutna različica je na voljo na usb %@ gateway, obnovo ali nadgradnjo %@ ?";
+"Updates available, do you want to update?" = "Posodobitve so na voljo, ali želite posodobiti?";
 "版本升级中，请耐心等待" = "Nadgradnja na novo različico, počakajte...";
 "暂不升级" = "Ne zdaj";
 "固件已经是最新版本了" = "Vdelana programska oprema je posodobljena";
@@ -510,3 +510,5 @@
 "Socket ON" = "Socket ON";
 "Socket OFF" = "Socket OFF";
 "Link" = "Link";
+"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Pomembno: ta sprememba močno spreminja funkcionalnost sistema. Kliknite na \"Informacije\" spodaj, da vidite, kaj bo sprememb. Po posodobitvi boste morali znova povezati naprave.";
+"Information" = "Informacije";

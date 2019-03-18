@@ -178,7 +178,7 @@
 "最后同步：无记录" = "ultima sync : sin registro";
 "固件版本" = "version acceso";
 "正在检查固件版本" = "se esta comprobando la version de acceso";
-"当前网关固件版本%@，有可用更新%@, 是否升级" = "La versión actual de la retícula del portal %@, con una actualización del %@, si？";
+"Updates available, do you want to update?" = "Actualizaciones disponibles, hacen que desea actualizar?";
 "版本升级中，请耐心等待" = "version de la actualizacion, por favor espere";
 "暂不升级" = "todavia no";
 "固件已经是最新版本了" = "esta es la ultima version";
@@ -510,3 +510,5 @@
 "Socket ON" = "Socket ON";
 "Socket OFF" = "Socket OFF";
 "Link" = "Link";
+"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Importante: esta actualización cambia fuertemente la funcionalidad de su sistema. Haga clic en \“Información\” a continuación para ver qué cambios se harán. Después de la actualización que necesita para volver a conectar los dispositivos.";
+"Information" = "Información";
