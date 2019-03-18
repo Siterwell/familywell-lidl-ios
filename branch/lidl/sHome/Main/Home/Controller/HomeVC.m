@@ -1391,7 +1391,7 @@ BOOL flag_checkfireware = NO;
                 
                 [LEEAlert alert].config
                 .LeeAddTitle(^(UILabel *label) {
-                    NSString * message = [NSString stringWithFormat:NSLocalizedString(@"当前网关固件版本%@，有可用更新%@, 是否升级", nil),self.model.binVersion, _verModel.devFirmwareOTARawRuleVO.latestBinVer];
+                    NSString * message = NSLocalizedString(@"Updates available, do you want to update?", nil);
                     message = [message stringByAppendingString:@"\n\n"];
                     message = [message stringByAppendingString:NSLocalizedString(@"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices.", nil)];
                     

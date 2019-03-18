@@ -178,7 +178,7 @@
 "最后同步：无记录" = "Mise à jour: aucun enregistrement";
 "固件版本" = "Passerelle version : ";
 "正在检查固件版本" = "Mise à jour du dispositif";
-"当前网关固件版本%@，有可用更新%@, 是否升级" = "La version actuelle de la passerelle a %@, il y a une mise à jour de %@, l 'escalade?";
+"Updates available, do you want to update?" = "Mises à jour disponibles, voulez-vous mettre à jour?";
 "版本升级中，请耐心等待" = "La mise à jour de la version est en cours, merci de patienter";
 "暂不升级" = "Pas encore ";
 "固件已经是最新版本了" = "Cette version est la plus récente";
