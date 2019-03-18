@@ -140,7 +140,7 @@
             
             [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Information",nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://www.elro.eu/elro-connects-app-upgrade"]];
-            }]];
+            }]]; 
             [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
                 [self showFireLoading];
