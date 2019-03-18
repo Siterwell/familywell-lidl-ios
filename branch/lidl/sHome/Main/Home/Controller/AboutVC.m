@@ -134,11 +134,11 @@
         if(self.update == YES){
             NSString * message = [NSString stringWithFormat:NSLocalizedString(@"当前网关固件版本%@，有可用更新%@, 是否升级", nil),self.model.binVersion, _verModel.devFirmwareOTARawRuleVO.latestBinVer];
             message = [message stringByAppendingString:@"\n\n"];
-            message = [message stringByAppendingString:NSLocalizedString(@"Important: This upgrade strongly changes the functionality of your system. Click the Link button to acknowledge and understand the changes. Upgrade now.", nil)];
+            message = [message stringByAppendingString:NSLocalizedString(@"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices.", nil)];
             
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示",nil) message:message preferredStyle:UIAlertControllerStyleAlert];
             
-            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Link",nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Information",nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://www.elro.eu/elro-connects-app-upgrade"]];
             }]];
             [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定",nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {

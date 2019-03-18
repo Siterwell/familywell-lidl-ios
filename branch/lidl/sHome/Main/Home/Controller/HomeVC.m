@@ -1393,7 +1393,7 @@ BOOL flag_checkfireware = NO;
                 .LeeAddTitle(^(UILabel *label) {
                     NSString * message = [NSString stringWithFormat:NSLocalizedString(@"当前网关固件版本%@，有可用更新%@, 是否升级", nil),self.model.binVersion, _verModel.devFirmwareOTARawRuleVO.latestBinVer];
                     message = [message stringByAppendingString:@"\n\n"];
-                    message = [message stringByAppendingString:NSLocalizedString(@"Important: This upgrade strongly changes the functionality of your system. Click the Link button to acknowledge and understand the changes. Upgrade now.", nil)];
+                    message = [message stringByAppendingString:NSLocalizedString(@"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices.", nil)];
                     
                     label.text = message;
                     label.textColor = RGB(57, 166, 240);
@@ -1407,7 +1407,7 @@ BOOL flag_checkfireware = NO;
                 })
                 .LeeAddAction(^(LEEAction *action) {
                     action.type = LEEActionTypeDestructive;
-                    action.title = NSLocalizedString(@"Link", nil);
+                    action.title = NSLocalizedString(@"Information", nil);
                     action.titleColor = [UIColor redColor];
                     action.font = [UIFont systemFontOfSize:14];
                     action.clickBlock = ^{
