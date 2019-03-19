@@ -1453,7 +1453,7 @@ BOOL flag_checkfireware = NO;
     _vc=[[JhDownProgressController alloc] init];
     _vc.timer1 = 1.0f;
     _vc.timerApi = 5.0f;
-    _vc.hintMessage = NSLocalizedString(@"正在升级", nil);
+    _vc.hintMessage = NSLocalizedString(@"版本升级中，请耐心等待", nil);
     _vc.finish = ^(BOOL flag) {
         if(!flag){
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"更新失败", nil) preferredStyle:UIAlertControllerStyleAlert];
