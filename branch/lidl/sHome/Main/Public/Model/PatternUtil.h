@@ -10,6 +10,6 @@
 #define PatternUtil_h
 
 #define EmailPattern @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-#define PasswordPattern @"(?=^.{10,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+#define PasswordPattern @"(?=^.{10,}$)((?=.*\\d)(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$"
 
 #endif /* PatternUtil_h */
