@@ -1403,7 +1403,7 @@ BOOL flag_checkfireware = NO;
                 
                 [LEEAlert alert].config
                 .LeeAddTitle(^(UILabel *label) {
-                    label.text = [NSString stringWithFormat:NSLocalizedString(@"当前网关固件版本%@，有可用更新%@, 是否升级", nil),self.model.binVersion, _verModel.devFirmwareOTARawRuleVO.latestBinVer];
+                    label.text = NSLocalizedString(@"Updates available, do you want to update?", nil);
                     label.textColor = RGB(57, 166, 240);
                     label.font = [UIFont systemFontOfSize:15];
                 })

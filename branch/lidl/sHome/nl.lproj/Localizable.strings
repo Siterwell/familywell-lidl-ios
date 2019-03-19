@@ -178,7 +178,7 @@
 "最后同步：无记录" = "Laatste synchronisatie: Geen";
 "固件版本" = "Connector-versie";
 "正在检查固件版本" = "Versie van connector wordt gecontroleerd";
-"当前网关固件版本%@，有可用更新%@, 是否升级" = "De poort firmware %@, er is een update beschikbaar %@, of voor de verbetering van？";
+"Updates available, do you want to update?" = "Updates beschikbaar, wil je updaten?";
 "版本升级中，请耐心等待" = "Naar nieuwe versie upgraden, een moment…";
 "暂不升级" = "Niet nu";
 "固件已经是最新版本了" = "Firmware is bijgewerkt";
@@ -510,3 +510,5 @@
 "Socket ON" = "Socket AAN";
 "Socket OFF" = "Socket UIT";
 "Link" = "Link";
+"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Belangrijk: deze update verandert de werking van je systeem sterk. Klik op \“Informatie\” hieronder om te zien welke wijzigingen er worden doorgevoerd. Na de update dien je je melders opnieuw te koppelen.";
+"Information" = "Informatie";
