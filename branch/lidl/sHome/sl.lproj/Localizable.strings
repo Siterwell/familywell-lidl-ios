@@ -179,7 +179,7 @@
 "固件版本" = "Različica konektorja";
 "正在检查固件版本" = "Preverjanje različice konektorja";
 "Updates available, do you want to update?" = "Posodobitve so na voljo, ali želite posodobiti?";
-"版本升级中，请耐心等待" = "Nadgradnja na novo različico, počakajte...";
+"版本升级中，请耐心等待" = "Prehod se nadgrajuje ...";
 "暂不升级" = "Ne zdaj";
 "固件已经是最新版本了" = "Vdelana programska oprema je posodobljena";
 "读取失败" = "Branje ni uspelo";
@@ -462,9 +462,9 @@
 "是否格式化设备磁盘" = "oprema za disk ali format";
 "必须含有输入条件" = "mora vsebovati pogoje za uvoz";
 "%@(%@)的%@触发了" = "%@(%@) %@ sproži";
-"定位" = "položaj";
-"不定位" = "ne položaj";
-"定位设置" = "lokacija";
+"定位" = "Vključeno";
+"不定位" = "Onemogočen";
+"定位设置" = "Nastavitve lokacije";
 "添加我的摄像机" = "Dodajte novo IP kamero";
 "添加分享的摄像机" = "Dodajte skupno IP kamero";
 "添加同一路由器上的摄像机" = "Dodajte IP kamero na isti usmerjevalnik";
