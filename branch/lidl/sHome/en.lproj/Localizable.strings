@@ -179,7 +179,7 @@
 "固件版本" = "Gateway version";
 "正在检查固件版本" = "The gateway version is being checked";
 "Updates available, do you want to update?" = "Updates available, do you want to update?";
-"版本升级中，请耐心等待" = "Version of the upgrade, please be patient";
+"版本升级中，请耐心等待" = "Gateway is upgrading...";
 "暂不升级" = "Not yet";
 "固件已经是最新版本了" = "This is the latest version";
 "读取失败" = "Reading failed";
@@ -462,9 +462,9 @@
 "是否格式化设备磁盘" = "Do you want to format the device disk?";
 "必须含有输入条件" = "Input conditions must be included";
 "%@(%@)的%@触发了" = "%@(%@) %@ Triggered!";
-"定位" = "Phone Location";
-"不定位" = "No Phone Location";
-"定位设置" = "Location setting";
+"定位" = "Switched on";
+"不定位" = "Switched off";
+"定位设置" = "Location settings";
 "添加我的摄像机" = "Add a new IPC";
 "添加分享的摄像机" = "Add a shared IPC";
 "添加同一路由器上的摄像机" = "IPC in local net";

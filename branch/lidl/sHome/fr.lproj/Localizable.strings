@@ -179,7 +179,7 @@
 "固件版本" = "Passerelle version : ";
 "正在检查固件版本" = "Mise à jour du dispositif";
 "Updates available, do you want to update?" = "Mises à jour disponibles, voulez-vous mettre à jour?";
-"版本升级中，请耐心等待" = "La mise à jour de la version est en cours, merci de patienter";
+"版本升级中，请耐心等待" = "Gateway met à niveau ...";
 "暂不升级" = "Pas encore ";
 "固件已经是最新版本了" = "Cette version est la plus récente";
 "读取失败" = "Impossible de récupérer la version matérielle du dispositif !";
@@ -462,9 +462,9 @@
 "是否格式化设备磁盘" = "Si le dispositif de formatage de disque";
 "必须含有输入条件" = "Doit contenir des conditions d'entrée";
 "%@(%@)的%@触发了" = "%@(%@) %@ Triggered!";
-"定位" = "De positionnement";
-"不定位" = "Pas de positionnement";
-"定位设置" = "Configuration de positionnement";
+"定位" = "Allumé";
+"不定位" = "Désactivé";
+"定位设置" = "Les paramètres de localization";
 "添加我的摄像机" = "Ajouter une camera";
 "添加分享的摄像机" = "Paramétrer le partage de la camera";
 "添加同一路由器上的摄像机" = "Ajouter une camera";

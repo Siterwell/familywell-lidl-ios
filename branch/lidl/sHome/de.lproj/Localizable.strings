@@ -179,7 +179,7 @@
 "固件版本" = "Connector-Version";
 "正在检查固件版本" = "Geräteaktualisierung";
 "Updates available, do you want to update?" = "Updates verfügbar, möchten Sie aktualisieren?";
-"版本升级中，请耐心等待" = "Versions-Upgrade läuft, bitte warten…";
+"版本升级中，请耐心等待" = "Gateway wird aktualisiert ...";
 "暂不升级" = "nicht jetzt";
 "固件已经是最新版本了" = "Die Firmware wurde aktualisiert";
 "读取失败" = "Empfangen der Geräte-Hardware-Version fehlgeschlagen!!!";
@@ -462,9 +462,9 @@
 "是否格式化设备磁盘" = "Formatierung der festplatte, ob Geräte";
 "必须含有输入条件" = "Mit dem input Bedingungen müssen";
 "%@(%@)的%@触发了" = "Derzeitiger Connector %@(%@) %@ ausgelöst, Vorsicht bitte.";
-"定位" = "Positionierung";
-"不定位" = "Keine position";
-"定位设置" = "Positionierung";
+"定位" = "Eingeschaltet";
+"不定位" = "Deaktiviert";
+"定位设置" = "Ortseinstellungen";
 "添加我的摄像机" = "Fügen sie meine IPC";
 "添加分享的摄像机" = "Die IPC noch teilen";
 "添加同一路由器上的摄像机" = "Die IPC MIT Einem router hinzugefügt";

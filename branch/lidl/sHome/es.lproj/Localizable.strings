@@ -179,7 +179,7 @@
 "固件版本" = "version acceso";
 "正在检查固件版本" = "se esta comprobando la version de acceso";
 "Updates available, do you want to update?" = "Actualizaciones disponibles, hacen que desea actualizar?";
-"版本升级中，请耐心等待" = "version de la actualizacion, por favor espere";
+"版本升级中，请耐心等待" = "Gateway se está actualizando ...";
 "暂不升级" = "todavia no";
 "固件已经是最新版本了" = "esta es la ultima version";
 "读取失败" = "errir de lectura";
@@ -462,9 +462,9 @@
 "是否格式化设备磁盘" = "Si el formato de disco de equipos";
 "必须含有输入条件" = "Debe contener las condiciones de entrada";
 "%@(%@)的%@触发了" = "enrutador actual %@(%@) %@ disparado";
-"定位" = "El posicionamiento";
-"不定位" = "Sin posicionamiento";
-"定位设置" = "Posicionamiento de posicionamiento";
+"定位" = "Encendido";
+"不定位" = "Discapacitado";
+"定位设置" = "Configuración de ubicación";
 "添加我的摄像机" = "añadir una camara IP nueva";
 "添加分享的摄像机" = "añadir una camara IP compartida";
 "添加同一路由器上的摄像机" = "camara Ip en red local";
