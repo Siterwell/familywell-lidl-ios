@@ -578,7 +578,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     [[Hekr sharedInstance] didReceiveRemoteNotification:userInfo];
     
     //++ do alert by push notification
-    [self showAlert:userInfo];
+//    [self showAlert:userInfo];
     //-- do alert by push notification
 }
 
