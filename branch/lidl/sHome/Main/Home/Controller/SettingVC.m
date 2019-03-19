@@ -199,7 +199,7 @@
         }else{
                 
                 UIApplication *application = [UIApplication sharedApplication];
-                NSURL *URL = [NSURL URLWithString:@"https://www.elro.eu/elro-connects-k1-connector-sf40ga"];
+                NSURL *URL = [NSURL URLWithString:@"https://www.elro.eu/elro-connects-k1-connector-sf40ga#faqs"];
                 
                 if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
                     [application openURL:URL options:@{}
