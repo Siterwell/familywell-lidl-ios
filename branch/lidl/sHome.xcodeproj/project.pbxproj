@@ -6551,7 +6551,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = ELRO_developement;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -6586,9 +6586,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = elro_siterwell_adhoc;
+				PROVISIONING_PROFILE_SPECIFIER = elro_siterwell_appstore;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
