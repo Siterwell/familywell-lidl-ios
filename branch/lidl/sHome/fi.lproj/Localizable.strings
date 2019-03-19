@@ -179,7 +179,7 @@
 "固件版本" = "Tukiaseman versio";
 "正在检查固件版本" = "Tarkistetaan tukiaseman versiota";
 "Updates available, do you want to update?" = "Päivityksiä saatavilla, haluat päivittää?";
-"版本升级中，请耐心等待" = "Päivitetään versiota, ole hyvä ja odota";
+"版本升级中，请耐心等待" = "Gateway päivittää ...";
 "暂不升级" = "Ei päivityksiä saatavilla";
 "固件已经是最新版本了" = "Laiteohjelmisto on ajan tasalla";
 "读取失败" = "Luku epäonnistui";

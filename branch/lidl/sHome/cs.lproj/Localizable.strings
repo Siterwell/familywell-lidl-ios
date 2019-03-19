@@ -179,7 +179,7 @@
 "固件版本" = "Verze konektoru";
 "正在检查固件版本" = "Kontroluje se verze konektoru";
 "Updates available, do you want to update?" = "K dispozici aktualizace, které chcete aktualizovat?";
-"版本升级中，请耐心等待" = "Upgrade na novou verzi, čekejte, prosím...";
+"版本升级中，请耐心等待" = "Brána upgraduje ...";
 "暂不升级" = "Nyní ne";
 "固件已经是最新版本了" = "Firmware je aktuální";
 "读取失败" = "Čtení se nezdařilo";
@@ -462,9 +462,9 @@
 "是否格式化设备磁盘" = "formátování disk, zda zařízení";
 "必须含有输入条件" = "musí obsahovat vstupní podmínky";
 "%@(%@)的%@触发了" = "%@(%@) %@ spoušť";
-"定位" = "umístění";
-"不定位" = "umístění";
-"定位设置" = "lokalizační nastavení";
+"定位" = "Zapnuto";
+"不定位" = "Zakázáno";
+"定位设置" = "Nastavení umístění";
 "添加我的摄像机" = "Přidat novou IP kameru";
 "添加分享的摄像机" = "Přidat sdílenou IP kameru";
 "添加同一路由器上的摄像机" = "Přidat IP kameru na stejném routeru";
