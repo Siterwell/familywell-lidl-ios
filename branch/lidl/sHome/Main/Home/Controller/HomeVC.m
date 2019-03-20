@@ -1468,7 +1468,7 @@ BOOL flag_checkfireware = NO;
             }]];
             [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
         }else{
-            [MBProgressHUD showSuccess:NSLocalizedString(@"固件更新成功!", nil) ToView:GetWindow];
+            [MBProgressHUD showSuccess:NSLocalizedString(@"Firmware Update Successful", nil) ToView:GetWindow];
         }
         
     };
