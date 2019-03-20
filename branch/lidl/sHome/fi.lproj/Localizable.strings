@@ -512,3 +512,4 @@
 "Link" = "Link";
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Tärkeää: Tämä päivitys voimakkaasti muuttaa toiminnallisuutta järjestelmään. Klikkaa \”Tiedot\” alla nähdä, mitä muutoksia tehdään. Päivityksen jälkeen tarvitset kytke laitteisiin.";
 "Information" = "Tiedot";
+"Firmware Update Successful" = "vakaa päivitys onnistuu";
