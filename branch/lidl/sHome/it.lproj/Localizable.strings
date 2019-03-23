@@ -509,7 +509,6 @@
 "Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters." = "Le password devono contenere almeno 10 caratteri, di cui 1 lettera maiuscola, 1 lettera minuscola, 1 numero e carattere speciale.";
 "Socket ON" = "Socket ON";
 "Socket OFF" = "Socket OFF";
-"Link" = "Link";
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Importante: questo aggiornamento modifica fortemente la funzionalità del vostro sistema. Clicca su \“Informazioni\” qui sotto per vedere quali cambiamenti saranno resi. Dopo l'aggiornamento è necessario ricollegare i dispositivi.";
 "Information" = "Informazioni";
 "Firmware Update Successful" = "IL successo di aggiornamento del Firmware";

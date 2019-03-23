@@ -509,7 +509,6 @@
 "Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters." = "Hesla musí obsahovat nejméně 10 znaků, z nichž 1 velké písmeno, 1 malé písmeno, 1 číslo a speciální znak.";
 "Socket ON" = "Socket ON";
 "Socket OFF" = "Socket OFF";
-"Link" = "Link";
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Důležité: Tato aktualizace výrazně změní funkce systému. Kliknutím na \"informace\" níže a uvidíte, jaké změny budou provedeny. Po aktualizaci budete muset připojit zařízení.";
 "Information" = "informace";
 "Firmware Update Successful" = "firmware update úspěch";
