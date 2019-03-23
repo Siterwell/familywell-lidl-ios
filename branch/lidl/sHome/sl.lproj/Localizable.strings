@@ -509,7 +509,6 @@
 "Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters." = "Gesla morajo vsebovati vsaj 10 znakov, od tega 1 veliko črko, 1 malo črko, 1 številko in poseben znak.";
 "Socket ON" = "Socket ON";
 "Socket OFF" = "Socket OFF";
-"Link" = "Link";
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Pomembno: ta sprememba močno spreminja funkcionalnost sistema. Kliknite na \"Informacije\" spodaj, da vidite, kaj bo sprememb. Po posodobitvi boste morali znova povezati naprave.";
 "Information" = "Informacije";
 "Firmware Update Successful" = "usb posodobitev uspeh";

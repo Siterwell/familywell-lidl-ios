@@ -509,7 +509,6 @@
 "Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters." = "Het wachtwoord moet uit tenminste 10 karakters bestaan, met tenminste 1 hoofdletter, 1 kleine letter, 1 cijfers en 1 speciaal teken.";
 "Socket ON" = "Socket AAN";
 "Socket OFF" = "Socket UIT";
-"Link" = "Link";
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Belangrijk: deze update verandert de werking van je systeem sterk. Klik op \“Informatie\” hieronder om te zien welke wijzigingen er worden doorgevoerd. Na de update dien je je melders opnieuw te koppelen.";
 "Information" = "Informatie";
 "Firmware Update Successful" = "Het succes van de software update";
