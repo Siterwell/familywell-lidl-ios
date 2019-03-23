@@ -17,7 +17,7 @@
 
 @interface RegistVC ()<ClickCellDelegate>
 @property (strong, nonatomic)  UIButton *registBtn;
-@property (strong, nonatomic)  YYLabel *RuleLabel;
+@property (strong, nonatomic)  UILabel *RuleLabel;
 
 @property (weak, nonatomic) UITextField *user_textField;
 @property (weak,nonatomic)UITextField *pass_textField;
@@ -119,38 +119,43 @@
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UIView  *view = [[UIView alloc] init];
 
-    
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"同意服务条款", nil)];
-    text.yy_font = [UIFont systemFontOfSize:13];
-    text.yy_color = [UIColor darkGrayColor];
-
-    
-    YYTextHighlight *highlight = [YYTextHighlight new];
-    [highlight setColor:RGB(198, 198, 198)];
-    [highlight setFont:[UIFont boldSystemFontOfSize:13]];
-    [highlight setUnderline:[YYTextDecoration decorationWithStyle:YYTextLineStyleSingle]];
-    highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
-        [self performSegueWithIdentifier:@"toPrivacy" sender:nil];
-    };
-    [text yy_setColor:RGB(51, 51, 51) range:NSMakeRange(0, text.length)];
-    [text yy_setFont:[UIFont boldSystemFontOfSize:13] range:NSMakeRange(0, text.length)];
-    [text yy_setTextUnderline:[YYTextDecoration decorationWithStyle:YYTextLineStyleSingle] range:NSMakeRange(0, text.length)];
-    [text yy_setTextHighlight:highlight range:NSMakeRange(0, text.length)];
-   
+//    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"同意服务条款", nil)];
+//    text.yy_font = [UIFont systemFontOfSize:13];
+//    text.yy_color = [UIColor darkGrayColor];
+//
+//
+//    YYTextHighlight *highlight = [YYTextHighlight new];
+//    [highlight setColor:RGB(198, 198, 198)];
+//    [highlight setFont:[UIFont boldSystemFontOfSize:13]];
+//    [highlight setUnderline:[YYTextDecoration decorationWithStyle:YYTextLineStyleSingle]];
+//    highlight.tapAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
+//        [self performSegueWithIdentifier:@"toPrivacy" sender:nil];
+//    };
+//    [text yy_setColor:RGB(51, 51, 51) range:NSMakeRange(0, text.length)];
+//    [text yy_setFont:[UIFont boldSystemFontOfSize:13] range:NSMakeRange(0, text.length)];
+//    [text yy_setTextUnderline:[YYTextDecoration decorationWithStyle:YYTextLineStyleSingle] range:NSMakeRange(0, text.length)];
+//    [text yy_setTextHighlight:highlight range:NSMakeRange(0, text.length)];
   
-    self.RuleLabel = [YYLabel new];
-    self.RuleLabel.attributedText = text;
+    self.RuleLabel = [UILabel new];
+    self.RuleLabel.text = NSLocalizedString(@"同意服务条款", nil);
+    self.RuleLabel.font = [UIFont systemFontOfSize:12];
+    self.RuleLabel.textColor = RGB(51, 51, 51);
     self.RuleLabel.numberOfLines = 2;
     self.RuleLabel.backgroundColor = [UIColor clearColor];
     self.RuleLabel.textAlignment = NSTextAlignmentCenter;
     self.RuleLabel.userInteractionEnabled = YES;
-     CGSize sizeNew = [self.RuleLabel.text sizeWithAttributes:@{NSFontAttributeName:self.RuleLabel.font}];
+    CGSize sizeNew = [self.RuleLabel.text sizeWithAttributes:@{NSFontAttributeName:self.RuleLabel.font}];
     self.RuleLabel.frame = CGRectMake(0, 0, sizeNew.width, sizeNew.height);
     [view addSubview:self.RuleLabel];
+    
+    UITapGestureRecognizer *tapGesture =[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toPrivacy:)];
+    [self.RuleLabel addGestureRecognizer:tapGesture];
+//    [tapGesture release];
+    
 
     WS(ws)
     [self.RuleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(sizeNew.width+10);
+        make.width.equalTo([UIScreen mainScreen].bounds.size.width * 0.8);
         make.height.equalTo(sizeNew.height);
         make.centerX.equalTo(view.centerX);
         make.top.equalTo(view.mas_top).offset(23);
@@ -164,10 +169,10 @@
     [view addSubview:self.tongBtn];
     [self.tongBtn mas_makeConstraints:^(MASConstraintMaker *make) {
 
-        make.right.equalTo(ws.RuleLabel.mas_left).offset(-5);
-        make.centerY.mas_equalTo(ws.RuleLabel.mas_centerY);
-        make.width.equalTo(20);
-        make.height.equalTo(20);
+        make.right.equalTo(ws.RuleLabel.left);
+        make.centerY.mas_equalTo(ws.RuleLabel.centerY);
+        make.width.equalTo(30);
+        make.height.equalTo(30);
     }];
     
     
@@ -367,6 +372,10 @@
     } determineButton:^{
         [self checkCaptchaCode:alert.captchaTF.text];
     }];
+}
+
+- (void)toPrivacy:(UITapGestureRecognizer *)tapGesture {
+    [self performSegueWithIdentifier:@"toPrivacy" sender:nil];
 }
 
 -(void)alertBtnClick:(id)sender{
