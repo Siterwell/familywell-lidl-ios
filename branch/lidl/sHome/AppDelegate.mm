@@ -278,29 +278,30 @@ static void uncaughtExceptionHandler(NSException *exception) {
     
     [[Hekr sharedInstance] config:config startPage:nil launchOptions:launchOptions];
     [[Hekr sharedInstance] firstPage];
-    self.tcpClient = [[HekrSimpleTcpClient alloc] init];
-    [self.tcpClient createTcpSocket:@"info.hekr.me" onPort:91 connect:^(HekrSimpleTcpClient *client ,BOOL isConnect) {
-        if (isConnect) {
-            [client writeDict:@{@"action":@"getAppDomain"}];
-        }else{
-//            NSLog(@"get domain error:TCP连接不成功");
-            NSString* domain = [[NSUserDefaults standardUserDefaults] objectForKey:@"hekr_domain"];
-            if(domain.length != 0 && [domain containsString:@"hekr"]){
-                ApiMap = @{@"user-openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
-                           @"user.openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
-                           @"uaa-openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
-                           @"uaa.openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
-                           @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
-            }else{
-                ApiMap = @{@"user-openapi.hekr.me":@"https://user-openapi.hekreu.me",
-                           @"user.openapi.hekr.me":@"https://user-openapi.hekreu.me",
-                           @"uaa-openapi.hekr.me":@"https://uaa-openapi.hekreu.me",
-                           @"uaa.openapi.hekr.me":@"https://uaa-openapi.hekreu.me",
-                           @"console-openapi.hekr.me":@"https://console-openapi.hekreu.me"};
-            }
-        }
-    } successCallback:^(HekrSimpleTcpClient *client, NSDictionary *data) {
-        NSString* domain = [[data objectForKey:@"dcInfo"] objectForKey:@"domain"];
+//    self.tcpClient = [[HekrSimpleTcpClient alloc] init];
+//    [self.tcpClient createTcpSocket:@"info.hekr.me" onPort:91 connect:^(HekrSimpleTcpClient *client ,BOOL isConnect) {
+//        if (isConnect) {
+//            [client writeDict:@{@"action":@"getAppDomain"}];
+//        }else{
+////            NSLog(@"get domain error:TCP连接不成功");
+//            NSString* domain = [[NSUserDefaults standardUserDefaults] objectForKey:@"hekr_domain"];
+//            if(domain.length != 0 && [domain containsString:@"hekr"]){
+//                ApiMap = @{@"user-openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
+//                           @"user.openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
+//                           @"uaa-openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
+//                           @"uaa.openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
+//                           @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
+//            }else{
+//                ApiMap = @{@"user-openapi.hekr.me":@"https://user-openapi.hekreu.me",
+//                           @"user.openapi.hekr.me":@"https://user-openapi.hekreu.me",
+//                           @"uaa-openapi.hekr.me":@"https://uaa-openapi.hekreu.me",
+//                           @"uaa.openapi.hekr.me":@"https://uaa-openapi.hekreu.me",
+//                           @"console-openapi.hekr.me":@"https://console-openapi.hekreu.me"};
+//            }
+//        }
+//    } successCallback:^(HekrSimpleTcpClient *client, NSDictionary *data) {
+        NSString* domain = @"hekreu.me"; // [[data objectForKey:@"dcInfo"] objectForKey:@"domain"];
+    
 //        自己本地保存domain的参数
         [[NSUserDefaults standardUserDefaults] setObject:domain forKey:@"hekr_domain"];
         
@@ -311,8 +312,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
                    @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
         
         NSLog(@"[RYAN] application >> domain = %@", domain);
-    }];
-    
+//    }];
     
     [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
     // 注册 APNs
