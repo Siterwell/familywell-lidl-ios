@@ -59,6 +59,7 @@
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/device", self.https]
  parameters:@{@"page":@(0),@"size":@(5)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSArray *arr = responseObject;
+     NSLog(@"[RYAN] gateway list > %@", arr);
         if (arr.count>0) {
             _deviceArray = [arr mutableCopy];
             NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
