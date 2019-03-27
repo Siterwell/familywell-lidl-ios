@@ -512,3 +512,4 @@
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Wichtig: Dieses Update ändert die Funktionalität Ihres Systems erheblich. Klicken Sie unten auf \"Informationen\", um zu sehen, welche Änderungen vorgenommen werden. Nach dem Update müssen Sie die Geräte erneut anschließen.";
 "Information" = "Informationen";
 "Firmware Update Successful" = "Firmware update erfolgreich!";
+"No motion detected" = "Keine Bewegung erkannt";

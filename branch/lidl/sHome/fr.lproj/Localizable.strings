@@ -512,3 +512,4 @@
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Important: cette mise à jour modifie fortement les fonctionnalités de votre système. Cliquez sur \“Information\” ci-dessous pour voir quelles modifications seront apportées. Après la mise à jour, vous devez reconnecter les périphériques.";
 "Information" = "Information";
 "Firmware Update Successful" = "Mise à jour du micrologiciel réussie!";
+"No motion detected" = "Aucun mouvement détecté";
