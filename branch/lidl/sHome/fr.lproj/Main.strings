@@ -39,4 +39,4 @@
 "vcp-S0-9zc.text" = "Qualité de l’air :";
 
 /* Class = "UILabel"; text = "设备警告"; ObjectID = "zdo-mI-9qg"; */
-"zdo-mI-9qg.text" = "Historique des alarmes";
+"zdo-mI-9qg.text" = "Journal des alarmes";

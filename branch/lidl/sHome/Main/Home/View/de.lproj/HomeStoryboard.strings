@@ -3,37 +3,37 @@
 "0xw-Rx-ltg.title" = "Notrufnummer einstellen";
 
 /* Class = "UILabel"; text = "退出登录"; ObjectID = "1tb-Er-wBJ"; */
-"1tb-Er-wBJ.text" = "Notruf";
+"1tb-Er-wBJ.text" = "Abmelden";
 
 /* Class = "UITableViewController"; title = "修改网关名字"; ObjectID = "3s1-ZB-eTW"; */
-"3s1-ZB-eTW.title" = "Abmelden";
+"3s1-ZB-eTW.title" = "Gateway-Name bearbeiten";
 
 /* Class = "UITableViewController"; title = "设置"; ObjectID = "3tQ-PU-xGL"; */
-"3tQ-PU-xGL.title" = "Gateway-Name bearbeiten";
+"3tQ-PU-xGL.title" = "Einstellungen";
 
 /* Class = "UITableViewController"; title = "紧急号码"; ObjectID = "6qq-7o-B5B"; */
-"6qq-7o-B5B.title" = "gesetzt";
+"6qq-7o-B5B.title" = "Notfall-Anrufnummer";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Fdz-Xq-8Ce"; */
-"Fdz-Xq-8Ce.normalTitle" = "Label";
+"Fdz-Xq-8Ce.normalTitle" = "Taste";
 
 /* Class = "UILabel"; text = "label"; ObjectID = "HZq-i3-rKZ"; */
-"HZq-i3-rKZ.text" = "Notfall-Anrufnummer";
+"HZq-i3-rKZ.text" = "Label";
 
 /* Class = "UITableViewController"; title = "网关"; ObjectID = "Qbx-sJ-0hU"; */
 "Qbx-sJ-0hU.title" = "Stecker";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "XTc-Ma-5Io"; */
-"XTc-Ma-5Io.text" = "WiFi Schnellkonfiguration";
+"XTc-Ma-5Io.text" = "Label";
 
 /* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "Xj1-Vg-FLY"; */
-"Xj1-Vg-FLY.title" = "label";
+"Xj1-Vg-FLY.title" = "Einstellungen";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "cyY-LH-6yx"; */
-"cyY-LH-6yx.text" = "WIFI Passwort";
+"cyY-LH-6yx.text" = "Label";
 
 /* Class = "UITextField"; placeholder = "WIFI密码"; ObjectID = "MXf-Ek-1WQ"; */
-"MXf-Ek-1WQ.placeholder" = "Gateway";
+"MXf-Ek-1WQ.placeholder" = "WIFI Passwort";
 
 /* Class = "UIViewController"; title = "智能家居"; ObjectID = "dHT-Ih-oPZ"; */
 "dHT-Ih-oPZ.title" = "Neue Kamera hinzufügen";
