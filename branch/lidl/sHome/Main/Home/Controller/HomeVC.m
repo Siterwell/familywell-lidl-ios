@@ -453,6 +453,15 @@ BOOL flag_checkfireware = NO;
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/device",(ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:@{@"page":@(0),@"size":@(10)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         @strongify(self)
         NSArray *arr = responseObject;
+        
+        NSMutableSet *dcs = [NSMutableSet set];
+        [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSString *connectHost = [[obj objectForKey:@"dcInfo"] objectForKey:@"connectHost"];
+            NSLog(@"[RYAN ] HomeVC > connectHost = %@", connectHost);
+            [dcs addObject:connectHost == nil ? @"fra-hub.hekreu.me": connectHost];
+        }];
+        [[Hekr sharedInstance] setCloudControlWithGlobals:dcs.allObjects];
+        
         if (arr.count>0) {
             NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
             [config setValue:arr forKey:Devices];
@@ -950,7 +959,8 @@ BOOL flag_checkfireware = NO;
     //获取视频信息
     [self getVideoInfo];
     [self getUserIonfo];
-    
+    [self setDefaultConnectHost];
+    [self getGatewayStatus];
 }
 
 //每次回到页面时都判断下目前的系统情景状态
@@ -1097,7 +1107,7 @@ BOOL flag_checkfireware = NO;
         
     }
     
-    [self getGatewayStatus];
+//    [self getGatewayStatus];
 //    [self AlarmDeviceListener];
     if ([CLLocationManager locationServicesEnabled]) {
         self.locationMgr = [[CLLocationManager alloc] init];
@@ -1239,6 +1249,12 @@ BOOL flag_checkfireware = NO;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error.domain);
     }];
+}
+
+- (void)setDefaultConnectHost {
+    NSMutableSet *dcs = [NSMutableSet set];
+    [dcs addObject:@"fra-hub.hekreu.me"];
+    [[Hekr sharedInstance] setCloudControlWithGlobals:dcs.allObjects];
 }
 
 //- (void)upTime{
