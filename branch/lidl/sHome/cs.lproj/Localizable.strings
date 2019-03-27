@@ -512,3 +512,4 @@
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Důležité: Tato aktualizace výrazně změní funkce systému. Kliknutím na \"informace\" níže a uvidíte, jaké změny budou provedeny. Po aktualizaci budete muset připojit zařízení.";
 "Information" = "informace";
 "Firmware Update Successful" = "Úspěšná aktualizace firmwaru!";
+"No motion detected" = "Nebyl detekován žádný pohyb";
