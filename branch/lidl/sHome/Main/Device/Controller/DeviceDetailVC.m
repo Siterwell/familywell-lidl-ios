@@ -480,11 +480,18 @@
  设备背景图片
  */
 -(void)setPageBackground{
+    NSLog(@"setPageBackground > _data.title = %@", _data.title);
     if ([_data.status isEqualToString:@"aq"]) {
         [_bgImageView setImage:[UIImage imageNamed:@"sbgreen_bg"]];
         if ([_data.title isEqualToString:@"智能插座"]) {
             _MainLabel.text = NSLocalizedString(@"Socket OFF",nil);
             [_deviceSwitch setOn:NO animated:YES];
+        }
+        else if([_data.title isEqualToString:@"门磁"]){
+            _MainLabel.text = NSLocalizedString(@"Closed",nil);
+        }
+        else if([_data.title isEqualToString:@"PIR探测器"]){
+            _MainLabel.text = NSLocalizedString(@"No motion",nil);
         }
         else if ([_data.title isEqualToString:@"门锁"]) {
             if ([_data.desc isEqualToString:STATE_NORMAL] || [_data.desc isEqualToString:@"60"] ) {
@@ -553,6 +560,10 @@
         else if([_data.title isEqualToString:@"门磁"]){
             [_bgImageView setImage:[UIImage imageNamed:@"sbred_bg"]];//
             _MainLabel.text = NSLocalizedString(@"门打开",nil);
+        }
+        else if([_data.title isEqualToString:@"PIR探测器"]){
+            [_bgImageView setImage:[UIImage imageNamed:@"sbred_bg"]];//
+            _MainLabel.text = NSLocalizedString(@"Motion detected",nil);
         }
         else if ([_data.title isEqualToString:@"复合型烟感"]) {
             if ([_data.desc isEqualToString:@"17"]) {
