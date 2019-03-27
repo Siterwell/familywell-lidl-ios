@@ -512,3 +512,4 @@
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Pomembno: ta sprememba močno spreminja funkcionalnost sistema. Kliknite na \"Informacije\" spodaj, da vidite, kaj bo sprememb. Po posodobitvi boste morali znova povezati naprave.";
 "Information" = "Informacije";
 "Firmware Update Successful" = "usb posodobitev uspeh";
+"No motion detected" = "No motion detected";
