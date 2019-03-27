@@ -9,7 +9,7 @@
 "3s1-ZB-eTW.title" = "";
 
 /* Class = "UITableViewController"; title = "设置"; ObjectID = "3tQ-PU-xGL"; */
-"3tQ-PU-xGL.title" = "";
+"3tQ-PU-xGL.title" = "Instellingen";
 
 /* Class = "UITableViewController"; title = "紧急号码"; ObjectID = "6qq-7o-B5B"; */
 "6qq-7o-B5B.title" = "Noodnummer";
@@ -33,7 +33,7 @@
 "cyY-LH-6yx.text" = "";
 
 /* Class = "UITextField"; placeholder = "WIFI密码"; ObjectID = "MXf-Ek-1WQ"; */
-"MXf-Ek-1WQ.placeholder" = "";
+"MXf-Ek-1WQ.placeholder" = "Wifi wachtwoord";
 
 /* Class = "UIViewController"; title = "智能家居"; ObjectID = "dHT-Ih-oPZ"; */
 "dHT-Ih-oPZ.title" = "Nieuwe camera toevoegen";
