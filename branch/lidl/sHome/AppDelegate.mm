@@ -413,7 +413,13 @@ static void uncaughtExceptionHandler(NSException *exception) {
                     [[Hekr sharedInstance] logout];
                     NSLog(@"[RYAN] login failed : password incorrect");
                     
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"注意", nil) message:[NSString stringWithFormat:@"用户名密码错误"] delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+                    UIAlertView *alertView = [[UIAlertView alloc]
+                                              initWithTitle:NSLocalizedString(@"登出", nil)
+                                              message:NSLocalizedString(@"用户名密码错误", nil)
+                                              delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+                    
                     alertView.tag = 2;
                     [alertView show];
                     
