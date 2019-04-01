@@ -202,15 +202,10 @@
                 NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
                 DeviceListModel *devmodel = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
                 
-                if ([self.devTypeName isEqualToString:@"0005"]) {
-                    NSString *deviceStatus = [self.alarmName stringByAppendingString:@"000000"];
-                    
-                    PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:deviceStatus];
-                    [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-                } else {
-                    PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
-                    [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-                }
+                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
+                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+                } failure:^(id data, NSError *error) {
+                }];
                 
             }]];
             [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
@@ -229,15 +224,10 @@
             NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
             DeviceListModel *devmodel = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
             
-            if ([self.devTypeName isEqualToString:@"0005"]) {
-                NSString *deviceStatus = [self.alarmName stringByAppendingString:@"000000"];
-                
-                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:deviceStatus];
-                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-            } else {
-                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
-                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-            }
+            PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
+            [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+            } failure:^(id data, NSError *error) {
+            }];
             
         }]];
         [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
@@ -410,7 +400,13 @@ static void uncaughtExceptionHandler(NSException *exception) {
                     [[Hekr sharedInstance] logout];
                     NSLog(@"[RYAN] login failed : password incorrect");
                     
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"注意", nil) message:[NSString stringWithFormat:@"用户名密码错误"] delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+                    UIAlertView *alertView = [[UIAlertView alloc]
+                                              initWithTitle:NSLocalizedString(@"登出", nil)
+                                              message:NSLocalizedString(@"用户名密码错误", nil)
+                                              delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+                    
                     alertView.tag = 2;
                     [alertView show];
                     
