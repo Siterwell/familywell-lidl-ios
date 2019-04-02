@@ -204,15 +204,10 @@
                 NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
                 DeviceListModel *devmodel = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
                 
-                if ([self.devTypeName isEqualToString:@"0005"]) {
-                    NSString *deviceStatus = [self.alarmName stringByAppendingString:@"000000"];
-                    
-                    PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:deviceStatus];
-                    [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-                } else {
-                    PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
-                    [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-                }
+                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
+                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+                } failure:^(id data, NSError *error) {
+                }];
                 
             }]];
             [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
@@ -231,15 +226,10 @@
             NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
             DeviceListModel *devmodel = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
             
-            if ([self.devTypeName isEqualToString:@"0005"]) {
-                NSString *deviceStatus = [self.alarmName stringByAppendingString:@"000000"];
-                
-                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:deviceStatus];
-                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-            } else {
-                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
-                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-            }
+            PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
+            [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+            } failure:^(id data, NSError *error) {
+            }];
             
         }]];
         [self.window.rootViewController presentViewController:alert animated:YES completion:nil];

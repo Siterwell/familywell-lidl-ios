@@ -717,15 +717,10 @@ BOOL flag_checkfireware = NO;
             NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
             DeviceListModel *devmodel = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
             
-            if ([self.devTypeName isEqualToString:@"0005"]) {
-                NSString *deviceStatus = [self.alarmName stringByAppendingString:@"000000"];
-                
-                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:deviceStatus];
-                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-            } else {
-                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
-                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-            }
+            PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
+            [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+            } failure:^(id data, NSError *error) {
+            }];
             
         }];
         
@@ -753,11 +748,10 @@ BOOL flag_checkfireware = NO;
             scenecontent = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"情景", nil),sceneid ];
         }
             
-            total = [NSString stringWithFormat:NSLocalizedString(@"%@(%@)的%@触发了", nil),gatewayId,lastFour,scenecontent ];
+        total = [NSString stringWithFormat:NSLocalizedString(@"%@(%@)的%@触发了", nil),gatewayId,lastFour,scenecontent ];
         if(flag == NO){
             total = [NSString stringWithFormat:@"%@\n%@",total,NSLocalizedString(@"请切换到相应网关", nil) ];
         }
-        
         
         
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:total preferredStyle:UIAlertControllerStyleAlert];
@@ -768,15 +762,10 @@ BOOL flag_checkfireware = NO;
             NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
             DeviceListModel *devmodel = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
             
-            if ([self.devTypeName isEqualToString:@"0005"]) {
-                NSString *deviceStatus = [self.alarmName stringByAppendingString:@"000000"];
-                
-                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:deviceStatus];
-                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-            } else {
-                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
-                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {} failure:^(id data, NSError *error) {}];
-            }
+            PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:devmodel.devTid CtrlKey:devmodel.ctrlKey DeviceId:0 DeviceStatus:@"000000"];
+            [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+            } failure:^(id data, NSError *error) {
+            }];
             
         }]];
         

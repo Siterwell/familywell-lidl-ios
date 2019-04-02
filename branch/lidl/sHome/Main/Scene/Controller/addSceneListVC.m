@@ -120,7 +120,7 @@
         if (content.length<2) {
             content = [@"0" stringByAppendingString:content];
         }
-        _titleTextFiled.text = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"情景", nil),content];
+        _titleTextFiled.text = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"My action", nil),content];
     }
     
     self.navigationItem.titleView = enterTextField;
@@ -184,7 +184,7 @@
     
     NSStringEncoding enc = NSUTF8StringEncoding;//CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSData *namedata = [_titleTextFiled.text dataUsingEncoding:enc];
-    if (namedata.length >= 15) {
+    if (namedata.length >= 25) {
         [MBProgressHUD showError:NSLocalizedString(@"情景名称过长", nil) ToView:self.view];
         return;
     }
