@@ -120,7 +120,7 @@
         if (content.length<2) {
             content = [@"0" stringByAppendingString:content];
         }
-        _titleTextFiled.text = [NSString stringWithFormat:@"%@%@",NSLocalizedString(@"情景", nil),content];
+        _titleTextFiled.text = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"My action", nil),content];
     }
     
     self.navigationItem.titleView = enterTextField;
