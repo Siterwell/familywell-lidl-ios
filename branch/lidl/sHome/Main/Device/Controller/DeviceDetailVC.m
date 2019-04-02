@@ -166,6 +166,13 @@
 //    self.isShowTip = NO;
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [AppDelegate enableLoginCheck:true];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [AppDelegate enableLoginCheck:false];
+}
 
 /**
  管理按钮点击

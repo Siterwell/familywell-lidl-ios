@@ -143,6 +143,14 @@
 
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [AppDelegate enableLoginCheck:true];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [AppDelegate enableLoginCheck:false];
+}
+
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

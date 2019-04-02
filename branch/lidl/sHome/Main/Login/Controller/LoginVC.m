@@ -106,6 +106,8 @@
 //    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
     [self.navigationController setNavigationBarHidden:YES];
+    
+    [AppDelegate enableLoginCheck:false];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

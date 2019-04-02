@@ -129,6 +129,7 @@ BOOL flag_checkfireware = NO;
             make.height.equalTo(44);
         }];
     }
+    
     return _titleView;
 }
 
@@ -419,12 +420,15 @@ BOOL flag_checkfireware = NO;
         [self checkFirmwareVersion];
     }
     [self lodaData];
+    
+    [AppDelegate enableLoginCheck:true];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
     [_menuVc.view removeFromSuperview];
     
 //    NSLog(@"[RYAN] HomeVC > viewDidDisappear 1111");
+    [AppDelegate enableLoginCheck:false];
 }
 
 - (void)showCircleMenu{

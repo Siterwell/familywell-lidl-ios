@@ -17,6 +17,8 @@ extern NSDictionary * ApiMap;
 
 @property (nonatomic) BOOL shouldShowMore;
 
++ (int)shouldLoginCheck;
++ (void)enableLoginCheck:(BOOL)enable;
 
 @end
 

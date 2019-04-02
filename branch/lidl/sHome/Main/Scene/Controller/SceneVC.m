@@ -116,6 +116,14 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [AppDelegate enableLoginCheck:true];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [AppDelegate enableLoginCheck:false];
+}
+
 - (void)sendAndRecvSenceData {
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];

@@ -66,6 +66,20 @@
     DeviceListModel *_deviceListModel;
 }
 
+static BOOL shouldLogin = false;
++ (int)shouldLoginCheck {
+    return shouldLogin;
+}
+
++ (void)enableLoginCheck:(BOOL)enable {
+    shouldLogin = enable;
+}
+
+//+ (id)alloc {
+//    [NSException raise:@"Cannot be instantiated!" format:@"Static class 'ClassName' cannot be instantiated!"];
+//    return nil;
+//}
+
 /**
  报警设备监听
  */
@@ -362,6 +376,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
     self.window.rootViewController = newViewController;
 //    [self AlarmDeviceListener];
     
+    [self startLoginThread];
+    
     return YES;
 }
 
@@ -379,20 +395,35 @@ static void uncaughtExceptionHandler(NSException *exception) {
 }
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 //    NSLog(@"[RYAN] AppDelegate > applicationDidBecomeActive");
-    
-    //++ [RYAN] login again when Home page appear (for checking password changed)
-    [self checkUserLoginState];
-    //-- [RYAN]
 }
 - (void)applicationWillTerminate:(UIApplication *)application {
 //    [GeTuiSdk resetBadge];
 }
 
+- (void)startLoginThread {
+    [NSThread detachNewThreadSelector:@selector(doLoginCheck)
+                             toTarget:self
+                           withObject:nil];
+}
+
+- (void)doLoginCheck {
+    while(true) {
+        NSLog(@"[RYAN] doLoginCheck > shouldLogin = %d", shouldLogin);
+        
+        if (shouldLogin) {
+            [self checkUserLoginState];
+        }
+        
+        sleep(5.0f);
+    }
+}
+
 - (void)checkUserLoginState {
-    WS(ws);
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     NSString *username = [config objectForKey:@"UserName"];
     NSString *password = [config objectForKey:@"Password"];
+//    NSLog(@"[RYAN] checkUserLoginState > username=%@, password=%@", username, password);
+    
     if([Hekr sharedInstance].user && username.length != 0 && password.length != 0){
         [[Hekr sharedInstance] login:username password:password callbcak:^(id user, NSError *error) {
 
