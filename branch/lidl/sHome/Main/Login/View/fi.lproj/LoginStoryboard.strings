@@ -4,7 +4,7 @@
 "9dB-Ju-qby.title" = "WLAN";
 "Lcb-9f-5eI.normalTitle" = "Painike";
 "MLA-sA-6kN.title" = "Ohjeet";
-"NWY-FH-7HM.normalTitle" = "Aseta uudelleen";
+"NWY-FH-7HM.normalTitle" = "Unohtuiko salasana?";
 "O8f-xt-8A7.normalTitle" = "Kirjaudu";
 "OHK-KG-Kue.normalTitle" = "Muista salasana";
 "QCD-oa-PN9.normalTitle" = "Seuraava";
@@ -22,7 +22,7 @@
 "rPH-4M-dKj.title" = "Lisää laite";
 "q0K-y9-24v.normalTitle" = "Muista salasana";
 "sAP-6n-1Qa.text" = "Yhdistää...";
-"udc-jc-uJX.placeholder" = "Syötä salasana";
+"udc-jc-uJX.placeholder" = "Anna uusi salasana";
 "wlw-RN-3f7.placeholder" = "Sähköposti";
-"xhx-kz-lue.normalTitle" = "LÄHETÄ";
+"xhx-kz-lue.normalTitle" = "Vaihda salasana";
 "yg5-0P-wiF.title" = "ASETA UUDELLEEN";
