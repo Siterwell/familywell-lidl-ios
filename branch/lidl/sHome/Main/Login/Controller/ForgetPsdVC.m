@@ -215,7 +215,7 @@
 
 -(void)resetPasswordCompleted {
     [MBProgressHUD hideHUDForView:self.view];
-    [MBProgressHUD showSuccess:NSLocalizedString(@"重置成功", nil) ToView:GetWindow];
+    [MBProgressHUD showSuccess:NSLocalizedString(@"修改成功", nil) ToView:GetWindow];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
