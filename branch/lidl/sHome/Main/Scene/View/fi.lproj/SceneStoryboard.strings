@@ -23,10 +23,10 @@
 "r0R-vb-MbF.text" = "Nimi";
 "vDK-rL-yfM.normalTitle" = "Painike";
 "wnc-9w-XAK.text" = "m/s";
-"LdI-TD-jXM.text" = "Valitse aika";
-"Mjn-aL-c04.text" = "Valitse sääntö";
+"LdI-TD-jXM.text" = "Aseta vaihtoaika";
+"Mjn-aL-c04.text" = "Aseta teeman vaihto";
 "GqQ-cp-EdK.text" = "Vaihda tähän";
-"56H-vq-Fcx.text" = "Toista";
+"56H-vq-Fcx.text" = "Päivä";
 "eON-la-cCo.normalTitle" = "Ma";
 "Lhl-kK-mni.normalTitle" = "Ti";
 "IaQ-MC-Iv8.normalTitle" = "Ke";
