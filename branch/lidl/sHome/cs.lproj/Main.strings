@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "自动执行列表"; ObjectID = "0id-s9-yNo"; */
-"0id-s9-yNo.text" = "Scéna";
+"0id-s9-yNo.text" = "Moje akce";
 
 /* Class = "UITabBarItem"; title = "设备"; ObjectID = "1Xx-Rc-5si"; */
 "1Xx-Rc-5si.title" = "Zařízení";
@@ -21,7 +21,7 @@
 "bqj-BL-z8A.text" = "0";
 
 /* Class = "UITabBarItem"; title = "我的家"; ObjectID = "h3g-KB-3KA"; */
-"h3g-KB-3KA.title" = "我的家";
+"h3g-KB-3KA.title" = "Můj dům";
 
 /* Class = "UILabel"; text = "01"; ObjectID = "j20-dR-Onk"; */
 "j20-dR-Onk.text" = "01";

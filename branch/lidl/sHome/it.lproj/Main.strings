@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "自动执行列表"; ObjectID = "0id-s9-yNo"; */
-"0id-s9-yNo.text" = "Predefinito";
+"0id-s9-yNo.text" = "La mia azione";
 
 /* Class = "UITabBarItem"; title = "设备"; ObjectID = "1Xx-Rc-5si"; */
 "1Xx-Rc-5si.title" = "Modem";
@@ -21,13 +21,13 @@
 "bqj-BL-z8A.text" = "0";
 
 /* Class = "UITabBarItem"; title = "我的家"; ObjectID = "h3g-KB-3KA"; */
-"h3g-KB-3KA.title" = "我的家";
+"h3g-KB-3KA.title" = "casa mia";
 
 /* Class = "UILabel"; text = "01"; ObjectID = "j20-dR-Onk"; */
 "j20-dR-Onk.text" = "01";
 
 /* Class = "UILabel"; text = "卧室空调9点关"; ObjectID = "mkn-y3-bNn"; */
-"mkn-y3-bNn.text" = "卧室空调9点关";
+"mkn-y3-bNn.text" = "Bedroom air conditioner 9 o'clock off";
 
 /* Class = "UILabel"; text = "℃"; ObjectID = "tkz-EZ-tYK"; */
 "tkz-EZ-tYK.text" = "℃";
