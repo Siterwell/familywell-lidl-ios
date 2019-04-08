@@ -228,7 +228,7 @@ static SystemSceneDataBase *_DBCtl = nil;
     if (count2 == 0) {
         [_db executeUpdate:@"INSERT INTO scene(scene_ID,scene_name,scene_content)VALUES(?,?,?)",[NSNumber numberWithInt:129],@"",@"0"];
         [_db executeUpdate:@"INSERT INTO scene(scene_ID,scene_name,scene_content)VALUES(?,?,?)",[NSNumber numberWithInt:130],@"",@"0"];
-        [_db executeUpdate:@"INSERT INTO scene(scene_ID,scene_name,scene_content)VALUES(?,?,?)",[NSNumber numberWithInt:131],@"",@"0"];
+//        [_db executeUpdate:@"INSERT INTO scene(scene_ID,scene_name,scene_content)VALUES(?,?,?)",[NSNumber numberWithInt:131],@"",@"0"];
     }
     
     [_db close];
