@@ -117,6 +117,7 @@
                                                 <constraint firstAttribute="width" constant="200" id="7If-5a-hND"/>
                                                 <constraint firstAttribute="height" constant="27" id="cuj-Lx-ZSi"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="showAlertAction:" destination="lSZ-y6-9Mk" eventType="touchUpInside" id="MX2-h5-Jic"/>
