@@ -28,31 +28,32 @@ PODS:
     - Fabric (~> 1.9.0)
   - DACircularProgress (2.3.1)
   - Fabric (1.9.0)
-  - Firebase/Core (5.18.0):
+  - Firebase/Core (5.20.1):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.7.0)
-  - Firebase/CoreOnly (5.18.0):
-    - FirebaseCore (= 5.3.1)
-  - Firebase/Messaging (5.18.0):
+    - FirebaseAnalytics (= 5.8.0)
+  - Firebase/CoreOnly (5.20.1):
+    - FirebaseCore (= 5.4.1)
+  - Firebase/Messaging (5.20.1):
     - Firebase/CoreOnly
-    - FirebaseMessaging (= 3.3.2)
-  - FirebaseAnalytics (5.7.0):
-    - FirebaseCore (~> 5.3)
-    - FirebaseInstanceID (~> 3.6)
-    - GoogleAppMeasurement (= 5.7.0)
+    - FirebaseMessaging (= 3.5.0)
+  - FirebaseAnalytics (5.8.0):
+    - FirebaseCore (~> 5.4)
+    - FirebaseInstanceID (~> 3.8)
+    - GoogleAppMeasurement (= 5.8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
   - FirebaseAnalyticsInterop (1.2.0)
-  - FirebaseCore (5.3.1):
+  - FirebaseCore (5.4.1):
+    - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseInstanceID (3.7.0):
+  - FirebaseInstanceID (3.8.1):
     - FirebaseCore (~> 5.2)
     - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/UserDefaults (~> 5.2)
-  - FirebaseMessaging (3.3.2):
+  - FirebaseMessaging (3.5.0):
     - FirebaseAnalyticsInterop (~> 1.1)
     - FirebaseCore (~> 5.2)
     - FirebaseInstanceID (~> 3.6)
@@ -64,7 +65,7 @@ PODS:
   - FMDB/SQLCipher (2.5):
     - FMDB/common
     - SQLCipher
-  - GoogleAppMeasurement (5.7.0):
+  - GoogleAppMeasurement (5.8.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
@@ -100,7 +101,7 @@ PODS:
     - SHAlertViewBlocks (~> 1.2.1)
     - SocketRocket (~> 0.4)
     - ZipArchive (~> 1.4)
-  - IQKeyboardManager (6.2.0)
+  - IQKeyboardManager (6.2.1)
   - JSONModel (1.0.2)
   - LBXScan (1.1.1):
     - ZXingObjC (~> 3.0)
@@ -133,10 +134,10 @@ PODS:
   - SDWebImage/Core (3.7.6)
   - SHAlertViewBlocks (1.2.1)
   - SocketRocket (0.5.1)
-  - SQLCipher (4.0.1):
-    - SQLCipher/standard (= 4.0.1)
-  - SQLCipher/common (4.0.1)
-  - SQLCipher/standard (4.0.1):
+  - SQLCipher (4.1.0):
+    - SQLCipher/standard (= 4.1.0)
+  - SQLCipher/common (4.1.0)
+  - SQLCipher/standard (4.1.0):
     - SQLCipher/common
   - XAspect (1.0.5):
     - XAspect/Core (= 1.0.5)
@@ -227,18 +228,18 @@ SPEC CHECKSUMS:
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
-  Firebase: 02f3281965c075426141a0ce1277e9de6649cab9
-  FirebaseAnalytics: 23851fe602c872130a2c5c55040b302120346cc2
+  Firebase: 2f5235e62f141cb86181c3af0dfe4509706351ac
+  FirebaseAnalytics: fd72a26bf8dac84cefba2f0864366f718555a5b0
   FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
-  FirebaseCore: 52f851b30e11360f1e67cf04b1edfebf0a47a2d3
-  FirebaseInstanceID: bd6fc5a258884e206fd5c474ebe4f5b00e21770e
-  FirebaseMessaging: d740150547f7686b33799f6489f5b69a4706631b
+  FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
+  FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
+  FirebaseMessaging: 4235f949ce1c4e827aeb19705ba5c53f9b85aa10
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
-  GoogleAppMeasurement: 6cf307834da065863f9faf4c0de0a936d81dd832
+  GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
   GTSDK: b27e433447371587c823353d37af981e4682c008
   HekrSDK: 66259abbbe607fe178c806c5d5c537f4caa85c0a
-  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
+  IQKeyboardManager: 964638372b4a61892cc74fdfa6fd26de8c9464a2
   JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
   LBXScan: dfb4d8ae8e4cff2aa0c9e1771e43954dce1469a9
   LCActionSheet: 4ff1ddcb7b9f071c74d29ec2302975c38905496f
@@ -254,7 +255,7 @@ SPEC CHECKSUMS:
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SHAlertViewBlocks: cf5b26019efa88190e5ce1a46878a99b545c1a62
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
-  SQLCipher: 4636a257060f6f1b4e143a143028b61a2b462d0d
+  SQLCipher: efbdb52cdbe340bcd892b1b14297df4e07241b7f
   XAspect: db50bf487f92dbb8557a7a5365556966c8493af8
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
