@@ -32,8 +32,8 @@
         [self.playBtn setBackgroundColor:[UIColor clearColor]];
         
         self.soundBtn = [[RFCustomButton alloc] init];
-        [self.soundBtn setImage:[UIImage imageNamed:@"mute_icon"] forState:UIControlStateNormal];
-        [self.soundBtn setImage:[UIImage imageNamed:@"volume_icon"] forState:UIControlStateSelected];
+        [self.soundBtn setImage:[UIImage imageNamed:@"volume_icon"] forState:UIControlStateNormal];
+        [self.soundBtn setImage:[UIImage imageNamed:@"mute_icon"] forState:UIControlStateSelected];
 //        [self.soundBtn setImageEdgeInsets:UIEdgeInsetsMake(15, 19, 15, 19)];
         [self.soundBtn setBackgroundColor:[UIColor clearColor]];
         
