@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -71,7 +70,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epV-Rg-lpZ">
-                                            <rect key="frame" x="287.5" y="13" width="19.5" height="17"/>
+                                            <rect key="frame" x="287.5" y="13.5" width="19.5" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="19.5" id="ZQM-7V-Gzg"/>
                                                 <constraint firstAttribute="height" constant="17" id="lqy-f6-Pg1"/>
@@ -82,7 +81,7 @@
                                             </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PiC-bC-D9B">
-                                            <rect key="frame" x="13" y="-1" width="267" height="44"/>
+                                            <rect key="frame" x="13" y="-0.5" width="266.5" height="44.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="cSm-Z3-Chd"/>
                                             </constraints>
@@ -112,19 +111,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMk-Bs-UZb">
-                                            <rect key="frame" x="107" y="8" width="200" height="27"/>
+                                            <rect key="frame" x="107" y="8.5" width="200" height="27"/>
                                             <color key="backgroundColor" red="0.22280041149999999" green="0.75089756299999999" blue="0.79746986040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="200" id="7If-5a-hND"/>
                                                 <constraint firstAttribute="height" constant="27" id="cuj-Lx-ZSi"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="showAlertAction:" destination="lSZ-y6-9Mk" eventType="touchUpInside" id="MX2-h5-Jic"/>
                                             </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mRx-Qp-gdE">
-                                            <rect key="frame" x="13" y="-1" width="86.5" height="44"/>
+                                            <rect key="frame" x="13" y="-0.5" width="86" height="44.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="VPX-ea-aIs"/>
                                             </constraints>
@@ -177,7 +177,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwo-au-Rj2">
-                                            <rect key="frame" x="287.5" y="13" width="19.5" height="17"/>
+                                            <rect key="frame" x="287.5" y="13.5" width="19.5" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="17" id="aWz-iF-pYF"/>
                                                 <constraint firstAttribute="width" constant="19.5" id="qjg-cM-P1o"/>
@@ -188,7 +188,7 @@
                                             </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wlw-RN-3f7">
-                                            <rect key="frame" x="13" y="-1" width="267" height="44"/>
+                                            <rect key="frame" x="13" y="-0.5" width="266.5" height="44.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="5JB-zB-iMg"/>
                                             </constraints>
@@ -218,7 +218,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IqC-bc-QgR">
-                                            <rect key="frame" x="107" y="8" width="200" height="27"/>
+                                            <rect key="frame" x="107" y="8.5" width="200" height="27"/>
                                             <color key="backgroundColor" red="0.22280041149999999" green="0.75089756299999999" blue="0.79746986040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="27" id="NcL-ux-gC3"/>
@@ -231,7 +231,7 @@
                                             </connections>
                                         </button>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱地址" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4xj-P2-H2o">
-                                            <rect key="frame" x="13" y="-1" width="86.5" height="44"/>
+                                            <rect key="frame" x="13" y="-0.5" width="86" height="44.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="cdZ-xf-qu6"/>
                                             </constraints>
@@ -537,7 +537,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2E2-mS-zvz">
-                                <rect key="frame" x="31" y="311.5" width="258" height="50"/>
+                                <rect key="frame" x="31" y="311" width="258" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="BTU-Sg-ezw"/>
                                 </constraints>
@@ -547,7 +547,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCD-oa-PN9">
-                                <rect key="frame" x="60" y="369.5" width="200" height="35"/>
+                                <rect key="frame" x="60" y="369" width="200" height="35"/>
                                 <color key="backgroundColor" red="0.2612532695" green="0.73034664689999995" blue="0.79746986040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="aZT-hg-40b"/>
@@ -561,7 +561,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="config1" translatesAutoresizingMaskIntoConstraints="NO" id="1pg-PK-g3j">
-                                <rect key="frame" x="50.5" y="77.5" width="219" height="182"/>
+                                <rect key="frame" x="50.5" y="77" width="219" height="182"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="182" id="WP9-Jg-guD"/>
                                     <constraint firstAttribute="width" constant="219" id="giB-0B-naL"/>
@@ -649,14 +649,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password_icon" translatesAutoresizingMaskIntoConstraints="NO" id="dXQ-b7-KeJ">
-                                            <rect key="frame" x="29" y="11" width="20" height="20"/>
+                                            <rect key="frame" x="29" y="12" width="20" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="5jO-2U-NAe"/>
                                                 <constraint firstAttribute="height" constant="20" id="6Wv-zy-DF2"/>
                                             </constraints>
                                         </imageView>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLQ-ct-4rA">
-                                            <rect key="frame" x="69" y="-1" width="196" height="44"/>
+                                            <rect key="frame" x="69" y="-0.5" width="196.5" height="44.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="ydZ-W5-nl7"/>
                                             </constraints>
@@ -665,7 +665,7 @@
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcb-9f-5eI">
-                                            <rect key="frame" x="271" y="14" width="20" height="17"/>
+                                            <rect key="frame" x="271.5" y="13.5" width="19.5" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="19.5" id="12D-Mj-wfb"/>
                                                 <constraint firstAttribute="height" constant="17" id="9KW-2C-8B7"/>
@@ -786,11 +786,11 @@
     </scenes>
     <resources>
         <image name="appLogo" width="1024" height="1024"/>
-        <image name="close_eyes_icon" width="19" height="17"/>
-        <image name="config1" width="670" height="529"/>
+        <image name="close_eyes_icon" width="19.5" height="17"/>
+        <image name="config1" width="160.80000305175781" height="127"/>
         <image name="ljsb_icon" width="138" height="138"/>
         <image name="password_icon" width="20" height="20"/>
-        <image name="sj_list_icon" width="19" height="17"/>
+        <image name="sj_list_icon" width="19.5" height="17"/>
         <image name="username_icon" width="20" height="20"/>
     </resources>
 </document>
