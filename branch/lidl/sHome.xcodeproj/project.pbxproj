@@ -307,7 +307,6 @@
 		183AED7F1EF8294E00E3FC3D /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AED7C1EF8294E00E3FC3D /* NJKWebViewProgress.m */; };
 		183AED801EF8294E00E3FC3D /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AED7E1EF8294E00E3FC3D /* NJKWebViewProgressView.m */; };
 		188F34B71F14630F00CA2126 /* libvrsoft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 188F34B61F14630F00CA2126 /* libvrsoft.a */; };
-		18BE7E921EECAE7600AC8B59 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BE7E911EECAE7600AC8B59 /* libstdc++.6.0.9.tbd */; };
 		18C78A401EE8B6F800F89651 /* TimeScenedDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C78A3F1EE8B6F800F89651 /* TimeScenedDataBase.m */; };
 		18C78A431EE8BAA600F89651 /* AddTimeSceneApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C78A421EE8BAA600F89651 /* AddTimeSceneApi.m */; };
 		18C78A461EE8BD8B00F89651 /* SycnTimeSceneApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C78A451EE8BD8B00F89651 /* SycnTimeSceneApi.m */; };
@@ -699,6 +698,9 @@
 		E2432D16219A7B5800A76C2C /* privacy_french.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D15219A7B5800A76C2C /* privacy_french.html */; };
 		E2432D18219A7B6E00A76C2C /* privacy_italian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D17219A7B6E00A76C2C /* privacy_italian.html */; };
 		E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D19219A7B8500A76C2C /* privacy_slovenian.html */; };
+		E2828E5F229E3C9200C3BCD8 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BE7E911EECAE7600AC8B59 /* libstdc++.6.0.9.tbd */; };
+		E2828E60229E3C9200C3BCD8 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BE7E8E1EEC5DD900AC8B59 /* libstdc++.6.tbd */; };
+		E2828E62229E3C9200C3BCD8 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2828E61229E3C9200C3BCD8 /* libstdc++.tbd */; };
 		E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */ = {isa = PBXBuildFile; fileRef = E28F923521D0D567008EA9EB /* privacy_finnish.html */; };
 		E2DB982F219E631E00B7A7DD /* privacy_german.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB982E219E631E00B7A7DD /* privacy_german.html */; };
 		E2DB9831219E632C00B7A7DD /* privacy_spanish.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB9830219E632C00B7A7DD /* privacy_spanish.html */; };
@@ -2258,6 +2260,7 @@
 		E2432D17219A7B6E00A76C2C /* privacy_italian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_italian.html; sourceTree = "<group>"; };
 		E2432D19219A7B8500A76C2C /* privacy_slovenian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_slovenian.html; sourceTree = "<group>"; };
 		E2565C6621AE77AF00571EBE /* PatternUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PatternUtil.h; sourceTree = "<group>"; };
+		E2828E61229E3C9200C3BCD8 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		E28F923521D0D567008EA9EB /* privacy_finnish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_finnish.html; sourceTree = "<group>"; };
 		E2DB982E219E631E00B7A7DD /* privacy_german.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_german.html; sourceTree = "<group>"; };
 		E2DB9830219E632C00B7A7DD /* privacy_spanish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_spanish.html; sourceTree = "<group>"; };
@@ -2270,6 +2273,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2828E62229E3C9200C3BCD8 /* libstdc++.tbd in Frameworks */,
+				E2828E5F229E3C9200C3BCD8 /* libstdc++.6.0.9.tbd in Frameworks */,
+				E2828E60229E3C9200C3BCD8 /* libstdc++.6.tbd in Frameworks */,
 				18EAC7BC1EEE629200C99854 /* QuartzCore.framework in Frameworks */,
 				18EAC7BA1EEE619F00C99854 /* UserNotifications.framework in Frameworks */,
 				18EAC7B61EEE601000C99854 /* VideoToolbox.framework in Frameworks */,
@@ -2284,7 +2290,6 @@
 				188F34B71F14630F00CA2126 /* libvrsoft.a in Frameworks */,
 				18EAC7A61EEE5F8C00C99854 /* AVKit.framework in Frameworks */,
 				011F789A1FB96742001A4F24 /* FunSDK.framework in Frameworks */,
-				18BE7E921EECAE7600AC8B59 /* libstdc++.6.0.9.tbd in Frameworks */,
 				182DBA531EE5900300C74E18 /* libz.tbd in Frameworks */,
 				182DBA511EE58FFB00C74E18 /* libbz2.tbd in Frameworks */,
 				182DBA4F1EE58FF200C74E18 /* libiconv.tbd in Frameworks */,
@@ -5302,6 +5307,7 @@
 		E133AE07A9298F3494E4C1CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2828E61229E3C9200C3BCD8 /* libstdc++.tbd */,
 				18EAC7BB1EEE629200C99854 /* QuartzCore.framework */,
 				18EAC7B91EEE619F00C99854 /* UserNotifications.framework */,
 				18EAC7B51EEE601000C99854 /* VideoToolbox.framework */,
