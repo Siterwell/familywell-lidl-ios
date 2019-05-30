@@ -515,3 +515,6 @@
 "No motion detected" = "No motion detected";
 "My action" = "My action";
 "无线设置" = "WIFI Settings";
+"未连接" = "Unconnected";
+"转发模式" = "Transmit";
+"恢复出厂成功,请等待.." = "Please wait for the successful resumption of the factory.";
