@@ -514,3 +514,7 @@
 "Firmware Update Successful" = "Asennus onnistui";
 "No motion detected" = "Liikettä ei ole havaittu";
 "My action" = "Toimintoni";
+"无线设置" = "Radio jossa";
+"转发模式" = "eteenpäin -";
+"未连接" = "ei ole yhteydessä";
+"恢复出厂成功,请等待.." = "takaisin noudettuna lähettäjältä - menestys, odota...";

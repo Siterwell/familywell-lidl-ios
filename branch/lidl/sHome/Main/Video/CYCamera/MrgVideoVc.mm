@@ -30,6 +30,7 @@
 #import "StorageConfigViewController.h"
 //#import "GeneralConfigViewController.h"
 #import "GeneralViewController.h"
+#import "AddCameraVc.h"
 
 #define SELF [self MsgHandle]
 #define AS_HANDLE(x) (__bridge void*) x
@@ -40,6 +41,7 @@
 //@property (nonatomic, strong) NSSDKDevConfig *SDKDevConfig;
 @property (readonly, nonatomic) int hObj;
 @property (nonatomic) NSArray *titleItems;
+@property (nonatomic) NSArray *titleItems2;
 @end
 
 @implementation MrgVideoVc {
@@ -53,7 +55,10 @@
     
     self.title = NSLocalizedString(@"配置", nil);
     self.view.backgroundColor = RGB(239, 239, 239);
+
     self.titleItems = @[NSLocalizedString(@"基本设置", nil), NSLocalizedString(@"密码管理", nil), NSLocalizedString(@"存储管理", nil), NSLocalizedString(@"高级设置", nil), NSLocalizedString(@"通用", nil)];
+
+    self.titleItems2 = @[NSLocalizedString(@"基本设置", nil), NSLocalizedString(@"密码管理", nil), NSLocalizedString(@"存储管理", nil), NSLocalizedString(@"高级设置", nil),NSLocalizedString(@"无线设置", nil), NSLocalizedString(@"通用", nil)];
     [self setUpMgrUI];
 }
 
@@ -72,7 +77,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    if(!_type_qiang) return self.titleItems.count;
+    else  return self.titleItems2.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,7 +88,11 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if(!_type_qiang)
     cell.textLabel.text = self.titleItems[indexPath.row];
+    else
+    cell.textLabel.text = self.titleItems2[indexPath.row];
+        
     return cell;
 }
 
@@ -113,11 +123,30 @@
         HighConfigViewController *vc = [[HighConfigViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if (indexPath.row == 4) {
-//        GeneralConfigViewController *vc = [[GeneralConfigViewController alloc] init];
-        GeneralViewController *vc = [[GeneralViewController alloc] init];
-        vc.title = NSLocalizedString(@"通用", nil);
-        [self.navigationController pushViewController:vc animated:YES];
+    else {
+        if(!_type_qiang){
+            GeneralViewController *vc = [[GeneralViewController alloc] init];
+            vc.title = NSLocalizedString(@"通用", nil);
+            vc.deviceSN = [XMSingleton sharedXM].vInfo.devid;
+            vc.channelNum = [XMSingleton sharedXM].channelNum;;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else {
+            if(indexPath.row == 4)
+            {
+                UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"HomeStoryboard" bundle:nil];
+                AddCameraVc *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"AddCameraVc"];
+                vc.type_qiang = _type_qiang;
+                [self.navigationController pushViewController:vc animated:YES];
+            }else if(indexPath.row == 5){
+                GeneralViewController *vc = [[GeneralViewController alloc] init];
+                vc.title = NSLocalizedString(@"通用", nil);
+                vc.deviceSN = [XMSingleton sharedXM].vInfo.devid;
+                vc.channelNum = [XMSingleton sharedXM].channelNum;;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        }
+
+           
     }
     
 }

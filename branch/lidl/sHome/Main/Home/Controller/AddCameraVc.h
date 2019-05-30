@@ -14,4 +14,5 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *wifiBtn;
 
+@property (nonatomic,assign) BOOL type_qiang;
 @end
