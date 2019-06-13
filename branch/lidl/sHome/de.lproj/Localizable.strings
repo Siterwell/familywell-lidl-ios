@@ -182,7 +182,7 @@
 "版本升级中，请耐心等待" = "Gateway wird aktualisiert ...";
 "暂不升级" = "nicht jetzt";
 "固件已经是最新版本了" = "Die Firmware wurde aktualisiert";
-"读取失败" = "Empfangen der Geräte-Hardware-Version fehlgeschlagen!!!";
+"读取失败" = "Update fehlgeschlagen";
 "不能删除当前情景" = "Sie können die aktuelle Szene nicht löschen (diese Szene kann markiert sein)";
 "版本升级" = "Versions-Upgrade";
 "新版本" = "neue Version";
@@ -357,7 +357,7 @@
 "电池正常" = "Batterie normal";
 "电池异常" = "Batterie Fehler";
 "已找到设备，绑定账号中" = "Connector gefunden, koppeln...";
-"没有找到设备" = "Zeitüberschreitung";
+"没有找到设备" = "Die Konfiguration schlägt fehl. Überprüfen Sie, ob das Wi-Fi-Signal stabil ist oder das 2,4-GHz-WLAN angemeldet ist und sich der Anschluss im Konfigurationsmodus befindet (blau blinkend).";
 "网关连上WI-FI，但是未连上服务器" = "Gateway mit WI-FI verbunden. Aber nicht mit dem Server verbunden.";
 "检测到内网内设备，是否进入内网模式" = "Suchen Sie das Geräte im Intranet, gehen Sie in den Intranetmodus oder nicht";
 "请设置紧急联系号码" = "Bitte geben Sie die Notfallnummer ein";
@@ -456,7 +456,7 @@
 "低电压" = "Low voltage";
 "确定删除摄像机" = "Sicher, löschen sie die Kamera?";
 "预录" = "Aufgezeichnete";
-"录像长度" = "Video  länge";
+"录像长度" = "Video länge";
 "格式化成功" = "Format erfolgreich";
 "正在格式化" = "Die formatierung";
 "是否格式化设备磁盘" = "Formatierung der festplatte, ob Geräte";
@@ -507,14 +507,14 @@
 "隐私政策" = "Datenschutzerklärung";
 "The password must contain at least 10 characters and number!" = "Das Passwort muss mindestens 10 Zeichen und mindestens eine Zahl enthalten!";
 "Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters." = "Das Passwort muss aus mindestens 10 Zeichen mit mindestens einem Großbuchstaben, einem Kleinbuchstaben, einer Ziffer und einem Sonderzeichen bestehen.";
-"Socket ON" = "Steckdose EIN";
-"Socket OFF" = "Steckdose AUS";
+"Socket ON" = "EIN";
+"Socket OFF" = "AUS";
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Wichtig: Dieses Update ändert die Funktionalität Ihres Systems. Klicken Sie unten auf \"Informationen\", um zu sehen, welche Änderungen vorgenommen werden.";
 "Information" = "Informationen";
 "Firmware Update Successful" = "Firmware update erfolgreich!";
-"No motion detected" = "Keine Bewegung erkannt";
+"No motion detected" = "Normal";
 "My action" = "Meine aktion";
 "无线设置" = "WLAN einstellungen";
-"转发模式" = "Typ senden";
-"未连接" = "Getrennt";
+"未连接" = "Typ senden";
+"转发模式" = "Getrennt";
 "恢复出厂成功,请等待.." = "Die sanierung der Fabrik erfolgreich, bitte warten...";
