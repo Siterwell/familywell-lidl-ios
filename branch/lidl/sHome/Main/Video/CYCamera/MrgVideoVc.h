@@ -11,4 +11,5 @@
 
 @interface MrgVideoVc : UIViewController
 @property (nonatomic,strong) VideoInfoModel *vInfo;
+@property (nonatomic,assign) BOOL type_qiang;
 @end

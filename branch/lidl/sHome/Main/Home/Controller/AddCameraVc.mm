@@ -30,8 +30,13 @@
 
     // Do any additional setup after loading the view.
     self.ssidName.text = [NETWORKER getCurrentPhoneWifiSSID] ==nil||[[NETWORKER getCurrentPhoneWifiSSID] isEqual:[NSNull null]]?@"":[NETWORKER getCurrentPhoneWifiSSID];
-    self.title = NSLocalizedString(@"新增摄像头", nil);
-    
+    if(_type_qiang){
+            self.title = NSLocalizedString(@"无线设置", nil);
+    }else{
+        self.title = NSLocalizedString(@"新增摄像头", nil);
+    }
+
+    [_wifiBtn setTitleColor:ThemeColor forState:UIControlStateNormal];
     NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"camera+%@", self.ssidName.text]];
     if (pwd != nil && pwd.length != 0) {
         self.wifiPwd.text = pwd;
@@ -86,96 +91,109 @@
     
     if (sn!=nil&&![sn isEqual:[NSNull null]]&&[sn isKindOfClass:[NSString class]]&&result==244) {
         
-        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-        NSDictionary *responseObject = [config objectForKey:UserInfos];
         
-        NSDictionary *extraPropertiesDic = ((NSDictionary *)responseObject)[@"extraProperties"];
-        
-        NSMutableArray *videos = nil;
-        
-        if (extraPropertiesDic[@"monitor"] !=nil) {
+        if(!_type_qiang){
+
+            NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+            NSDictionary *responseObject = [config objectForKey:UserInfos];
             
-            videos = [[extraPropertiesDic[@"monitor"] arrayValue] mutableCopy];
-        }else{
-            videos = [[NSMutableArray alloc] init];
-        }
-        
-        [videos addObject:@{@"devid":sn,@"name":name}];
-        
-//        VideoInfoModel *localVInfo = [[VideoDataBase sharedDataBase] selectVideoInfoByDevid:sn];
-        NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"];
-        VideoInfoModel *localVInfo = [[VideoDataBase sharedDataBase] selectVideoInfoByDevid:sn andUserName:userName];
-        
-        if (localVInfo == nil||localVInfo.devid == nil||[localVInfo.devid isEqual:[NSNull class]]) {
-            NSString *monitorStr = [videos JSONString];
+            NSDictionary *extraPropertiesDic = ((NSDictionary *)responseObject)[@"extraProperties"];
             
-            //修改昵称
-            NSDictionary *monitorDic = @{@"monitor":monitorStr};
-            NSDictionary *dic = @{
-                                  @"extraProperties" : monitorDic,
-                                  };
+            NSMutableArray *videos = nil;
             
-            [[[Hekr sharedInstance] sessionWithDefaultAuthorization] PUT:[NSString stringWithFormat:@"%@/user/profile", self.https] parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            if (extraPropertiesDic[@"monitor"] !=nil) {
                 
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                videos = [[extraPropertiesDic[@"monitor"] arrayValue] mutableCopy];
+            }else{
+                videos = [[NSMutableArray alloc] init];
+            }
+            
+            [videos addObject:@{@"devid":sn,@"name":name}];
+            
+            //        VideoInfoModel *localVInfo = [[VideoDataBase sharedDataBase] selectVideoInfoByDevid:sn];
+            NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"];
+            VideoInfoModel *localVInfo = [[VideoDataBase sharedDataBase] selectVideoInfoByDevid:sn andUserName:userName];
+            
+            if (localVInfo == nil||localVInfo.devid == nil||[localVInfo.devid isEqual:[NSNull class]]) {
+                NSString *monitorStr = [videos JSONString];
                 
-                [MBProgressHUD showSuccess:NSLocalizedString(@"配置成功", nil) ToView:self.view];
+                //修改昵称
+                NSDictionary *monitorDic = @{@"monitor":monitorStr};
+                NSDictionary *dic = @{
+                                      @"extraProperties" : monitorDic,
+                                      };
                 
-                [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/user/profile", self.https] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                [[[Hekr sharedInstance] sessionWithDefaultAuthorization] PUT:[NSString stringWithFormat:@"%@/user/profile", self.https] parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
-                    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-                    [config setValue:responseObject forKey:UserInfos];
-                    [config synchronize];
-                    
-                    NSDictionary *extraPropertiesDic = ((NSDictionary *)responseObject)[@"extraProperties"];
-                    
-                    if (extraPropertiesDic[@"monitor"] !=nil) {
-                        
-                        NSMutableArray *monitor = [(NSArray*)[extraPropertiesDic[@"monitor"] arrayValue] mutableCopy];
-                        
-                        for (int i = 0; i < [monitor count]; i++) {
-                            
-                            NSDictionary *videoDic = (NSDictionary *)monitor[i];
-                            VideoInfoModel *vInfo = [[VideoInfoModel alloc] init];
-                            vInfo.devid = videoDic[@"devid"];
-                            vInfo.name = videoDic[@"name"];
-                            NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"];
-                            vInfo.userName = userName;
-                            [[VideoDataBase sharedDataBase] updateVideoInfo:vInfo];
-                        }
-                    }
-                    
-//                    VideoInfoModel *vInfo = [[VideoInfoModel alloc] init];
-//                    vInfo.devid = sn;
-//                    vInfo.name = name;
-//                    
-//                    VideoLiveViewController *videoLive = [[VideoLiveViewController alloc] init];
-//                    videoLive.vInfo = vInfo;
-//                    [self.navigationController pushViewController:videoLive animated:YES];
                     
                     [MBProgressHUD showSuccess:NSLocalizedString(@"配置成功", nil) ToView:self.view];
-                    [self performSelector:@selector(popPreView) withObject:nil afterDelay:2];
+                    
+                    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/user/profile", self.https] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                        
+                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                        [config setValue:responseObject forKey:UserInfos];
+                        [config synchronize];
+                        
+                        NSDictionary *extraPropertiesDic = ((NSDictionary *)responseObject)[@"extraProperties"];
+                        
+                        if (extraPropertiesDic[@"monitor"] !=nil) {
+                            
+                            NSMutableArray *monitor = [(NSArray*)[extraPropertiesDic[@"monitor"] arrayValue] mutableCopy];
+                            
+                            for (int i = 0; i < [monitor count]; i++) {
+                                
+                                NSDictionary *videoDic = (NSDictionary *)monitor[i];
+                                VideoInfoModel *vInfo = [[VideoInfoModel alloc] init];
+                                vInfo.devid = videoDic[@"devid"];
+                                vInfo.name = videoDic[@"name"];
+                                NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"];
+                                vInfo.userName = userName;
+                                [[VideoDataBase sharedDataBase] updateVideoInfo:vInfo];
+                            }
+                        }
+                        
+                        //                    VideoInfoModel *vInfo = [[VideoInfoModel alloc] init];
+                        //                    vInfo.devid = sn;
+                        //                    vInfo.name = name;
+                        //
+                        //                    VideoLiveViewController *videoLive = [[VideoLiveViewController alloc] init];
+                        //                    videoLive.vInfo = vInfo;
+                        //                    [self.navigationController pushViewController:videoLive animated:YES];
+                        
+                        [MBProgressHUD showSuccess:NSLocalizedString(@"配置成功", nil) ToView:self.view];
+                        [self performSelector:@selector(popPreView) withObject:nil afterDelay:2];
+                        
+                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                        [MBProgressHUD showError:NSLocalizedString(@"配置失败", nil) ToView:GetWindow];
+                    }];
                     
                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                     [MBProgressHUD hideHUDForView:self.view animated:YES];
                     [MBProgressHUD showError:NSLocalizedString(@"配置失败", nil) ToView:GetWindow];
                 }];
-                
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            }else{
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-                [MBProgressHUD showError:NSLocalizedString(@"配置失败", nil) ToView:GetWindow];
-            }];
+                [MBProgressHUD showSuccess:NSLocalizedString(@"连上WIFI，但已添加", nil) ToView:GetWindow];
+                [self performSelector:@selector(popPreView) withObject:nil afterDelay:2];
+                
+            }
+            
+        }else{
+            [MBProgressHUD showSuccess:NSLocalizedString(@"配置成功", nil) ToView:GetWindow];
+            [self.navigationController popViewControllerAnimated:YES];
+
+        }
+            
+            
         }else{
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-            [MBProgressHUD showSuccess:NSLocalizedString(@"连上WIFI，但已添加", nil) ToView:GetWindow];
-            [self performSelector:@selector(popPreView) withObject:nil afterDelay:2];
+            [MBProgressHUD showError:NSLocalizedString(@"配置失败", nil) ToView:GetWindow];
         }
         
-    }else{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [MBProgressHUD showError:NSLocalizedString(@"配置失败", nil) ToView:GetWindow];
-    }
+
 }
 
 - (void)popPreView{

@@ -120,18 +120,20 @@
         action.font = [UIFont systemFontOfSize:14];
         action.clickBlock = ^{
 //            NSString *strCmd = [NSString stringWithFormat:@"{\"Name\": \"OPDefaultConfig\", \"OPDefaultConfig\": {\"General\":1,\"Encode\":1,\"Record\": 1,\"CommPtz\":1,\"NetServer\": 1,\"NetCommon\":1,\"Alarm\":1,\"Account\": 1,\"Preview\":1,\"CameraPARAM\":1}}"];
-            opDefaultConfig.SetName("OPDefaultConfig");
-            opDefaultConfig.General = 1;
-            opDefaultConfig.Encode = 1;
-            opDefaultConfig.Record = 1;
-            opDefaultConfig.CommPtz = 1;
-            opDefaultConfig.NetServer = 1;
-            opDefaultConfig.NetCommon = 1;
-            opDefaultConfig.Alarm = 1;
-            opDefaultConfig.Account = 1;
-            opDefaultConfig.Preview = 1;
-            opDefaultConfig.CameraPARAM = 1;
-            [self requestSetConfigWithChannel:self.channelNum andJObject:&opDefaultConfig];
+            NSString *strCmd = [NSString stringWithFormat:@"{\"Name\":\"OPDefaultConfig\", \"OPDefaultConfig\":{\"General\":1,\"Encode\":1,\"Record\":1,\"CommPtz\":1,\"NetServer\":1,\"NetCommon\":1,\"Alarm\":1,\"Account\":1,\"Preview\":1,\"CameraPARAM\":1}}"];
+            opDefaultConfig.Parse([strCmd UTF8String]);
+//            opDefaultConfig.SetName("OPDefaultConfig");
+//            opDefaultConfig.General = 1;
+//            opDefaultConfig.Encode = 1;
+//            opDefaultConfig.Record = 1;
+//            opDefaultConfig.CommPtz = 1;
+//            opDefaultConfig.NetServer = 1;
+//            opDefaultConfig.NetCommon = 1;
+//            opDefaultConfig.Alarm = 1;
+//            opDefaultConfig.Account = 1;
+//            opDefaultConfig.Preview = 1;
+//            opDefaultConfig.CameraPARAM = 1;
+            [self requestSetConfigWithChannel:-1 andJObject:&opDefaultConfig];
         };
     })
     .LeeShow();
@@ -244,7 +246,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.detailTextLabel.textColor = RGB(28, 140, 249);
+    cell.detailTextLabel.textColor = ThemeColor;
     cell.textLabel.font = [UIFont systemFontOfSize:16];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:13.5];
     cell.textLabel.text = self.titles[indexPath.row];
@@ -274,7 +276,12 @@
         if(jsonData!=nil){
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
         NSString *Status = dict[@"Status.NatInfo"][@"NatStatus"];
-        self.status = Status;
+            if([Status isEqualToString:@"Conneted"]){
+                   self.status = NSLocalizedString(@"已连接", nil);
+            }else{
+                   self.status = NSLocalizedString(@"未连接", nil);
+            }
+     
         }
 
         [self.table reloadData];
@@ -287,7 +294,7 @@
             break;
             
         case 1:
-            self.mode = @"Transmit";
+            self.mode = NSLocalizedString(@"转发模式", nil);
             break;
             
         case 2:
@@ -316,4 +323,10 @@
     [self.table reloadData];
 }
 
+-(void)RefreshUIWithSetConfig:(DeviceConfig *)config{
+    //录像满时
+    if ([config.name isEqualToString:@JK_OPDefaultConfig]) {
+        [SVProgressHUD showSuccessWithStatus:TS("恢复出厂成功,请等待..") duration:3.0];
+    }
+}
 @end
