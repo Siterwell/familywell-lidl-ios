@@ -509,7 +509,7 @@
 "Passwords must contain at least three of uppercase letters, lowercase letters, numbers/special characters." = "Geslo mora vsebovati vsaj tri velike črke, male črke, številke / posebne znake.";
 "Socket ON" = "Aktivirana";
 "Socket OFF" = "Deaktiviran";
-"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Pomembno: Ta posodobitev spreminja funkcionalnost sistema. Kliknite na  \“Informacije\“ spodaj, da vidite, katere spremembe bodo.";
+"Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Pomembno: Ta posodobitev spreminja funkcionalnost sistema. Kliknite na \"Informacije\" spodaj, da vidite, katere spremembe bodo.";
 "Information" = "informacije";
 "Firmware Update Successful" = "Posodobitev programske opreme uspešen!";
 "No motion detected" = "Normalno";
@@ -518,3 +518,4 @@
 "未连接" = "posredovanje načinu";
 "转发模式" = "ni povezave";
 "恢复出厂成功,请等待.." = "za uspešno oživitev franko tovarna, prosim, počakaj.";
+
