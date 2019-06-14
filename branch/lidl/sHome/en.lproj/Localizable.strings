@@ -94,7 +94,7 @@
 "情景列表" = "Scene";
 "定时切换" = "Time Switch";
 "编辑定时" = "Edit Time";
-"自动执行列表" = "Automating List";
+"自动执行列表" = "Automatic actions";
 "在家模式" = "Home";
 "在家" = "Home";
 "离家模式" = "Away";
@@ -166,7 +166,7 @@
 "有人移动报警" = "Motion detected";
 "设备得到响应" = "The gateway has been found";
 "修改名字" = "Change Name";
-"\tFamilyWell智能安防系统主要由一个智能网关与各种智能设备组成，以云服务器、移动互联网、RF通信技术为数据链路的载体，实现远程智能终端对居家环境的远程监测与控制，系统支持多种情景模式和灵活的自定义情景执行规则，自动执行各种安防事故应急处理。智能设备目前已经有烟雾报警器、燃气报警器、一氧化碳报警器、水感报警器、门磁探测器、人体移动探测器、紧急呼叫按钮、智能插座和温湿度探测器等。近期，还会不断增加的智能设备有网络摄像头、智能锁、开关面板、插座面板、智能空气净化和电磁水阀等，敬请期待！" = "FamilyWell smart security system contains two main parts: Gateway and smart devices. The Gateway, a key component of the system, communicates with smart devices using RF communication technology and connects to home Wi-Fi network so as to communicate with the Cloud Server. Use your device and an app and control all devices in a smart and safe way. The system allows you use your smart phone as a command center to complement various operations, including creating rules, adding and deleting components, arming and disarming, receiving push notifications when alarms are triggered and other customized operations. Smart devices are selectable based on your needs: smoke alarm, CO detector, water detector, door sensor, passive infrared sensor, emergency button, smart socket, temperature and humidity device and so on. The list of devices in FamilyWell is continuously being updated and improved. Coming soon: a network camera, door lock, switch panel, socket panel, smart air purification, electromagnetic water valve.";
+"\tELRO Connects智能安防系统主要由一个智能网关与各种智能设备组成，以云服务器、移动互联网、RF通信技术为数据链路的载体，实现远程智能终端对居家环境的远程监测与控制，系统支持多种情景模式和灵活的自定义情景执行规则，自动执行各种安防事故应急处理。智能设备目前已经有烟雾报警器、燃气报警器、一氧化碳报警器、水感报警器、门磁探测器、人体移动探测器、紧急呼叫按钮、智能插座和温湿度探测器等。近期，还会不断增加的智能设备有网络摄像头、智能锁、开关面板、插座面板、智能空气净化和电磁水阀等，敬请期待！" = "ELRO Connects smart security system contains two main parts: Gateway and smart devices. The Gateway, a key component of the system, communicates with smart devices using RF communication technology and connects to home Wi-Fi network so as to communicate with the Cloud Server. Use your device and an app and control all devices in a smart and safe way. The system allows you use your smart phone as a command center to complement various operations, including creating rules, adding and deleting components, arming and disarming, receiving push notifications when alarms are triggered and other customized operations. Smart devices are selectable based on your needs: smoke alarm, CO detector, water detector, door sensor, passive infrared sensor, emergency button, smart socket, temperature and humidity device and so on. The list of devices in ELRO Connects is continuously being updated and improved. Coming soon: a network camera, door lock, switch panel, socket panel, smart air purification, electromagnetic water valve.";
 "当前版本" = "Current app version";
 "在线" = "Online";
 "离线" = "Offline";
@@ -182,7 +182,7 @@
 "版本升级中，请耐心等待" = "Gateway is upgrading...";
 "暂不升级" = "Not yet";
 "固件已经是最新版本了" = "This is the latest version";
-"读取失败" = "Reading failed";
+"读取失败" = "Update Failed";
 "不能删除当前情景" = "You can't delete the current scene (this scene may be selected)";
 "版本升级" = "Version upgrade";
 "新版本" = "New version";
@@ -357,9 +357,9 @@
 "电池正常" = "Battery normal";
 "电池异常" = "Battery failure";
 "已找到设备，绑定账号中" = "The gateway has been found and it is binding to the account";
-"没有找到设备" = "No find Gateway";
+"没有找到设备" = "Configuration failed, please check whether the Wifi signal is stable, whether you connect to the 2.4Ghz wifi network and if the connector is in the configuration mode (blue blinking)";
 "网关连上WI-FI，但是未连上服务器" = "Gateway connected to WI-FI. But not connected to server.";
-"检测到内网内设备，是否进入内网模式" = "Find the device in the intranet,  enter into intranet mode or not";
+"检测到内网内设备，是否进入内网模式" = "Find the device in the intranet, enter into intranet mode or not";
 "请设置紧急联系号码" = "Please set the emergency contact number";
 "请设置%@名称" = "Please set%@name";
 "系统说明书" = "Frequently asked questions (FAQ)";
@@ -512,9 +512,10 @@
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Important: this update changes the functionality of your system. Click on \“Information\” below to see what changes will be made.";
 "Information" = "Information";
 "Firmware Update Successful" = "Firmware update successful!";
-"No motion detected" = "No motion detected";
+"No motion detected" = "Normal";
 "My action" = "My action";
 "无线设置" = "WIFI Settings";
 "未连接" = "Unconnected";
 "转发模式" = "Transmit";
 "恢复出厂成功,请等待.." = "Please wait for the successful resumption of the factory.";
+
