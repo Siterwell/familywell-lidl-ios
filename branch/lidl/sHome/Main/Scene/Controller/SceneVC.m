@@ -1201,6 +1201,14 @@
 
 #pragma mark 定时切换
 - (void)timeSwitch{
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    
+    if (model == nil || ![model.online isEqualToString:@"1"]) {
+        [MBProgressHUD showSuccess:[NSString stringWithFormat:NSLocalizedString(@"当前网关为:%@", nil),NSLocalizedString(@"离线", nil) ] ToView:self.view];
+        return;
+    }
+    
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"SceneStoryboard" bundle:nil];
     TimeSwitchVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"TimeSwitchVC"];
     [self.navigationController pushViewController:vc animated:YES];

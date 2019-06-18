@@ -62,6 +62,8 @@
 
 - (NSMutableArray *)getOutDeviceArray{
     
+    NSLog(@"[SCENE TEST] getOutDeviceArray > scene_content = %@", self.scene_content);
+    
     NSMutableArray *array = [[NSMutableArray alloc] init];
     NSString *week = [self.scene_content substringWithRange:NSMakeRange(40, 2)];
     NSString *hour = [self.scene_content substringWithRange:NSMakeRange(42, 2)];
