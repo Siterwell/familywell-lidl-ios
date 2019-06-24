@@ -707,6 +707,8 @@
 		E2B3A10922C0AEED003DD20E /* PickViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10822C0AEED003DD20E /* PickViewCell.m */; };
 		E2B3A10C22C0AF3F003DD20E /* TempViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10B22C0AF3F003DD20E /* TempViewCell.m */; };
 		E2B3A10F22C0AF87003DD20E /* WeekCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10E22C0AF87003DD20E /* WeekCell.m */; };
+		E2B3A11222C0B2F5003DD20E /* TempControlTimerListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11122C0B2F5003DD20E /* TempControlTimerListVC.m */; };
+		E2B3A11522C0B365003DD20E /* GS361TimerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11422C0B365003DD20E /* GS361TimerCell.m */; };
 		E2DB982F219E631E00B7A7DD /* privacy_german.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB982E219E631E00B7A7DD /* privacy_german.html */; };
 		E2DB9831219E632C00B7A7DD /* privacy_spanish.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB9830219E632C00B7A7DD /* privacy_spanish.html */; };
 /* End PBXBuildFile section */
@@ -2276,6 +2278,10 @@
 		E2B3A10B22C0AF3F003DD20E /* TempViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempViewCell.m; sourceTree = "<group>"; };
 		E2B3A10D22C0AF87003DD20E /* WeekCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeekCell.h; sourceTree = "<group>"; };
 		E2B3A10E22C0AF87003DD20E /* WeekCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeekCell.m; sourceTree = "<group>"; };
+		E2B3A11022C0B2F5003DD20E /* TempControlTimerListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempControlTimerListVC.h; sourceTree = "<group>"; };
+		E2B3A11122C0B2F5003DD20E /* TempControlTimerListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempControlTimerListVC.m; sourceTree = "<group>"; };
+		E2B3A11322C0B365003DD20E /* GS361TimerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GS361TimerCell.h; sourceTree = "<group>"; };
+		E2B3A11422C0B365003DD20E /* GS361TimerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GS361TimerCell.m; sourceTree = "<group>"; };
 		E2DB982E219E631E00B7A7DD /* privacy_german.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_german.html; sourceTree = "<group>"; };
 		E2DB9830219E632C00B7A7DD /* privacy_spanish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_spanish.html; sourceTree = "<group>"; };
 		EC225CD3BEEFCDEBB3A0A0B4 /* Pods-sHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.debug.xcconfig"; sourceTree = "<group>"; };
@@ -3026,6 +3032,8 @@
 				0181655620A520B7001D8282 /* LZCircularSlider.m */,
 				E2B3A10422C0AE17003DD20E /* TempControlTimerEditVC.h */,
 				E2B3A10522C0AE17003DD20E /* TempControlTimerEditVC.m */,
+				E2B3A11022C0B2F5003DD20E /* TempControlTimerListVC.h */,
+				E2B3A11122C0B2F5003DD20E /* TempControlTimerListVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3111,6 +3119,8 @@
 				E2B3A10B22C0AF3F003DD20E /* TempViewCell.m */,
 				E2B3A10D22C0AF87003DD20E /* WeekCell.h */,
 				E2B3A10E22C0AF87003DD20E /* WeekCell.m */,
+				E2B3A11322C0B365003DD20E /* GS361TimerCell.h */,
+				E2B3A11422C0B365003DD20E /* GS361TimerCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -6033,6 +6043,7 @@
 				010FD09F1FC6C5E200BF8749 /* MJPhotoBrowser.m in Sources */,
 				75E523E01DFEEF8A0093DECC /* NSMutableString+Ruby.m in Sources */,
 				01A63F8C2063E947004FEC2F /* NSString+Utils.m in Sources */,
+				E2B3A11222C0B2F5003DD20E /* TempControlTimerListVC.m in Sources */,
 				75E524B21DFEEF8A0093DECC /* MJRefreshAutoFooter.m in Sources */,
 				75D8A3D81E5F325E009A5DBB /* ScynDeviceName.m in Sources */,
 				05135E6E1E72DA8A0035A478 /* JSONHelp.m in Sources */,
@@ -6056,6 +6067,7 @@
 				75E524371DFEEF8A0093DECC /* UIImage+Resize.m in Sources */,
 				C422E2002089E5D5000D9CE7 /* GeneralViewController.mm in Sources */,
 				05CBA67A1EA89AD800E06A99 /* CancelAddingApi.m in Sources */,
+				E2B3A11522C0B365003DD20E /* GS361TimerCell.m in Sources */,
 				01A63F7D2063E947004FEC2F /* LocalVideoVcCell.m in Sources */,
 				75E524301DFEEF8A0093DECC /* UIImage+FileName.m in Sources */,
 				18C78A431EE8BAA600F89651 /* AddTimeSceneApi.m in Sources */,

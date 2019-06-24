@@ -228,9 +228,25 @@ static SystemSceneDataBase *_DBCtl = nil;
     if (count2 == 0) {
         [_db executeUpdate:@"INSERT INTO scene(scene_ID,scene_name,scene_content)VALUES(?,?,?)",[NSNumber numberWithInt:129],@"",@"0"];
         [_db executeUpdate:@"INSERT INTO scene(scene_ID,scene_name,scene_content)VALUES(?,?,?)",[NSNumber numberWithInt:130],@"",@"0"];
-//        [_db executeUpdate:@"INSERT INTO scene(scene_ID,scene_name,scene_content)VALUES(?,?,?)",[NSNumber numberWithInt:131],@"",@"0"];
+        [_db executeUpdate:@"INSERT INTO scene(scene_ID,scene_name,scene_content)VALUES(?,?,?)",[NSNumber numberWithInt:131],@"",@"0"];
     }
     
+    
+    //增加device字段，存361设置温度数据
+    if(![_db columnExists:@"autotemp" inTableWithName:@"device"]){
+        NSString *alar = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ VARCHAR(10)",@"device",@"autotemp" ];
+        [_db executeUpdate:alar];
+    }
+    
+    if(![_db columnExists:@"handtemp" inTableWithName:@"device"]){
+        NSString *alar = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ VARCHAR(10)",@"device",@"handtemp" ];
+        [_db executeUpdate:alar];
+    }
+    if(![_db columnExists:@"fangtemp" inTableWithName:@"device"]){
+        NSString *alar = [NSString stringWithFormat:@"ALTER TABLE %@ ADD %@ VARCHAR(10)",@"device",@"fangtemp" ];
+        [_db executeUpdate:alar];
+    }
+
     [_db close];
 
 }
