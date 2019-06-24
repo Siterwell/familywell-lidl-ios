@@ -710,6 +710,7 @@
 		E2B3A11222C0B2F5003DD20E /* TempControlTimerListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11122C0B2F5003DD20E /* TempControlTimerListVC.m */; };
 		E2B3A11522C0B365003DD20E /* GS361TimerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11422C0B365003DD20E /* GS361TimerCell.m */; };
 		E2B3A11822C0BBA1003DD20E /* CYCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11722C0BBA1003DD20E /* CYCircularSlider.m */; };
+		E2B3A11B22C0BC49003DD20E /* TempControlDetailVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11A22C0BC49003DD20E /* TempControlDetailVC2.m */; };
 		E2DB982F219E631E00B7A7DD /* privacy_german.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB982E219E631E00B7A7DD /* privacy_german.html */; };
 		E2DB9831219E632C00B7A7DD /* privacy_spanish.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB9830219E632C00B7A7DD /* privacy_spanish.html */; };
 /* End PBXBuildFile section */
@@ -2285,6 +2286,8 @@
 		E2B3A11422C0B365003DD20E /* GS361TimerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GS361TimerCell.m; sourceTree = "<group>"; };
 		E2B3A11622C0BBA1003DD20E /* CYCircularSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYCircularSlider.h; sourceTree = "<group>"; };
 		E2B3A11722C0BBA1003DD20E /* CYCircularSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYCircularSlider.m; sourceTree = "<group>"; };
+		E2B3A11922C0BC49003DD20E /* TempControlDetailVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempControlDetailVC2.h; sourceTree = "<group>"; };
+		E2B3A11A22C0BC49003DD20E /* TempControlDetailVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempControlDetailVC2.m; sourceTree = "<group>"; };
 		E2DB982E219E631E00B7A7DD /* privacy_german.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_german.html; sourceTree = "<group>"; };
 		E2DB9830219E632C00B7A7DD /* privacy_spanish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_spanish.html; sourceTree = "<group>"; };
 		EC225CD3BEEFCDEBB3A0A0B4 /* Pods-sHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.debug.xcconfig"; sourceTree = "<group>"; };
@@ -3037,6 +3040,8 @@
 				E2B3A10522C0AE17003DD20E /* TempControlTimerEditVC.m */,
 				E2B3A11022C0B2F5003DD20E /* TempControlTimerListVC.h */,
 				E2B3A11122C0B2F5003DD20E /* TempControlTimerListVC.m */,
+				E2B3A11922C0BC49003DD20E /* TempControlDetailVC2.h */,
+				E2B3A11A22C0BC49003DD20E /* TempControlDetailVC2.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -5892,6 +5897,7 @@
 				05BDDC771DFFBA3D00648F69 /* BaseVC.m in Sources */,
 				75E523FC1DFEEF8A0093DECC /* MKMapView+BetterMaps.m in Sources */,
 				75E523AE1DFEEF8A0093DECC /* NSArray+SafeAccess.m in Sources */,
+				E2B3A11B22C0BC49003DD20E /* TempControlDetailVC2.m in Sources */,
 				010FD09D1FC6C5E200BF8749 /* MJPhoto.m in Sources */,
 				182DBA601EE6CF2500C74E18 /* CircleMenuVc.m in Sources */,
 				75E5248E1DFEEF8A0093DECC /* YTKBatchRequest.m in Sources */,
