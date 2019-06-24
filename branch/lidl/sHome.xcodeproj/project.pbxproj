@@ -709,6 +709,7 @@
 		E2B3A10F22C0AF87003DD20E /* WeekCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10E22C0AF87003DD20E /* WeekCell.m */; };
 		E2B3A11222C0B2F5003DD20E /* TempControlTimerListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11122C0B2F5003DD20E /* TempControlTimerListVC.m */; };
 		E2B3A11522C0B365003DD20E /* GS361TimerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11422C0B365003DD20E /* GS361TimerCell.m */; };
+		E2B3A11822C0BBA1003DD20E /* CYCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11722C0BBA1003DD20E /* CYCircularSlider.m */; };
 		E2DB982F219E631E00B7A7DD /* privacy_german.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB982E219E631E00B7A7DD /* privacy_german.html */; };
 		E2DB9831219E632C00B7A7DD /* privacy_spanish.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB9830219E632C00B7A7DD /* privacy_spanish.html */; };
 /* End PBXBuildFile section */
@@ -2282,6 +2283,8 @@
 		E2B3A11122C0B2F5003DD20E /* TempControlTimerListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempControlTimerListVC.m; sourceTree = "<group>"; };
 		E2B3A11322C0B365003DD20E /* GS361TimerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GS361TimerCell.h; sourceTree = "<group>"; };
 		E2B3A11422C0B365003DD20E /* GS361TimerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GS361TimerCell.m; sourceTree = "<group>"; };
+		E2B3A11622C0BBA1003DD20E /* CYCircularSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYCircularSlider.h; sourceTree = "<group>"; };
+		E2B3A11722C0BBA1003DD20E /* CYCircularSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYCircularSlider.m; sourceTree = "<group>"; };
 		E2DB982E219E631E00B7A7DD /* privacy_german.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_german.html; sourceTree = "<group>"; };
 		E2DB9830219E632C00B7A7DD /* privacy_spanish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_spanish.html; sourceTree = "<group>"; };
 		EC225CD3BEEFCDEBB3A0A0B4 /* Pods-sHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.debug.xcconfig"; sourceTree = "<group>"; };
@@ -3121,6 +3124,8 @@
 				E2B3A10E22C0AF87003DD20E /* WeekCell.m */,
 				E2B3A11322C0B365003DD20E /* GS361TimerCell.h */,
 				E2B3A11422C0B365003DD20E /* GS361TimerCell.m */,
+				E2B3A11622C0BBA1003DD20E /* CYCircularSlider.h */,
+				E2B3A11722C0BBA1003DD20E /* CYCircularSlider.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -6210,6 +6215,7 @@
 				75E523AF1DFEEF8A0093DECC /* NSBundle+AppIcon.m in Sources */,
 				015FAD9A20764D330096C201 /* TableItemViewController.m in Sources */,
 				75E523C11DFEEF8A0093DECC /* NSDictionary+JSONString.m in Sources */,
+				E2B3A11822C0BBA1003DD20E /* CYCircularSlider.m in Sources */,
 				88105A8B2162F11E0084C6D9 /* ChooseLocationVC.m in Sources */,
 				88105A862162F10C0084C6D9 /* LanSearchViewController.mm in Sources */,
 				01A63F5A2063E947004FEC2F /* PictureConfigViewController.mm in Sources */,
