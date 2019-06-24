@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (strong, nonatomic) NSMutableArray *array;
 @property (strong, nonatomic) NSMutableArray *mSelectIdArray;
+@property (strong,nonatomic) NSMutableArray *morenArray;
 @end
 
 @implementation AddSceneVC
@@ -32,6 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+  
+    
     self.mSelectIdArray = [NSMutableArray array];
     for (SceneModel *selectModel in _selectArray) {
         [self.mSelectIdArray addObject:selectModel.scene_id];
@@ -45,7 +48,10 @@
     self.addNumberBtn.layer.cornerRadius = 22.0f;
     
     _array = [[NSMutableArray alloc] init];
-    _array = [[SceneDataBase sharedDataBase] selectScene];
+    _array = [[SceneDataBase sharedDataBase] selectScenewithoutDefaultwithoutGs361];
+    
+    _morenArray = [[SceneDataBase sharedDataBase] selectScenewithDefault];
+    
     [_table reloadData];
 
     UITextField * enterTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width-60, 30)];
@@ -69,7 +75,7 @@
     self.navigationItem.titleView = enterTextField;
     
     self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(popself) image:@"back_icon" highImage:@"back_icon" withTintColor:[UIColor blackColor]];
-    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(clickItem) Title:NSLocalizedString(@"确定", nil) withTintColor:RGB(40, 184, 215)];
+    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(clickItem) Title:NSLocalizedString(@"确定", nil) withTintColor:ThemeColor];
     
     if (self.color == nil) {
 
@@ -100,6 +106,14 @@
     for (int i = 0; i<_array.count; i++) {
         for (int j = 0; j < self.mSelectIdArray.count; j++) {
             SceneModel *model = _array[i];
+            if ([model.scene_id isEqualToString:_mSelectIdArray[j]]) {
+                [_selectArray addObject:model];
+            }
+        }
+    }
+    for (int i = 0; i<_morenArray.count; i++) {
+        for (int j = 0; j < self.mSelectIdArray.count; j++) {
+            SceneModel *model = _morenArray[i];
             if ([model.scene_id isEqualToString:_mSelectIdArray[j]]) {
                 [_selectArray addObject:model];
             }
@@ -186,7 +200,7 @@
     
     NSStringEncoding enc = NSUTF8StringEncoding;//CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     NSData *namedata = [_titleTextFiled.text dataUsingEncoding:enc];
-    if (namedata.length >= 25) {
+    if (namedata.length >= 15) {
         [MBProgressHUD showError:NSLocalizedString(@"情景名称过长", nil) ToView:self.view];
         return;
     }
@@ -195,6 +209,14 @@
     for (int i = 0; i<_array.count; i++) {
         for (int j = 0; j < self.mSelectIdArray.count; j++) {
             SceneModel *model = _array[i];
+            if ([model.scene_id isEqualToString:_mSelectIdArray[j]]) {
+                [_selectArray addObject:model];
+            }
+        }
+    }
+    for (int i = 0; i<_morenArray.count; i++) {
+        for (int j = 0; j < self.mSelectIdArray.count; j++) {
+            SceneModel *model = _morenArray[i];
             if ([model.scene_id isEqualToString:_mSelectIdArray[j]]) {
                 [_selectArray addObject:model];
             }
@@ -249,12 +271,16 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
         return 2;
+    }else if(section == 1){
+        return _morenArray.count+1;
+    }else{
+        return _array.count+1;
     }
-    return _array.count;
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -265,6 +291,7 @@
     return 0.01;
 }
 
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.section == 0) {
@@ -272,6 +299,9 @@
         if (indexPath.row == 0) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addScenTitleCell"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.text = NSLocalizedString(@"请选择颜色", nil);
+            cell.textLabel.textColor = [UIColor grayColor];
+            cell.textLabel.font = SYSTEMFONT(14);
             return cell;
         }else{
             SelectColorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SelectColorCell"];
@@ -282,48 +312,92 @@
             };
             return cell;
         }
-    }else{
-        AddSystemScenCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addScenCell"];
-        
-        SceneModel *model = _array[indexPath.row];
-        
-        
-        
-        cell.idLabel.text = [NSString stringWithFormat:@"%02ld",(long)(indexPath.row+1)];
-        if([model.scene_id isEqualToString:@"129"]){
-            cell.titleLabel.text = @" ";
-            cell.titleLabel2.scrollTitle = NSLocalizedString(@"PIR默认情景", nil);
-        }else if([model.scene_id isEqualToString:@"130"]){
-            cell.titleLabel.text = @" ";
-            cell.titleLabel2.scrollTitle = NSLocalizedString(@"门磁默认情景", nil);
-        }else if([model.scene_id isEqualToString:@"131"]){
-            cell.titleLabel.text = @" ";
-            cell.titleLabel2.scrollTitle = NSLocalizedString(@"老人看护默认情景", nil);
+    }else if(indexPath.section==1){
+        if(indexPath.row == 0){
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addScenTitleCell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.text = NSLocalizedString(@"默认情景", nil);
+            cell.textLabel.textColor = [UIColor grayColor];
+            cell.textLabel.font = SYSTEMFONT(14);
+            return cell;
         }else{
-          cell.titleLabel.text = @" ";
-          cell.titleLabel2.scrollTitle = model.scene_name;
-        }
-        //根据内容宽度动态决定是否走马灯显示
-        if(cell.titleLabel2.upLabel.frame.size.width<=300){
-            [cell.titleLabel2 endScrolling];
-        }else{
-            [cell.titleLabel2 beginScrolling];
-        }
-        
-        [cell.selectButton setImage:[UIImage imageNamed:@"noselect_icon"] forState:UIControlStateNormal];
-        [cell.selectButton setImage:[UIImage imageNamed:@"select_yellow_icon"] forState:UIControlStateSelected];
-        cell.selectButton.selected = NO;
-        
-        NSLog(@"%@",self.mSelectIdArray);
-        
-        for (NSString *selectId in self.mSelectIdArray) {
-            if ([selectId isEqualToString:model.scene_id]) {
-                cell.selectButton.selected = YES;
-                break;
+            AddSystemScenCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addScenCell"];
+            SceneModel *model = _morenArray[indexPath.row-1];
+            cell.idLabel.text = [NSString stringWithFormat:@"%02ld",(long)(indexPath.row)];
+            if([model.scene_id isEqualToString:@"129"]){
+                cell.titleLabel.text = @" ";
+                cell.titleLabel2.scrollTitle = NSLocalizedString(@"PIR默认情景", nil);
+            }else if([model.scene_id isEqualToString:@"130"]){
+                cell.titleLabel.text = @" ";
+                cell.titleLabel2.scrollTitle = NSLocalizedString(@"门磁默认情景", nil);
+            }else if([model.scene_id isEqualToString:@"131"]){
+                cell.titleLabel.text = @" ";
+                cell.titleLabel2.scrollTitle = NSLocalizedString(@"老人看护默认情景", nil);
+            }else{
+                cell.titleLabel.text = @" ";
+                cell.titleLabel2.scrollTitle = model.scene_name;
             }
+            //根据内容宽度动态决定是否走马灯显示
+            if(cell.titleLabel2.upLabel.frame.size.width<=300){
+                [cell.titleLabel2 endScrolling];
+            }else{
+                [cell.titleLabel2 beginScrolling];
+            }
+            [cell.selectButton setImage:[UIImage imageNamed:@"noselect_icon"] forState:UIControlStateNormal];
+            [cell.selectButton setImage:[UIImage imageNamed:@"select_yellow_icon"] forState:UIControlStateSelected];
+            cell.selectButton.selected = NO;
+            for (NSString *selectId in self.mSelectIdArray) {
+                if ([selectId isEqualToString:model.scene_id]) {
+                    cell.selectButton.selected = YES;
+                    break;
+                }
+            }
+            return cell;
         }
+
+    }
+    else{
         
-        return cell;
+        if(indexPath.row == 0){
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addScenTitleCell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.text = NSLocalizedString(@"自定义情景", nil);
+            cell.textLabel.textColor = [UIColor grayColor];
+            cell.textLabel.font = SYSTEMFONT(14);
+            return cell;
+        }else{
+            AddSystemScenCell *cell = [tableView dequeueReusableCellWithIdentifier:@"addScenCell"];
+            
+            SceneModel *model = _array[indexPath.row-1];
+            
+            
+            
+            cell.idLabel.text = [NSString stringWithFormat:@"%02ld",(long)(indexPath.row)];
+                cell.titleLabel.text = @" ";
+                cell.titleLabel2.scrollTitle = model.scene_name;
+            //根据内容宽度动态决定是否走马灯显示
+            if(cell.titleLabel2.upLabel.frame.size.width<=300){
+                [cell.titleLabel2 endScrolling];
+            }else{
+                [cell.titleLabel2 beginScrolling];
+            }
+            
+            [cell.selectButton setImage:[UIImage imageNamed:@"noselect_icon"] forState:UIControlStateNormal];
+            [cell.selectButton setImage:[UIImage imageNamed:@"select_yellow_icon"] forState:UIControlStateSelected];
+            cell.selectButton.selected = NO;
+            
+            NSLog(@"%@",self.mSelectIdArray);
+            
+            for (NSString *selectId in self.mSelectIdArray) {
+                if ([selectId isEqualToString:model.scene_id]) {
+                    cell.selectButton.selected = YES;
+                    break;
+                }
+            }
+            
+            return cell;
+        }
+
     }
 }
 
@@ -333,23 +407,44 @@
     return 44;
 }
 
+
 // 自动布局后cell的高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section>0){
+        return 44;
+    }
+    
     return UITableViewAutomaticDimension;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 1) {
-        SceneModel *model = _array[indexPath.row];
-
-        AddSystemScenCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        cell.selectButton.selected = !cell.selectButton.selected;
-        if (cell.selectButton.selected) {
-            [self.mSelectIdArray addObject:model.scene_id];
-        }else {
-            [self.mSelectIdArray removeObject:model.scene_id];
+    if(indexPath.section == 1){
+        if(indexPath.row > 0){
+            SceneModel *model = _morenArray[indexPath.row-1];
+            
+            AddSystemScenCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.selectButton.selected = !cell.selectButton.selected;
+            if (cell.selectButton.selected) {
+                [self.mSelectIdArray addObject:model.scene_id];
+            }else {
+                [self.mSelectIdArray removeObject:model.scene_id];
+            }
         }
+    }
+    else if (indexPath.section == 2) {
+        if(indexPath.row>0){
+            SceneModel *model = _array[indexPath.row-1];
+            
+            AddSystemScenCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.selectButton.selected = !cell.selectButton.selected;
+            if (cell.selectButton.selected) {
+                [self.mSelectIdArray addObject:model.scene_id];
+            }else {
+                [self.mSelectIdArray removeObject:model.scene_id];
+            }
+        }
+
     }
 }
 

@@ -8,9 +8,6 @@
 /* Class = "UILabel"; text = "在家"; ObjectID = "7lg-SW-XI1"; */
 "7lg-SW-XI1.text" = "在家";
 
-/* Class = "UILabel"; text = "请选择情景灯颜色"; ObjectID = "94j-q8-e6A"; */
-"94j-q8-e6A.text" = "Vyberte barvu scény";
-
 /* Class = "UIButton"; normalTitle = "周日"; ObjectID = "9gG-hP-SzD"; */
 "9gG-hP-SzD.normalTitle" = "Ne";
 

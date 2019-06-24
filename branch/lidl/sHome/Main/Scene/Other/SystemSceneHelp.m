@@ -10,6 +10,7 @@
 #import "BatterHelp.h"
 #import "SceneModel.h"
 #import "SystemSceneDataBase.h"
+#import "SceneDataBase.h"
 #import "SystemSceneModel.h"
 
 @implementation SystemSceneHelp
@@ -92,6 +93,9 @@
             ds ++;
         }
     }
+    
+  NSMutableArray *allgs361scenes = [[SceneDataBase sharedDataBase] selectSceneWithAll361];
+    ds = (ds + (int)allgs361scenes.count);
     //情景个数
     NSString *sceneNumber = [BatterHelp gethexBybinary:ds];
     if (sceneNumber.length == 1) {
@@ -109,12 +113,12 @@
     //情景编号
     for (SceneModel *model  in selectArray) {
         if([model.scene_id integerValue] < 129){
-            NSString *index = [BatterHelp gethexBybinary:[model.scene_id integerValue]];
-            if (index.length == 1) {
-                index = [@"0" stringByAppendingString:index];
-            }
-            content = [content stringByAppendingString:index];
-            contentLength += 1;
+        NSString *index = [BatterHelp gethexBybinary:[model.scene_id integerValue]];
+        if (index.length == 1) {
+            index = [@"0" stringByAppendingString:index];
+        }
+        content = [content stringByAppendingString:index];
+        contentLength += 1;
         }else{
             if([model.scene_id integerValue]==129){
                 scene_content |= 0x01;
@@ -125,6 +129,17 @@
             }
         }
 
+    }
+    
+ 
+    //情景编号
+    for (SceneModel *model  in allgs361scenes) {
+        NSString *index = [BatterHelp gethexBybinary:[model.scene_id integerValue]];
+        if (index.length == 1) {
+            index = [@"0" stringByAppendingString:index];
+        }
+        content = [content stringByAppendingString:index];
+        contentLength += 1;
     }
     
     //情景灯颜色色值
