@@ -13,6 +13,7 @@
 #import "SceneDetailVC.h"
 #import "LightDetailVC.h"
 #import "TempControlDetailVC.h"
+#import "TempControlDetailVC2.h"
 
 @interface BookShelfGroupMainView ()<BookShelfGroupViewDataSource, BookShelfGroupViewDelegateFlowLayout>
 
@@ -171,7 +172,7 @@
     id itemData = [self.allGroupItems objectAtIndex:indexPath.row];
     ItemData *data = itemData;
     if([data.title isEqualToString:@"温控器"]){
-        TempControlDetailVC *vc = [[TempControlDetailVC alloc] init];
+        TempControlDetailVC2 *vc = [[TempControlDetailVC2 alloc] init];
         vc.data = data;
         [self.subvc.navigationController pushViewController:vc animated:YES];
     }
@@ -185,13 +186,13 @@
         ldVC.data = data;
         [self.subvc.navigationController pushViewController:ldVC animated:YES];
     }else{
-        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"DeviceStoryboard" bundle:nil];
-        DeviceDetailVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"DeviceDetailVC"];
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"DeviceStoryboard" bundle:nil];
+    DeviceDetailVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"DeviceDetailVC"];
         //    if ([data.status isEqualToString:@"no"]){
         //        return;
         //    }
-        vc.data = data;
-        [self.subvc.navigationController pushViewController:vc animated:YES];
+    vc.data = data;
+    [self.subvc.navigationController pushViewController:vc animated:YES];
     }
 
     
