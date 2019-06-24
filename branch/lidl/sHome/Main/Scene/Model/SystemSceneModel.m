@@ -9,6 +9,8 @@
 #import "SystemSceneModel.h"
 #import "SceneDataBase.h"
 #import "BatterHelp.h"
+#import "SceneListItemData.h"
+#import "NSString+CY.h"
 
 @implementation SystemSceneModel
 
@@ -80,24 +82,32 @@
 }
 
 -(NSMutableArray *) getSelectArray{
-   
+    
     if(self.answer_content.length > 42){
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        NSString *sid = [self.answer_content substringWithRange:NSMakeRange(4, 2)];
-        int scount = [BatterHelp numberHexString:[self.answer_content substringWithRange:NSMakeRange(40, 2)]].intValue;
-        int dcount = [BatterHelp numberHexString:[self.answer_content substringWithRange:NSMakeRange(38, 2)]].intValue;
-        for (int i = 0; i < scount; i++) {
-            if (42+dcount*14+i*2+2 <= self.answer_content.length) {
-                NSString *scene_id = [self.answer_content substringWithRange:NSMakeRange(6+32+4+(dcount*14)+(i*2), 2)];
-                scene_id = [NSString stringWithFormat:@"%lu",strtoul([[scene_id substringWithRange:NSMakeRange(0, 2)] UTF8String], 0, 16)];
-                
-                SceneModel *model = [[SceneDataBase sharedDataBase] selectScene:scene_id];
-                if (model.scene_id) {
-                    model.scene_id = scene_id;
-                    [array addObject:model];
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    int scount = [BatterHelp numberHexString:[self.answer_content substringWithRange:NSMakeRange(40, 2)]].intValue;
+    int dcount = [BatterHelp numberHexString:[self.answer_content substringWithRange:NSMakeRange(38, 2)]].intValue;
+    for (int i = 0; i < scount; i++) {
+        if (42+dcount*14+i*2+2 <= self.answer_content.length) {
+            NSString *scene_id = [self.answer_content substringWithRange:NSMakeRange(6+32+4+(dcount*14)+(i*2), 2)];
+            scene_id = [NSString stringWithFormat:@"%lu",strtoul([[scene_id substringWithRange:NSMakeRange(0, 2)] UTF8String], 0, 16)];
+            
+            SceneModel *model = [[SceneDataBase sharedDataBase] selectScene:scene_id];
+            BOOL flag = NO;
+            if(model.scene_indevice_array.count==1 && model.scene_outdevice_array.count){
+                SceneListItemData *scene = [model.scene_indevice_array objectAtIndex:0];
+                SceneListItemData *scene2 = [model.scene_outdevice_array objectAtIndex:0];
+                if([scene.title isEqualToString:@"温控器"] &&![NSString isBlankString:scene2.week]){
+                    flag = YES;
                 }
             }
+            
+            if (model.scene_id && !flag) {
+                model.scene_id = scene_id;
+                [array addObject:model];
+            }
         }
+    }
         
         if(self.answer_content.length == (42+dcount*14+scount*2+4)){
             NSNumber * ds = [BatterHelp numberHexString:[self.answer_content substringWithRange:NSMakeRange(self.answer_content.length-2, 2)]];
@@ -118,37 +128,11 @@
                 model.scene_id =  @"131";
                 [array addObject:model];
             }
-        }else{
-            if([@"01" isEqualToString:sid]){
-                SceneModel *model = [[SceneModel alloc] init];
-                model.scene_id = @"129";
-                [array addObject:model];
-                SceneModel *model2 = [[SceneModel alloc] init];
-                model2.scene_id =  @"130";
-                [array addObject:model2];
-            }else if([@"02" isEqualToString:sid]){
-                SceneModel *model2 = [[SceneModel alloc] init];
-                model2.scene_id =  @"130";
-                [array addObject:model2];
-            }
         }
-            return array;
+    return array;
     }
     else {
         NSMutableArray *array = [[NSMutableArray alloc] init];
-        NSString *ds = [self.answer_content substringWithRange:NSMakeRange(4, 2)];
-        if([@"01" isEqualToString:ds]){
-            SceneModel *model = [[SceneModel alloc] init];
-            model.scene_id = @"129";
-            [array addObject:model];
-            SceneModel *model2 = [[SceneModel alloc] init];
-            model2.scene_id =  @"130";
-            [array addObject:model2];
-        }else if([@"02" isEqualToString:ds]){
-            SceneModel *model2 =[[SceneModel alloc] init];
-            model2.scene_id =  @"130";
-            [array addObject:model2];
-        }
         return array;
     }
     
