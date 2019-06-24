@@ -9,7 +9,8 @@
 #import "SceneDataBase.h"
 #import "BatterHelp.h"
 #import <FMDB/FMDB.h>
-
+#import "SceneListItemData.h"
+#import "NSString+CY.h"
 static SceneDataBase *_DBCtl = nil;
 
 @interface SceneDataBase()<NSCopying,NSMutableCopying>{
@@ -153,11 +154,57 @@ static SceneDataBase *_DBCtl = nil;
         model.scene_content = [res stringForColumn:@"scene_content"];
         model.scene_id = [res stringForColumn:@"scene_ID"];
         [model creatModel];
-        [array enumerateObjectsUsingBlock:^(SceneModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [idArray addObject:obj.scene_id];
-        }];
-        if (![idArray containsObject:model.scene_id]) {
-            [array addObject:model];
+        BOOL flag = NO;
+        if(model.scene_indevice_array.count==1 && model.scene_outdevice_array.count){
+            SceneListItemData *scene = [model.scene_indevice_array objectAtIndex:0];
+            SceneListItemData *scene2 = [model.scene_outdevice_array objectAtIndex:0];
+            if([scene.title isEqualToString:@"温控器"] &&![NSString isBlankString:scene2.week]){
+                flag = YES;
+            }
+        }
+        
+        if(!flag){
+            [array enumerateObjectsUsingBlock:^(SceneModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [idArray addObject:obj.scene_id];
+            }];
+            if (![idArray containsObject:model.scene_id]) {
+                [array addObject:model];
+            }
+        }
+        
+        
+    }
+    
+    [_db close];
+    return array;
+}
+
+- (NSMutableArray *)selectSceneWithAll361{
+    [_db open];
+    
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    NSMutableArray *idArray = [[NSMutableArray alloc] init];
+    
+    FMResultSet *res = [_db executeQuery:@"SELECT * FROM scene ORDER BY scene_ID"];
+    while ([res next]) {
+        [idArray removeAllObjects];
+        SceneModel *model = [[SceneModel alloc] init];
+        model.scene_type = @"1";
+        model.scene_content = [res stringForColumn:@"scene_content"];
+        model.scene_id = [res stringForColumn:@"scene_ID"];
+        [model creatModel];
+        
+        if(model.scene_indevice_array.count==1 && model.scene_outdevice_array.count){
+            SceneListItemData *scene = [model.scene_indevice_array objectAtIndex:0];
+            SceneListItemData *scene2 = [model.scene_outdevice_array objectAtIndex:0];
+            if([scene.title isEqualToString:@"温控器"] &&![NSString isBlankString:scene2.week]){
+                [array enumerateObjectsUsingBlock:^(SceneModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    [idArray addObject:obj.scene_id];
+                }];
+                if (![idArray containsObject:model.scene_id]) {
+                    [array addObject:model];
+                }
+            }
         }
         
     }
@@ -165,6 +212,7 @@ static SceneDataBase *_DBCtl = nil;
     [_db close];
     return array;
 }
+
 
 - (NSMutableArray *)selectScenewithoutDefault{
     [_db open];
@@ -178,6 +226,106 @@ static SceneDataBase *_DBCtl = nil;
         SceneModel *model = [[SceneModel alloc] init];
         model.scene_type = @"1";
         model.scene_content = [res stringForColumn:@"scene_content"];
+        model.scene_id = [res stringForColumn:@"scene_ID"];
+        [model creatModel];
+        [array enumerateObjectsUsingBlock:^(SceneModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [idArray addObject:obj.scene_id];
+        }];
+        if (![idArray containsObject:model.scene_id]) {
+            [array addObject:model];
+        }
+        
+    }
+    
+    [_db close];
+    return array;
+}
+
+- (NSMutableArray *)selectScenewithoutDefaultwithoutGs361{
+    [_db open];
+    
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    NSMutableArray *idArray = [[NSMutableArray alloc] init];
+    
+    FMResultSet *res = [_db executeQuery:@"SELECT * FROM scene WHERE scene_ID < 129 ORDER BY scene_ID"];
+    while ([res next]) {
+        [idArray removeAllObjects];
+        SceneModel *model = [[SceneModel alloc] init];
+        model.scene_type = @"1";
+        model.scene_content = [res stringForColumn:@"scene_content"];
+        model.scene_id = [res stringForColumn:@"scene_ID"];
+        [model creatModel];
+        BOOL flag = NO;
+        if(model.scene_indevice_array.count==1 && model.scene_outdevice_array.count){
+            SceneListItemData *scene = [model.scene_indevice_array objectAtIndex:0];
+            SceneListItemData *scene2 = [model.scene_outdevice_array objectAtIndex:0];
+            if([scene.title isEqualToString:@"温控器"] &&![NSString isBlankString:scene2.week]){
+                flag = YES;
+            }
+        }
+        
+        if(!flag){
+            [array enumerateObjectsUsingBlock:^(SceneModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [idArray addObject:obj.scene_id];
+            }];
+            if (![idArray containsObject:model.scene_id]) {
+                [array addObject:model];
+            }
+        }
+
+    }
+    
+    [_db close];
+    return array;
+}
+
+- (NSMutableArray *)selectScenewithGS361:(NSString *)eqid{
+    [_db open];
+    
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    NSMutableArray *idArray = [[NSMutableArray alloc] init];
+    
+    FMResultSet *res = [_db executeQuery:@"SELECT * FROM scene WHERE scene_ID < 129 ORDER BY scene_ID"];
+    while ([res next]) {
+        [idArray removeAllObjects];
+        SceneModel *model = [[SceneModel alloc] init];
+        model.scene_type = @"1";
+        model.scene_content = [res stringForColumn:@"scene_content"];
+        [model creatModel];
+        
+       
+        if(model.scene_indevice_array.count==1 && model.scene_outdevice_array.count){
+            SceneListItemData *scene = [model.scene_indevice_array objectAtIndex:0];
+            SceneListItemData *scene2 = [model.scene_outdevice_array objectAtIndex:0];
+            if([scene.title isEqualToString:@"温控器"] && [scene.deviceId isEqualToString:eqid]&& ![NSString isBlankString:scene2.week]){
+                [array enumerateObjectsUsingBlock:^(SceneModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    [idArray addObject:obj.scene_id];
+                }];
+                if (![idArray containsObject:model.scene_id]) {
+                    [array addObject:model];
+                }
+            }
+        }
+        
+    }
+    
+    [_db close];
+    return array;
+}
+
+- (NSMutableArray *)selectScenewithDefault{
+    [_db open];
+    
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    NSMutableArray *idArray = [[NSMutableArray alloc] init];
+    
+    FMResultSet *res = [_db executeQuery:@"SELECT * FROM scene WHERE scene_ID > 128 ORDER BY scene_ID"];
+    while ([res next]) {
+        [idArray removeAllObjects];
+        SceneModel *model = [[SceneModel alloc] init];
+        model.scene_type = @"1";
+        model.scene_content = [res stringForColumn:@"scene_content"];
+        model.scene_id = [res stringForColumn:@"scene_ID"];
         [model creatModel];
         [array enumerateObjectsUsingBlock:^(SceneModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [idArray addObject:obj.scene_id];
@@ -238,5 +386,23 @@ static SceneDataBase *_DBCtl = nil;
     [_db close];
 }
 
+- (void)checkSystemScene{
+    [_db open];
+    
+    /*初始化默认情景，129为默认pir触发，130位默认门磁触发，131为老人看护情景*/
+    FMResultSet *res2 = [_db executeQuery:@"SELECT * FROM scene WHERE scene_ID>128"];
+    int count2 = 0;
+    while ([res2 next]) {
+        count2 ++;
+    }
+    if (count2 == 0) {
+        [_db executeUpdate:@"INSERT INTO scene(scene_ID,scene_name,scene_content)VALUES(?,?,?)",[NSNumber numberWithInt:129],@"",@"0"];
+        [_db executeUpdate:@"INSERT INTO scene(scene_ID,scene_name,scene_content)VALUES(?,?,?)",[NSNumber numberWithInt:130],@"",@"0"];
+        [_db executeUpdate:@"INSERT INTO scene(scene_ID,scene_name,scene_content)VALUES(?,?,?)",[NSNumber numberWithInt:131],@"",@"0"];
+    }
+
+    [_db close];
+    
+}
 
 @end
