@@ -76,7 +76,7 @@
     NSString *autotemp = [[DeviceDataBase sharedDataBase] getGs361Autotemp:_data.devID];
     NSString *handtemp = [[DeviceDataBase sharedDataBase] getGs361Handtemp:_data.devID];
     NSString *fangtemp = [[DeviceDataBase sharedDataBase] getGs361Fangtemp:_data.devID];
-    NSLog(@"三种设置温度缓存值为%@,%@,%@",autotemp,handtemp,fangtemp);
+    NSLog(@"[GS361 debug] 三种设置温度缓存值为%@,%@,%@",autotemp,handtemp,fangtemp);
 }
 
 - (void)dealloc{
@@ -123,7 +123,7 @@
 
 #pragma -mark method
 - (void)setupBaseUI {
-    
+    NSLog(@"[GS361 debug] setupBaseUI");
     
     _bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, Main_Screen_Height)];
     [self.view addSubview:_bgImageView];
@@ -360,6 +360,8 @@
 }
 
 -(void)clickItem{
+    NSLog(@"[GS361 debug] clickItem");
+    
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
     deleteDeviceApi *deleteApi = [[deleteDeviceApi alloc] initWithDevTid:model.devTid CtrlKey:model.ctrlKey mDeviceID:_data.devID];
@@ -468,6 +470,8 @@
  设备背景图片
  */
 -(void)setPageBackground{
+    NSLog(@"[GS361 debug] setPageBackground");
+    
     [_bgImageView setImage:[UIImage imageNamed:@"sbodarkblue_bg"]];
     if ([_data.status isEqualToString:@"no"]){
         _MainLabel.text = NSLocalizedString(@"离线",nil);
@@ -670,6 +674,8 @@
 
 -(void)modeselect:(UIButton *)btn{
     NSInteger tag = btn.tag;
+    NSLog(@"[GS361 debug] setPageBackground > tag = %ld", tag);
+    
     if(tag==1){
         [_circularSlider setMaximumValue:30];
         if(mode!=1){
@@ -756,6 +762,8 @@
 }
 
 -(void)save{
+    NSLog(@"[GS361 debug] save");
+    
     NSString *command = [self getCode];
     
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];

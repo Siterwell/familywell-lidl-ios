@@ -272,7 +272,7 @@ static SceneDataBase *_DBCtl = nil;
                 [array addObject:model];
             }
         }
-
+        
     }
     
     [_db close];
@@ -293,7 +293,7 @@ static SceneDataBase *_DBCtl = nil;
         model.scene_content = [res stringForColumn:@"scene_content"];
         [model creatModel];
         
-       
+        
         if(model.scene_indevice_array.count==1 && model.scene_outdevice_array.count){
             SceneListItemData *scene = [model.scene_indevice_array objectAtIndex:0];
             SceneListItemData *scene2 = [model.scene_outdevice_array objectAtIndex:0];
