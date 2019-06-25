@@ -470,14 +470,14 @@
  设备背景图片
  */
 -(void)setPageBackground{
-    NSLog(@"[GS361 debug] setPageBackground");
+    NSLog(@"[GS361 debug] setPageBackground  111 > status = %@", _data.status);
     
     [_bgImageView setImage:[UIImage imageNamed:@"sbodarkblue_bg"]];
-    if ([_data.status isEqualToString:@"no"]){
-        _MainLabel.text = NSLocalizedString(@"离线",nil);
-        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
-        return;
-    }else if ([_data.status isEqualToString:@"aq"]) {
+//    if ([_data.status isEqualToString:@"no"]){
+//        _MainLabel.text = NSLocalizedString(@"离线",nil);
+//        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
+//        return;
+    if ([_data.status isEqualToString:@"aq"] || [_data.status isEqualToString:@"no"]) {
         _MainLabel.text = NSLocalizedString(@"正常",nil);
         [_bgImageView setImage:[UIImage imageNamed:@"sbodarkblue_bg"]];
     }
@@ -486,13 +486,14 @@
         [_bgImageView setImage:[UIImage imageNamed:@"sborange_bg"]];
     }
     
+    
     self.data = [[DeviceDataBase sharedDataBase] selectDevice:self.data.devID];
-    if (![self.data.status isEqualToString:@"no"]) {
+//    if (![self.data.status isEqualToString:@"no"]) {
         NSString *signal = [_data.statuCode substringWithRange:NSMakeRange(0, 2)];
-        
         NSNumber *num = [BatterHelp numberHexString:signal];
         int b = [num intValue];
         int a =(b&0x07);
+    NSLog(@"[GS361 debug] setPageBackground  222 > a = %d", a);
         
         if (a == 4) {
             [self.wifiImgV setImage:[UIImage imageNamed:@"wifi04"]];
@@ -509,12 +510,13 @@
         else{
             [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
         }
-    }
-    else {
-        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
-        
-    }
+//    }
+//    else {
+//        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
+//
+//    }
     NSString *battery = [_data.statuCode substringWithRange:NSMakeRange(2, 2)];
+    NSLog(@"[GS361 debug] setPageBackground > battery = %@", battery);
         if ([battery isEqualToString:@"FF"]) {
         }
         else if ([battery isEqualToString:@"80"]){
@@ -541,21 +543,28 @@
     NSString *signal1 = [_data.statuCode substringWithRange:NSMakeRange(0, 2)];
     NSString *status1 = [_data.statuCode substringWithRange:NSMakeRange(4, 2)];
     NSString *status2 =[_data.statuCode substringWithRange:NSMakeRange(6, 2)];
-
+    NSLog(@"[GS361 debug] setPageBackground > signal1 = %@, status1 = %@, status2 = %@", signal1, status1, status2);
   
         int ds = [[BatterHelp numberHexString:status1] intValue];
         int ds2 = [[BatterHelp numberHexString:status2] intValue];
         int ds3 = [[BatterHelp numberHexString:signal1] intValue];
+    NSLog(@"[GS361 debug] setPageBackground > ds = %d, ds2 = %d, ds3 = %d", ds, ds2, ds3);
         
         int shineng_window2 = (0x80) & ds3;
         int shineng_valve2 = (0x40) & ds3;
         int  shishi_temp2= (0x3F) & (ds2>>2);
         int mode2 = (0x03) & (ds2);
+    NSLog(@"[GS361 debug] setPageBackground > shineng_window2 = %d, shineng_valve2 = %d, shishi_temp2 = %d, mode2 = %d", shineng_window2, shineng_valve2, shishi_temp2, mode2);
+    
         int status_window2 = (0x80) & ds;
         int status_valve2 = (0x40) & ds;
         int status_tongsuo = (0x20) & ds3;
+    NSLog(@"[GS361 debug] setPageBackground > status_window2 = %d, status_valve2 = %d, status_tongsuo = %d", status_window2, status_valve2, status_tongsuo);
+    
         int xiaoshu = (0x20) & ds;
         int sta =  ((0x1F) & ds);
+    NSLog(@"[GS361 debug] setPageBackground > xiaoshu = %d, sta = %d", xiaoshu, sta);
+    
     BOOL shineng_win = (shineng_window2 == 0?NO:YES);
     BOOL shineng_val = (shineng_valve2 == 0?NO:YES);
     BOOL shineng_tong = (status_tongsuo == 0?NO:YES);
@@ -585,6 +594,8 @@
     float fa = (sta + (xiaoshu==0?0.0f:0.5f));
     [self setSetingTemp:fa];
     _temp_shishi_label.text = [NSString stringWithFormat:@"%d℃",shishi_temp2 ];
+    NSLog(@"[GS361 debug] setPageBackground > currentTemp = %@", [NSString stringWithFormat:@"%d℃",shishi_temp2 ]);
+    
     if(status_tongsuo==0){
         [_tongsuoimg setSelected:NO];
         [_switch_tongsuo setOn:NO];
@@ -668,6 +679,7 @@
 }
 
 -(void)setSetingTemp:(float)temp{
+    NSLog(@"[GS361 debug] setSetingTemp > temp = %f", temp);
     [_circularSlider setCurrentValue:temp];
     _temp_setting_label.text = [NSString stringWithFormat:@"%0.1f℃",temp ];
 }
@@ -762,7 +774,7 @@
 }
 
 -(void)save{
-    NSLog(@"[GS361 debug] save");
+    NSLog(@"[GS361 debug] save BEGIN");
     
     NSString *command = [self getCode];
     
@@ -779,10 +791,11 @@
             dic = [dic objectForKey:@"params"];
             dic = [dic objectForKey:@"data"];
             long isSuccess = [[dic objectForKey:@"answer_yes_or_no"] longValue];
+            NSLog(@"[GS361 debug] save -------------------------> isSuccess = %ld", isSuccess);
             if (isSuccess == 2) {
                 [MBProgressHUD showError:NSLocalizedString(@"设置完成,数据同步中",nil) ToView:GetWindow];
             }else{
-                [MBProgressHUD showError:NSLocalizedString(@"设置失败",nil) ToView:GetWindow];
+//                [MBProgressHUD showError:NSLocalizedString(@"设置失败",nil) ToView:GetWindow];
             }
             obj = nil;
         } failure:^(id data, NSError *error) {
