@@ -98,6 +98,11 @@
     
 }
 
+-(void)reloadDevice {
+    NSLog(@"[RYAN] HomeHeadView > reloadDevice");
+    [self setImages];
+}
+
 -(void)setImages{
 
     WS(ws)
@@ -223,7 +228,7 @@
     self.modelSource = [ArrayTool deletJundgeArr:self.modelSource UpdateArr:mainItems];
     self.modelSource = [ArrayTool updateJundgeArr:self.modelSource UpdateArr:mainItems];
     
-    NSLog(@"[RYAN] HomeHeadView > modelSource size : %d", [self.modelSource count]);
+    NSLog(@"[RYAN] HomeHeadView > modelSource size : %lu", [self.modelSource count]);
     
 //    [self.bookShelfMainView initWithData:self.modelSource];
 //    [self.bookShelfMainView reloadData];

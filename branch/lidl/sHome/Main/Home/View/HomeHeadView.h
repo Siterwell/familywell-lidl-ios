@@ -24,6 +24,7 @@
 @property (nonatomic , strong) NSTimer *timer;
 
 -(id)initWithSubView:(UIView *) view;
+-(void)reloadDevice;
 
 @end
 

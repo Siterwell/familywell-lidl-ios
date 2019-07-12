@@ -775,6 +775,8 @@ BOOL flag_checkfireware = NO;
 }
 
 - (void)lodaData {
+    NSLog(@"[RYAN] HomeVC > lodaData");
+    
     [self.tempHumArray removeAllObjects];
     NSArray<ItemData *> *array = [[DeviceDataBase sharedDataBase] selectDevice];
     [array enumerateObjectsUsingBlock:^(ItemData * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -785,6 +787,8 @@ BOOL flag_checkfireware = NO;
     
     /** 调起marquee显示温湿度信息的方法 */
     self.marquee.tempAndHumArray = self.tempHumArray;
+    
+    [_imageView reloadDevice];
 }
 
 /**
