@@ -23,7 +23,7 @@
 //#import "MainDeviceApi.h"
 #import "ScynDeviceApi.h"
 #import "Encryptools.h"
-
+#define kIPhoneX ([UIScreen mainScreen].bounds.size.height == 812.0)
 @interface DeviceVC ()
 @property (nonatomic, strong) NSMutableArray *modelSource;
 @property (nonatomic, weak)   BookShelfMainView *bookShelfMainView;
@@ -71,7 +71,7 @@
     [bookShelfView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(ws.view.mas_left);
         make.right.equalTo(ws.view.mas_right);
-        make.top.equalTo(44+64);
+        make.top.equalTo(44+(kIPhoneX?88:64));
         make.bottom.equalTo(ws.view.mas_bottom);
     }];
     
@@ -91,7 +91,7 @@
         make.centerX.equalTo(-30);
         make.height.equalTo(12);
         make.width.equalTo(25);
-        make.top.equalTo(12+64);
+        make.top.equalTo(12+(kIPhoneX?88:64));
     }];
     
     UILabel *redLb = [[UILabel alloc] init];
