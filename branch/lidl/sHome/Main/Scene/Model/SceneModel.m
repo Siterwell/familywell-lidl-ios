@@ -62,7 +62,7 @@
 
 - (NSMutableArray *)getOutDeviceArray{
     
-    NSLog(@"[SCENE TEST] getOutDeviceArray > scene_content = %@", self.scene_content);
+    NSLog(@"[SCENE TEST] getOutDeviceArray ++++++++ length = %lu, scene_content = %@", self.scene_content.length, self.scene_content);
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
     NSString *week = [self.scene_content substringWithRange:NSMakeRange(40, 2)];
@@ -92,8 +92,10 @@
     
     NSString *number = [self.scene_content substringWithRange:NSMakeRange(50, 2)];
     int deviceNumber = (int)strtoul([number UTF8String],0,16);
+    NSLog(@"[SCENE TEST] getOutDeviceArray > deviceNumber = %d", deviceNumber);
     for (int i = 0; i<deviceNumber; i++) {
         NSString *deviceString = [self.scene_content substringWithRange:NSMakeRange(54+(i*12), 12)];
+        NSLog(@"[SCENE TEST] getOutDeviceArray > range = (%d, %d), deviceString = %@", 54+(i*12), 12, deviceString);
         NSString *deviceId = [deviceString substringWithRange:NSMakeRange(0, 4)];
         deviceId = [NSString stringWithFormat:@"%ld",strtoul([deviceId UTF8String],0,16)];
         NSString *deviceCount = [deviceString substringWithRange:NSMakeRange(4, 8)];
@@ -102,6 +104,8 @@
         deviceItem.action = deviceCount;
         [array addObject:deviceItem];
     }
+    
+    NSLog(@"[SCENE TEST] getOutDeviceArray -----------------");
     
     return array;
 }
