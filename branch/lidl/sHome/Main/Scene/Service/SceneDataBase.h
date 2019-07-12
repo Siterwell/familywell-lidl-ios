@@ -21,7 +21,15 @@
 
 - (NSMutableArray *)selectScene;
 
+- (NSMutableArray *)selectSceneWithAll361;
+
 - (NSMutableArray *)selectScenewithoutDefault;
+
+- (NSMutableArray *)selectScenewithoutDefaultwithoutGs361;
+
+- (NSMutableArray *)selectScenewithGS361:(NSString *)eqid;
+
+- (NSMutableArray *)selectScenewithDefault;
 
 - (NSMutableArray *)selectSceneWithArray:(NSArray *)systemArray;
 

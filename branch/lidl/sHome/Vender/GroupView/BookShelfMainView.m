@@ -20,6 +20,7 @@
 #import "SceneDetailVC.h"
 #import "LightDetailVC.h"
 #import "TempControlDetailVC.h"
+#import "TempControlDetailVC2.h"
 
 /**
  *  一： 打开分组的方式有3种：
@@ -174,7 +175,7 @@
         NSLog(@"[RYAN] collectionView > data.title: %@", data.title);
         
         if([data.title isEqualToString:@"温控器"]){
-            TempControlDetailVC *vc = [[TempControlDetailVC alloc] init];
+            TempControlDetailVC2 *vc = [[TempControlDetailVC2 alloc] init];
             vc.data = data;
             [self.subVC.navigationController pushViewController:vc animated:YES];
         }

@@ -33,6 +33,7 @@
 
 @property (nonatomic) NSMutableArray<Ignore> *dev584_ids_scs;
 
+- (NSString *)getCRCFromContent;
 - (void)creatModel;
 
 -(NSMutableArray *) getSelectArray;

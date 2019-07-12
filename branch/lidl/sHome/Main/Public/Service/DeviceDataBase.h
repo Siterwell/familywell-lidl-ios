@@ -24,6 +24,18 @@
 - (void)deletDevice;
 
 - (ItemData *)selectDevice:(NSString *)deviceId;
-    
+
 -(DeviceModel *)selectDeviceNew:(NSString *)deviceId;
+
+- (NSString *)getGs361Autotemp:(NSString *)deviceId;
+
+- (NSString *)getGs361Handtemp:(NSString *)deviceId;
+
+- (NSString *)getGs361Fangtemp:(NSString *)deviceId;
+
+- (void)UpdateGs361AutoTemp:(NSString *)temp withDevId:(NSString *)devID;
+
+- (void)UpdateGs361HandTemp:(NSString *)temp withDevId:(NSString *)devID;
+
+- (void)UpdateGs361FangTemp:(NSString *)temp withDevId:(NSString *)devID;
 @end
