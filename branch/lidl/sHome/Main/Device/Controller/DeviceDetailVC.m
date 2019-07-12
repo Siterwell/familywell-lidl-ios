@@ -32,6 +32,7 @@
 #import "LEEAlert.h"
 #import "Encryptools.h"
 #import "TXScrollLabelView.h"
+#define kIPhoneX ([UIScreen mainScreen].bounds.size.height == 812.0)
 @interface DeviceDetailVC ()<WarningTableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIView *borderView;
 @property (strong, nonatomic) IBOutlet UIView *bgView;
