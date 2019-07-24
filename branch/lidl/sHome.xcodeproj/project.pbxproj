@@ -6641,7 +6641,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = elro_siterwell_appstore;
+				PROVISIONING_PROFILE_SPECIFIER = elro_siterwell_adhoc;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
