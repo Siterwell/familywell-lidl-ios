@@ -94,8 +94,15 @@
     int deviceNumber = (int)strtoul([number UTF8String],0,16);
     NSLog(@"[SCENE TEST] getOutDeviceArray > deviceNumber = %d", deviceNumber);
     for (int i = 0; i<deviceNumber; i++) {
-        NSString *deviceString = [self.scene_content substringWithRange:NSMakeRange(54+(i*12), 12)];
-        NSLog(@"[SCENE TEST] getOutDeviceArray > range = (%d, %d), deviceString = %@", 54+(i*12), 12, deviceString);
+        NSUInteger loc = 54+(i*12);
+        NSUInteger len = 12;
+        if (loc >= self.scene_content.length || (loc+len) > self.scene_content.length) {
+            // To avoid OutOfBound exception crash
+            break;
+        }
+        
+        NSString *deviceString = [self.scene_content substringWithRange:NSMakeRange(loc, len)];
+        NSLog(@"[SCENE TEST] getOutDeviceArray > range = (%lu, %lu), deviceString = %@", loc, len, deviceString);
         NSString *deviceId = [deviceString substringWithRange:NSMakeRange(0, 4)];
         deviceId = [NSString stringWithFormat:@"%ld",strtoul([deviceId UTF8String],0,16)];
         NSString *deviceCount = [deviceString substringWithRange:NSMakeRange(4, 8)];
