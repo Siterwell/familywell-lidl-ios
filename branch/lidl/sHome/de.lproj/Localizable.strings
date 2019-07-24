@@ -518,4 +518,6 @@
 "未连接" = "Typ senden";
 "转发模式" = "Getrennt";
 "恢复出厂成功,请等待.." = "Die sanierung der Fabrik erfolgreich, bitte warten...";
-
+"请选择颜色" = "Bitte wählen sie die farbe";
+"默认情景" = "Die standard situationen";
+"自定义情景" = "Custom szene";

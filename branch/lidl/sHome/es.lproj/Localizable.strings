@@ -518,4 +518,6 @@
 "未连接" = "tipo de transmision";
 "转发模式" = "Desconectado";
 "恢复出厂成功,请等待.." = "Recupera la fábrica.Por favor,espere...";
-
+"请选择颜色" = "Por favor elija el color";
+"默认情景" = "Escenario predeterminado";
+"自定义情景" = "Escenario";
