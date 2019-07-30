@@ -518,4 +518,6 @@
 "未连接" = "posredovanje načinu";
 "转发模式" = "ni povezave";
 "恢复出厂成功,请等待.." = "za uspešno oživitev franko tovarna, prosim, počakaj.";
-
+"请选择颜色" = "prosim, izberi barvo";
+"默认情景" = "privzeto";
+"自定义情景" = "običaj";

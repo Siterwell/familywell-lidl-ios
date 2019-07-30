@@ -699,6 +699,9 @@
 		E2432D16219A7B5800A76C2C /* privacy_french.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D15219A7B5800A76C2C /* privacy_french.html */; };
 		E2432D18219A7B6E00A76C2C /* privacy_italian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D17219A7B6E00A76C2C /* privacy_italian.html */; };
 		E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D19219A7B8500A76C2C /* privacy_slovenian.html */; };
+		E2526F4C22E82D44004E1703 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BE7E911EECAE7600AC8B59 /* libstdc++.6.0.9.tbd */; };
+		E2526F4D22E82D45004E1703 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BE7E8E1EEC5DD900AC8B59 /* libstdc++.6.tbd */; };
+		E2526F4E22E82D45004E1703 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2828E61229E3C9200C3BCD8 /* libstdc++.tbd */; };
 		E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */ = {isa = PBXBuildFile; fileRef = E28F923521D0D567008EA9EB /* privacy_finnish.html */; };
 		E2B3A10622C0AE17003DD20E /* TempControlTimerEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10522C0AE17003DD20E /* TempControlTimerEditVC.m */; };
 		E2B3A10922C0AEED003DD20E /* PickViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10822C0AEED003DD20E /* PickViewCell.m */; };
@@ -2299,9 +2302,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2FA91D622A12CCE004DA548 /* libstdc++.6.0.9.tbd in Frameworks */,
-				E2FA91D722A12CCE004DA548 /* libstdc++.6.tbd in Frameworks */,
-				E2FA91D822A12CCE004DA548 /* libstdc++.tbd in Frameworks */,
+				E2526F4C22E82D44004E1703 /* libstdc++.6.0.9.tbd in Frameworks */,
+				E2526F4D22E82D45004E1703 /* libstdc++.6.tbd in Frameworks */,
+				E2526F4E22E82D45004E1703 /* libstdc++.tbd in Frameworks */,
 				18EAC7BC1EEE629200C99854 /* QuartzCore.framework in Frameworks */,
 				18EAC7BA1EEE619F00C99854 /* UserNotifications.framework in Frameworks */,
 				18EAC7B61EEE601000C99854 /* VideoToolbox.framework in Frameworks */,
