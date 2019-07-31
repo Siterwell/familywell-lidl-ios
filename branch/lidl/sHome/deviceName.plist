@@ -4,6 +4,12 @@
 <dict>
 	<key>pictures</key>
 	<dict>
+		<key>00E</key>
+		<string>%@_cobjq_icon</string>
+		<key>011</key>
+		<string>%@_rg_icon</string>
+		<key>012</key>
+		<string>%@_sgbjq_icon</string>
 		<key>013</key>
 		<string>%@_smbjq_icon</string>
 		<key>214</key>
@@ -83,6 +89,12 @@
 	</dict>
 	<key>names</key>
 	<dict>
+		<key>011</key>
+		<string>热感报警器</string>
+		<key>00E</key>
+		<string>CO报警器</string>
+		<key>012</key>
+		<string>水感报警器</string>
 		<key>013</key>
 		<string>复合型烟感</string>
 		<key>214</key>
