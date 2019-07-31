@@ -4,6 +4,8 @@
 <dict>
 	<key>pictures</key>
 	<dict>
+		<key>013</key>
+		<string>%@_smbjq_icon</string>
 		<key>214</key>
 		<string>%@_jtbj_icon</string>
 		<key>201</key>
@@ -81,6 +83,8 @@
 	</dict>
 	<key>names</key>
 	<dict>
+		<key>013</key>
+		<string>复合型烟感</string>
 		<key>214</key>
 		<string>调光模块</string>
 		<key>201</key>
