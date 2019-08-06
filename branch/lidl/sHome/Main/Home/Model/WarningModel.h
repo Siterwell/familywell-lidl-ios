@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BatterHelp.h"
 
 @interface WarningModel : NSObject
 
@@ -18,6 +19,6 @@
 
 @property (nonatomic) NSString *answer_content;
 
-//@property (nonatomic) 
++(NSString *)getAlertWithDevType:(NSString *)type status:(NSString *) statusa;
 
 @end

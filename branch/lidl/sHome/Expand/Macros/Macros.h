@@ -153,6 +153,7 @@
 
 #define selectSystemItem @"selectSystemItem"
 #define ThemeColor RGB(40, 184, 215)
+#define NetiveColor  RGB(211, 211, 211)
 #if DEBUG
 // 测试环境
 #define kGtAppId           @"Z4oQtHjgSIAF9Jxs2Ggy83"
