@@ -182,8 +182,7 @@
         NSMutableSet *dcs = [NSMutableSet set];
         [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSString *connectHost = [[obj objectForKey:@"dcInfo"] objectForKey:@"connectHost"];
-            NSLog(@"[RYAN ] LoginVC > connectHost = %@", connectHost);
-            [dcs addObject:connectHost == nil ? @"fra-hub.hekreu.me": connectHost];
+            [dcs addObject:connectHost == nil ? @"hub.hekr.me": connectHost];
         }];
         [[Hekr sharedInstance] setCloudControlWithGlobals:dcs.allObjects];
         

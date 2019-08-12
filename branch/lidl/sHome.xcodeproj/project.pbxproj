@@ -703,6 +703,8 @@
 		E2526F4D22E82D45004E1703 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BE7E8E1EEC5DD900AC8B59 /* libstdc++.6.tbd */; };
 		E2526F4E22E82D45004E1703 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2828E61229E3C9200C3BCD8 /* libstdc++.tbd */; };
 		E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */ = {isa = PBXBuildFile; fileRef = E28F923521D0D567008EA9EB /* privacy_finnish.html */; };
+		E2A28B9622F7D4F3000F05BD /* DeviceWarningListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A28B9522F7D4F3000F05BD /* DeviceWarningListViewController.m */; };
+		E2A28B9922F7D72A000F05BD /* LCAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A28B9822F7D72A000F05BD /* LCAlertViewController.m */; };
 		E2B3A10622C0AE17003DD20E /* TempControlTimerEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10522C0AE17003DD20E /* TempControlTimerEditVC.m */; };
 		E2B3A10922C0AEED003DD20E /* PickViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10822C0AEED003DD20E /* PickViewCell.m */; };
 		E2B3A10C22C0AF3F003DD20E /* TempViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10B22C0AF3F003DD20E /* TempViewCell.m */; };
@@ -2275,6 +2277,10 @@
 		E2565C6621AE77AF00571EBE /* PatternUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PatternUtil.h; sourceTree = "<group>"; };
 		E2828E61229E3C9200C3BCD8 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		E28F923521D0D567008EA9EB /* privacy_finnish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_finnish.html; sourceTree = "<group>"; };
+		E2A28B9422F7D4F3000F05BD /* DeviceWarningListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceWarningListViewController.h; sourceTree = "<group>"; };
+		E2A28B9522F7D4F3000F05BD /* DeviceWarningListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceWarningListViewController.m; sourceTree = "<group>"; };
+		E2A28B9722F7D72A000F05BD /* LCAlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCAlertViewController.h; sourceTree = "<group>"; };
+		E2A28B9822F7D72A000F05BD /* LCAlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCAlertViewController.m; sourceTree = "<group>"; };
 		E2B3A10422C0AE17003DD20E /* TempControlTimerEditVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempControlTimerEditVC.h; sourceTree = "<group>"; };
 		E2B3A10522C0AE17003DD20E /* TempControlTimerEditVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempControlTimerEditVC.m; sourceTree = "<group>"; };
 		E2B3A10722C0AEED003DD20E /* PickViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickViewCell.h; sourceTree = "<group>"; };
@@ -3045,6 +3051,8 @@
 				E2B3A11122C0B2F5003DD20E /* TempControlTimerListVC.m */,
 				E2B3A11922C0BC49003DD20E /* TempControlDetailVC2.h */,
 				E2B3A11A22C0BC49003DD20E /* TempControlDetailVC2.m */,
+				E2A28B9422F7D4F3000F05BD /* DeviceWarningListViewController.h */,
+				E2A28B9522F7D4F3000F05BD /* DeviceWarningListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3134,6 +3142,8 @@
 				E2B3A11422C0B365003DD20E /* GS361TimerCell.m */,
 				E2B3A11622C0BBA1003DD20E /* CYCircularSlider.h */,
 				E2B3A11722C0BBA1003DD20E /* CYCircularSlider.m */,
+				E2A28B9722F7D72A000F05BD /* LCAlertViewController.h */,
+				E2A28B9822F7D72A000F05BD /* LCAlertViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5676,6 +5686,7 @@
 				75E524411DFEEF8A0093DECC /* UILabel+AutoSize.m in Sources */,
 				01A63F5B2063E947004FEC2F /* RecordConfigView.mm in Sources */,
 				051A321D1E98BA7A00A8E7C9 /* GetAlarmsApi.m in Sources */,
+				E2A28B9922F7D72A000F05BD /* LCAlertViewController.m in Sources */,
 				01A63F952063E947004FEC2F /* VRGLViewController.mm in Sources */,
 				88105A752162EF820084C6D9 /* TempControlDetailVC.m in Sources */,
 				DD8E404E1EEFB9D300B5E433 /* TimeSceneModel.m in Sources */,
@@ -6106,6 +6117,7 @@
 				183AED701EF8254900E3FC3D /* TOWebViewController.m in Sources */,
 				01A63F792063E947004FEC2F /* FunctionScrollView.m in Sources */,
 				75E524C61DFEEF8A0093DECC /* QBAssetsCollectionFooterView.m in Sources */,
+				E2A28B9622F7D4F3000F05BD /* DeviceWarningListViewController.m in Sources */,
 				75E523B81DFEEF8A0093DECC /* NSDate+Extension.m in Sources */,
 				75E524AD1DFEEF8A0093DECC /* GVUserDefaults.m in Sources */,
 				75E5246D1DFEEF8A0093DECC /* UIView+FDCollapsibleConstraints.m in Sources */,

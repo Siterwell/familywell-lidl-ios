@@ -23,7 +23,7 @@
 //#import "MainDeviceApi.h"
 #import "ScynDeviceApi.h"
 #import "Encryptools.h"
-#define kIPhoneX ([UIScreen mainScreen].bounds.size.height == 812.0)
+#define kIPhoneX ([UIScreen mainScreen].bounds.size.height >= 812.0)
 @interface DeviceVC ()
 @property (nonatomic, strong) NSMutableArray *modelSource;
 @property (nonatomic, weak)   BookShelfMainView *bookShelfMainView;
