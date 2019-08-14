@@ -5625,7 +5625,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-sHome/Pods-sHome-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-sHome/Pods-sHome-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/HekrSDK/JSSDK.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
@@ -5640,7 +5640,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sHome/Pods-sHome-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sHome/Pods-sHome-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E267171F2191A09400A11F3B /* ShellScript */ = {
