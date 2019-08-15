@@ -45,6 +45,8 @@
     
 }
 - (IBAction)configWifi:(id)sender {
+    NSLog(@"[RYAN] AddCameraVc > configWifi");
+    
     //开始快速配置
     [self.view endEditing:YES];
     
@@ -59,6 +61,17 @@
 //    [_apConfigModel stopConfig];
     [MBProgressHUD showMessage:NSLocalizedString(@"请稍后...", nil) ToView:self.view];
     [_apConfigModel starAPConfigWithSSID:self.ssidName.text password:self.wifiPwd.text];
+    
+    if (_type_qiang) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showTimeoutFail) object:nil];
+        [self performSelector:@selector(showTimeoutFail) withObject:nil afterDelay:60.0];
+    }
+}
+
+- (void) showTimeoutFail {
+    NSLog(@"[RYAN] AddCameraVc > showTimeout");
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD showError:NSLocalizedString(@"配置失败", nil) ToView:GetWindow];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -184,7 +197,7 @@
         }else{
             [MBProgressHUD showSuccess:NSLocalizedString(@"配置成功", nil) ToView:GetWindow];
             [self.navigationController popViewControllerAnimated:YES];
-
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showTimeoutFail) object:nil];
         }
             
             
