@@ -280,6 +280,9 @@
 - (void)OnFunSDKResult:(NSNumber*)pParam {
     NSInteger nAddr = [pParam integerValue];
     MsgContent *msg = (MsgContent *)nAddr;
+    
+    NSLog(@"[RYAN] GeneralViewController > OnFunSDKResult > msg->szStr = %s", msg->szStr);
+    
     if (strcmp(msg->szStr, "Status.NatInfo") == 0) {
         char *status = msg->pObject;
         NSString *sta = [NSString stringWithUTF8String:status];
@@ -296,6 +299,9 @@
         }
 
         [self.table reloadData];
+        return;
+    } else if (strcmp(msg->szStr, "OPMachine") == 0) {
+        NSLog(@"[RYAN] GeneralViewController > OnFunSDKResult > OPMachine complete");
         return;
     }
     int mode = msg->param2;
@@ -323,24 +329,36 @@
     
     
     if(jsonData!=nil){
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-    
-    NSString *HardWare = dict[@"SystemInfo"][@"HardWare"];
-    
-    self.hardWare = HardWare;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *HardWare = dict[@"SystemInfo"][@"HardWare"];
+        
+        self.hardWare = HardWare;
     }
 
-    
     [self.table reloadData];
 }
 
 -(void)RefreshUIWithSetConfig:(DeviceConfig *)config{
+    NSLog(@"[RYAN] GeneralViewController > RefreshUIWithSetConfig > factory reset success");
     //录像满时
     if ([config.name isEqualToString:@JK_OPDefaultConfig]) {
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"恢复出厂成功,请等待..", nil) duration:3.0];
+        
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showTimeoutFail) object:nil];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
-        [SVProgressHUD showSuccessWithStatus:TS("恢复出厂成功,请等待..") duration:3.0];
+        [self RestartDevice];
     }
+}
+
+#pragma mark - 设备重启
+-(void)RestartDevice {
+    NSLog(@"[RYAN] GeneralViewController > RestartDevice > begin");
+    //获取通道
+    char szParam[128] = {0};
+    sprintf(szParam, "{\"Name\":\"OPMachine\",\"SessionID\":\"0x00000001\",\"OPMachine\":{\"Action\":\"Reboot\"}}");
+    FUN_DevCmdGeneral(self.MsgHandle, SZSTR(self.deviceSN), 1450, "OPMachine", 0, 5000, szParam, 0);
+    NSLog(@"[RYAN] RestartDevice > end");
 }
 @end
