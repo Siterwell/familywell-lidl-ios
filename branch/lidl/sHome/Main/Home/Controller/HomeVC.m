@@ -1102,7 +1102,7 @@ BOOL flag_checkfireware = NO;
     }
     
     [self getGatewayStatus];
-//    [self AlarmDeviceListener];
+    [self AlarmDeviceListener];
     if ([CLLocationManager locationServicesEnabled]) {
         self.locationMgr = [[CLLocationManager alloc] init];
         self.locationMgr.delegate = self;
