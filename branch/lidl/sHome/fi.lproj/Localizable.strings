@@ -522,3 +522,4 @@
 "默认情景" = "maksukyvyttömyyden yhteydessä";
 "自定义情景" = "tapa";
 "设备告警" = "varoitus kirjataan";
+"resetting device, please do not power off" = "laitteen nollaus, älä katkaise virtaa";

@@ -64,7 +64,7 @@
     
     if (_type_qiang) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showTimeoutFail) object:nil];
-        [self performSelector:@selector(showTimeoutFail) withObject:nil afterDelay:60.0];
+        [self performSelector:@selector(showTimeoutFail) withObject:nil afterDelay:90.0];
     }
 }
 
