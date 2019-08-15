@@ -138,7 +138,7 @@
             [MBProgressHUD showMessage:NSLocalizedString(@"resetting device, please do not power off", nil) ToView:self.view];
             
             [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showTimeoutFail) object:nil];
-            [self performSelector:@selector(showTimeoutFail) withObject:nil afterDelay:90.0];
+            [self performSelector:@selector(showTimeoutFail) withObject:nil afterDelay:60.0];
         };
     })
     .LeeShow();
