@@ -135,7 +135,7 @@
 //            opDefaultConfig.CameraPARAM = 1;
             [self requestSetConfigWithChannel:-1 andJObject:&opDefaultConfig];
             
-            [MBProgressHUD showMessage:NSLocalizedString(@"请稍后...", nil) ToView:self.view];
+            [MBProgressHUD showMessage:NSLocalizedString(@"resetting device, please do not power off", nil) ToView:self.view];
             
             [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showTimeoutFail) object:nil];
             [self performSelector:@selector(showTimeoutFail) withObject:nil afterDelay:60.0];
@@ -343,7 +343,7 @@
     NSLog(@"[RYAN] GeneralViewController > RefreshUIWithSetConfig > factory reset success");
     //录像满时
     if ([config.name isEqualToString:@JK_OPDefaultConfig]) {
-        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"恢复出厂成功,请等待..", nil) duration:3.0];
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"恢复出厂成功,请等待..", nil) duration:5.0];
         
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showTimeoutFail) object:nil];
         [MBProgressHUD hideHUDForView:self.view animated:YES];
