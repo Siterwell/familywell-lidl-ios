@@ -350,7 +350,7 @@ NSString *content = [SystemSceneHelp getSceneContent:_titleTextFiled.text SceneI
 
 - (void)analysisStatus{
     
-//    if (![self.data.status isEqualToString:@"no"]) {
+    if (![self.data.status isEqualToString:@"no"]) {
         NSString *signal = [_data.statuCode substringWithRange:NSMakeRange(0, 2)];
         if ([signal isEqualToString:@"04"]) {
             [self.wifiImgV setImage:[UIImage imageNamed:@"wifi04"]];
@@ -390,18 +390,18 @@ NSString *content = [SystemSceneHelp getSceneContent:_titleTextFiled.text SceneI
                 [self.batteryImgV setImage:[UIImage imageNamed:@"dcmg40_icon"]];
             }
         }
-//    }
-//    else {
-//        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
-//        _batteryLabel.text = NSLocalizedString(@"",nil);
-//    }
+    }
+    else {
+        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
+        _batteryLabel.text = NSLocalizedString(@"",nil);
+    }
 }
 /**
  设备背景图片
  */
 -(void)setPageBackground{
-    if ([_data.status isEqualToString:@"aq"] || [_data.status isEqualToString:@"no"]) {
-        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
+    if ([_data.status isEqualToString:@"aq"]) {
+        [_bgImageView setImage:[UIImage imageNamed:@"sbgreen_bg"]];
         _MainLabel.text = NSLocalizedString(@"正常",nil);
 //        _MainLabel.textColor = RGB(0, 191, 102);
     }
@@ -415,11 +415,11 @@ NSString *content = [SystemSceneHelp getSceneContent:_titleTextFiled.text SceneI
         _MainLabel.text = NSLocalizedString(@"报警",nil);
 //        _MainLabel.textColor = RGB(245, 52, 35);
     }
-//    else if ([_data.status isEqualToString:@"no"]){
-//        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
-//        _MainLabel.text = NSLocalizedString(@"NO",nil);
-////        _MainLabel.textColor = RGB(192, 203, 223);
-//    }
+    else if ([_data.status isEqualToString:@"no"]){
+        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
+        _MainLabel.text = NSLocalizedString(@"NO",nil);
+//        _MainLabel.textColor = RGB(192, 203, 223);
+    }
 }
 
 - (void)clickItem{
