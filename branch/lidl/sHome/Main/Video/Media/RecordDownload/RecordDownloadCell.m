@@ -29,8 +29,8 @@
 - (void)setCellTextColor:(BOOL)setColorFlg{
     
     if (setColorFlg) {
-        self.timeLabel.textColor = RGB(40, 184, 215);
-        self.decLbl.textColor = RGB(40, 184, 215);
+        self.timeLabel.textColor = ThemeColor;
+        self.decLbl.textColor = ThemeColor;
         self.decLbl.text = NSLocalizedString(@"手动录像", nil);
     }else{
         self.timeLabel.textColor = [UIColor blackColor];

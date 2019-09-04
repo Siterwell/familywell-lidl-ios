@@ -120,4 +120,22 @@
     
     return timeCode;
 }
+
++(NSDate*)dateFromString:(NSString*)string
+
+{
+    
+    //设置转换格式
+    
+    NSDateFormatter *formatter=[[NSDateFormatter alloc] init];
+    
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
+    //NSString转NSDate
+    
+    NSDate *date=[formatter dateFromString:string];
+    
+    return date;
+    
+}
 @end

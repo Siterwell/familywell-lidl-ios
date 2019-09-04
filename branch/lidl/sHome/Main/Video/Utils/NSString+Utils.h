@@ -16,4 +16,5 @@ NSDate *YYNSDateFromString(__unsafe_unretained NSString *string);
 //NSString-NSDateComponents
 +(NSDateComponents*)toComponents:(NSString*)timeString;
 
+- (BOOL)isContainsString:(NSString *)sFind;
 @end

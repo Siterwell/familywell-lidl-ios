@@ -80,12 +80,17 @@ static VideoLocalDataBase *_DBCtl = nil;
 
 #pragma mark - 操作数据
 - (void)updateVideoInfo:(VideoInfoModel *)model{
-    [_db open];
+  
     
-    [_db executeUpdate:@"INSERT INTO video_localinfo(dev_ID,file_path,file_name,info_type,updata_time,vdieoimage_path)VALUES(?,?,?,?,?,?)",model.devid,model.filePath,model.fileName,[NSNumber numberWithInteger:model.infoType],model.updataTime,model.imagePath];
-    NSLog(@">>>>成功添加视频信息");
-    
-    [_db close];
+    NSMutableArray *array = [self selectVideoInfo:model.filePath andDevId:model.devid];
+    if(array!=nil && array.count==0){
+        [_db open];
+        [_db executeUpdate:@"INSERT INTO video_localinfo(dev_ID,file_path,file_name,info_type,updata_time,vdieoimage_path)VALUES(?,?,?,?,?,?)",model.devid,model.filePath,model.fileName,[NSNumber numberWithInteger:model.infoType],model.updataTime,model.imagePath];
+        NSLog(@">>>>成功添加视频信息");
+        
+        [_db close];
+    }
+
     
 }
 
@@ -117,6 +122,36 @@ static VideoLocalDataBase *_DBCtl = nil;
     return videos;
 }
 
+
+- (NSMutableArray *)selectVideoInfo:(NSString *)file_path andDevId:(NSString *)devId{
+    
+    [_db open];
+    
+    NSMutableArray *videos = [[NSMutableArray alloc] init];
+    
+    FMResultSet *res = [_db executeQuery:@"SELECT * FROM video_localinfo where file_path = ? and dev_ID = ?",file_path,devId];
+    
+    while ([res next]) {
+        
+        VideoInfoModel *model = [[VideoInfoModel alloc] init];
+        model.devid = [res stringForColumn:@"dev_ID"];
+        model.filePath = [res stringForColumn:@"file_path"];
+        model.fileName = [res stringForColumn:@"file_name"];
+        model.imagePath = [res stringForColumn:@"vdieoimage_path"];
+        model.updataTime = [res stringForColumn:@"updata_time"];
+        model.infoType = [[res stringForColumn:@"info_type"] integerValue];
+        model.vId = [[res stringForColumn:@"tid"] integerValue];
+        
+        [videos addObject:model];
+        
+    }
+    
+    [_db close];
+    
+    return videos;
+}
+
+
 - (void)deletAllVideoInfo{
     [_db open];
     
@@ -129,6 +164,14 @@ static VideoLocalDataBase *_DBCtl = nil;
     [_db open];
     
     BOOL delete = [_db executeUpdate:@"DELETE FROM video_localinfo WHERE tid = ?", vId];
+    [_db close];
+    return delete;
+}
+
+- (BOOL)deletVideoByFilePath:(NSString *)file_path{
+    [_db open];
+    
+    BOOL delete = [_db executeUpdate:@"DELETE FROM video_localinfo WHERE file_path = ?", file_path];
     [_db close];
     return delete;
 }

@@ -30,7 +30,9 @@
 #import "VideoListCell.h"
 #import "SliderProgressView.h"
 #import "XMRulerView.h"
-
+#import "RecordInfo.h"
+#import "JhDownProgressController.h"
+#import "LocalImgVdieoVc.h"
 #define _K_SCREEN_WIDTH ([[UIScreen mainScreen ] bounds ].size.width)
 #define kAlertWidth (245  * _K_SCREEN_WIDTH/320)
 
@@ -83,7 +85,10 @@
 @property (nonatomic, assign) int second;
 
 @property (nonatomic) UILabel *waitingLb;
+@property (strong,nonatomic) JhDownProgressController *vc;
 
+@property (nonatomic,copy) NSString *filepath_down;
+@property (nonatomic,copy) NSString *imagepath_down;
 @end
 
 @implementation RemoteVideoVc
@@ -350,8 +355,8 @@
     red.backgroundColor = RGB(215, 50, 143);
     [self.view addSubview:red];
     [red mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(normal.mas_right).offset(10);
-        make.centerY.width.height.equalTo(blue);
+        make.bottom.equalTo(blue.mas_top).offset(-10);
+        make.centerX.width.height.equalTo(blue);
     }];
     
     UILabel *alarm = [[UILabel alloc] init];
@@ -360,24 +365,16 @@
     [self.view addSubview:alarm];
     [alarm makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(red.mas_right).offset(8);
-        make.centerY.equalTo(blue);
+        make.centerY.equalTo(red);
     }];
     
-    UILabel *time = [[UILabel alloc] init];
-    time.text = NSLocalizedString(@"录像时间", nil);
-    time.font = [UIFont systemFontOfSize:15];
-    [self.view addSubview:time];
-    [time mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(alarm.mas_right).offset(10);
-        make.centerY.equalTo(blue);
-    }];
     
     self.videoTimeLabel = [[UILabel alloc] init];
 //    self.videoTimeLabel.backgroundColor = [UIColor greenColor];
     self.videoTimeLabel.font = [UIFont systemFontOfSize:14];
     [self.view addSubview:self.videoTimeLabel];
     [self.videoTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(time.mas_right).offset(8);
+        make.left.equalTo(normal.mas_right).offset(8);
         make.centerY.equalTo(blue);
         make.height.equalTo(alarm);
         make.width.equalTo(100);
@@ -429,6 +426,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     VideoListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VideoListCell" forIndexPath:indexPath];
+    cell.tag = indexPath.row;
     if (self.pFiles && indexPath.row < self.nFileCount) {
         H264_DVR_FILE_DATA *pFile = &self.pFiles[indexPath.row];
         cell.timeString = [NSString stringWithFormat:@"%02d:%02d:%02d",
@@ -436,6 +434,11 @@
                                pFile->stBeginTime.minute,
                                pFile->stBeginTime.second];
     }
+    
+    UILongPressGestureRecognizer *lpGes = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(readyToDownloadItem:)];
+    lpGes.minimumPressDuration = 0.8f;
+    [cell addGestureRecognizer:lpGes];
+    
     return cell;
 }
 
@@ -579,7 +582,7 @@
                                _playByTimeEnd->stEndTime.hour,
                                _playByTimeEnd->stEndTime.minute,
                                _playByTimeEnd->stEndTime.second];
-        cell.byTimeLbl.textColor = RGB(40, 184, 215);
+        cell.byTimeLbl.textColor = ThemeColor;
         return cell;
         
     }else{
@@ -858,6 +861,21 @@
     }
 }
 
+- (void)OnSDKSearchDevice:(int)param2 Data:(SDK_CONFIG_NET_COMMON_V2 *)pData {
+    
+}
+
+
+- (void)getConfig:(DeviceConfig *)config result:(int)result {
+    
+}
+
+
+- (void)setConfig:(DeviceConfig *)config result:(int)result {
+    
+}
+
+
 //保存到系统相册  回调
 - (void)videopath:(NSString*)videopath didFinishSavingVideoWithError:(NSError *)error contextInfo:(void *)contextInfo{
     if (error) {
@@ -917,15 +935,238 @@
             }];
         } else {
             //保存到沙盒中
-//            self.vInfo.imagePath = filePath;
-//            [[VideoDataBase sharedDataBase] updateVideoInfo:[x].vInfo];
+            //            self.vInfo.imagePath = filePath;
+            //            [[VideoDataBase sharedDataBase] updateVideoInfo:[x].vInfo];
         }
     }
 }
+
+- (void)OnSnapThumbnail:(NSSDKMediaPlayer *)sender Result:(int)result FilePath:(NSString *)filePath {
+    
+}
+
+
+- (void)OnStartRecord:(NSSDKMediaPlayer *)sender Result:(int)result FilePath:(NSString *)filePath {
+    
+}
+
+
+- (void)OnStopRecord:(NSSDKMediaPlayer *)sender Result:(int)result FilePath:(NSString *)filePath {
+    
+}
+
 
 - (void)loadImageFinished:(UIImage *)image {
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), (__bridge void *)self);
 }
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo { }
+
+
+- (void)readyToDownloadItem:(UILongPressGestureRecognizer *)ges {
+    
+    VideoListCell *cell = (VideoListCell *)[ges view];
+    int index = (int)cell.tag;
+    H264_DVR_FILE_DATA *pFile = &self.pFiles[index];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"确定下载到手机", nil) preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleDefault handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self downloadThumbImage:pFile];
+        [self downloadFile:pFile];
+        [self showFireLoading];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark -delegate
+-(void)OnFunSDKResult:(NSNumber *) pParam{
+    NSInteger nAddr = [pParam integerValue];
+    MsgContent *msg = (MsgContent *)nAddr;
+    switch (msg->id) {
+#pragma mark 开始下载录像回调
+        case EMSG_ON_FILE_DOWNLOAD: {// 开始下载
+            
+        }
+            break;
+#pragma mark 录像下载的进度
+        case EMSG_ON_FILE_DLD_POS:  {//下载的进度
+            
+        }
+            break;
+#pragma mark 录像下载完成
+        case EMSG_ON_FILE_DLD_COMPLETE: { //下载完成
+            if ( msg->param1 >= 0) {
+                if(_filepath_down!=nil&&_imagepath_down!=nil){
+                    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                    NSString *strDate = [dateFormatter stringFromDate:[NSDate date]];
+                    
+                    
+                    if(_vc!=nil){
+                        _vc.success = YES;
+                    }
+                    VideoInfoModel *model = [[VideoInfoModel alloc] init];
+                    model.devid = self.devSN;
+                    model.imagePath = _imagepath_down;
+                    
+                    model.filePath = _filepath_down;
+                    model.fileName = [_filepath_down substringFromIndex:(_filepath_down.length - 39)];
+                    
+                    
+                    model.updataTime = strDate;
+                    model.infoType = 2;
+                    NSLog(@"视频路径:%@",model.filePath);
+                    NSLog(@"视频名称:%@",model.fileName);
+                    [[VideoLocalDataBase sharedDataBase] updateVideoInfo:model];
+                }
+                _filepath_down = nil;
+                _imagepath_down = nil;
+            }
+
+        }
+            break;
+#pragma mark -开始下载缩略图
+        case EMSG_DOWN_RECODE_BPIC_START:{
+            if ( msg->param1 < 0) {
+                //失败
+            }else{
+                //开始下载
+            }
+        }             break;
+#pragma mark -下载缩略图
+        case EMSG_DOWN_RECODE_BPIC_FILE:{
+            if ( msg->param1 < 0) {
+                //失败
+            }else{
+            }
+        }
+            break;
+#pragma mark - 缩略图下载完成
+        case EMSG_DOWN_RECODE_BPIC_COMPLETE:{
+            if ( msg->param1 < 0) {
+                //失败
+            }else{
+                
+            }
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark 开始下载录像缩略图
+- (void)downloadThumbImage:(H264_DVR_FILE_DATA*)record {
+    //获取通道
+    
+    
+    //下载路径
+    NSString *directoryPath = @"/Library/Caches/Images/";
+    NSString *timeString = [NSString stringWithFormat:@"%04d-%02d-%02d %02d:%02d:%02d",record->stBeginTime.year,record->stBeginTime.month,record->stBeginTime.day,record->stBeginTime.hour,record->stBeginTime.minute,record->stBeginTime.second];
+    NSString *pictureFilePath  = [directoryPath stringByAppendingFormat:@"%@%@.jpg",self.deviceSN,timeString];
+    _imagepath_down = pictureFilePath;
+    int downLoadThunmbnilTime = [self getRecordTimeWith:record];
+    NSString *path_sandox = NSHomeDirectory();
+    NSString *dd = [path_sandox stringByAppendingString:pictureFilePath];
+    FUN_DownloadRecordBImage(self.MsgHandle, CSTR(self.devSN), 0, downLoadThunmbnilTime, CSTR(dd), 0, 0);
+}
+
+#pragma mark - 开始下载录像
+- (void)downloadFile:(H264_DVR_FILE_DATA*)record {
+    
+    //初始化请求结构体
+    H264_DVR_FILE_DATA info;
+    memset(&info, 0, sizeof(info));
+    info.size  = (int)record->size;
+    //开始时间
+    SDK_SYSTEM_TIME timeBegin = record->stBeginTime;
+    memcpy(&info.stBeginTime,  (char *)&timeBegin, sizeof(SDK_SYSTEM_TIME));
+    //结束时间
+    SDK_SYSTEM_TIME timeEnd = record->stEndTime;
+    memcpy(&info.stEndTime, (char*)&timeEnd,sizeof(SDK_SYSTEM_TIME));
+    //通道号
+    strncpy(info.sFileName, record->sFileName, sizeof(info.sFileName));
+    info.ch = (int)record->ch;
+    
+    //存储路径
+    NSString *directoryPath = @"/Library/Caches/Videos/";
+    NSString *timeString = [NSString stringWithFormat:@"%04d-%02d-%02d %02d:%02d:%02d",record->stBeginTime.year,record->stBeginTime.month,record->stBeginTime.day,record->stBeginTime.hour,record->stBeginTime.minute,record->stBeginTime.second];
+    //后缀   如果是鱼眼设备，需要特殊保存，然后用鱼眼播放器进行播放，参考鱼眼视频剪切和本地播放
+    //    if (self.isFish) {
+    //        movieFilePath = [directoryPath stringByAppendingFormat:@"/%@.fvideo",timeString];
+    //    }
+    NSString *movieFilePath  = [directoryPath stringByAppendingFormat:@"%@%@.mp4",self.devSN,timeString];
+    //开始下载
+    _filepath_down = movieFilePath;
+    NSString *path_sandox = NSHomeDirectory();
+    NSString *dd = [path_sandox stringByAppendingString:movieFilePath];
+    FUN_DevDowonLoadByFile(self.MsgHandle, SZSTR(self.devSN), &info, SZSTR(dd));
+}
+
+-(int)getRecordTimeWith:(H264_DVR_FILE_DATA *)record{
+    //开始时间
+    SDK_SYSTEM_TIME timeBegin = record->stBeginTime;
+    SDK_SYSTEM_TIME nTime;
+    nTime.year = timeBegin.year;
+    nTime.month = timeBegin.month;
+    nTime.wday = timeBegin.wday;
+    nTime.day = timeBegin.day;
+    nTime.hour = timeBegin.hour;
+    nTime.minute = timeBegin.minute;
+    nTime.second = timeBegin.second;
+    nTime.isdst = timeBegin.isdst;
+    
+    time_t ToTime_t(SDK_SYSTEM_TIME *time);
+    
+    return (int)ToTime_t(&nTime);
+}
+
+
+-(void) closefirem{
+    _vc.success = YES;
+}
+
+
+-(void)showFireLoading{
+    @weakify(self)
+    _vc=[[JhDownProgressController alloc] init];
+    _vc.timer1 = 1.0f;
+    _vc.timerApi = 5.0f;
+    _vc.hintMessage = NSLocalizedString(@"正在下载", nil);
+    _vc.finish = ^(BOOL success){
+        if(!success){
+            _filepath_down = nil;
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"下载失败", nil) preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleDefault handler:nil]];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"重试", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                @strongify(self)
+                [self showFireLoading];
+                
+            }]];
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+        }else{
+            _filepath_down = nil;
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"下载成功", nil) preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleDefault handler:nil]];
+            [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"查看", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                @strongify(self)
+                LocalImgVdieoVc *local = [[LocalImgVdieoVc alloc] init];
+                local.devsn = self.devSN;
+                local.ivFlag = 1;
+                [self.navigationController pushViewController:local animated:YES];
+                
+            }]];
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+        }
+        
+    };
+
+    GetWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    _vc.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    [GetWindow.rootViewController presentViewController:_vc animated:NO completion:^{
+        
+    }];
+    
+}
 
 @end
