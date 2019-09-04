@@ -930,7 +930,10 @@
                               }];
         } else {
             //保存到沙盒中
+            NSString *userName = [[NSUserDefaults standardUserDefaults] objectForKey:@"CurrentUserName"];
+            self.vInfo.userName = userName;
             self.vInfo.imagePath = filePath;
+            NSLog(@"[RYAN] 截图了 > %@, %@, %@", self.vInfo.devid, self.vInfo.userName, self.vInfo.name);
             [[VideoDataBase sharedDataBase] updateVideoInfo:self.vInfo];
         }
     }
