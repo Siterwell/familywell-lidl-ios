@@ -32,13 +32,17 @@
     [self layOutSubViews];
     [self requestConfig];
     self.title = NSLocalizedString(@"录像配置", nil);
+
     
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setTitle:NSLocalizedString(@"保存", nil) forState:UIControlStateNormal];
-    [btn setTitleColor:RGB(95, 195, 249) forState:UIControlStateNormal];
-    [btn setFrame:CGRectMake(0, 0, 44, 44)];
-    btn.titleLabel.font = [UIFont systemFontOfSize:16];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    UIImage *img=[UIImage imageNamed:@"yes_icon"];
+    [btn setImage:img forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnRightClicked) forControlEvents:UIControlEventTouchUpInside];
+    CGSize btnSize = CGSizeMake(35, 44);
+    CGRect frame = btn.frame;
+    frame.size = btnSize;
+    btn.frame = frame;
+    [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 12)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
 }
 
@@ -52,10 +56,22 @@
         
         JRecordCfg.RecordMode = way;
         if (strcmp(way, "ConfigRecord") == 0) {
-            JRecordCfg.Mask[0][0] = 0x07;
+            for (int i =0; i< JRecordCfg.Mask.Size(); i++) {
+                // mask：0停止录像。6报警联动录像。7一直录像
+                JRecordCfg.Mask[i][0] = 0x07;
+            }
         } else if (strcmp(way, "ManualRecord") == 0){
-             JRecordCfg.Mask[0][0] = 0x06;
+            
+            for (int i =0; i< JRecordCfg.Mask.Size(); i++) {
+                // mask：0停止录像。6报警联动录像。7一直录像
+                JRecordCfg.Mask[i][0] = 0x06;
+            }
             JRecordCfg.RecordMode = "ConfigRecord";
+        }else{
+            for (int i =0; i< JRecordCfg.Mask.Size(); i++) {
+                // mask：0停止录像。6报警联动录像。7一直录像
+                JRecordCfg.Mask[i][0] = 0x07;
+            }
         }
         [weakSelf requestSetConfigWithChannel:weakSelf.channelNum andJObject:&JRecordCfg];
     };

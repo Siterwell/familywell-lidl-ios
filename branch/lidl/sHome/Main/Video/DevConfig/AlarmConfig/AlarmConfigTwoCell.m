@@ -18,7 +18,7 @@
 - (void)initHWSwitch{
     
     if (_ypHWswitch == nil) {
-        _ypHWswitch = [[HWSwitch alloc] initWithFrame:CGRectMake(0, 0, 51, 24) onColor:RGB(40, 184, 215) onPointColor:[UIColor whiteColor] offColor:RGB(211, 211, 211) offPointColor:RGB(40, 184, 215) ballColor:[UIColor whiteColor] ballSize:15];
+        _ypHWswitch = [[HWSwitch alloc] initWithFrame:CGRectMake(0, 0, 51, 24) onColor:ThemeColor onPointColor:[UIColor whiteColor] offColor:NetiveColor offPointColor:ThemeColor ballColor:[UIColor whiteColor] ballSize:15];
         [self.swtchView addSubview:_ypHWswitch];
     }
 }

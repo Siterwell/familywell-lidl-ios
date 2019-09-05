@@ -30,10 +30,10 @@
 
 -(void)setSomePropertys
 {
-//    self.layer.borderColor = RGB(40, 184, 215).CGColor;
+//    self.layer.borderColor = ThemeColor.CGColor;
 //    self.layer.borderWidth = 1;
-    [self setTitleColor:RGB(40, 184, 215) forState:UIControlStateNormal];
-    [self setTitleColor:RGB(40, 184, 215) forState:UIControlStateHighlighted];
+    [self setTitleColor:ThemeColor forState:UIControlStateNormal];
+    [self setTitleColor:ThemeColor forState:UIControlStateHighlighted];
     
 }
 @end

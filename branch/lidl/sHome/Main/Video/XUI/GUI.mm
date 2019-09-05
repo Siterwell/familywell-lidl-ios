@@ -42,7 +42,6 @@
 + (NSString*)GetErrorStr:(int)errorno
 {
     static int errs[] = {
-        EE_DEV_NOT_LOGIN,
         EE_DVR_PASSWORD_NOT_VALID,
         EE_DVR_LOGIN_USER_NOEXIST,
         

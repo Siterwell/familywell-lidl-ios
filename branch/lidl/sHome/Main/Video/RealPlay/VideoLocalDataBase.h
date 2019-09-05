@@ -23,5 +23,5 @@
 
 - (void)deletAllVideoInfo;
 
-
+- (BOOL)deletVideoByFilePath:(NSString *)file_path;
 @end

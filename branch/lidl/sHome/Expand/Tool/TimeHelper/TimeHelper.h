@@ -20,4 +20,5 @@
 
 +(NSString *)getSTHTime;
 
++(NSDate*)dateFromString:(NSString*)string;
 @end

@@ -84,7 +84,7 @@
         _mainPer_recordSlider.minimumValue = 0;
         _mainPer_recordSlider.maximumValue = 30;
         [_mainPer_recordSlider setThumbImage:[UIImage imageNamed:@"14-录像配置进度球激活状态"] forState:UIControlStateNormal];
-        [_mainPer_recordSlider setMinimumTrackTintColor:RGB(95, 195, 249)];
+        [_mainPer_recordSlider setMinimumTrackTintColor:ThemeColor];
     }
     return _mainPer_recordSlider;
 }
@@ -95,7 +95,7 @@
         _mainRecordLength.minimumValue = 1;
         _mainRecordLength.maximumValue = 30;
         [_mainRecordLength setThumbImage:[UIImage imageNamed:@"14-录像配置进度球激活状态"] forState:UIControlStateNormal];
-        [_mainRecordLength setMinimumTrackTintColor:RGB(95, 195, 249)];
+        [_mainRecordLength setMinimumTrackTintColor:ThemeColor];
     }
     return _mainRecordLength;
 }
@@ -107,7 +107,7 @@
         _subPer_recordSlider.minimumValue = 0;
         _subPer_recordSlider.maximumValue = 30;
         [_subPer_recordSlider setThumbImage:[UIImage imageNamed:@"14-录像配置进度球激活状态"] forState:UIControlStateNormal];
-        [_subPer_recordSlider setMinimumTrackTintColor:RGB(95, 195, 249)];
+        [_subPer_recordSlider setMinimumTrackTintColor:ThemeColor];
     }
     return _subPer_recordSlider;
 }
@@ -218,13 +218,6 @@
             [cell.contentView addSubview:self.scrollview];
             [self.scrollview beginScrolling];
         }
-
-//        UILabel *lb = [[UILabel alloc] init];
-//        lb.text = NSLocalizedString(@"设置摄像机报警或者无线遥控器产生联动录像时提前预录时间", nil);
-//        lb.font = [UIFont systemFontOfSize:10];
-//        lb.textColor = [UIColor grayColor];
-////        [lb setFrame:CGRectMake(15, CGRectGetMaxY(cell.textLabel.frame), Main_Screen_Width, 10)];
-//        [cell.contentView addSubview:lb];
         
         [cell.contentView addSubview: self.mainPer_recordSlider];
         [self.mainPer_recordSlider mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -310,7 +303,7 @@
     [selectBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     selectBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     [selectBtn setBackgroundImage:[UIImage imageNamed:@"16-录像配置下拉选中"] forState:UIControlStateNormal];
-    [selectBtn setFrame:CGRectMake(0, 0, 150, 20)];
+    [selectBtn setFrame:CGRectMake(0, 0, 100, 20)];
     return selectBtn;
 }
 

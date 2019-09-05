@@ -29,6 +29,7 @@
     
     self.title = NSLocalizedString(@"添加摄像机", nil);
     [_btn_next setTitle:NSLocalizedString(@"下一步", nil) forState:UIControlStateNormal];
+    [_btn_next setBackgroundColor:ThemeColor];
     _btn_next.layer.cornerRadius = 5;
     _label1.numberOfLines = 0;
     _label2.numberOfLines = 0;

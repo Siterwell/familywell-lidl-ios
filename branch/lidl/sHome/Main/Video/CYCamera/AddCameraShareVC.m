@@ -33,6 +33,7 @@
     [_imageview addGestureRecognizer:singleTap];
     
     [_add_btn setTitle:NSLocalizedString(@"添加摄像机", nil) forState:UIControlStateNormal];
+    [_add_btn setTitleColor:ThemeColor forState:UIControlStateNormal];
     _instruction.text = NSLocalizedString(@"点击扫描二维码", nil);
     _textfield.placeholder = NSLocalizedString(@"输入序列号", nil);
 }

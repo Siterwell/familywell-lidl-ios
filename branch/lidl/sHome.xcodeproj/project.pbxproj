@@ -713,6 +713,8 @@
 		E2B3A11522C0B365003DD20E /* GS361TimerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11422C0B365003DD20E /* GS361TimerCell.m */; };
 		E2B3A11822C0BBA1003DD20E /* CYCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11722C0BBA1003DD20E /* CYCircularSlider.m */; };
 		E2B3A11B22C0BC49003DD20E /* TempControlDetailVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11A22C0BC49003DD20E /* TempControlDetailVC2.m */; };
+		E2C594F8231F6DB1008BADE7 /* TimeSynDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C594F7231F6DB1008BADE7 /* TimeSynDataSource.m */; };
+		E2C594FE231F6E31008BADE7 /* LanguageManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = E2C594FD231F6E31008BADE7 /* LanguageManager.mm */; };
 		E2DB982F219E631E00B7A7DD /* privacy_german.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB982E219E631E00B7A7DD /* privacy_german.html */; };
 		E2DB9831219E632C00B7A7DD /* privacy_spanish.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB9830219E632C00B7A7DD /* privacy_spanish.html */; };
 /* End PBXBuildFile section */
@@ -2295,6 +2297,12 @@
 		E2B3A11722C0BBA1003DD20E /* CYCircularSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYCircularSlider.m; sourceTree = "<group>"; };
 		E2B3A11922C0BC49003DD20E /* TempControlDetailVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempControlDetailVC2.h; sourceTree = "<group>"; };
 		E2B3A11A22C0BC49003DD20E /* TempControlDetailVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempControlDetailVC2.m; sourceTree = "<group>"; };
+		E2C594F4231F6D15008BADE7 /* System_TimeZone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_TimeZone.h; sourceTree = "<group>"; };
+		E2C594F5231F6D73008BADE7 /* NetServerFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetServerFunction.h; sourceTree = "<group>"; };
+		E2C594F6231F6DB1008BADE7 /* TimeSynDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeSynDataSource.h; sourceTree = "<group>"; };
+		E2C594F7231F6DB1008BADE7 /* TimeSynDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeSynDataSource.m; sourceTree = "<group>"; };
+		E2C594FC231F6E31008BADE7 /* LanguageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageManager.h; sourceTree = "<group>"; };
+		E2C594FD231F6E31008BADE7 /* LanguageManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LanguageManager.mm; sourceTree = "<group>"; };
 		E2DB982E219E631E00B7A7DD /* privacy_german.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_german.html; sourceTree = "<group>"; };
 		E2DB9830219E632C00B7A7DD /* privacy_spanish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_spanish.html; sourceTree = "<group>"; };
 		EC225CD3BEEFCDEBB3A0A0B4 /* Pods-sHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2462,6 +2470,8 @@
 				015FADEA20764EC40096C201 /* UserInfo.h */,
 				015FADEB20764EC50096C201 /* Users.h */,
 				015FADEC20764EC50096C201 /* Video.h */,
+				E2C594F4231F6D15008BADE7 /* System_TimeZone.h */,
+				E2C594F5231F6D73008BADE7 /* NetServerFunction.h */,
 			);
 			path = JConfig;
 			sourceTree = "<group>";
@@ -2755,6 +2765,10 @@
 				01A63F1D2063E946004FEC2F /* NSString+DTPaths.m */,
 				01A63F1E2063E946004FEC2F /* NSString+Utils.h */,
 				01A63F1F2063E946004FEC2F /* NSString+Utils.m */,
+				E2C594F6231F6DB1008BADE7 /* TimeSynDataSource.h */,
+				E2C594F7231F6DB1008BADE7 /* TimeSynDataSource.m */,
+				E2C594FC231F6E31008BADE7 /* LanguageManager.h */,
+				E2C594FD231F6E31008BADE7 /* LanguageManager.mm */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -5731,6 +5745,7 @@
 				05D84CB61E371A42002366F5 /* TimeModel.m in Sources */,
 				75E524591DFEEF8A0093DECC /* UITableView+NoData.m in Sources */,
 				75E5246B1DFEEF8A0093DECC /* UIView+Debug.m in Sources */,
+				E2C594F8231F6DB1008BADE7 /* TimeSynDataSource.m in Sources */,
 				056520401E058F2000FCF30F /* ChangePsdVC.m in Sources */,
 				75E5245F1DFEEF8A0093DECC /* UITableViewCell+TS_delaysContentTouches.m in Sources */,
 				01A63F8B2063E947004FEC2F /* NSString+DTPaths.m in Sources */,
@@ -5805,6 +5820,7 @@
 				75E523C81DFEEF8A0093DECC /* NSFileManager+Paths.m in Sources */,
 				75E524761DFEEF8A0093DECC /* UIView+ViewController.m in Sources */,
 				75E523FD1DFEEF8A0093DECC /* MKMapView+MoveLogo.m in Sources */,
+				E2C594FE231F6E31008BADE7 /* LanguageManager.mm in Sources */,
 				05F1212E1E29B8D30075D364 /* AddDeviceVC.m in Sources */,
 				DDA3A04A1F1709A6002DD920 /* ErrorModel.m in Sources */,
 				051E915B1E4C56A5006EABEC /* OutletStatusCell.m in Sources */,

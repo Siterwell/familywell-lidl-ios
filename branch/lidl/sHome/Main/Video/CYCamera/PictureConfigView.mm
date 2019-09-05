@@ -24,6 +24,7 @@
 
 @property (nonatomic) UITextField *nameTF;
 
+
 @end
 
 @implementation PictureConfigView
@@ -127,13 +128,19 @@
 }
 
 - (void)updateCurrentTime {
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
-    self.currentTime = [formatter stringFromDate:date];
-    [self.picConfigTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    
+    if(_datenow){
+        NSTimeInterval time = 1;
+        _datenow = [_datenow dateByAddingTimeInterval:time];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+        [formatter setTimeStyle:NSDateFormatterShortStyle];
+        [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+        self.currentTime = [formatter stringFromDate:_datenow];
+        [self.picConfigTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    }
+    
+
 }
 
 - (void)showModifyNameAlert {
@@ -239,25 +246,9 @@
 }
 
 - (void)syncTime {
-    [MBProgressHUD showLoadToView:self];
-    SDK_SYSTEM_TIME timeSDK;
-    struct tm time;
-    timeSDK.year = time.tm_year + 1900;
-    timeSDK.month = time.tm_mon + 1;
-    timeSDK.day = time.tm_mday;
-    timeSDK.hour = time.tm_hour;
-    timeSDK.minute = time.tm_min;
-    timeSDK.second = time.tm_sec;
-    timeSDK.wday = 0;
-    timeSDK.isdst = 0;
-    char szParam[128] = {0};
-    sprintf(szParam, "{\"Name\": \"OPTimeSetting\",\"OPTimeSetting\": \"%04d-%02d-%02d %02d:%02d:%02d\"}",
-            timeSDK.year, timeSDK.month, timeSDK.day, timeSDK.hour, timeSDK.minute, timeSDK.second);
-    FUN_DevCmdGeneral(self.msgHandle, CSTR([XMSingleton sharedXM].deviceSn), 1450, "OPTimeSetting", 0, 5000, szParam, 0);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self];
-        [MBProgressHUD showMessage:NSLocalizedString(@"配置成功", nil) ToView:self RemainTime:1.2f];
-    });
+    if(self.click!=nil){
+        self.click();
+    }
 
 }
 

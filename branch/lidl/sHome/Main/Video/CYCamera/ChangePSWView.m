@@ -25,7 +25,7 @@
         
         self.ConfirmBtn.frame = CGRectMake(0, 0, SCREEN_WIDTH - 40, 44);
         self.ConfirmBtn.center = CGPointMake(SCREEN_WIDTH/2, 250);
-        
+        [self.ConfirmBtn setBackgroundColor:ThemeColor];
         UIView *line1 = [[UIView alloc]initWithFrame:CGRectMake(45, self.OldTXF.frame.size.height-8, self.OldTXF.frame.size.width-45-15, 0.8)];
         line1.backgroundColor = RGB(200, 200, 200);
         [_OldTXF addSubview:line1];

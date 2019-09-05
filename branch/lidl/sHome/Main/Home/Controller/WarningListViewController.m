@@ -169,25 +169,35 @@
         //            int mid = (int)strtoul([sid UTF8String],0,16);
         
         if(mid!=0){
+            NSString * log_conntent = self.warningList[indexPath.row].answer_content;
+            NSLog(@"WarningListViewController > answer_content=%@", log_conntent);
             ItemData *data = [[DeviceDataBase sharedDataBase] selectDevice:[NSString stringWithFormat:@"%d",mid]];
-                NSString *deviceCode = [self.warningList[indexPath.row].answer_content substringWithRange:NSMakeRange(11, 3)];
-            NSString *status = [self.warningList[indexPath.row].answer_content substringWithRange:NSMakeRange(14, 8)];
-            NSString *alarm = [self getAlertWithDevType:deviceCode status:status];
-            if (!data) {
-                NSString *deviceName = [dic objectForKey:deviceCode];
-
-                msg = [NSString stringWithFormat:@"%@ %d %@",NSLocalizedString(deviceName, nil), mid, alarm];
+            
+            if (14 > log_conntent.length) {
+                // To avoid crash
+                msg = @"";
+            } else {
+                NSString *deviceCode = [log_conntent substringWithRange:NSMakeRange(11, 3)];
+                NSString *status = [log_conntent substringWithRange:NSMakeRange(14, 8)];
+                NSString *alarm = [self getAlertWithDevType:deviceCode status:status];
+                NSLog(@"WarningListViewController > deviceCode=%@, status=%@, alarm=%@", deviceCode, status, alarm);
                 
-            }else{
-                
-
-                NSString *content;
-                if([data.customTitle isEqualToString:@""]){
-                    content  = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(data.title, nil),data.devID];
+                if (!data) {
+                    NSString *deviceName = [dic objectForKey:deviceCode];
+                    
+                    msg = [NSString stringWithFormat:@"%@ %d %@",NSLocalizedString(deviceName, nil), mid, alarm];
+                    
                 }else{
-                    content = data.customTitle;
+                    
+                    
+                    NSString *content;
+                    if([data.customTitle isEqualToString:@""]){
+                        content  = [NSString stringWithFormat:@"%@ %@", NSLocalizedString(data.title, nil),data.devID];
+                    }else{
+                        content = data.customTitle;
+                    }
+                    msg = [NSString stringWithFormat:@"%@ %@",content,alarm];
                 }
-                msg = [NSString stringWithFormat:@"%@ %@",content,alarm];
             }
         }
         else {
