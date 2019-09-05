@@ -73,7 +73,7 @@
         _formatterButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_formatterButton setFrame:CGRectMake(44, 17, Main_Screen_Width-88, 44)];
         [_formatterButton setTitle:NSLocalizedString(@"格式化", nil) forState:UIControlStateNormal];
-        [_formatterButton setBackgroundColor:RGB(40, 184, 254)];
+        [_formatterButton setBackgroundColor:ThemeColor];
         _formatterButton.layer.cornerRadius = 22.0;
         _formatterButton.clipsToBounds = YES;
     }
@@ -95,7 +95,7 @@
 //        _waveView.colorMutableArray = [NSMutableArray arrayWithObject:self.colorArray.firstObject];
         _waveView.colorMutableArray = [[NSMutableArray alloc] initWithObjects:RGBA(255, 255, 255, 0.6), [UIColor whiteColor], RGBA(255, 255, 255, 0.6), [UIColor whiteColor], nil];
         //背景颜色
-        _waveView.waveViewBackgroundColor = RGB(40, 184, 254);
+        _waveView.waveViewBackgroundColor = ThemeColor;
         //色块之间横向的距离
         _waveView.distanceH = 73;
         //色块之间纵向的距离
@@ -215,7 +215,7 @@
 - (UIView *)headerView {
     if (!_headerView) {
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, Main_Screen_Width/2*1.2)];
-        _headerView.backgroundColor = RGB(40, 184, 254);
+        _headerView.backgroundColor = ThemeColor;
         [_headerView addSubview:self.waveView];
         [self.waveView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.centerY.equalTo(0);

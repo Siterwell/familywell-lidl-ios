@@ -48,7 +48,7 @@
     
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
 }
-    
+
 //记住密码
 - (IBAction)gotoLanAction:(id)sender {
     LanSearchViewController *vc = [[LanSearchViewController alloc] init];

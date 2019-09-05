@@ -242,7 +242,7 @@
                     
                 }
                 //显示模式   0:360VR
-                //                NSLog(@"%d",pFishFrameInfo->lensType);
+//                NSLog(@"%d",pFishFrameInfo->lensType);
                 if (pFishFrameInfo->lensType == SDK_FISHEYE_LENS_360VR || pFishFrameInfo->lensType == SDK_FISHEYE_LENS_360LVR) {//360vr
                     
                     fishSceneType = XMVR_TYPE_360D;

@@ -145,7 +145,10 @@
 }
 
 -(void) timerApiAction{
-    self.getApi();
+    if(self.getApi!=nil){
+            self.getApi();
+    }
+
     
 }
 

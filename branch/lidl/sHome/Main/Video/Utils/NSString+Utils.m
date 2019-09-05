@@ -106,4 +106,11 @@ NSDate *YYNSDateFromString(__unsafe_unretained NSString *string) {
     return comptBegin;
 }
 
+- (BOOL)isContainsString:(NSString *)sFind {
+    if (sFind == nil) {
+        return FALSE;
+    }
+    NSRange range = [self rangeOfString:sFind];
+    return range.length != 0;
+}
 @end

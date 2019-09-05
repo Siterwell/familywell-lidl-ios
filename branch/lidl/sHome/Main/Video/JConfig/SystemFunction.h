@@ -5,7 +5,7 @@
 #include "EncodeFunction.h"
 #include "InputMethod.h"
 #include "MobileDVR.h"
-//#include "NetServerFunction.h"
+#include "NetServerFunction.h"
 #include "OtherFunction.h"
 #include "PreviewFunction.h"
 #include "TipShow.h"
