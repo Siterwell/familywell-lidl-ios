@@ -514,6 +514,7 @@
 "Firmware Update Successful" = "Mise à jour du micrologiciel réussie!";
 "No motion detected" = "Normal";
 "My action" = "Mon action";
+"更新失败" = "échec";
 "无线设置" = "Paramètres WiFi";
 "未连接" = "Type de transmission";
 "转发模式" = "Non connecté";

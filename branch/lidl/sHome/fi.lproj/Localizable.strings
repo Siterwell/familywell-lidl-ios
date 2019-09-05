@@ -514,6 +514,7 @@
 "Firmware Update Successful" = "Asennus onnistui";
 "No motion detected" = "Liikettä ei ole havaittu";
 "My action" = "Toimintoni";
+"更新失败" = "päivitys ei";
 "无线设置" = "Wifi asetukset";
 "转发模式" = "eteenpäin -";
 "未连接" = "ei ole yhteydessä";

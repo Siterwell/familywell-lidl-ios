@@ -514,6 +514,7 @@
 "Firmware Update Successful" = "Firmware update successful!";
 "No motion detected" = "Normal";
 "My action" = "My action";
+"更新失败" = "Update Failed";
 "无线设置" = "WIFI Settings";
 "未连接" = "Unconnected";
 "转发模式" = "Transmit";
