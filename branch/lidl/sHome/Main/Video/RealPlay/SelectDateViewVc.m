@@ -24,7 +24,8 @@
     self.view.backgroundColor = RGB(239, 239, 244);
     [self initFyCalendarView];
     
-    UIBarButtonItem *cancelBar = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"取消", nil) style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
+//    UIBarButtonItem *cancelBar = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"返回", nil) style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
+    UIBarButtonItem *cancelBar = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sj_list_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
     [self.navigationController.navigationBar setTintColor:RGB(40, 184, 254)];
     self.navigationItem.leftBarButtonItem = cancelBar;
 }
@@ -32,9 +33,9 @@
 - (void)initFyCalendarView{
     
     _calendarView = [[FyCalendarView alloc] initWithFrame:CGRectMake(0,64, self.view.frame.size.width,self.view.frame.size.width+60)];
-    _calendarView.weekDaysColor = RGB(40, 184, 215);
-    _calendarView.headColor = RGB(40, 184, 215);
-    _calendarView.dateColor = RGB(40, 184, 215);
+    _calendarView.weekDaysColor = ThemeColor;
+    _calendarView.headColor = ThemeColor;
+    _calendarView.dateColor = ThemeColor;
     
     [self.view addSubview:_calendarView];
     

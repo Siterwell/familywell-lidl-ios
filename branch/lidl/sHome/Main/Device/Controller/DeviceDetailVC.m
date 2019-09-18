@@ -32,6 +32,9 @@
 #import "LEEAlert.h"
 #import "Encryptools.h"
 #import "TXScrollLabelView.h"
+#import "DeviceWarningListViewController.h"
+#import "LCAlertViewController.h"
+#define kIPhoneX ([UIScreen mainScreen].bounds.size.height >= 812.0)
 @interface DeviceDetailVC ()<WarningTableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIView *borderView;
 @property (strong, nonatomic) IBOutlet UIView *bgView;
@@ -57,7 +60,12 @@
 @property (nonatomic) UISwitch *switch2;
 @property (nonatomic) TXScrollLabelView *titleLabel2;
 
+@property (nonatomic,strong) UIView *bottomview;
 
+@property (strong,nonatomic) IBOutlet UIButton *AutoBtn;
+@property (strong,nonatomic) IBOutlet UIButton *SilenceBtn;
+@property (strong,nonatomic) IBOutlet UIButton *Test2Btn;
+@property(strong) LCAlertViewController * alertVC;
 @end
 
 @implementation DeviceDetailVC
@@ -72,8 +80,11 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.isShowTip = NO;
-    
+    [self bottomview];
+    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+    [self.bottomview addGestureRecognizer:recognizer];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBottom:)];
+    [self.bottomview addGestureRecognizer:tap];
     _switch1 = [[UISwitch alloc] init];
     _switch1.tag = 11;
     _switch1.hidden = YES;
@@ -150,6 +161,22 @@
     
     [self analysisStatus];
     [self currentDevice];
+    
+    //弹动一下
+    BOOL animated = [self.bottomview.layer pop_animationKeys] > 0;
+    if (!animated) {
+        POPDecayAnimation *scollerTop = [POPDecayAnimation animationWithPropertyNamed:kPOPLayerTranslationY];
+        scollerTop.velocity = @(-30);
+        [_bottomview.layer pop_addAnimation:scollerTop forKey:@"scollerTop"];
+
+        WS(ws)
+        scollerTop.completionBlock = ^(POPAnimation *anim, BOOL finished) {
+            POPSpringAnimation *dropAnamation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerTranslationY];
+            dropAnamation.toValue = @(0);
+            dropAnamation.springBounciness = 20;
+            [ws.bottomview.layer pop_addAnimation:dropAnamation forKey:@"dropAnamation"];
+        };
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -1051,5 +1078,231 @@
         self.navigationItem.titleView=_titleLabel2;
     }
     return _titleLabel2;
+}
+
+#pragma -mark lazy
+-(UIView *)bottomview{
+    NSLog(@"[bottomview] mas_bottom = %@", self.view.mas_bottom);
+    if(_bottomview==nil){
+        _bottomview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, 31)];
+        [self.view addSubview:_bottomview];
+        [_bottomview makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(0);
+            make.right.equalTo(0);
+            make.height.equalTo(31);
+            if (kIPhoneX) {
+                make.bottom.equalTo(-30);
+            } else {
+                make.bottom.equalTo(self.view.mas_bottom);
+            }
+        }];
+
+        UIImageView *imagebg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sbgjwhite_bg"]];
+        [_bottomview addSubview:imagebg];
+        [imagebg makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(0);
+        }];
+
+        UILabel *label = [[UILabel alloc] init];
+        label.text = NSLocalizedString(@"设备告警", nil);
+        label.font = SYSTEMFONT(14);
+        [_bottomview addSubview:label];
+        [label makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(0);
+            make.centerY.equalTo(0);
+        }];
+
+        UIImageView *image1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tj02_icon"]];
+        [_bottomview addSubview:image1];
+        [image1 makeConstraints:^(MASConstraintMaker *make) {
+            make.right.equalTo(label.mas_left).offset(-5);
+            make.centerY.equalTo(0);
+        }];
+
+        UIImageView *image2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow02_icon"]];
+        [_bottomview addSubview:image2];
+        [image2 makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(label.mas_right).offset(5);
+            make.centerY.equalTo(0);
+        }];
+    }
+    return _bottomview;
+}
+
+#pragma -mark method
+- (void)handlePan:(UIPanGestureRecognizer *)recognizer {
+    DeviceWarningListViewController *wl = [[DeviceWarningListViewController alloc] init];
+    wl.dev_id = _data.devID;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:wl];
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
+/**
+ 点击底部的蓝条
+ */
+-(void)tapBottom:(UITapGestureRecognizer *)sender{
+    //弹动一下
+    BOOL animated = [self.bottomview.layer pop_animationKeys] > 0;
+    if (!animated) {
+        POPDecayAnimation *scollerTop = [POPDecayAnimation animationWithPropertyNamed:kPOPLayerTranslationY];
+        scollerTop.velocity = @(-30);
+        [_bottomview.layer pop_addAnimation:scollerTop forKey:@"scollerTop"];
+
+        WS(ws)
+        scollerTop.completionBlock = ^(POPAnimation *anim, BOOL finished) {
+            POPSpringAnimation *dropAnamation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerTranslationY];
+            dropAnamation.toValue = @(0);
+            dropAnamation.springBounciness = 20;
+            [ws.bottomview.layer pop_addAnimation:dropAnamation forKey:@"dropAnamation"];
+        };
+    }
+}
+
+- (void)alertPickerViewWithOneDataSource:(NSString *)type{
+    NSMutableArray *ds = [NSMutableArray new];
+    for(int i=0;i<256;i++){
+        [ds addObject: [NSString stringWithFormat:NSLocalizedString(@"%d秒", nil),i*10 ]];
+    }
+    NSArray * dataArray = @[ds];
+    if ([type isEqualToString:@"alert"]) {
+        _alertVC = [LCAlertViewController LC_alertControllerWithTitle:NSLocalizedString(@"请选择报警时长", nil) dataArray:dataArray preferredStyle:LCAlertViewControllerStyleAlert];
+    }else if ([type isEqualToString:@"actionSheet"]){
+        _alertVC = [LCAlertViewController LC_alertControllerWithTitle:NSLocalizedString(@"请选择报警时长", nil) dataArray:dataArray preferredStyle:LCAlertViewControllerStyleActionSheet];
+        UIPopoverPresentationController *popover =_alertVC.popoverPresentationController;
+        if (popover) {//适配iPad
+            popover.sourceView = self.view;
+            popover.sourceRect = CGRectMake(0, 0,1, 1);
+            popover.permittedArrowDirections=UIPopoverArrowDirectionAny;
+        }
+
+
+
+    }
+
+    [_alertVC.pickerView selectRow:0 inComponent:0 animated:NO];
+
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+
+    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+
+        if (!_isSwitching) {
+            __block NSObject *obj = [[NSObject alloc] init];
+            _isSwitching = YES;
+            [MBProgressHUD showMessage:NSLocalizedString(@"请稍后...", nil) ToView:GetWindow];
+            NSInteger index = [_alertVC.pickerView selectedRowInComponent:0];
+            NSLog(@"index:%ld",index);
+            NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+            DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+
+            NSString *str = @"";
+            if(index<16){
+                str = [@"0" stringByAppendingString:[BatterHelp gethexBybinary:index]];
+            }else{
+                str = [BatterHelp gethexBybinary:index];
+            }
+
+            NSString *totl = [[@"55BB" stringByAppendingString:str] stringByAppendingString:@"FF"];
+
+            PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:model.devTid CtrlKey:model.ctrlKey DeviceId:0 DeviceStatus:totl];
+
+            [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+
+                [MBProgressHUD hideHUDForView:GetWindow animated:YES];
+                _isSwitching = NO;
+                [obj class];
+                obj = nil;
+
+            } failure:^(id data, NSError *error) {
+                [MBProgressHUD hideHUDForView:GetWindow animated:YES];
+                _isSwitching = NO;
+                [obj class];
+                obj = nil;
+
+            }];
+
+
+
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (_isSwitching) {
+                    [MBProgressHUD hideHUDForView:GetWindow animated:YES];
+                    _isSwitching = NO;
+                    obj = nil;
+                }
+            });
+        }
+
+
+
+
+    }];
+
+    [_alertVC LC_addAction:okAction withPickerBlock:^(NSInteger component, NSInteger row) {
+
+    }];
+    [_alertVC LC_addAction:cancelAction withPickerBlock:^(NSInteger component, NSInteger row) {
+
+    }];
+    [self presentViewController:_alertVC animated:YES completion:^{
+
+    }];
+}
+
+
+-(void)testTypeChooseItem{
+    LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:nil cancelButtonTitle:NSLocalizedString(@"取消",nil) clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
+
+        if (buttonIndex == 1) {
+
+            if (!_isSwitching) {
+                __block NSObject *obj = [[NSObject alloc] init];
+                _isSwitching = YES;
+                NSString *content = @"";
+                if([_data.title isEqualToString:@"复合型烟感"]){
+                    content = @"17000000";
+                }else {
+                    content = @"BB000000";
+                }
+                [MBProgressHUD showMessage:NSLocalizedString(@"请稍后...", nil) ToView:GetWindow];
+                NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+                DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+                PostControllerApi *api = [[PostControllerApi alloc] initWithDevTid:model.devTid CtrlKey:model.ctrlKey DeviceId:[_data.devID intValue] DeviceStatus:content];
+
+                [api startWithObject:nil CompletionBlockWithSuccess:^(id data, NSError *error) {
+
+                    [MBProgressHUD hideHUDForView:GetWindow animated:YES];
+                    _isSwitching = NO;
+                    [obj class];
+                    obj = nil;
+
+                } failure:^(id data, NSError *error) {
+                    [MBProgressHUD hideHUDForView:GetWindow animated:YES];
+                    _isSwitching = NO;
+                    [obj class];
+                    obj = nil;
+
+                }];
+
+
+
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    if (_isSwitching) {
+                        [MBProgressHUD hideHUDForView:GetWindow animated:YES];
+                        _isSwitching = NO;
+                        obj = nil;
+                    }
+                });
+            }
+
+        }else if(buttonIndex==2){
+            [self alertPickerViewWithOneDataSource:@"actionSheet"];
+        }
+
+    } otherButtonTitles:NSLocalizedString(@"测试单个",nil),NSLocalizedString(@"测试全部",nil), nil];
+    actionSheet.buttonFont = [UIFont systemFontOfSize:14];
+    actionSheet.buttonHeight = 44.0f;
+    actionSheet.buttonColor = RGB(36, 155, 255);
+    actionSheet.unBlur = YES;
+    [actionSheet show];
 }
 @end

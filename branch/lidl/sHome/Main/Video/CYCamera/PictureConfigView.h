@@ -19,7 +19,8 @@
 @property (readonly, nonatomic) int hObj;
 
 @property (nonatomic,assign) int msgHandle;
-
+@property (nonatomic,strong) NSDate *datenow;
+@property (strong, nonatomic) void (^click)();
 - (void)CloseHandle;
 
 @end

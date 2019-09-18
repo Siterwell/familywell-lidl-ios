@@ -62,6 +62,8 @@
 
 - (NSMutableArray *)getOutDeviceArray{
     
+    NSLog(@"[SCENE TEST] getOutDeviceArray ++++++++ length = %lu, scene_content = %@", self.scene_content.length, self.scene_content);
+    
     NSMutableArray *array = [[NSMutableArray alloc] init];
     NSString *week = [self.scene_content substringWithRange:NSMakeRange(40, 2)];
     NSString *hour = [self.scene_content substringWithRange:NSMakeRange(42, 2)];
@@ -90,8 +92,17 @@
     
     NSString *number = [self.scene_content substringWithRange:NSMakeRange(50, 2)];
     int deviceNumber = (int)strtoul([number UTF8String],0,16);
+    NSLog(@"[SCENE TEST] getOutDeviceArray > number=%@, deviceNumber = %d", number, deviceNumber);
     for (int i = 0; i<deviceNumber; i++) {
-        NSString *deviceString = [self.scene_content substringWithRange:NSMakeRange(54+(i*12), 12)];
+        NSUInteger loc = 54+(i*12);
+        NSUInteger len = 12;
+        if (loc >= self.scene_content.length || (loc+len) > self.scene_content.length) {
+            // To avoid OutOfBound exception crash
+            break;
+        }
+        
+        NSString *deviceString = [self.scene_content substringWithRange:NSMakeRange(loc, len)];
+        NSLog(@"[SCENE TEST] getOutDeviceArray > range = (%lu, %lu), deviceString = %@", loc, len, deviceString);
         NSString *deviceId = [deviceString substringWithRange:NSMakeRange(0, 4)];
         deviceId = [NSString stringWithFormat:@"%ld",strtoul([deviceId UTF8String],0,16)];
         NSString *deviceCount = [deviceString substringWithRange:NSMakeRange(4, 8)];
@@ -100,6 +111,8 @@
         deviceItem.action = deviceCount;
         [array addObject:deviceItem];
     }
+    
+    NSLog(@"[SCENE TEST] getOutDeviceArray -----------------");
     
     return array;
 }
@@ -124,6 +137,13 @@
     int deviceNumber = (int)strtoul([number UTF8String],0,16);
     
     for (int i = 0; i<deviceNumber; i++) {
+        NSUInteger loc = 54+(12*(out_deviceNumber))+(i*16);
+        NSUInteger len = 16;
+        if (loc >= self.scene_content.length || (loc+len) > self.scene_content.length) {
+            // To avoid OutOfBound exception crash
+            break;
+        }
+        
         NSString *deviceString = [self.scene_content substringWithRange:NSMakeRange(54+(12*(out_deviceNumber))+(i*16), 16)];
         
         NSString *minute = [deviceString substringWithRange:NSMakeRange(0, 2)];

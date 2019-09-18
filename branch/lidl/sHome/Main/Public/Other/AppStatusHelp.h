@@ -11,5 +11,5 @@
 @interface AppStatusHelp : NSObject 
 
 + (NSString *)getWifiIP;
-
++ (NSString*) getDeviceName;
 @end

@@ -514,3 +514,13 @@
 "Firmware Update Successful" = "固件升级成功";
 "No motion detected" = "No motion detected";
 "My action" = "My action";
+"更新失败" = "更新失败";
+"无线设置" = "无线设置";
+"未连接" = "未连接";
+"转发模式" = "转发模式";
+"恢复出厂成功,请等待.." = "恢复出厂成功,请等待..";
+"请选择颜色" = "请选择颜色";
+"默认情景" = "默认情景";
+"自定义情景" = "自定义情景";
+"设备告警" = "设备告警";
+"resetting device, please do not power off" = "设备正在初始化，请勿断电";

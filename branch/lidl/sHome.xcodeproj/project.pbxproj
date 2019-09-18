@@ -23,7 +23,6 @@
 		011463D81F5805A500725382 /* BatterHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 011463D71F5805A500725382 /* BatterHelp.m */; };
 		011B5F9B1F735EE300CE8BA6 /* AddCameraVc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 011B5F9A1F735EE300CE8BA6 /* AddCameraVc.mm */; };
 		011EBA851FC9018B00858672 /* WarningModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 011EBA841FC9018B00858672 /* WarningModel.m */; };
-		011F789A1FB96742001A4F24 /* FunSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 011F78991FB96742001A4F24 /* FunSDK.framework */; };
 		0123D0F21F5954700039C2BB /* SelectTimePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0123D0F11F5954700039C2BB /* SelectTimePickerCell.m */; };
 		0130A4891F7C8B0500CF78C5 /* SceneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0130A4881F7C8B0500CF78C5 /* SceneVC.m */; };
 		014606B6206B6F8F000B027D /* SliderProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 014606B5206B6F8F000B027D /* SliderProgressView.m */; };
@@ -307,7 +306,6 @@
 		183AED7F1EF8294E00E3FC3D /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AED7C1EF8294E00E3FC3D /* NJKWebViewProgress.m */; };
 		183AED801EF8294E00E3FC3D /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AED7E1EF8294E00E3FC3D /* NJKWebViewProgressView.m */; };
 		188F34B71F14630F00CA2126 /* libvrsoft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 188F34B61F14630F00CA2126 /* libvrsoft.a */; };
-		18BE7E921EECAE7600AC8B59 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BE7E911EECAE7600AC8B59 /* libstdc++.6.0.9.tbd */; };
 		18C78A401EE8B6F800F89651 /* TimeScenedDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C78A3F1EE8B6F800F89651 /* TimeScenedDataBase.m */; };
 		18C78A431EE8BAA600F89651 /* AddTimeSceneApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C78A421EE8BAA600F89651 /* AddTimeSceneApi.m */; };
 		18C78A461EE8BD8B00F89651 /* SycnTimeSceneApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C78A451EE8BD8B00F89651 /* SycnTimeSceneApi.m */; };
@@ -700,7 +698,23 @@
 		E2432D16219A7B5800A76C2C /* privacy_french.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D15219A7B5800A76C2C /* privacy_french.html */; };
 		E2432D18219A7B6E00A76C2C /* privacy_italian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D17219A7B6E00A76C2C /* privacy_italian.html */; };
 		E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D19219A7B8500A76C2C /* privacy_slovenian.html */; };
+		E2526F4C22E82D44004E1703 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BE7E911EECAE7600AC8B59 /* libstdc++.6.0.9.tbd */; };
+		E2526F4D22E82D45004E1703 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BE7E8E1EEC5DD900AC8B59 /* libstdc++.6.tbd */; };
+		E2526F4E22E82D45004E1703 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2828E61229E3C9200C3BCD8 /* libstdc++.tbd */; };
 		E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */ = {isa = PBXBuildFile; fileRef = E28F923521D0D567008EA9EB /* privacy_finnish.html */; };
+		E2A28B9622F7D4F3000F05BD /* DeviceWarningListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A28B9522F7D4F3000F05BD /* DeviceWarningListViewController.m */; };
+		E2A28B9922F7D72A000F05BD /* LCAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A28B9822F7D72A000F05BD /* LCAlertViewController.m */; };
+		E2A7C09923040093002C07F4 /* FunSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A7C09823040093002C07F4 /* FunSDK.framework */; };
+		E2B3A10622C0AE17003DD20E /* TempControlTimerEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10522C0AE17003DD20E /* TempControlTimerEditVC.m */; };
+		E2B3A10922C0AEED003DD20E /* PickViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10822C0AEED003DD20E /* PickViewCell.m */; };
+		E2B3A10C22C0AF3F003DD20E /* TempViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10B22C0AF3F003DD20E /* TempViewCell.m */; };
+		E2B3A10F22C0AF87003DD20E /* WeekCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10E22C0AF87003DD20E /* WeekCell.m */; };
+		E2B3A11222C0B2F5003DD20E /* TempControlTimerListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11122C0B2F5003DD20E /* TempControlTimerListVC.m */; };
+		E2B3A11522C0B365003DD20E /* GS361TimerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11422C0B365003DD20E /* GS361TimerCell.m */; };
+		E2B3A11822C0BBA1003DD20E /* CYCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11722C0BBA1003DD20E /* CYCircularSlider.m */; };
+		E2B3A11B22C0BC49003DD20E /* TempControlDetailVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A11A22C0BC49003DD20E /* TempControlDetailVC2.m */; };
+		E2C594F8231F6DB1008BADE7 /* TimeSynDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C594F7231F6DB1008BADE7 /* TimeSynDataSource.m */; };
+		E2C594FE231F6E31008BADE7 /* LanguageManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = E2C594FD231F6E31008BADE7 /* LanguageManager.mm */; };
 		E2DB982F219E631E00B7A7DD /* privacy_german.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB982E219E631E00B7A7DD /* privacy_german.html */; };
 		E2DB9831219E632C00B7A7DD /* privacy_spanish.html in Resources */ = {isa = PBXBuildFile; fileRef = E2DB9830219E632C00B7A7DD /* privacy_spanish.html */; };
 /* End PBXBuildFile section */
@@ -2260,7 +2274,35 @@
 		E2432D17219A7B6E00A76C2C /* privacy_italian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_italian.html; sourceTree = "<group>"; };
 		E2432D19219A7B8500A76C2C /* privacy_slovenian.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_slovenian.html; sourceTree = "<group>"; };
 		E2565C6621AE77AF00571EBE /* PatternUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PatternUtil.h; sourceTree = "<group>"; };
+		E2828E61229E3C9200C3BCD8 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		E28F923521D0D567008EA9EB /* privacy_finnish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_finnish.html; sourceTree = "<group>"; };
+		E2A28B9422F7D4F3000F05BD /* DeviceWarningListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceWarningListViewController.h; sourceTree = "<group>"; };
+		E2A28B9522F7D4F3000F05BD /* DeviceWarningListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceWarningListViewController.m; sourceTree = "<group>"; };
+		E2A28B9722F7D72A000F05BD /* LCAlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCAlertViewController.h; sourceTree = "<group>"; };
+		E2A28B9822F7D72A000F05BD /* LCAlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCAlertViewController.m; sourceTree = "<group>"; };
+		E2A7C09823040093002C07F4 /* FunSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FunSDK.framework; path = ../../../../../Siterwell/custumers/FunSDK/FunSDK.framework; sourceTree = "<group>"; };
+		E2B3A10422C0AE17003DD20E /* TempControlTimerEditVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempControlTimerEditVC.h; sourceTree = "<group>"; };
+		E2B3A10522C0AE17003DD20E /* TempControlTimerEditVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempControlTimerEditVC.m; sourceTree = "<group>"; };
+		E2B3A10722C0AEED003DD20E /* PickViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PickViewCell.h; sourceTree = "<group>"; };
+		E2B3A10822C0AEED003DD20E /* PickViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PickViewCell.m; sourceTree = "<group>"; };
+		E2B3A10A22C0AF3F003DD20E /* TempViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempViewCell.h; sourceTree = "<group>"; };
+		E2B3A10B22C0AF3F003DD20E /* TempViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempViewCell.m; sourceTree = "<group>"; };
+		E2B3A10D22C0AF87003DD20E /* WeekCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeekCell.h; sourceTree = "<group>"; };
+		E2B3A10E22C0AF87003DD20E /* WeekCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeekCell.m; sourceTree = "<group>"; };
+		E2B3A11022C0B2F5003DD20E /* TempControlTimerListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempControlTimerListVC.h; sourceTree = "<group>"; };
+		E2B3A11122C0B2F5003DD20E /* TempControlTimerListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempControlTimerListVC.m; sourceTree = "<group>"; };
+		E2B3A11322C0B365003DD20E /* GS361TimerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GS361TimerCell.h; sourceTree = "<group>"; };
+		E2B3A11422C0B365003DD20E /* GS361TimerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GS361TimerCell.m; sourceTree = "<group>"; };
+		E2B3A11622C0BBA1003DD20E /* CYCircularSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYCircularSlider.h; sourceTree = "<group>"; };
+		E2B3A11722C0BBA1003DD20E /* CYCircularSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYCircularSlider.m; sourceTree = "<group>"; };
+		E2B3A11922C0BC49003DD20E /* TempControlDetailVC2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempControlDetailVC2.h; sourceTree = "<group>"; };
+		E2B3A11A22C0BC49003DD20E /* TempControlDetailVC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempControlDetailVC2.m; sourceTree = "<group>"; };
+		E2C594F4231F6D15008BADE7 /* System_TimeZone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = System_TimeZone.h; sourceTree = "<group>"; };
+		E2C594F5231F6D73008BADE7 /* NetServerFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetServerFunction.h; sourceTree = "<group>"; };
+		E2C594F6231F6DB1008BADE7 /* TimeSynDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeSynDataSource.h; sourceTree = "<group>"; };
+		E2C594F7231F6DB1008BADE7 /* TimeSynDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimeSynDataSource.m; sourceTree = "<group>"; };
+		E2C594FC231F6E31008BADE7 /* LanguageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageManager.h; sourceTree = "<group>"; };
+		E2C594FD231F6E31008BADE7 /* LanguageManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LanguageManager.mm; sourceTree = "<group>"; };
 		E2DB982E219E631E00B7A7DD /* privacy_german.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_german.html; sourceTree = "<group>"; };
 		E2DB9830219E632C00B7A7DD /* privacy_spanish.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_spanish.html; sourceTree = "<group>"; };
 		EC225CD3BEEFCDEBB3A0A0B4 /* Pods-sHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sHome.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sHome/Pods-sHome.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2272,6 +2314,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2A7C09923040093002C07F4 /* FunSDK.framework in Frameworks */,
+				E2526F4C22E82D44004E1703 /* libstdc++.6.0.9.tbd in Frameworks */,
+				E2526F4D22E82D45004E1703 /* libstdc++.6.tbd in Frameworks */,
+				E2526F4E22E82D45004E1703 /* libstdc++.tbd in Frameworks */,
 				18EAC7BC1EEE629200C99854 /* QuartzCore.framework in Frameworks */,
 				18EAC7BA1EEE619F00C99854 /* UserNotifications.framework in Frameworks */,
 				18EAC7B61EEE601000C99854 /* VideoToolbox.framework in Frameworks */,
@@ -2285,8 +2331,6 @@
 				18EAC7A81EEE5F9E00C99854 /* AssetsLibrary.framework in Frameworks */,
 				188F34B71F14630F00CA2126 /* libvrsoft.a in Frameworks */,
 				18EAC7A61EEE5F8C00C99854 /* AVKit.framework in Frameworks */,
-				011F789A1FB96742001A4F24 /* FunSDK.framework in Frameworks */,
-				18BE7E921EECAE7600AC8B59 /* libstdc++.6.0.9.tbd in Frameworks */,
 				182DBA531EE5900300C74E18 /* libz.tbd in Frameworks */,
 				182DBA511EE58FFB00C74E18 /* libbz2.tbd in Frameworks */,
 				182DBA4F1EE58FF200C74E18 /* libiconv.tbd in Frameworks */,
@@ -2426,6 +2470,8 @@
 				015FADEA20764EC40096C201 /* UserInfo.h */,
 				015FADEB20764EC50096C201 /* Users.h */,
 				015FADEC20764EC50096C201 /* Video.h */,
+				E2C594F4231F6D15008BADE7 /* System_TimeZone.h */,
+				E2C594F5231F6D73008BADE7 /* NetServerFunction.h */,
 			);
 			path = JConfig;
 			sourceTree = "<group>";
@@ -2719,6 +2765,10 @@
 				01A63F1D2063E946004FEC2F /* NSString+DTPaths.m */,
 				01A63F1E2063E946004FEC2F /* NSString+Utils.h */,
 				01A63F1F2063E946004FEC2F /* NSString+Utils.m */,
+				E2C594F6231F6DB1008BADE7 /* TimeSynDataSource.h */,
+				E2C594F7231F6DB1008BADE7 /* TimeSynDataSource.m */,
+				E2C594FC231F6E31008BADE7 /* LanguageManager.h */,
+				E2C594FD231F6E31008BADE7 /* LanguageManager.mm */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -3007,6 +3057,14 @@
 				0183B6E120746B8300983BD9 /* LightDetailVC.m */,
 				0181655720A520B7001D8282 /* LZCircularSlider.h */,
 				0181655620A520B7001D8282 /* LZCircularSlider.m */,
+				E2B3A10422C0AE17003DD20E /* TempControlTimerEditVC.h */,
+				E2B3A10522C0AE17003DD20E /* TempControlTimerEditVC.m */,
+				E2B3A11022C0B2F5003DD20E /* TempControlTimerListVC.h */,
+				E2B3A11122C0B2F5003DD20E /* TempControlTimerListVC.m */,
+				E2B3A11922C0BC49003DD20E /* TempControlDetailVC2.h */,
+				E2B3A11A22C0BC49003DD20E /* TempControlDetailVC2.m */,
+				E2A28B9422F7D4F3000F05BD /* DeviceWarningListViewController.h */,
+				E2A28B9522F7D4F3000F05BD /* DeviceWarningListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3086,6 +3144,18 @@
 				75D8A3D11E5F0CFE009A5DBB /* RenameCell.m */,
 				DDDB61471E9CC57600BDEE25 /* AddDeviceCell.h */,
 				DDDB61481E9CC57600BDEE25 /* AddDeviceCell.m */,
+				E2B3A10722C0AEED003DD20E /* PickViewCell.h */,
+				E2B3A10822C0AEED003DD20E /* PickViewCell.m */,
+				E2B3A10A22C0AF3F003DD20E /* TempViewCell.h */,
+				E2B3A10B22C0AF3F003DD20E /* TempViewCell.m */,
+				E2B3A10D22C0AF87003DD20E /* WeekCell.h */,
+				E2B3A10E22C0AF87003DD20E /* WeekCell.m */,
+				E2B3A11322C0B365003DD20E /* GS361TimerCell.h */,
+				E2B3A11422C0B365003DD20E /* GS361TimerCell.m */,
+				E2B3A11622C0BBA1003DD20E /* CYCircularSlider.h */,
+				E2B3A11722C0BBA1003DD20E /* CYCircularSlider.m */,
+				E2A28B9722F7D72A000F05BD /* LCAlertViewController.h */,
+				E2A28B9822F7D72A000F05BD /* LCAlertViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5305,6 +5375,8 @@
 		E133AE07A9298F3494E4C1CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2A7C09823040093002C07F4 /* FunSDK.framework */,
+				E2828E61229E3C9200C3BCD8 /* libstdc++.tbd */,
 				18EAC7BB1EEE629200C99854 /* QuartzCore.framework */,
 				18EAC7B91EEE619F00C99854 /* UserNotifications.framework */,
 				18EAC7B51EEE601000C99854 /* VideoToolbox.framework */,
@@ -5626,6 +5698,7 @@
 				75E524411DFEEF8A0093DECC /* UILabel+AutoSize.m in Sources */,
 				01A63F5B2063E947004FEC2F /* RecordConfigView.mm in Sources */,
 				051A321D1E98BA7A00A8E7C9 /* GetAlarmsApi.m in Sources */,
+				E2A28B9922F7D72A000F05BD /* LCAlertViewController.m in Sources */,
 				01A63F952063E947004FEC2F /* VRGLViewController.mm in Sources */,
 				88105A752162EF820084C6D9 /* TempControlDetailVC.m in Sources */,
 				DD8E404E1EEFB9D300B5E433 /* TimeSceneModel.m in Sources */,
@@ -5671,6 +5744,7 @@
 				05D84CB61E371A42002366F5 /* TimeModel.m in Sources */,
 				75E524591DFEEF8A0093DECC /* UITableView+NoData.m in Sources */,
 				75E5246B1DFEEF8A0093DECC /* UIView+Debug.m in Sources */,
+				E2C594F8231F6DB1008BADE7 /* TimeSynDataSource.m in Sources */,
 				056520401E058F2000FCF30F /* ChangePsdVC.m in Sources */,
 				75E5245F1DFEEF8A0093DECC /* UITableViewCell+TS_delaysContentTouches.m in Sources */,
 				01A63F8B2063E947004FEC2F /* NSString+DTPaths.m in Sources */,
@@ -5728,6 +5802,7 @@
 				75E524251DFEEF8A0093DECC /* UIDevice+Hardware.m in Sources */,
 				75E523B01DFEEF8A0093DECC /* NSData+APNSToken.m in Sources */,
 				75E524231DFEEF8A0093DECC /* UIControl+ActionBlocks.m in Sources */,
+				E2B3A10622C0AE17003DD20E /* TempControlTimerEditVC.m in Sources */,
 				88105A872162F10C0084C6D9 /* ChooseConnectTypeVC.m in Sources */,
 				75E524CF1DFEEF8A0093DECC /* QBImagePickerThumbnailView.m in Sources */,
 				054F78191E67E0D900ADA14A /* ScyDeviceModel.m in Sources */,
@@ -5744,6 +5819,7 @@
 				75E523C81DFEEF8A0093DECC /* NSFileManager+Paths.m in Sources */,
 				75E524761DFEEF8A0093DECC /* UIView+ViewController.m in Sources */,
 				75E523FD1DFEEF8A0093DECC /* MKMapView+MoveLogo.m in Sources */,
+				E2C594FE231F6E31008BADE7 /* LanguageManager.mm in Sources */,
 				05F1212E1E29B8D30075D364 /* AddDeviceVC.m in Sources */,
 				DDA3A04A1F1709A6002DD920 /* ErrorModel.m in Sources */,
 				051E915B1E4C56A5006EABEC /* OutletStatusCell.m in Sources */,
@@ -5849,6 +5925,7 @@
 				05BDDC771DFFBA3D00648F69 /* BaseVC.m in Sources */,
 				75E523FC1DFEEF8A0093DECC /* MKMapView+BetterMaps.m in Sources */,
 				75E523AE1DFEEF8A0093DECC /* NSArray+SafeAccess.m in Sources */,
+				E2B3A11B22C0BC49003DD20E /* TempControlDetailVC2.m in Sources */,
 				010FD09D1FC6C5E200BF8749 /* MJPhoto.m in Sources */,
 				182DBA601EE6CF2500C74E18 /* CircleMenuVc.m in Sources */,
 				75E5248E1DFEEF8A0093DECC /* YTKBatchRequest.m in Sources */,
@@ -5929,6 +6006,7 @@
 				75E523F01DFEEF8A0093DECC /* NSString+UrlEncode.m in Sources */,
 				01A63F942063E947004FEC2F /* VideoShowWindow.mm in Sources */,
 				05135E741E72DF4F0035A478 /* WarnModel.m in Sources */,
+				E2B3A10C22C0AF3F003DD20E /* TempViewCell.m in Sources */,
 				01FF833720770BDB0098CD0A /* XMRulerView.m in Sources */,
 				75E523D21DFEEF8A0093DECC /* NSNumber+Round.m in Sources */,
 				056153091E059C84004DD31C /* EditEmergentPhoneVC.m in Sources */,
@@ -5941,6 +6019,7 @@
 				BAF18C1C2226131B00AF7B5E /* JhDownProgressView.m in Sources */,
 				05D8979C1E54071700889C21 /* SystemSceneModel.m in Sources */,
 				01A63F9E2063E947004FEC2F /* UICommbox.mm in Sources */,
+				E2B3A10F22C0AF87003DD20E /* WeekCell.m in Sources */,
 				0178916F2064DEFB004F8FD7 /* SceneDetailVC.m in Sources */,
 				75E5248A1DFEEF8A0093DECC /* UIWindow+Hierarchy.m in Sources */,
 				75E5241E1DFEEF8A0093DECC /* UIColor+Gradient.m in Sources */,
@@ -5992,6 +6071,7 @@
 				E2432D0D219A6B3B00A76C2C /* PrivacyVC.m in Sources */,
 				050D8DDD1E34944700212348 /* addSceneListItemCell.m in Sources */,
 				05F121401E29CA380075D364 /* JSONModel+DeviceDic.m in Sources */,
+				E2B3A10922C0AEED003DD20E /* PickViewCell.m in Sources */,
 				015AFCF72068B9A900EDB87C /* CYMarquee.m in Sources */,
 				0183B6E220746B8300983BD9 /* LightDetailVC.m in Sources */,
 				88105A852162F10C0084C6D9 /* DeviceInfomation.m in Sources */,
@@ -6002,6 +6082,7 @@
 				010FD09F1FC6C5E200BF8749 /* MJPhotoBrowser.m in Sources */,
 				75E523E01DFEEF8A0093DECC /* NSMutableString+Ruby.m in Sources */,
 				01A63F8C2063E947004FEC2F /* NSString+Utils.m in Sources */,
+				E2B3A11222C0B2F5003DD20E /* TempControlTimerListVC.m in Sources */,
 				75E524B21DFEEF8A0093DECC /* MJRefreshAutoFooter.m in Sources */,
 				75D8A3D81E5F325E009A5DBB /* ScynDeviceName.m in Sources */,
 				05135E6E1E72DA8A0035A478 /* JSONHelp.m in Sources */,
@@ -6025,6 +6106,7 @@
 				75E524371DFEEF8A0093DECC /* UIImage+Resize.m in Sources */,
 				C422E2002089E5D5000D9CE7 /* GeneralViewController.mm in Sources */,
 				05CBA67A1EA89AD800E06A99 /* CancelAddingApi.m in Sources */,
+				E2B3A11522C0B365003DD20E /* GS361TimerCell.m in Sources */,
 				01A63F7D2063E947004FEC2F /* LocalVideoVcCell.m in Sources */,
 				75E524301DFEEF8A0093DECC /* UIImage+FileName.m in Sources */,
 				18C78A431EE8BAA600F89651 /* AddTimeSceneApi.m in Sources */,
@@ -6049,6 +6131,7 @@
 				183AED701EF8254900E3FC3D /* TOWebViewController.m in Sources */,
 				01A63F792063E947004FEC2F /* FunctionScrollView.m in Sources */,
 				75E524C61DFEEF8A0093DECC /* QBAssetsCollectionFooterView.m in Sources */,
+				E2A28B9622F7D4F3000F05BD /* DeviceWarningListViewController.m in Sources */,
 				75E523B81DFEEF8A0093DECC /* NSDate+Extension.m in Sources */,
 				75E524AD1DFEEF8A0093DECC /* GVUserDefaults.m in Sources */,
 				75E5246D1DFEEF8A0093DECC /* UIView+FDCollapsibleConstraints.m in Sources */,
@@ -6167,6 +6250,7 @@
 				75E523AF1DFEEF8A0093DECC /* NSBundle+AppIcon.m in Sources */,
 				015FAD9A20764D330096C201 /* TableItemViewController.m in Sources */,
 				75E523C11DFEEF8A0093DECC /* NSDictionary+JSONString.m in Sources */,
+				E2B3A11822C0BBA1003DD20E /* CYCircularSlider.m in Sources */,
 				88105A8B2162F11E0084C6D9 /* ChooseLocationVC.m in Sources */,
 				88105A862162F10C0084C6D9 /* LanSearchViewController.mm in Sources */,
 				01A63F5A2063E947004FEC2F /* PictureConfigViewController.mm in Sources */,

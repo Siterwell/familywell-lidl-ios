@@ -120,21 +120,34 @@
         action.font = [UIFont systemFontOfSize:14];
         action.clickBlock = ^{
 //            NSString *strCmd = [NSString stringWithFormat:@"{\"Name\": \"OPDefaultConfig\", \"OPDefaultConfig\": {\"General\":1,\"Encode\":1,\"Record\": 1,\"CommPtz\":1,\"NetServer\": 1,\"NetCommon\":1,\"Alarm\":1,\"Account\": 1,\"Preview\":1,\"CameraPARAM\":1}}"];
-            opDefaultConfig.SetName("OPDefaultConfig");
-            opDefaultConfig.General = 1;
-            opDefaultConfig.Encode = 1;
-            opDefaultConfig.Record = 1;
-            opDefaultConfig.CommPtz = 1;
-            opDefaultConfig.NetServer = 1;
-            opDefaultConfig.NetCommon = 1;
-            opDefaultConfig.Alarm = 1;
-            opDefaultConfig.Account = 1;
-            opDefaultConfig.Preview = 1;
-            opDefaultConfig.CameraPARAM = 1;
-            [self requestSetConfigWithChannel:self.channelNum andJObject:&opDefaultConfig];
+            NSString *strCmd = [NSString stringWithFormat:@"{\"Name\":\"OPDefaultConfig\", \"OPDefaultConfig\":{\"General\":1,\"Encode\":1,\"Record\":1,\"CommPtz\":1,\"NetServer\":1,\"NetCommon\":1,\"Alarm\":1,\"Account\":1,\"Preview\":1,\"CameraPARAM\":1}}"];
+            opDefaultConfig.Parse([strCmd UTF8String]);
+//            opDefaultConfig.SetName("OPDefaultConfig");
+//            opDefaultConfig.General = 1;
+//            opDefaultConfig.Encode = 1;
+//            opDefaultConfig.Record = 1;
+//            opDefaultConfig.CommPtz = 1;
+//            opDefaultConfig.NetServer = 1;
+//            opDefaultConfig.NetCommon = 1;
+//            opDefaultConfig.Alarm = 1;
+//            opDefaultConfig.Account = 1;
+//            opDefaultConfig.Preview = 1;
+//            opDefaultConfig.CameraPARAM = 1;
+            [self requestSetConfigWithChannel:-1 andJObject:&opDefaultConfig];
+            
+            [MBProgressHUD showMessage:NSLocalizedString(@"resetting device, please do not power off", nil) ToView:self.view];
+            
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showTimeoutFail) object:nil];
+            [self performSelector:@selector(showTimeoutFail) withObject:nil afterDelay:60.0];
         };
     })
     .LeeShow();
+}
+
+- (void) showTimeoutFail {
+    NSLog(@"[RYAN] GeneralViewController > showTimeoutFail");
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD showError:NSLocalizedString(@"配置失败", nil) ToView:GetWindow];
 }
 
 - (void)deleteCamera {
@@ -244,7 +257,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.detailTextLabel.textColor = RGB(28, 140, 249);
+    cell.detailTextLabel.textColor = ThemeColor;
     cell.textLabel.font = [UIFont systemFontOfSize:16];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:13.5];
     cell.textLabel.text = self.titles[indexPath.row];
@@ -267,6 +280,9 @@
 - (void)OnFunSDKResult:(NSNumber*)pParam {
     NSInteger nAddr = [pParam integerValue];
     MsgContent *msg = (MsgContent *)nAddr;
+    
+    NSLog(@"[RYAN] GeneralViewController > OnFunSDKResult > msg->szStr = %s", msg->szStr);
+    
     if (strcmp(msg->szStr, "Status.NatInfo") == 0) {
         char *status = msg->pObject;
         NSString *sta = [NSString stringWithUTF8String:status];
@@ -274,10 +290,18 @@
         if(jsonData!=nil){
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
         NSString *Status = dict[@"Status.NatInfo"][@"NatStatus"];
-        self.status = Status;
+            if([Status isEqualToString:@"Conneted"]){
+                   self.status = NSLocalizedString(@"已连接", nil);
+            }else{
+                   self.status = NSLocalizedString(@"未连接", nil);
+            }
+     
         }
 
         [self.table reloadData];
+        return;
+    } else if (strcmp(msg->szStr, "OPMachine") == 0) {
+        NSLog(@"[RYAN] GeneralViewController > OnFunSDKResult > OPMachine complete");
         return;
     }
     int mode = msg->param2;
@@ -287,7 +311,7 @@
             break;
             
         case 1:
-            self.mode = @"Transmit";
+            self.mode = NSLocalizedString(@"转发模式", nil);
             break;
             
         case 2:
@@ -305,15 +329,36 @@
     
     
     if(jsonData!=nil){
-    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-    
-    NSString *HardWare = dict[@"SystemInfo"][@"HardWare"];
-    
-    self.hardWare = HardWare;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+        
+        NSString *HardWare = dict[@"SystemInfo"][@"HardWare"];
+        
+        self.hardWare = HardWare;
     }
 
-    
     [self.table reloadData];
 }
 
+-(void)RefreshUIWithSetConfig:(DeviceConfig *)config{
+    NSLog(@"[RYAN] GeneralViewController > RefreshUIWithSetConfig > factory reset success");
+    //录像满时
+    if ([config.name isEqualToString:@JK_OPDefaultConfig]) {
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"恢复出厂成功,请等待..", nil) duration:5.0];
+        
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showTimeoutFail) object:nil];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        [self RestartDevice];
+    }
+}
+
+#pragma mark - 设备重启
+-(void)RestartDevice {
+    NSLog(@"[RYAN] GeneralViewController > RestartDevice > begin");
+    //获取通道
+    char szParam[128] = {0};
+    sprintf(szParam, "{\"Name\":\"OPMachine\",\"SessionID\":\"0x00000001\",\"OPMachine\":{\"Action\":\"Reboot\"}}");
+    FUN_DevCmdGeneral(self.MsgHandle, SZSTR(self.deviceSN), 1450, "OPMachine", 0, 5000, szParam, 0);
+    NSLog(@"[RYAN] RestartDevice > end");
+}
 @end

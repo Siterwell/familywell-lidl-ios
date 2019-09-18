@@ -55,8 +55,20 @@
 
 - (NSString *)getTimerSenceNameBySenceGroup{
     NSString *senceGroup = [self.time substringWithRange:NSMakeRange(4, 2)];
+    NSLog(@"[Timer debug] getTimerSenceNameBySenceGroup > senceGroup: %@", senceGroup);
+    
     NSMutableArray *systemSceneListArray = [[SystemSceneDataBase sharedDataBase] selectScene];
-    SystemSceneModel *model = systemSceneListArray[[senceGroup integerValue]];
+    NSLog(@"[Timer debug] getTimerSenceNameBySenceGroup > systemSceneListArray: %@", systemSceneListArray);
+    
+    NSInteger index = [senceGroup integerValue];
+    if (index >= systemSceneListArray.count) {
+        // avoiding index out of bound
+        index = 0;
+    }
+    
+    SystemSceneModel *model = systemSceneListArray[index];
+    NSLog(@"[Timer debug] getTimerSenceNameBySenceGroup > model: %@", model);
+    
     return model.scene_name;
 }
 

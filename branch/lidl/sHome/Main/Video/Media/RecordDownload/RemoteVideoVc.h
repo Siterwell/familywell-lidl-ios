@@ -6,10 +6,9 @@
 //  Copyright © 2017年 zyj. All rights reserved.
 //
 
-#import "NavigationViewController.h"
-#import "BaseViewControler.h"
+#import "JBaseConfigViewController.h"
 
-@interface RemoteVideoVc : BaseViewController
+@interface RemoteVideoVc : JBaseConfigViewController
 
 @end
 

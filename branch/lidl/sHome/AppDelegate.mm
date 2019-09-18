@@ -395,6 +395,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 }
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 //    NSLog(@"[RYAN] AppDelegate > applicationDidBecomeActive");
+    
 }
 - (void)applicationWillTerminate:(UIApplication *)application {
 //    [GeTuiSdk resetBadge];
@@ -457,69 +458,34 @@ static void uncaughtExceptionHandler(NSException *exception) {
 }
 
 - (void)updateInterface {
+    NSLog(@"[RYAN] AppDelegate > updateInterface");
+    
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     [config setObject:NetworkAppStatus forKey:AppStatus];
     
     _deviceListModel = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
     
-//    NetworkStatus netStatus = [reachability currentReachabilityStatus];
-//    if (netStatus == ReachableViaWiFi) {
-        if ([AppStatusHelp getWifiIP].length > 0) {
-            _obj = [[TestObject alloc] init];
-            @weakify(self)
-            [[MyUdp shared] recvTokenObj:_obj Callback:^(id obj, id data, NSError *error) {
-                @strongify(self)
-                [_obj description];
-                [self getDeviceToken:data];
-            }];
-            //发三次udp
-            [[MyUdp shared] sendGetTokenWithDeviceID:_deviceListModel.devTid];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                if (_obj) {
-                    [[MyUdp shared] sendGetTokenWithDeviceID:_deviceListModel.devTid];
-                }
-            });
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                if (_obj) {
-                    [[MyUdp shared] sendGetTokenWithDeviceID:_deviceListModel.devTid];
-                }
-            });
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                _obj = nil;
-                if (_isChangeAppStatus == YES) {
-                    _isChangeAppStatus = NO;
-                } else {
-                    //进入wifi，但是没有受到消息，表示内网内没有设备，如果此时是内网模式，则进入外网模式
-                    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-                    //                    [config removeObjectForKey:@"ipV4"];
-                    if ([[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]) {
-                        //                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"注意", nil) message:[NSString stringWithFormat:@"进入到外网模式，切换成外网模式"] delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
-                        //                        alertView.tag = 2;
-                        //                        [alertView show];
-                        [config setObject:NetworkAppStatus forKey:AppStatus];
-                        //                        NSLog(@">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>切换成了外网>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-//                        NSString *storyboardName = @"Main";
-//                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
-//                        self.window.rootViewController = [storyboard instantiateInitialViewController];
-                        
-                    }
-                }
-            });
-        }
-//    }
-//    else {
-//
-//        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-//        //        [config removeObjectForKey:@"ipV4"];
-//
-//        if ([[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]) {
-//            //            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"提示", nil) message:[NSString stringWithFormat:NSLocalizedString(@"进入到外网模式，切换成外网模式",nil)] delegate:self cancelButtonTitle:nil otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
-//            //            alertView.tag = 2;
-//            //            [alertView show];
-//        }
-//        [config setObject:NetworkAppStatus forKey:AppStatus];
-//    }
+    if ([AppStatusHelp getWifiIP].length > 0) {
+        _obj = [[TestObject alloc] init];
+        @weakify(self)
+        [[MyUdp shared] recvTokenObj:_obj Callback:^(id obj, id data, NSError *error) {
+            @strongify(self)
+            [_obj description];
+            [self getDeviceToken:data];
+        }];
+        //发三次udp
+        [[MyUdp shared] sendGetTokenWithDeviceID:_deviceListModel.devTid];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (_obj) {
+                [[MyUdp shared] sendGetTokenWithDeviceID:_deviceListModel.devTid];
+            }
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (_obj) {
+                [[MyUdp shared] sendGetTokenWithDeviceID:_deviceListModel.devTid];
+            }
+        });
+    }
 }
 
 - (void)launchSomething{
@@ -893,36 +859,50 @@ static void uncaughtExceptionHandler(NSException *exception) {
 
 
 -(void)getDeviceToken:(NSString *)str{
-    if([str rangeOfString:@"NAME"].location != NSNotFound)
-    {
-        NSRange startRange1 = [str rangeOfString:@"NAME:"];
-        NSRange endRange1 = [str rangeOfString:@"\n"];
-        
-        NSString *result1 = [str substringWithRange:NSMakeRange(startRange1.location+5, endRange1.location-(startRange1.location+5))];
-        NSString *devTid = result1;
+    NSLog(@"[RYAN] AppDelegate > getDeviceToken : str = %@ ", str);
+    
+    if(![MyUdp shared].flag_en){
+        if([str rangeOfString:@"NAME"].location != NSNotFound) {
+            NSRange startRange1 = [str rangeOfString:@"NAME:"];
+            NSRange endRange1 = [str rangeOfString:@"\n"];
+            
+            NSString *result1 = [str substringWithRange:NSMakeRange(startRange1.location+5, endRange1.location-(startRange1.location+5))];
+            NSString *devTid = result1;
+            NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+            DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+            if ([devTid isEqualToString:model.devTid]) {
+                _obj = nil;
+                if (![[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]) {
+                    //                //网内有数据，如果此时app是外网状态，则切换成内网
+                    //                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"提示", nil) message:[NSString stringWithFormat:NSLocalizedString(@"检测到内网内设备，是否进入内网模式", nil)] delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+                    //                alertView.tag = 1;
+                    //                [alertView show];
+                    
+                    //自动切换
+                    [config setObject:IntranetAppStatus forKey:AppStatus];
+                    
+                }
+            }
+        }
+    }else{
+        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data
+                                                            options:NSJSONReadingMutableLeaves
+                                                              error:nil];
+        NSString *devTid = dic[@"NAME"];
         NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
         DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
         if ([devTid isEqualToString:model.devTid]) {
-            
             _obj = nil;
-            
             if (![[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]) {
-                //网内有数据，如果此时app是外网状态，则切换成内网
-//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"提示", nil) message:[NSString stringWithFormat:NSLocalizedString(@"检测到内网内设备，是否进入内网模式", nil)] delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
-//                alertView.tag = 1;
-//                [alertView show];
+                //                //网内有数据，如果此时app是外网状态，则切换成内网
+                //                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"提示", nil) message:[NSString stringWithFormat:NSLocalizedString(@"检测到内网内设备，是否进入内网模式", nil)] delegate:self cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:NSLocalizedString(@"确定", nil), nil];
+                //                alertView.tag = 1;
+                //                [alertView show];
                 
                 //自动切换
-                _isChangeAppStatus = YES;
                 [config setObject:IntranetAppStatus forKey:AppStatus];
-//                NSLog(@">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>切换成了内网>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-//                NSString *storyboardName = @"Main";
-//                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:nil];
-//                self.window.rootViewController = [storyboard instantiateInitialViewController];
                 
-            }else{
-                //网内有数据，如果此时app是内网状态，则不变
-                _isChangeAppStatus = YES;
             }
         }
     }
