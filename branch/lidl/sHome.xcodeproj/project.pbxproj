@@ -326,6 +326,7 @@
 		18EAC7BA1EEE619F00C99854 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAC7B91EEE619F00C99854 /* UserNotifications.framework */; };
 		18EAC7BC1EEE629200C99854 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EAC7BB1EEE629200C99854 /* QuartzCore.framework */; };
 		18EB1E971F0F5EC0008B7A2B /* NSArray+JSONString.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EB1E961F0F5EBF008B7A2B /* NSArray+JSONString.m */; };
+		328F2FF82344AA0900433D9E /* FunSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 011F78991FB96742001A4F24 /* FunSDK.framework */; };
 		50CF4E97A2011F76934A18EC /* libPods-sHome.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B02632B6F8A1220A05CD2670 /* libPods-sHome.a */; };
 		7523E5B01E583F4200866910 /* SceneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7523E5B21E583F4200866910 /* SceneStoryboard.storyboard */; };
 		7523E5B91E584F2600866910 /* LanguageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7523E5B81E584F2600866910 /* LanguageVC.m */; };
@@ -704,7 +705,6 @@
 		E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */ = {isa = PBXBuildFile; fileRef = E28F923521D0D567008EA9EB /* privacy_finnish.html */; };
 		E2A28B9622F7D4F3000F05BD /* DeviceWarningListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A28B9522F7D4F3000F05BD /* DeviceWarningListViewController.m */; };
 		E2A28B9922F7D72A000F05BD /* LCAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A28B9822F7D72A000F05BD /* LCAlertViewController.m */; };
-		E2A7C09923040093002C07F4 /* FunSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2A7C09823040093002C07F4 /* FunSDK.framework */; };
 		E2B3A10622C0AE17003DD20E /* TempControlTimerEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10522C0AE17003DD20E /* TempControlTimerEditVC.m */; };
 		E2B3A10922C0AEED003DD20E /* PickViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10822C0AEED003DD20E /* PickViewCell.m */; };
 		E2B3A10C22C0AF3F003DD20E /* TempViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3A10B22C0AF3F003DD20E /* TempViewCell.m */; };
@@ -2314,7 +2314,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2A7C09923040093002C07F4 /* FunSDK.framework in Frameworks */,
+				328F2FF82344AA0900433D9E /* FunSDK.framework in Frameworks */,
 				E2526F4C22E82D44004E1703 /* libstdc++.6.0.9.tbd in Frameworks */,
 				E2526F4D22E82D45004E1703 /* libstdc++.6.tbd in Frameworks */,
 				E2526F4E22E82D45004E1703 /* libstdc++.tbd in Frameworks */,
