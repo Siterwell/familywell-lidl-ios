@@ -1,6 +1,6 @@
 platform :ios, '8.0'
 
-xcodeproj 'sHome.xcodeproj'
+project 'sHome.xcodeproj'
 
 target "sHome" do
 
@@ -11,7 +11,7 @@ pod 'ReactiveCocoa', '~> 2.5'
 pod 'SDWebImage', '~> 3.7.5'
 pod 'JSONModel', '~> 1.0.1'
 pod 'FMDB/common' , '~>2.5'
-pod 'FMDB/SQLCipher', '~>2.5'
+#pod 'FMDB/SQLCipher', '~>2.5'
 pod 'ActionSheetPicker-3.0'
 pod 'XAspect'
 pod 'IQKeyboardManager'
