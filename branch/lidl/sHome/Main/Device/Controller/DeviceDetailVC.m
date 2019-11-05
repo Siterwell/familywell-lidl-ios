@@ -568,11 +568,7 @@
     }
     else if ([_data.status isEqualToString:@"gz"]){
         [_bgImageView setImage:[UIImage imageNamed:@"sborange_bg"]];
-        if ([_data.title isEqualToString:@"温湿度探测器"] || [_data.title isEqualToString:@"门锁"]) {
-            _MainLabel.text = NSLocalizedString(@"低电压",nil);
-        } else {
-            _MainLabel.text = NSLocalizedString(@"故障",nil);
-        }
+        _MainLabel.text = NSLocalizedString(@"低电压",nil);
         _MainLabel.textColor = RGB(255, 179, 0);
         _centerLine.backgroundColor = RGB(255, 179, 0);
         
