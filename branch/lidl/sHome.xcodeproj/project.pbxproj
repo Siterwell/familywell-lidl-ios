@@ -678,6 +678,8 @@
 		88105A882162F10C0084C6D9 /* GuideAddCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A832162F10C0084C6D9 /* GuideAddCamera.m */; };
 		88105A8B2162F11E0084C6D9 /* ChooseLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8A2162F11D0084C6D9 /* ChooseLocationVC.m */; };
 		88105A8E2162F1300084C6D9 /* ChooseLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */; };
+		BA45B5A0237159A400334DEC /* CircleScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA45B59D237159A400334DEC /* CircleScaleView.m */; };
+		BA45B5A1237159A400334DEC /* ResetProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA45B59E237159A400334DEC /* ResetProgressController.m */; };
 		BAF18C1C2226131B00AF7B5E /* JhDownProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF18C192226131B00AF7B5E /* JhDownProgressView.m */; };
 		BAF18C1D2226131B00AF7B5E /* JhDownProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF18C1A2226131B00AF7B5E /* JhDownProgressController.m */; };
 		C422E2002089E5D5000D9CE7 /* GeneralViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C422E1FE2089E5D5000D9CE7 /* GeneralViewController.mm */; };
@@ -2196,6 +2198,10 @@
 		88105A8C2162F1300084C6D9 /* ChooseLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLocationCell.h; sourceTree = "<group>"; };
 		88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLocationCell.m; sourceTree = "<group>"; };
 		B02632B6F8A1220A05CD2670 /* libPods-sHome.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sHome.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA45B59C237159A400334DEC /* ResetProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetProgressController.h; sourceTree = "<group>"; };
+		BA45B59D237159A400334DEC /* CircleScaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleScaleView.m; sourceTree = "<group>"; };
+		BA45B59E237159A400334DEC /* ResetProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetProgressController.m; sourceTree = "<group>"; };
+		BA45B59F237159A400334DEC /* CircleScaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleScaleView.h; sourceTree = "<group>"; };
 		BAF18C182226131B00AF7B5E /* JhDownProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JhDownProgressController.h; sourceTree = "<group>"; };
 		BAF18C192226131B00AF7B5E /* JhDownProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhDownProgressView.m; sourceTree = "<group>"; };
 		BAF18C1A2226131B00AF7B5E /* JhDownProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhDownProgressController.m; sourceTree = "<group>"; };
@@ -5089,6 +5095,7 @@
 		75E523381DFEEF8A0093DECC /* Vender(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				BA45B59B237159A400334DEC /* ResetProgressView */,
 				BAF18C172226131B00AF7B5E /* JhDownProgressView */,
 				010FD08F1FC6C5E200BF8749 /* MJPhotoBrowser */,
 				015B8B6D1F4D559C00406DC9 /* FyCalendar */,
@@ -5361,6 +5368,17 @@
 			path = SGQRCode;
 			sourceTree = "<group>";
 		};
+		BA45B59B237159A400334DEC /* ResetProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				BA45B59C237159A400334DEC /* ResetProgressController.h */,
+				BA45B59D237159A400334DEC /* CircleScaleView.m */,
+				BA45B59E237159A400334DEC /* ResetProgressController.m */,
+				BA45B59F237159A400334DEC /* CircleScaleView.h */,
+			);
+			path = ResetProgressView;
+			sourceTree = "<group>";
+		};
 		BAF18C172226131B00AF7B5E /* JhDownProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -5488,9 +5506,9 @@
 				TargetAttributes = {
 					05E466721DF4FA170056E6FF = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = DGJZCJ8DVJ;
+						DevelopmentTeam = A47HEQQHQU;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.AccessWiFi = {
 								enabled = 1;
@@ -5641,7 +5659,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sHome/Pods-sHome-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-sHome/Pods-sHome-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/HekrSDK/JSSDK.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
@@ -5656,7 +5674,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sHome/Pods-sHome-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sHome/Pods-sHome-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E267171F2191A09400A11F3B /* ShellScript */ = {
@@ -5736,6 +5754,7 @@
 				75E524241DFEEF8A0093DECC /* UIControl+Block.m in Sources */,
 				75E524A01DFEEF8A0093DECC /* MPLoggerFormatter.m in Sources */,
 				182DBA5D1EE6C96D00C74E18 /* KYCircleMenu.m in Sources */,
+				BA45B5A0237159A400334DEC /* CircleScaleView.m in Sources */,
 				0554AED51E35DD36005C2D73 /* SceneConditionVC.m in Sources */,
 				75E524011DFEEF8A0093DECC /* NSString+Additions.m in Sources */,
 				05135E6B1E7173390035A478 /* ChangeGatewaysNameVC.m in Sources */,
@@ -6110,6 +6129,7 @@
 				E2B3A11522C0B365003DD20E /* GS361TimerCell.m in Sources */,
 				01A63F7D2063E947004FEC2F /* LocalVideoVcCell.m in Sources */,
 				75E524301DFEEF8A0093DECC /* UIImage+FileName.m in Sources */,
+				BA45B5A1237159A400334DEC /* ResetProgressController.m in Sources */,
 				18C78A431EE8BAA600F89651 /* AddTimeSceneApi.m in Sources */,
 				75E5249C1DFEEF8A0093DECC /* MPFileManager.m in Sources */,
 				056B37421E03D041004744BC /* SettingVC.m in Sources */,
@@ -6614,8 +6634,8 @@
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = DGJZCJ8DVJ;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A47HEQQHQU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6630,10 +6650,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.base;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.basetest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "067571b1-ba72-4982-a45f-57301fdce6c5";
-				PROVISIONING_PROFILE_SPECIFIER = BASE_development;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -6652,8 +6672,8 @@
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = DGJZCJ8DVJ;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A47HEQQHQU;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6668,10 +6688,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.base;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.basetest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "70899942-c6bb-439f-8f6b-946475ac1471";
-				PROVISIONING_PROFILE_SPECIFIER = Base_AppStore;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -15,6 +15,7 @@
 #import "VideoDataBase.h"
 #import "NSSDKDevConfig.h"
 #import "OPDefaultConfig.h"
+#import "ResetProgressController.h"
 
 @interface GeneralViewController () <UITableViewDelegate, UITableViewDataSource> {
     OPDefaultConfig opDefaultConfig;
@@ -134,21 +135,12 @@
 //            opDefaultConfig.Preview = 1;
 //            opDefaultConfig.CameraPARAM = 1;
             [self requestSetConfigWithChannel:-1 andJObject:&opDefaultConfig];
-            
-            [MBProgressHUD showMessage:NSLocalizedString(@"resetting device, please do not power off", nil) ToView:self.view];
-            
-            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showTimeoutFail) object:nil];
-            [self performSelector:@selector(showTimeoutFail) withObject:nil afterDelay:60.0];
+
         };
     })
     .LeeShow();
 }
 
-- (void) showTimeoutFail {
-    NSLog(@"[RYAN] GeneralViewController > showTimeoutFail");
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [MBProgressHUD showError:NSLocalizedString(@"配置失败", nil) ToView:GetWindow];
-}
 
 - (void)deleteCamera {
     [LEEAlert alert].config
@@ -343,12 +335,15 @@
     NSLog(@"[RYAN] GeneralViewController > RefreshUIWithSetConfig > factory reset success");
     //录像满时
     if ([config.name isEqualToString:@JK_OPDefaultConfig]) {
-        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"恢复出厂成功,请等待..", nil) duration:5.0];
-        
-        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(showTimeoutFail) object:nil];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
         [self RestartDevice];
+        ResetProgressController * vc=[[ResetProgressController alloc] init];
+        vc.timer1 = 1.0f;
+        vc.hintTitle = TS("恢复出厂成功,请等待..");
+        GetWindow.rootViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+        vc.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        [GetWindow.rootViewController presentViewController:vc animated:NO completion:^{
+            
+        }];
     }
 }
 

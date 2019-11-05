@@ -63,11 +63,6 @@
     [self.view addSubview:self.devciceListView];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
-    
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
-}
 
 - (void)getData{
     [SVProgressHUD showWithStatus:NSLocalizedString(@"请稍后...", nil)];
