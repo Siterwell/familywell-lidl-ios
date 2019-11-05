@@ -41,18 +41,6 @@
         case ReachableViaWiFi:
             delayTime = 10;
             break;
-        case ReachableVia2G:
-            delayTime = 20;
-
-            break;
-        case ReachableVia3G:
-            delayTime = 15;
-
-            break;
-        case ReachableVia4G:
-            delayTime = 10;
-
-            break;
         default:
             break;
     }
