@@ -57,7 +57,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 6;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -108,6 +108,22 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.textColor = [UIColor darkGrayColor];
         cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.text = NSLocalizedString(@"注意事项", nil);
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    }else if (indexPath.row == 3) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
+        cell.textLabel.text = NSLocalizedString(@"获取更多设备信息", nil);
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+    }else if (indexPath.row == 4) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
         cell.textLabel.text = NSLocalizedString(@"售后电话", nil);
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.detailTextLabel.text = @"+358 40 754 9295401";
@@ -152,9 +168,29 @@
         }
         
     } else if (indexPath.row == 2) {
+        UIApplication *application = [UIApplication sharedApplication];
+        NSURL *URL = [NSURL URLWithString:@"https://safewith.me/tips"];
+        
+        if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+            [application openURL:URL options:@{}
+               completionHandler:^(BOOL success) {
+                   //NSLog(@"Open %@: %d",scheme,success);
+               }];
+        }
+    }else if (indexPath.row == 3) {
+        UIApplication *application = [UIApplication sharedApplication];
+        NSURL *URL = [NSURL URLWithString:@"https://safewith.me/product-category/laitteet/"];
+        
+        if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+            [application openURL:URL options:@{}
+               completionHandler:^(BOOL success) {
+                   //NSLog(@"Open %@: %d",scheme,success);
+               }];
+        }
+    }else if (indexPath.row == 4) {
         NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"+358 40 754 9295401"];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
-    } else if (indexPath.row == 3) {
+    } else if (indexPath.row == 5) {
         [self performSegueWithIdentifier:@"toPrivacy" sender:nil];
     }
     

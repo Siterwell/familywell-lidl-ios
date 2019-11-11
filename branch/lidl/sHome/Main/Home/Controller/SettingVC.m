@@ -197,7 +197,7 @@
         }else{
                 
                 UIApplication *application = [UIApplication sharedApplication];
-                NSURL *URL = [NSURL URLWithString:@"https://safewith.me/base/"];
+                NSURL *URL = [NSURL URLWithString:@"https://safewith.me/usein-kysytyt-kysymykset/"];
                 
                 if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
                     [application openURL:URL options:@{}
