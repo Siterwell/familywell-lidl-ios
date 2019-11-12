@@ -42,14 +42,15 @@
     }
     
     if(_phone_reset){
-        self.navigationItem.rightBarButtonItem =  [super itemWithTarget:self action:@selector(clickItem) Title:NSLocalizedString(@"邮箱注册", nil) withTintColor:RGB(40, 184, 215)];
+        self.navigationItem.rightBarButtonItem =  [super itemWithTarget:self action:@selector(clickItem) Title:NSLocalizedString(@"邮箱注册", nil) withTintColor:[UIColor whiteColor]];
     }
+     self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(finish) image:@"back_icon" highImage:nil withTintColor:[UIColor whiteColor]];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
 }
 
 - (void)didReceiveMemoryWarning {
@@ -372,6 +373,10 @@
     } determineButton:^{
         [self checkCaptchaCode:alert.captchaTF.text];
     }];
+}
+
+-(void)finish{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)toPrivacy:(UITapGestureRecognizer *)tapGesture {

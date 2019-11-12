@@ -70,8 +70,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(lodaSystemData) name:@"addSystemSceneListSuccess" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(lodaSystemData) name:@"updateSystemSceneListSuccess" object:nil];
     
-    self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(timeSwitch) Title:NSLocalizedString(@"定时切换",nil) withTintColor:RGB(40, 184, 215)];
-    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(addAction:) image:@"topadd_blue_icon" highImage:@"topadd_blue_icon" withTintColor:RGB(40, 184, 215)];
+    self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(timeSwitch) Title:NSLocalizedString(@"定时切换",nil) withTintColor:[UIColor whiteColor]];
+    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(addAction:) image:@"topadd_blue_icon" highImage:@"topadd_blue_icon" withTintColor:[UIColor whiteColor]];
     
     [self sendAndRecvSenceData];
     

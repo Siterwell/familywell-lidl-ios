@@ -41,7 +41,7 @@
     [_imagView startAnimating];
     
     if (!_isFromeSeeting) {
-        self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(cancel) Title:NSLocalizedString(@"取消", nil) withTintColor:RGB(40, 184, 215)];
+        self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(cancel) Title:NSLocalizedString(@"取消", nil) withTintColor:[UIColor whiteColor]];
     }
     
 }
@@ -76,6 +76,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
 }
 
