@@ -416,8 +416,14 @@
         if(dev!=nil && ([dev.device_name containsString:@"008"] || [dev.device_name containsString:@"009"] || [dev.device_name containsString:@"00A"] || [dev.device_name containsString:@"00B"] || [dev.device_name containsString:@"00C"]
                         || [dev.device_name containsString:@"00D"] )){
                [_TestBtn setHidden:YES];
+            [self.wifiImgV setHidden:YES];
+            [self.batteryImgV setHidden:YES];
+            [self.batteryLabel setHidden:YES];
         }else{
              [_TestBtn setHidden:NO];
+            [self.wifiImgV setHidden:NO];
+            [self.batteryImgV setHidden:NO];
+            [self.batteryLabel setHidden:NO];
         }
      
         
