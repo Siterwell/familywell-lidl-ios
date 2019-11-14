@@ -416,8 +416,14 @@
         if(dev!=nil && ([dev.device_name containsString:@"008"] || [dev.device_name containsString:@"009"] || [dev.device_name containsString:@"00A"] || [dev.device_name containsString:@"00B"] || [dev.device_name containsString:@"00C"]
                         || [dev.device_name containsString:@"00D"] )){
                [_TestBtn setHidden:YES];
+            [self.wifiImgV setHidden:YES];
+            [self.batteryImgV setHidden:YES];
+            [self.batteryLabel setHidden:YES];
         }else{
              [_TestBtn setHidden:NO];
+            [self.wifiImgV setHidden:NO];
+            [self.batteryImgV setHidden:NO];
+            [self.batteryLabel setHidden:NO];
         }
      
         
@@ -672,12 +678,7 @@
  */
 - (void)analysisStatus{
     
-//    if (![self.data.status isEqualToString:@"no"]) {
-    
-    if (![self.data.title containsString:@"复合型烟感"] &&
-        ![self.data.title containsString:@"CO报警器"] &&
-        ![self.data.title containsString:@"热感报警器"] &&
-        ![self.data.title containsString:@"水感报警器"]) {
+    if (![self.data.status isEqualToString:@"no"]) {
         
         NSString *signal = [_data.statuCode substringWithRange:NSMakeRange(0, 2)];
         if ([signal isEqualToString:@"04"]) {
@@ -695,15 +696,9 @@
         else{
             [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
         }
-    }
         
         NSString *battery = [_data.statuCode substringWithRange:NSMakeRange(2, 2)];
-        if (![self.data.title containsString:@"插座"] &&
-            ![self.data.title containsString:@"双路开关"] &&
-            ![self.data.title containsString:@"复合型烟感"] &&
-            ![self.data.title containsString:@"CO报警器"] &&
-            ![self.data.title containsString:@"热感报警器"] &&
-            ![self.data.title containsString:@"水感报警器"]) {
+        if (![self.data.title containsString:@"插座"] && ![self.data.title containsString:@"双路开关"]) {
             if ([battery isEqualToString:@"FF"]) {
             }
             else if ([battery isEqualToString:@"80"]){
@@ -762,11 +757,11 @@
                 [_MainLabel setText:statusString];
             }
         }
-//    }
-//    else{
-//        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
-//        _batteryLabel.text = NSLocalizedString(@"",nil);
-//    }
+    }
+    else{
+        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
+        _batteryLabel.text = NSLocalizedString(@"",nil);
+    }
 }
 
 - (IBAction)switchAction:(id)sender {
