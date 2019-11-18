@@ -60,10 +60,15 @@
     [bookShelfView.delegate subscribeNext:^(id x) {
         //同步
         @strongify(self)
-//        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-//        DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
-        //氦氪云接口获取设备状态
-        [self deviceSycn];
+        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+        DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+        if(model==nil){
+            [MBProgressHUD showError:NSLocalizedString(@"请选择网关", nil) ToView:self.view];
+            [self.bookShelfMainView stopScycn];
+        }else{
+            //氦氪云接口获取设备状态
+            [self deviceSycn];
+        }
     }];
     [self.view addSubview:bookShelfView];
     self.bookShelfMainView = bookShelfView;
@@ -274,6 +279,15 @@
  跳转到添加页面
  */
 -(void)add{
+    
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    
+    if (model == nil) {
+        [MBProgressHUD showError:NSLocalizedString(@"请选择网关", nil) ToView:self.view];
+        return;
+    }
+    
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"DeviceStoryboard" bundle:nil];
     AddDeviceVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"AddDeviceVC"];
     vc.type = @"add";
