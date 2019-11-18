@@ -268,16 +268,7 @@ BOOL flag_checkfireware = NO;
     
     //紧急号码弹框
     
-    NSString *nowTime = [NSString cy_getCurrentDateTransformTimeStamp];
-    NSString *oldTime = [config objectForKey:@"onceAWeek"];
-    if (oldTime != nil) {
-        if (([nowTime longLongValue] - [oldTime longLongValue] >= 86400 * 7)) {
-            [self alertConfigPhone];
-        }
-    }
-    else {
-        [self alertConfigPhone];
-    }
+
     
     [self checkLanguageForBindGT];
 }
@@ -340,7 +331,7 @@ BOOL flag_checkfireware = NO;
 - (void)alertConfigPhone {
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     UserInfoModel *model = [[UserInfoModel alloc] initWithDictionary:[config objectForKey:UserInfos] error:nil];
-    if (!model.user_des || model.user_des.length <= 2) {
+    if (model!=nil && (!model.user_des || model.user_des.length <= 2)) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"请设置紧急联系号码", nil) preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleDefault handler:nil]];
         [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -1235,6 +1226,17 @@ BOOL flag_checkfireware = NO;
 
         }else{
             [self initNoVideo];
+        }
+        
+        NSString *nowTime = [NSString cy_getCurrentDateTransformTimeStamp];
+        NSString *oldTime = [config objectForKey:@"onceAWeek"];
+        if (oldTime != nil) {
+            if (([nowTime longLongValue] - [oldTime longLongValue] >= 86400 * 7)) {
+                [self alertConfigPhone];
+            }
+        }
+        else {
+            [self alertConfigPhone];
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

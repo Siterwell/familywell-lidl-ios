@@ -59,8 +59,15 @@
     self.table.allowsSelectionDuringEditing = YES;
     
     //加载信息
-    [MBProgressHUD showProgressToView:GetWindow Text:NSLocalizedString(@"情景加载中",nil)];
-    _isLoading = YES;
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    if(model!=nil){
+        [MBProgressHUD showProgressToView:GetWindow Text:NSLocalizedString(@"情景加载中",nil)];
+        _isLoading = YES;
+    }else{
+         [MBProgressHUD showError:NSLocalizedString(@"请选择网关", nil) ToView:self.view];
+    }
+
     
 //    [self requestSenceInfo];
     
@@ -1044,6 +1051,14 @@
  */
 -(void)addAction:(UIButton *)sender{
     
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    
+    if (model == nil) {
+        [MBProgressHUD showError:NSLocalizedString(@"请选择网关", nil) ToView:self.view];
+        return;
+    }
+    
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"SceneStoryboard" bundle:nil];
     if (sender.tag == 0) {
         //系统情景的添加按钮
@@ -1065,8 +1080,6 @@
             }
             
             
-            NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-            DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
             
         }];
         [self.navigationController pushViewController:vc animated:YES];
@@ -1204,8 +1217,8 @@
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
     
-    if (model == nil || ![model.online isEqualToString:@"1"]) {
-        [MBProgressHUD showSuccess:[NSString stringWithFormat:NSLocalizedString(@"当前网关为:%@", nil),NSLocalizedString(@"离线", nil) ] ToView:self.view];
+    if (model == nil) {
+        [MBProgressHUD showError:NSLocalizedString(@"请选择网关", nil) ToView:self.view];
         return;
     }
     

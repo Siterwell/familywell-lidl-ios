@@ -81,13 +81,17 @@
 }
 
 - (void)getWarnings {
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
+    if(model==nil){
+        [MBProgressHUD showError:NSLocalizedString(@"请选择网关", nil) ToView:self.view];
+        return;
+    }
     if(self.page == 0){
     [MBProgressHUD showLoadToView:self.view];
     }
 
     __weak typeof(self) weakSelf = self;
-    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-    DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
     if (model) {
         [HKNetManager getWarningsWithDevTid:model.devTid andPage:self.page handler:^(NSArray<WarningModel *> *parseArray, BOOL isLast, NSError *error) {
             [weakSelf.warningList addObjectsFromArray:parseArray];
@@ -119,6 +123,8 @@
         }]];
         [self presentViewController:alert animated:YES completion:nil];
         
+    }else{
+        [MBProgressHUD showError:NSLocalizedString(@"请选择网关", nil) ToView:self.view];
     }
 }
 
