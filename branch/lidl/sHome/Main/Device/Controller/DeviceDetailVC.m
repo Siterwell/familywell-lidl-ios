@@ -423,8 +423,14 @@
         if(dev!=nil && ([dev.device_name containsString:@"008"] || [dev.device_name containsString:@"009"] || [dev.device_name containsString:@"00A"] || [dev.device_name containsString:@"00B"] || [dev.device_name containsString:@"00C"]
                         || [dev.device_name containsString:@"00D"] )){
                [_TestBtn setHidden:YES];
+            [self.wifiImgV setHidden:YES];
+            [self.batteryImgV setHidden:YES];
+            [self.batteryLabel setHidden:YES];
         }else{
              [_TestBtn setHidden:NO];
+            [self.wifiImgV setHidden:NO];
+            [self.batteryImgV setHidden:NO];
+            [self.batteryLabel setHidden:NO];
         }
      
         
@@ -518,7 +524,7 @@
     if ([_data.status isEqualToString:@"aq"]) {
         [_bgImageView setImage:[UIImage imageNamed:@"sbgreen_bg"]];
         if ([_data.title isEqualToString:@"智能插座"]) {
-            _MainLabel.text = NSLocalizedString(@"Socket OFF",nil);
+            _MainLabel.text = NSLocalizedString(@"插座关",nil);
             [_deviceSwitch setOn:NO animated:YES];
         }
         else if([_data.title isEqualToString:@"门磁"]){
@@ -575,11 +581,7 @@
     }
     else if ([_data.status isEqualToString:@"gz"]){
         [_bgImageView setImage:[UIImage imageNamed:@"sborange_bg"]];
-        if ([_data.title isEqualToString:@"温湿度探测器"] || [_data.title isEqualToString:@"门锁"]) {
-            _MainLabel.text = NSLocalizedString(@"低电压",nil);
-        } else {
-            _MainLabel.text = NSLocalizedString(@"故障",nil);
-        }
+        _MainLabel.text = NSLocalizedString(@"低电压",nil);
         _MainLabel.textColor = RGB(255, 179, 0);
         _centerLine.backgroundColor = RGB(255, 179, 0);
         
@@ -588,7 +590,7 @@
         
         if ([_data.title isEqualToString:@"智能插座"]) {
             [_bgImageView setImage:[UIImage imageNamed:@"sbred_bg"]];//
-            _MainLabel.text = NSLocalizedString(@"Socket ON",nil);
+            _MainLabel.text = NSLocalizedString(@"插座开",nil);
             [_deviceSwitch setOn:YES animated:YES];
         }
         else if([_data.title isEqualToString:@"门磁"]){
@@ -605,7 +607,7 @@
                 _MainLabel.text = NSLocalizedString(@"测试报警", nil);
             } else if ([_data.desc isEqualToString:@"12"]) {
                 [_bgImageView setImage:[UIImage imageNamed:@"sborange_bg"]];//
-                _MainLabel.text = NSLocalizedString(@"故障", nil);
+                _MainLabel.text = NSLocalizedString(@"低电压", nil);
             } else if ([_data.desc isEqualToString:@"15"]) {
                 [_bgImageView setImage:[UIImage imageNamed:@"sborange_bg"]];//
                 _MainLabel.text = NSLocalizedString(@"免打扰", nil);
