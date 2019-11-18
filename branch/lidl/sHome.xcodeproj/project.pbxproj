@@ -555,7 +555,6 @@
 		75E524681DFEEF8A0093DECC /* UIView+BlockGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522981DFEEF890093DECC /* UIView+BlockGesture.m */; };
 		75E524691DFEEF8A0093DECC /* UIView+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E5229A1DFEEF890093DECC /* UIView+Constraints.m */; };
 		75E5246A1DFEEF8A0093DECC /* UIView+CustomBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E5229C1DFEEF890093DECC /* UIView+CustomBorder.m */; };
-		75E5246B1DFEEF8A0093DECC /* UIView+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E5229E1DFEEF890093DECC /* UIView+Debug.m */; };
 		75E5246C1DFEEF8A0093DECC /* UIView+draggable.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522A01DFEEF890093DECC /* UIView+draggable.m */; };
 		75E5246D1DFEEF8A0093DECC /* UIView+FDCollapsibleConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522A21DFEEF890093DECC /* UIView+FDCollapsibleConstraints.m */; };
 		75E5246E1DFEEF8A0093DECC /* UIView+Find.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522A41DFEEF890093DECC /* UIView+Find.m */; };
@@ -1925,8 +1924,6 @@
 		75E5229A1DFEEF890093DECC /* UIView+Constraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Constraints.m"; sourceTree = "<group>"; };
 		75E5229B1DFEEF890093DECC /* UIView+CustomBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomBorder.h"; sourceTree = "<group>"; };
 		75E5229C1DFEEF890093DECC /* UIView+CustomBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomBorder.m"; sourceTree = "<group>"; };
-		75E5229D1DFEEF890093DECC /* UIView+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Debug.h"; sourceTree = "<group>"; };
-		75E5229E1DFEEF890093DECC /* UIView+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Debug.m"; sourceTree = "<group>"; };
 		75E5229F1DFEEF890093DECC /* UIView+draggable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+draggable.h"; sourceTree = "<group>"; };
 		75E522A01DFEEF890093DECC /* UIView+draggable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+draggable.m"; sourceTree = "<group>"; };
 		75E522A11DFEEF890093DECC /* UIView+FDCollapsibleConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FDCollapsibleConstraints.h"; sourceTree = "<group>"; };
@@ -4787,8 +4784,6 @@
 				75E5229A1DFEEF890093DECC /* UIView+Constraints.m */,
 				75E5229B1DFEEF890093DECC /* UIView+CustomBorder.h */,
 				75E5229C1DFEEF890093DECC /* UIView+CustomBorder.m */,
-				75E5229D1DFEEF890093DECC /* UIView+Debug.h */,
-				75E5229E1DFEEF890093DECC /* UIView+Debug.m */,
 				75E5229F1DFEEF890093DECC /* UIView+draggable.h */,
 				75E522A01DFEEF890093DECC /* UIView+draggable.m */,
 				75E522A11DFEEF890093DECC /* UIView+FDCollapsibleConstraints.h */,
@@ -5763,7 +5758,6 @@
 				75E524281DFEEF8A0093DECC /* UIFont+WDCustomLoader.m in Sources */,
 				05D84CB61E371A42002366F5 /* TimeModel.m in Sources */,
 				75E524591DFEEF8A0093DECC /* UITableView+NoData.m in Sources */,
-				75E5246B1DFEEF8A0093DECC /* UIView+Debug.m in Sources */,
 				E2C594F8231F6DB1008BADE7 /* TimeSynDataSource.m in Sources */,
 				056520401E058F2000FCF30F /* ChangePsdVC.m in Sources */,
 				75E5245F1DFEEF8A0093DECC /* UITableViewCell+TS_delaysContentTouches.m in Sources */,
