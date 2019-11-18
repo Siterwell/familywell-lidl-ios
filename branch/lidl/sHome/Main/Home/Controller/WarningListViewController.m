@@ -173,7 +173,7 @@
             NSLog(@"WarningListViewController > answer_content=%@", log_conntent);
             ItemData *data = [[DeviceDataBase sharedDataBase] selectDevice:[NSString stringWithFormat:@"%d",mid]];
             
-            if (14 > log_conntent.length) {
+            if (22 > log_conntent.length) {
                 // To avoid crash
                 msg = @"";
             } else {
