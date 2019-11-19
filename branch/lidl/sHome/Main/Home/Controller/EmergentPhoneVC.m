@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(edit) image:@"pen_icon" highImage:nil withTintColor:[UIColor blackColor]];
+    self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(edit) image:@"pen_icon" highImage:nil withTintColor:[UIColor whiteColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
