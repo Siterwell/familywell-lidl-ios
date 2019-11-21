@@ -307,6 +307,7 @@
 //    }];
 
     [deviceImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(40);
         make.bottom.mas_equalTo(imageView.mas_top).offset(offsetY);
         make.centerX.mas_equalTo(imageView.left).offset(offsetX + rangeW/2);
     }];
