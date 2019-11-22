@@ -218,6 +218,7 @@ void soundCompleteCallback(SystemSoundID soundID, void *clientData){
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePicker.delegate = self;
+    imagePicker.modalPresentationStyle = UIModalPresentationFullScreen;
     [_controller presentViewController:imagePicker animated:YES completion:nil];
 }
 
