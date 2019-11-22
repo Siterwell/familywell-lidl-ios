@@ -512,7 +512,7 @@
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Importante: questo aggiornamento modifica fortemente la funzionalità del vostro sistema. Clicca su \“Informazioni\” qui sotto per vedere quali cambiamenti saranno resi. Dopo l'aggiornamento è necessario ricollegare i dispositivi.";
 "Information" = "Informazioni";
 "Firmware Update Successful" = "Aggiornamento del firmware riuscito!";
-"No motion detected" = "Normale";
+"No motion detected" = "正常";
 "My action" = "La mia azione";
 "更新失败" = "Aggiornare il fallimento";
 "无线设置" = "IL Wi-Fi!";
@@ -525,3 +525,4 @@
 "设备告警" = "Dispositivo di allarme";
 "resetting device, please do not power off" = "ripristino dispositivo, non spegnere";
 "请选择网关" = "Seleziona un gateway";
+"按键" = "tasto";

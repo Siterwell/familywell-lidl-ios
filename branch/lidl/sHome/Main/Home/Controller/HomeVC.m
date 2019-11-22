@@ -241,6 +241,7 @@ BOOL flag_checkfireware = NO;
         UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"LoginStoryboard" bundle:nil];
         LoginVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"LoginVC"];
         BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
+        nav.modalPresentationStyle = UIModalPresentationFullScreen;
         [self.navigationController presentViewController:nav animated:YES completion:nil];
 //    }else if(_model == nil){
 //        //没有设备
@@ -1015,6 +1016,7 @@ BOOL flag_checkfireware = NO;
 - (void)handlePan:(UIPanGestureRecognizer *)recognizer {
     WarningListViewController *wl = [[WarningListViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:wl];
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:nav animated:YES completion:nil];
 }
 

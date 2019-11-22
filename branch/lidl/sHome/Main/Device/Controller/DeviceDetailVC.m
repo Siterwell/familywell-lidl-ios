@@ -268,6 +268,7 @@
                         AddDeviceVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"AddDeviceVC"];
                         vc.type = ws.data.devID;
                         BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
+                        nav.modalPresentationStyle = UIModalPresentationFullScreen;
                         [ws.navigationController presentViewController:nav animated:YES completion:nil];
                         [ws.navigationController popToRootViewControllerAnimated:YES];
                     }else{
@@ -1136,6 +1137,7 @@
     DeviceWarningListViewController *wl = [[DeviceWarningListViewController alloc] init];
     wl.dev_id = _data.devID;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:wl];
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:nav animated:YES completion:nil];
 }
 
