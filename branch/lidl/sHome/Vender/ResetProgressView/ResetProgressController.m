@@ -92,7 +92,7 @@
     _count_label = [[UILabel alloc] init];
     [_count_label setTextColor:ThemeColor];
     [_count_label setFont:SYSTEMFONT(60)];
-    _count_label.text = @"100";
+    _count_label.text = @"60";
     [view addSubview:_count_label];
     [_count_label makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(view.mas_centerX);

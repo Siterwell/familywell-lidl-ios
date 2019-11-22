@@ -1296,10 +1296,13 @@ BOOL flag_checkfireware = NO;
         [self.navigationController pushViewController:[board instantiateViewControllerWithIdentifier:@"ChooseConnectTypeVC"]
                                              animated:YES];
     }else{
+        NSMutableArray *array2 = [_imageView.videoArray mutableCopy];
+        [array2 removeObjectAtIndex:0];
+        NSArray *array3 = [array2 copy];
         VideoLiveViewController *videoLive = [[VideoLiveViewController alloc] init];
         videoLive.vInfo = vInfo;
-        videoLive.videoArray = _imageView.videoArray;
-        videoLive.selectIndex = index;
+        videoLive.videoArray = array3;
+        videoLive.selectIndex = index-1;
         [self.navigationController pushViewController:videoLive animated:YES];
     }
 }
