@@ -10,4 +10,5 @@
 
 @interface AddDeviceVC : BaseVC
 @property (nonatomic ,copy) NSString *type;
+@property (nonatomic, copy)NSString *devID;
 @end

@@ -16,7 +16,8 @@
 #import "Encryptools.h"
 #import "ItemData.h"
 #import "RenameDeviceApi.h"
-
+#import "replaceDeviceApi.h"
+#import "NSString+CY.h"
 @interface AddDeviceVC ()<UITableViewDelegate , UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
@@ -44,7 +45,9 @@
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
     if ([_type isEqualToString:@"add"]) {
         AddDeviceApi *api = [[AddDeviceApi alloc] initWithDevTid:model.devTid CtrlKey:model.ctrlKey];
+        @weakify(self);
         [api startWithObject:self CompletionBlockWithSuccess:^(id data, NSError *error) {
+            @strongify(self);
             NSNumber *msgId=data[@"msgId"];
             NSString *cmdid = [data[@"params"][@"data"][@"cmdId"] stringValue];
             int eqid =  [data[@"params"][@"data"][@"device_ID"] intValue];
@@ -53,11 +56,7 @@
             }
             ItemData *item = [[DeviceDataBase sharedDataBase] selectDevice:[NSString stringWithFormat:@"%d",eqid]];
             if (item && ([cmdid isEqualToString:@"19"]||[cmdid isEqualToString:@"119"] )) {
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:NSLocalizedString(@"设备已添加", nil) preferredStyle:UIAlertControllerStyleAlert];
-                [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                }]];
-                [self presentViewController:alert animated:YES completion:nil];
+                [self show];
                 
             }
         
@@ -66,7 +65,28 @@
             NSLog(@"%@",error);
         }];
     }else{
+        if(![NSString isBlankString:_devID]){
+            replaceDeviceApi *api2 = [[replaceDeviceApi alloc] initWithDevTid:model.devTid CtrlKey:model.ctrlKey mDeviceID:_devID];
+            @weakify(self);
+            [api2 startWithObject:self CompletionBlockWithSuccess:^(id data, NSError *error) {
+                @strongify(self);
+                NSNumber *msgId=data[@"msgId"];
+                NSString *cmdid = [data[@"params"][@"data"][@"cmdId"] stringValue];
+                int eqid =  [data[@"params"][@"data"][@"device_ID"] intValue];
+                if([cmdid isEqualToString:@"119"]){
+                    eqid = [Encryptools getDescryption:eqid withMsgId:[msgId intValue]];
+                }
+                ItemData *item = [[DeviceDataBase sharedDataBase] selectDevice:[NSString stringWithFormat:@"%d",eqid]];
+                if (item  && [[NSString stringWithFormat:@"%d",eqid] isEqualToString:_devID] && ([cmdid isEqualToString:@"19"]||[cmdid isEqualToString:@"119"] )) {
+                    [self show];
+                }
+                
         
+            } failure:^(id data, NSError *error) {
+                NSLog(@"%@",error);
+            }];
+        }
+
     }
     
 }
@@ -127,6 +147,21 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void)show{
+    NSString *title = nil;
+    if ([_type isEqualToString:@"add"]){
+        title = NSLocalizedString(@"设备已添加", nil);
+    }else{
+        title = NSLocalizedString(@"替换设备成功", nil);
+    }
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:title preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark -tableview

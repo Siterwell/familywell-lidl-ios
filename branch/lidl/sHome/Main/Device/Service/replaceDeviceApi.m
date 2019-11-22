@@ -57,10 +57,7 @@
     return @{
              @"action" : @"devSend",
              @"params" : @{
-                     @"devTid" : _devTid,
-                     @"data" : @{
-                             @"cmdId" : @11
-                             }
+                     @"devTid" : _devTid
                      }
              };
 }
