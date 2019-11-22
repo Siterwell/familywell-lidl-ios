@@ -229,7 +229,7 @@
     }
     else if ([_data.status isEqualToString:@"no"]){
         [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
-        _MainLabel.text = NSLocalizedString(@"NO",nil);
+        _MainLabel.text = NSLocalizedString(@"离线",nil);
         //        _MainLabel.textColor = RGB(192, 203, 223);
     }
 }
@@ -306,46 +306,13 @@
             }
             
         }else if (buttonIndex == 1){
-            if (!_isReplcing) {
-                __block NSObject *obj = [[NSObject alloc] init];
-                _isReplcing = YES;
-                [replaceApi startWithObject:obj CompletionBlockWithSuccess:^(id data, NSError *error) {
-                    _isReplcing = NO;
-                    NSDictionary *dic = data;
-                    dic = [dic objectForKey:@"params"];
-                    dic = [dic objectForKey:@"data"];
-                    long isSuccess = [[dic objectForKey:@"answer_yes_or_no"] longValue];
-                    if (isSuccess == 2) {
-                        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"DeviceStoryboard" bundle:nil];
-                        AddDeviceVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"AddDeviceVC"];
-                        vc.type = ws.data.devID;
-                        BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
-                        nav.modalPresentationStyle = UIModalPresentationFullScreen;
-                        [ws.navigationController presentViewController:nav animated:YES completion:nil];
-                        [ws.navigationController popToRootViewControllerAnimated:YES];
-                    }else{
-                        [MBProgressHUD showError:NSLocalizedString(@"替换失败",nil) ToView:ws.view];
-                    }
-                    //                    [obj setValue:@"1" forKey:@"1"];
-                    obj = nil;
-                } failure:^(id data, NSError *error) {
-                    //                    [obj setValue:@"1" forKey:@"1"];
-                    obj = nil;
-                    _isReplcing = NO;
-                }];
-                
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    if (_isReplcing) {
-                        obj = nil;
-                        _isReplcing = NO;
-                        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-                        if ([[config objectForKey:AppStatus] isEqualToString:IntranetAppStatus]){
-                            [config setObject:NetworkAppStatus forKey:AppStatus];
-                        }
-                    }
-                });
-            }
-            
+            UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"DeviceStoryboard" bundle:nil];
+            AddDeviceVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"AddDeviceVC"];
+            vc.devID = ws.data.devID;
+            BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
+            nav.modalPresentationStyle = UIModalPresentationFullScreen;
+            [ws.navigationController presentViewController:nav animated:YES completion:nil];
+            [ws.navigationController popToRootViewControllerAnimated:YES];
         }else if(buttonIndex == 3){
             UIStoryboard *deviceStoryboard = [UIStoryboard storyboardWithName:@"DeviceStoryboard" bundle:nil];
             RenameVC *vc = [deviceStoryboard instantiateViewControllerWithIdentifier:@"RenameVC"];
