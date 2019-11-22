@@ -482,6 +482,7 @@ NSString *content = [SystemSceneHelp getSceneContent:_titleTextFiled.text SceneI
                         AddDeviceVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"AddDeviceVC"];
                         vc.type = ws.data.devID;
                         BaseNC *nav = [[BaseNC alloc] initWithRootViewController:vc];
+                        nav.modalPresentationStyle = UIModalPresentationFullScreen;
                         [ws.navigationController presentViewController:nav animated:YES completion:nil];
                         [ws.navigationController popToRootViewControllerAnimated:YES];
                     }else{
