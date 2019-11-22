@@ -512,7 +512,6 @@
 "Important: this update strongly changes the functionality of your system. Click on \“Information\” below to see what changes will be made. After the update you need to reconnect the devices." = "Tärkeää: Tämä päivitys muuttaa monia toimintoja. Paina alla olevaa \"Tiedot\” -painiketta nähdäksesi muutokset. Päivityksen jälkeen sinun tulee yhdistää laitteet uudelleen.";
 "Information" = "Tiedot";
 "Firmware Update Successful" = "Asennus onnistui";
-"No motion detected" = "Liikettä ei ole havaittu";
 "My action" = "Toimintoni";
 "更新失败" = "päivitys ei";
 "无线设置" = "Wifi asetukset";
