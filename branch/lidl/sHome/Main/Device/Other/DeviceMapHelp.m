@@ -58,9 +58,9 @@
         }
         else if ([name isEqualToString:@"智能插座"]) {
             if ([switchStatus isEqualToString:@"01"]) {
-                return @"aq";
-            } else if ([switchStatus isEqualToString:@"00"]) {
                 return @"bj";
+            } else if ([switchStatus isEqualToString:@"00"]) {
+                return @"aq";
             } else {
                 return @"no";
             }
