@@ -1212,7 +1212,7 @@ BOOL flag_checkfireware = NO;
             
             for (int i = 0; i < [monitor count]; i++) {
                 
-                if (![[monitor objectAtIndex:i][@"devid"] isEqualToString:@"lbt_01"]&&[monitor objectAtIndex:i][@"devid"]!=nil&&[[monitor objectAtIndex:i][@"devid"] isEqual:[NSNull null]]) {
+                if (![[monitor objectAtIndex:i][@"devid"] isEqualToString:@"lbt_01"]&&[monitor objectAtIndex:i][@"devid"]!=nil&&![[monitor objectAtIndex:i][@"devid"] isEqual:[NSNull null]]) {
                     
                     NSDictionary *videoDic = (NSDictionary *)monitor[i];
                     VideoInfoModel *vInfo = [[VideoInfoModel alloc] init];
