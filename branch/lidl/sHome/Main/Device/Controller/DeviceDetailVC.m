@@ -525,7 +525,7 @@
             _MainLabel.text = NSLocalizedString(@"门关闭",nil);
         }
         else if([_data.title isEqualToString:@"PIR探测器"]){
-            _MainLabel.text = NSLocalizedString(@"No motion detected",nil);
+            _MainLabel.text = NSLocalizedString(@"正常",nil);
         }
         else if ([_data.title isEqualToString:@"门锁"]) {
             if ([_data.desc isEqualToString:STATE_NORMAL] || [_data.desc isEqualToString:@"60"] ) {
