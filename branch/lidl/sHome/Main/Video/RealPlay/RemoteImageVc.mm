@@ -119,6 +119,7 @@
     
     SelectDateViewVc *selectView = [[SelectDateViewVc alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:selectView];
+    nav.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:nav animated:YES completion:nil];
     
     __weak __typeof(self)weakSelf = self;

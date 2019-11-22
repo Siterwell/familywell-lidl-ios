@@ -287,6 +287,7 @@
     AddDeviceVC *vc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"AddDeviceVC"];
     vc.type = @"add";
     BaseNC *nc = [[BaseNC alloc] initWithRootViewController:vc];
+    nc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.navigationController presentViewController:nc animated:YES completion:nil];
 }
 
