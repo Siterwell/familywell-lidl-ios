@@ -37,7 +37,6 @@
 
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
-#import <Firebase/Firebase.h>
 // iOS10 及以上需导入 UserNotifications.framework
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
@@ -46,7 +45,7 @@
 
 //extern NSDictionary * ApiMap;
 
-@interface AppDelegate ()<GeTuiSdkDelegate, FIRMessagingDelegate, UNUserNotificationCenterDelegate, UIAlertViewDelegate>
+@interface AppDelegate ()<GeTuiSdkDelegate, UNUserNotificationCenterDelegate, UIAlertViewDelegate>
 
 @property (nonatomic) HekrSimpleTcpClient *tcpClient;
 
@@ -55,7 +54,7 @@
 
 @property (nonatomic) NSString *devTypeName;
 @property (nonatomic) NSString *alarmName;
-
+@property (nonatomic) BOOL autobind;
 @end
 
 @implementation AppDelegate
@@ -243,8 +242,6 @@ static void uncaughtExceptionHandler(NSException *exception) {
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Fabric with:@[[Crashlytics class]]];
-    [FIRApp configure];
-    [FIRMessaging messaging].delegate = self;
     
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     NSString *lan;
@@ -317,7 +314,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
         NSLog(@"[RYAN] application >> domain = %@", domain);
     }];
     
-//    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
+    [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
     // 注册 APNs
     [self registerRemoteNotification];
     
@@ -367,10 +364,10 @@ static void uncaughtExceptionHandler(NSException *exception) {
 //    NSLog(@"[RYAN] AppDelegate > applicationWillResignActive");
 }
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-//    [GeTuiSdk resetBadge];
+    [GeTuiSdk resetBadge];
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-//    [GeTuiSdk resetBadge];
+    [GeTuiSdk resetBadge];
     
 //    NSLog(@"[RYAN] AppDelegate > applicationWillEnterForeground");
 }
@@ -383,7 +380,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
     //-- [RYAN]
 }
 - (void)applicationWillTerminate:(UIApplication *)application {
-//    [GeTuiSdk resetBadge];
+    [GeTuiSdk resetBadge];
 }
 
 - (void)checkUserLoginState {
@@ -526,12 +523,12 @@ static void uncaughtExceptionHandler(NSException *exception) {
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSLog(@"[RYAN] AppDelegate >> didRegisterForRemoteNotificationsWithDeviceToken >> %@", token);
     // 向个推服务器注册deviceToken
-//    [GeTuiSdk registerDeviceToken:token];
+    [GeTuiSdk registerDeviceToken:token];
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     /// Background Fetch 恢复SDK 运行
-//    [GeTuiSdk resume];
+    [GeTuiSdk resume];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
@@ -594,6 +591,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 /** SDK收到透传消息回调 */
 - (void)GeTuiSdkDidReceivePayloadData:(NSData *)payloadData andTaskId:(NSString *)taskId andMsgId:(NSString *)msgId andOffLine:(BOOL)offLine fromGtAppId:(NSString *)appId {
     
+    NSLog(@"");
     //收到个推消息
 //    NSString *payloadMsg = nil;
 //    if (payloadData) {
@@ -680,20 +678,42 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     [config setObject:clientId forKey:AppClientID];
     [config synchronize];
+    
+    if([Hekr sharedInstance].user!=nil && _autobind != YES){
+        [self bindGTId];
+    }
 }
 
-- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
-    NSLog(@"[RYAN] FCM registration token: %@", fcmToken);
-    // Notify about received token.
-    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:
-     @"FCMToken" object:nil userInfo:dataDict];
-    // TODO: If necessary send token to application server.
-    // Note: This callback is fired at each app startup and whenever a new token is generated.
+- (void)bindGTId{
+    NSString *lan;
+    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+    NSString *languageName = [appLanguages objectAtIndex:0];
+    if ([languageName containsString:@"zh"]) {
+        lan = @"zh";
+    } else if ([languageName containsString:@"de"]) {
+        lan = @"de";
+    }else if ([languageName containsString:@"es"]) {
+        lan = @"es";
+    }else if ([languageName containsString:@"fr"]) {
+        lan = @"fr";
+    } else {
+        lan = @"en";
+    }
+    NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
     
-    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-    [config setObject:fcmToken forKey:AppClientID];
-    [config synchronize];
+    if ([config objectForKey:AppClientID]) {
+        NSDictionary *dic = @{
+                              @"clientId" : [config objectForKey:AppClientID],
+                              @"pushPlatform" : @"GETUI",
+                              @"locale" : lan
+                              };
+        [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"绑定成功！");
+            _autobind = YES;
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        }];
+    }
 }
 
 #pragma mark - wifi

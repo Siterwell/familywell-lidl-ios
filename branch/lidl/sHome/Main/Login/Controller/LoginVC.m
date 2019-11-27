@@ -217,33 +217,21 @@
     NSString *languageName = [appLanguages objectAtIndex:0];
     if ([languageName containsString:@"zh"]) {
         lan = @"zh";
-    } else if ([languageName containsString:@"cs"]) {
-        lan = @"cs";
     } else if ([languageName containsString:@"de"]) {
         lan = @"de";
     }else if ([languageName containsString:@"es"]) {
         lan = @"es";
-    }else if ([languageName containsString:@"nl"]) {
-        lan = @"nl";
     }else if ([languageName containsString:@"fr"]) {
         lan = @"fr";
-    }else if ([languageName containsString:@"it"]) {
-        lan = @"it";
-    }else if ([languageName containsString:@"sl"]) {
-        lan = @"sl";
-    }else if ([languageName containsString:@"fi"]) {
-        lan = @"fi";
     } else {
         lan = @"en";
     }
     
     NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
-    [config setValue:languageName forKey:CurrentLanguage];
-    
     if ([config objectForKey:AppClientID]) {
         NSDictionary *dic = @{
                               @"clientId" : [config objectForKey:AppClientID],
-                              @"pushPlatform" : @"FCM",
+                              @"pushPlatform" : @"GETUI",
                               @"locale" : lan
                               };
         [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

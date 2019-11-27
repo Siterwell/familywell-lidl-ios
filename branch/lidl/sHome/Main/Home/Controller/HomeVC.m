@@ -269,64 +269,9 @@ BOOL flag_checkfireware = NO;
     //紧急号码弹框
     
 
-    
-    [self checkLanguageForBindGT];
 }
 
-- (void)checkLanguageForBindGT {
-    WS(ws)
-    
-//    NSLog(@"[RYAN] HomeVC > checkLanguageForBindGT");
-    
-    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
-    NSString *languageName = [appLanguages objectAtIndex:0];
-//    NSLog(@"[RYAN] HomeVC > checkLanguage 222 > appLanguages : %@", languageName);
-    
-    NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
-    NSString *language = [config stringForKey:CurrentLanguage];
-//    NSLog(@"[RYAN] HomeVC > checkLanguage 111 > language : %@", language);
-    
-    if (language == nil || ![language isEqualToString:languageName]) {
-//        NSLog(@"[RYAN] need to update");
-        [config setValue:languageName forKey:CurrentLanguage];
-        [ws bindGTId:languageName];
-    }
-}
 
-- (void)bindGTId:(NSString*)languageName {
-    MJWeakSelf
-    NSString* lan;
-    if ([languageName containsString:@"zh"]) {
-        lan = @"zh";
-    } else if ([languageName containsString:@"de"]) {
-        lan = @"de";
-    } else if ([languageName containsString:@"fr"]) {
-        lan = @"fr";
-    } else if ([languageName containsString:@"es"]) {
-        lan = @"es";
-    }else {
-        lan = @"en";
-    }
-    
-    NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
-    [config setValue:languageName forKey:CurrentLanguage];
-    
-    if ([config objectForKey:AppClientID]) {
-        NSDictionary *dic = @{
-                              @"clientId" : [config objectForKey:AppClientID],
-                              @"pushPlatform" : @"FCM",
-                              @"locale" : lan
-                              };
-        [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"绑定成功！");
-            
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"loginUser" object:nil];
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            [weakSelf bindGTId:languageName];
-        }];
-    }
-}
 
 - (void)alertConfigPhone {
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];

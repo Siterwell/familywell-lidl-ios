@@ -231,7 +231,7 @@
     NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
     if ([config objectForKey:AppClientID]) {
         NSDictionary *params = @{@"clientId": [config objectForKey:AppClientID],
-                                 @"pushPlatform": @"FCM"
+                                 @"pushPlatform": @"GETUI"
                                  };
         [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/unbindPushAlias", https] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
