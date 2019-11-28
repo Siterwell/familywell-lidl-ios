@@ -13,6 +13,7 @@
 #import "NSArray+JSONString.h"
 #import "NSString+ArryValue.h"
 #import "VideoDataBase.h"
+#import "NSString+CY.h"
 
 @interface AddCameraVc ()<NSSDKAPConfigModelDelegate>
 
@@ -35,7 +36,9 @@
     }else{
         self.title = NSLocalizedString(@"新增摄像头", nil);
     }
-
+    if([NETWORKER getCurrentPhoneWifiSSID] ==nil||[[NETWORKER getCurrentPhoneWifiSSID] isEqual:[NSNull null]] || [[NETWORKER getCurrentPhoneWifiSSID] isEqualToString:@"WLAN"]){
+        [self editWIFiName];
+    }
     [_wifiBtn setTitleColor:ThemeColor forState:UIControlStateNormal];
     NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"camera+%@", self.ssidName.text]];
     if (pwd != nil && pwd.length != 0) {
@@ -211,7 +214,29 @@
     [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0] animated:YES];
 }
 
-
+-(void)editWIFiName{
+    
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"请编辑WIfI名称", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        
+    }];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //alert.textFields.firstObject.text
+        if([NSString isBlankString:alert.textFields.firstObject.text]){
+            [MBProgressHUD showError:NSLocalizedString(@"请编辑WIfI名称", nil) ToView:GetWindow];
+        }else{
+            _ssidName.text = alert.textFields.firstObject.text;
+        }
+       
+       
+        
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 /*
  #pragma mark - Navigation
  
