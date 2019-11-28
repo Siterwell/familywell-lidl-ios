@@ -33,5 +33,5 @@ typedef void(^netStatus)(NetworkStatus netStatus);
 
 -(void)addObserverReachabilityChanged:(void(^)(NetworkStatus netStatus)) netStatusBlock;
 -(NSInteger)delayTime:(NetworkStatus) netStatus;
-
++ (NSString *)getNetconnType;
 @end
