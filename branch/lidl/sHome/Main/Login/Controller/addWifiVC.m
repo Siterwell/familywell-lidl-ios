@@ -11,13 +11,15 @@
 #import "HekrConfig.h"
 #import "ESP_NetUtil.h"
 #import "connectWifiVC.h"
-
+#import "NetworkUnit.h"
+#import "NSString+CY.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 
 @interface addWifiVC ()
 @property (strong, nonatomic) IBOutlet UIButton *connectBtn;
 @property (weak, nonatomic) IBOutlet UIButton *remberPsdButton;
 @property (weak, nonatomic) UITextField *psdTextFiled;
+@property (weak, nonatomic) UITextField *ssidTextFiled;
 @end
 
 @implementation addWifiVC
@@ -34,6 +36,15 @@
     _remberPsdButton.selected = YES;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSString *ssid = [HekrConfig getWifiName];
+    if (ssid == nil || [ssid isEqualToString:@""] || [ssid isEqualToString:@"WLAN"]) {
+        [self editWIFiName];
+    }
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -46,13 +57,13 @@
 //        [MBProgressHUD showError:NSLocalizedString(@"WIFI名不能含有空格",nil) ToView:self.view];
 //        return;
 //    }
-    if ([HekrConfig getWifiName] == nil || [[HekrConfig getWifiName] isEqualToString:@""]) {
+    if (_ssidTextFiled.text == nil || [_ssidTextFiled.text isEqualToString:@""] || [_ssidTextFiled.text isEqualToString:@"WLAN"]) {
         [MBProgressHUD showError:NSLocalizedString(@"没有WIFI",nil) ToView:self.view];
         return;
     }
     if (_remberPsdButton.selected == YES) {
         NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-        [config setObject:self.psdTextFiled.text forKey:[NSString stringWithFormat:@"st_wifi_%@",[HekrConfig getWifiName]]];
+        [config setObject:self.psdTextFiled.text forKey:[NSString stringWithFormat:@"st_wifi_%@",self.ssidTextFiled.text]];
     }
     [self performSegueWithIdentifier:@"toConnectWifi" sender:nil];
 }
@@ -84,6 +95,7 @@
         cell.textField.text = [HekrConfig getWifiName];
         cell.textField.enabled = NO;
         cell.hidenBtn.hidden = YES;
+        _ssidTextFiled = cell.textField;
     }
     else{
         cell.leftImageView.image = [UIImage imageNamed:@"password_icon"];
@@ -105,14 +117,36 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"toConnectWifi"]) {
         connectWifiVC *vc = segue.destinationViewController;
-        vc.apSsid = [HekrConfig getWifiName];
+        vc.apSsid = _ssidTextFiled.text;
         vc.apPwd = _psdTextFiled.text;
         vc.isFromeSeeting = _isFromeSeeting;
     }
 }
 
 
-
+-(void)editWIFiName{
+    
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"请编辑WIfI名称", nil) message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        
+    }];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //alert.textFields.firstObject.text
+        if([NSString isBlankString:alert.textFields.firstObject.text]){
+            [MBProgressHUD showError:NSLocalizedString(@"请编辑WIfI名称", nil) ToView:GetWindow];
+        }else{
+            _ssidTextFiled.text = alert.textFields.firstObject.text;
+        }
+       
+       
+        
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 
 @end
