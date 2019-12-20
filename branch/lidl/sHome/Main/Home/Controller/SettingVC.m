@@ -60,7 +60,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 3) {
+    if (indexPath.row == 3 && indexPath.section == 0) {
         return 0;
     }
     return 44;
@@ -70,7 +70,7 @@
     if (section == 0) {
         return 7;
     }else if (section == 1){
-        return 2;
+        return 4;
     }else{
         return 1;
     }
@@ -118,19 +118,32 @@
     }
     else if (indexPath.section == 1){
         
-        if (indexPath.row == 1) {
+        if (indexPath.row == 0) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingCell" forIndexPath:indexPath];
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
+
+            cell.textLabel.text = NSLocalizedString(@"系统说明书", nil);
+            return cell;
+        }else if(indexPath.row == 1){
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingCell" forIndexPath:indexPath];
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
             
+            cell.textLabel.text = NSLocalizedString(@"注意事项", nil);
+            return cell;
+        }else if(indexPath.row == 2){
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingCell" forIndexPath:indexPath];
+            cell.textLabel.font = [UIFont systemFontOfSize:14];
+            
+            cell.textLabel.text = NSLocalizedString(@"获取更多设备信息", nil);
+            return cell;
+        }else{
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingCell" forIndexPath:indexPath];
             cell.textLabel.font = [UIFont systemFontOfSize:14];
             
             cell.textLabel.text = NSLocalizedString(@"关于", nil);
             return cell;
         }
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingCell" forIndexPath:indexPath];
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
 
-        cell.textLabel.text = NSLocalizedString(@"系统说明书", nil);
-        return cell;
 
     }
     else{
@@ -192,19 +205,44 @@
     }
     else if (indexPath.section == 1){
         
-        if (indexPath.row == 1) {
-            [self performSegueWithIdentifier:@"toAbout" sender:nil];
-        }else{
-                
-                UIApplication *application = [UIApplication sharedApplication];
-                NSURL *URL = [NSURL URLWithString:@"https://safewith.me/usein-kysytyt-kysymykset/"];
-                
-                if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
-                    [application openURL:URL options:@{}
-                       completionHandler:^(BOOL success) {
-                           //NSLog(@"Open %@: %d",scheme,success);
-                       }];
-                }
+        if (indexPath.row == 0) {
+            UIApplication *application = [UIApplication sharedApplication];
+            NSURL *URL = [NSURL URLWithString:@"https://safewith.me/usein-kysytyt-kysymykset/"];
+            
+            if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+                [application openURL:URL options:@{}
+                   completionHandler:^(BOOL success) {
+                       //NSLog(@"Open %@: %d",scheme,success);
+                   }];
+            }
+            
+        }
+        else if(indexPath.row == 1){
+            UIApplication *application = [UIApplication sharedApplication];
+            NSURL *URL = [NSURL URLWithString:@"https://safewith.me/tips"];
+            
+            if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+                [application openURL:URL options:@{}
+                   completionHandler:^(BOOL success) {
+                       //NSLog(@"Open %@: %d",scheme,success);
+                   }];
+            }
+        }
+        else if(indexPath.row == 2){
+            UIApplication *application = [UIApplication sharedApplication];
+            NSURL *URL = [NSURL URLWithString:@"https://safewith.me/product-category/laitteet/"];
+            
+            if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+                [application openURL:URL options:@{}
+                   completionHandler:^(BOOL success) {
+                       //NSLog(@"Open %@: %d",scheme,success);
+                   }];
+            }
+
+        }
+        else{
+           [self performSegueWithIdentifier:@"toAbout" sender:nil];
+
         }
     }
     else{

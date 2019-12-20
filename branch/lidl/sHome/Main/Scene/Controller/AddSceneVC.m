@@ -57,6 +57,7 @@
     UITextField * enterTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width-60, 30)];
     enterTextField.backgroundColor = RGB(242, 242, 245);
     enterTextField.layer.cornerRadius = 15.0f;
+    enterTextField.textColor = [UIColor blackColor];
     enterTextField.placeholder = NSLocalizedString(@"请输入情景模式名称", nil);
     CGRect frame = enterTextField.frame;
     frame.size.width = 20;
@@ -74,7 +75,7 @@
     }
     self.navigationItem.titleView = enterTextField;
     
-    self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(popself) image:@"back_icon" highImage:@"back_icon" withTintColor:[UIColor blackColor]];
+    self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(popself) image:@"back_icon" highImage:@"back_icon" withTintColor:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(clickItem) Title:NSLocalizedString(@"确定", nil) withTintColor:ThemeColor];
     
     if (self.color == nil) {

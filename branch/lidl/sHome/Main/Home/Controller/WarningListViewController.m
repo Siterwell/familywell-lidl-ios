@@ -46,7 +46,7 @@
     self.navigationItem.title = NSLocalizedString(@"设备告警历史记录", nil);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"清空", nil) style:UIBarButtonItemStylePlain target:self action:@selector(clearHistoryWarnings)];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
 }
 
 - (UITableView *)table {

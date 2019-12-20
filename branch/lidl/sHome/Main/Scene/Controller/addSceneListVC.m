@@ -88,6 +88,7 @@
     enterTextField.backgroundColor = RGB(242, 242, 245);
     enterTextField.layer.cornerRadius = 15.0f;
     enterTextField.placeholder = NSLocalizedString(@"请输入情景名称", nil);
+    enterTextField.textColor = [UIColor blackColor];
     CGRect frame = enterTextField.frame;
     frame.size.width = 20;
     UIView *leftview = [[UIView alloc] initWithFrame:frame];
@@ -126,7 +127,7 @@
     self.navigationItem.titleView = enterTextField;
     
     self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(clickItem) Title:NSLocalizedString(@"确定", nil) withTintColor:RGB(40, 184, 215)];
-    self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(popself) image:@"back_icon" highImage:@"back_icon" withTintColor:[UIColor blackColor]];
+    self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(popself) image:@"back_icon" highImage:@"back_icon" withTintColor:[UIColor whiteColor]];
 
 }
 

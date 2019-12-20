@@ -485,7 +485,15 @@
 -(void)setPageBackground{
     NSLog(@"setPageBackground > _data.title = %@", _data.title);
     if ([_data.status isEqualToString:@"aq"]) {
-        [_bgImageView setImage:[UIImage imageNamed:@"sbgreen_bg"]];
+        if ([_data.title isEqualToString:@"智能插座"]) {
+        [_bgImageView setImage:[UIImage imageNamed:@"sbred_bg"]];
+            _MainLabel.textColor = RGB(245, 52, 35);
+            _centerLine.backgroundColor = RGB(245, 52, 35);
+        }else{
+         [_bgImageView setImage:[UIImage imageNamed:@"sbgreen_bg"]];
+            _MainLabel.textColor = RGB(0, 191, 102);
+            _centerLine.backgroundColor = RGB(0, 191, 102);
+        }
         if ([_data.title isEqualToString:@"智能插座"]) {
             _MainLabel.text = NSLocalizedString(@"插座关",nil);
             [_deviceSwitch setOn:NO animated:YES];
@@ -539,8 +547,7 @@
         else{
             _MainLabel.text = NSLocalizedString(@"正常",nil);
         }
-        _MainLabel.textColor = RGB(0, 191, 102);
-        _centerLine.backgroundColor = RGB(0, 191, 102);
+
     }
     else if ([_data.status isEqualToString:@"gz"]){
         [_bgImageView setImage:[UIImage imageNamed:@"sborange_bg"]];
@@ -552,7 +559,7 @@
     else if ([_data.status isEqualToString:@"bj"]){
         
         if ([_data.title isEqualToString:@"智能插座"]) {
-            [_bgImageView setImage:[UIImage imageNamed:@"sbred_bg"]];//
+            [_bgImageView setImage:[UIImage imageNamed:@"sbgreen_bg"]];//
             _MainLabel.text = NSLocalizedString(@"插座开",nil);
             [_deviceSwitch setOn:YES animated:YES];
         }
@@ -630,10 +637,18 @@
             [_bgImageView setImage:[UIImage imageNamed:@"sbred_bg"]];
             _MainLabel.text = NSLocalizedString(@"报警",nil);
         }
-        if (![_data.title isEqualToString:@"双路开关"]) {
-            _MainLabel.textColor = RGB(245, 52, 35);
+        
+        if([_data.title isEqualToString:@"智能插座"]){
+            _MainLabel.textColor = RGB(0, 191, 102);
+            _centerLine.backgroundColor = RGB(0, 191, 102);
+        }else{
+            if (![_data.title isEqualToString:@"双路开关"]) {
+                _MainLabel.textColor = RGB(245, 52, 35);
+            }
+            _centerLine.backgroundColor = RGB(245, 52, 35);
         }
-        _centerLine.backgroundColor = RGB(245, 52, 35);
+        
+
     }
     else if ([_data.status isEqualToString:@"no"]){
         [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];

@@ -38,7 +38,7 @@
     self.table.delegate = self;
     self.table.dataSource = self;
     
-    self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(popSelf) image:@"back_icon" highImage:@"back_icon" withTintColor:[UIColor blackColor]];
+    self.navigationItem.leftBarButtonItem = [self itemWithTarget:self action:@selector(popSelf) image:@"back_icon" highImage:@"back_icon" withTintColor:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = [self itemWithTarget:self action:@selector(confirmAction) Title:NSLocalizedString(@"确定", nil) withTintColor:RGB(40, 184, 215)];
     isDayChanged = NO;
 }
