@@ -14,7 +14,7 @@
 #import "NetworkUnit.h"
 #import "NSString+CY.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
-
+#import "AutoScrollLabel.h"
 @interface addWifiVC ()
 @property (strong, nonatomic) IBOutlet UIButton *connectBtn;
 @property (weak, nonatomic) IBOutlet UIButton *remberPsdButton;
@@ -34,6 +34,33 @@
 //    [_remberPsdButton setTitle:NSLocalizedString(@"记住密码", nil) forState:UIControlStateNormal];
     
     _remberPsdButton.selected = YES;
+    NSDictionary *attrs1 = @{NSFontAttributeName : SYSTEMFONT(15)};
+    CGSize size1=[NSLocalizedString(@"该设备只支持2.4GHz频率的路由器", nil) sizeWithAttributes:attrs1];
+    
+    UILabel *content1 = [[UILabel alloc] init];
+    content1.textColor = [UIColor redColor];
+    [self.view addSubview:content1];
+    [content1 makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(size1.width>300?300:size1.width);
+        make.height.equalTo(21);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.bottom.equalTo(_remberPsdButton.mas_top).offset(-5);
+    }];
+    
+    AutoScrollLabel * content11 = [[AutoScrollLabel alloc] initWithFrame:CGRectMake(0, 0, size1.width>300?300:(size1.width+1), 21)];
+    [content11 setTextAlign:TextAlignLeft];
+    content11.font = SYSTEMFONT(15);
+    content11.textColor = [UIColor redColor];
+    [content1  addSubview:content11];
+    [content11 setText:NSLocalizedString(@"该设备只支持2.4GHz频率的路由器", nil)];
+    
+    UIImageView *uiImageview = [[UIImageView alloc] init];
+    [uiImageview setImage:[UIImage imageNamed:@"warn2.4"]];
+    [self.view addSubview:uiImageview];
+    [uiImageview makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(content1.mas_left).offset(-5);
+        make.centerY.equalTo(content1.mas_centerY);
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

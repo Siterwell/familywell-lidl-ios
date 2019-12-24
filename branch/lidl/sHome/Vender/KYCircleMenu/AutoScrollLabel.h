@@ -16,6 +16,10 @@ enum AutoScrollDirection {
     AutoScroll_Scroll_Left,
 };
 
+enum TextAlign{
+    TextAlignLeft,
+    TextAlignCenter,
+};
 
 @interface AutoScrollLabel : UIScrollView<UIScrollViewDelegate>{
     
@@ -25,15 +29,17 @@ enum AutoScrollDirection {
     NSTimeInterval pauseInterval;
     int bufferSpaceBetweenLabels;
     bool isScrolling;
+    enum TextAlign textAlign;
     
 }
 @property(nonatomic,retain) UIColor *textColor;
 
 @property(nonatomic, retain) UIFont *font;
 
+
 - (void)readjustLabels;
 - (void) setText:(NSString *)text;
 - (NSString *)text;
 - (void)scroll;
-
+- (void)setTextAlign:(enum TextAlign)textAlign2;
 @end

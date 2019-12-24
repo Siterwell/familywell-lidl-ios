@@ -91,7 +91,7 @@
 
 - (void)scroll{
     if (isScrolling){
-        //		return;
+        //        return;
     }
     isScrolling = YES;
     
@@ -150,10 +150,15 @@
         for (int i = 1; i < Num_Lable; ++i){
             label[i].hidden = YES;
         }
-        CGPoint center;
-        center = label[0].center;
-        center.x = self.center.x - self.frame.origin.x;
-        label[0].center = center;
+        if(textAlign == TextAlignLeft){
+            
+        }else{
+            CGPoint center;
+            center = label[0].center;
+            center.x = self.center.x - self.frame.origin.x;
+            label[0].center = center;
+        }
+
     }
     
 }
@@ -221,7 +226,9 @@
     return scrollDirection;
 }
 
-
+-(void)setTextAlign:(enum TextAlign)textAlign2{
+    textAlign = textAlign2;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -232,3 +239,5 @@
 */
 
 @end
+
+
