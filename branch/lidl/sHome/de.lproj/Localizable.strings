@@ -529,3 +529,4 @@
 "按键" = "Taste";
 "请编辑WIfI名称" = "Bitte bearbeiten Sie den WLAN-Namen";
 "替换设备成功" = "Geräteersatz erfolgreich";
+"该设备只支持2.4GHz频率的路由器" = "Das Gerät unterstützt nur 2,4GHz Router";

@@ -529,3 +529,4 @@
 "按键" = "Bouton";
 "请编辑WIfI名称" = "Veuillez éditer le nom WiFi";
 "替换设备成功" = "Remplacement réussi";
+"该设备只支持2.4GHz频率的路由器" = "Le dispositif ne prend en charge que des routeurs à 2,4 GHz.";

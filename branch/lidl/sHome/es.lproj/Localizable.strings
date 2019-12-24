@@ -529,3 +529,4 @@
 "按键" = "pulsador";
 "请编辑WIfI名称" = "Edite el nombre wifi";
 "替换设备成功" = "Dispositivo de reemplazo";
+"该设备只支持2.4GHz频率的路由器" = "El dispositivo sólo soporta un router de frecuencia 2,4 GHz.";
