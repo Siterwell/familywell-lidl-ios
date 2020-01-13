@@ -12,7 +12,6 @@
 #import "DeviceListModel.h"
 #import "deleteDeviceApi.h"
 #import <LCActionSheet.h>
-#import "replaceDeviceApi.h"
 #import "RenameVC.h"
 #import "AddDeviceVC.h"
 #import "BaseNC.h"
@@ -27,7 +26,7 @@
 #import "AppStatusHelp.h"
 #import "TXScrollLabelView.h"
 #import "NSString+CY.h"
-
+#define kIPhoneX ([UIScreen mainScreen].bounds.size.height >= 812.0)
 @interface TempControlDetailVC2()<senderValueChangeDelegate>
 @property (nonatomic) UIImageView *bgImageView;
 @property (nonatomic) UILabel *MainLabel;
@@ -50,17 +49,14 @@
 @property (nonatomic,strong) UILabel *temp_shishi_label;
 @property (nonatomic,strong) UIButton *saveBtn;
 @property (nonatomic,strong) UIAlertController *alert;
-@property (nonatomic,assign) int count;
-@property (nonatomic) NSTimer *timer;
 @property (nonatomic) TXScrollLabelView *titleLabel2;
 @end
 
 @implementation TempControlDetailVC2
 {
         BOOL _isDeleting;
-        BOOL _isReplcing;
         int mode;
-        BOOL _isSetting;
+    BOOL _isSetting;
     float settemp_total;
     int height_of_5s;
 }
@@ -76,7 +72,7 @@
     NSString *autotemp = [[DeviceDataBase sharedDataBase] getGs361Autotemp:_data.devID];
     NSString *handtemp = [[DeviceDataBase sharedDataBase] getGs361Handtemp:_data.devID];
     NSString *fangtemp = [[DeviceDataBase sharedDataBase] getGs361Fangtemp:_data.devID];
-    NSLog(@"[GS361 debug] 三种设置温度缓存值为%@,%@,%@",autotemp,handtemp,fangtemp);
+    NSLog(@"三种设置温度缓存值为%@,%@,%@",autotemp,handtemp,fangtemp);
 }
 
 - (void)dealloc{
@@ -123,7 +119,7 @@
 
 #pragma -mark method
 - (void)setupBaseUI {
-    NSLog(@"[GS361 debug] setupBaseUI");
+    
     
     _bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, Main_Screen_Width, Main_Screen_Height)];
     [self.view addSubview:_bgImageView];
@@ -135,7 +131,7 @@
     [self.view addSubview:_MainLabel];
     [_MainLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view.mas_centerX);
-        make.top.equalTo(75);
+        make.top.equalTo(75+(kIPhoneX?24:0));
         make.height.equalTo(30);
         make.width.equalTo(100);
     }];
@@ -162,7 +158,7 @@
         make.centerY.equalTo(_MainLabel);
     }];
     
-   CGRect sliderFrame = CGRectMake(([UIScreen mainScreen].bounds.size.width-275)/2, 120, 275,275);
+   CGRect sliderFrame = CGRectMake(([UIScreen mainScreen].bounds.size.width-275)/2, 120+(kIPhoneX?24:0), 275,275);
     _circularSlider =[[CYCircularSlider alloc]initWithFrame:sliderFrame];
     [self.view addSubview:_circularSlider];
         _circularSlider.delegate = self;
@@ -360,12 +356,9 @@
 }
 
 -(void)clickItem{
-    NSLog(@"[GS361 debug] clickItem");
-    
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
     deleteDeviceApi *deleteApi = [[deleteDeviceApi alloc] initWithDevTid:model.devTid CtrlKey:model.ctrlKey mDeviceID:_data.devID];
-    replaceDeviceApi *replaceApi = [[replaceDeviceApi alloc] initWithDevTid:model.devTid CtrlKey:model.ctrlKey mDeviceID:_data.devID];
     LCActionSheet *actionSheet = [LCActionSheet sheetWithTitle:nil cancelButtonTitle:NSLocalizedString(@"取消",nil) clicked:^(LCActionSheet *actionSheet, NSInteger buttonIndex) {
         WS(ws)
         if (buttonIndex == 2) {
@@ -439,14 +432,11 @@
  设备背景图片
  */
 -(void)setPageBackground{
-    NSLog(@"[GS361 debug] setPageBackground  111 > status = %@", _data.status);
-    
     [_bgImageView setImage:[UIImage imageNamed:@"sbodarkblue_bg"]];
-//    if ([_data.status isEqualToString:@"no"]){
-//        _MainLabel.text = NSLocalizedString(@"离线",nil);
-//        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
-//        return;
-    if ([_data.status isEqualToString:@"aq"] || [_data.status isEqualToString:@"no"]) {
+    if ([_data.status isEqualToString:@"no"]){
+        _MainLabel.text = NSLocalizedString(@"离线",nil);
+        [_bgImageView setImage:[UIImage imageNamed:@"sbgray_bg"]];
+    }else if ([_data.status isEqualToString:@"aq"]) {
         _MainLabel.text = NSLocalizedString(@"正常",nil);
         [_bgImageView setImage:[UIImage imageNamed:@"sbodarkblue_bg"]];
     }
@@ -455,14 +445,13 @@
         [_bgImageView setImage:[UIImage imageNamed:@"sborange_bg"]];
     }
     
-    
     self.data = [[DeviceDataBase sharedDataBase] selectDevice:self.data.devID];
-//    if (![self.data.status isEqualToString:@"no"]) {
+    if (![self.data.status isEqualToString:@"no"]) {
         NSString *signal = [_data.statuCode substringWithRange:NSMakeRange(0, 2)];
+        
         NSNumber *num = [BatterHelp numberHexString:signal];
         int b = [num intValue];
         int a =(b&0x07);
-    NSLog(@"[GS361 debug] setPageBackground  222 > a = %d", a);
         
         if (a == 4) {
             [self.wifiImgV setImage:[UIImage imageNamed:@"wifi04"]];
@@ -479,13 +468,12 @@
         else{
             [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
         }
-//    }
-//    else {
-//        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
-//
-//    }
+    }
+    else {
+        [self.wifiImgV setImage:[UIImage imageNamed:@"wifi01"]];
+        
+    }
     NSString *battery = [_data.statuCode substringWithRange:NSMakeRange(2, 2)];
-    NSLog(@"[GS361 debug] setPageBackground > battery = %@", battery);
         if ([battery isEqualToString:@"FF"]) {
         }
         else if ([battery isEqualToString:@"80"]){
@@ -512,31 +500,21 @@
     NSString *signal1 = [_data.statuCode substringWithRange:NSMakeRange(0, 2)];
     NSString *status1 = [_data.statuCode substringWithRange:NSMakeRange(4, 2)];
     NSString *status2 =[_data.statuCode substringWithRange:NSMakeRange(6, 2)];
-    NSLog(@"[GS361 debug] setPageBackground > signal1 = %@, status1 = %@, status2 = %@", signal1, status1, status2);
+
   
         int ds = [[BatterHelp numberHexString:status1] intValue];
         int ds2 = [[BatterHelp numberHexString:status2] intValue];
         int ds3 = [[BatterHelp numberHexString:signal1] intValue];
-    NSLog(@"[GS361 debug] setPageBackground > ds = %d, ds2 = %d, ds3 = %d", ds, ds2, ds3);
         
         int shineng_window2 = (0x80) & ds3;
         int shineng_valve2 = (0x40) & ds3;
         int  shishi_temp2= (0x3F) & (ds2>>2);
         int mode2 = (0x03) & (ds2);
-    NSLog(@"[GS361 debug] setPageBackground > shineng_window2 = %d, shineng_valve2 = %d, shishi_temp2 = %d, mode2 = %d", shineng_window2, shineng_valve2, shishi_temp2, mode2);
-    
         int status_window2 = (0x80) & ds;
         int status_valve2 = (0x40) & ds;
         int status_tongsuo = (0x20) & ds3;
-    NSLog(@"[GS361 debug] setPageBackground > status_window2 = %d, status_valve2 = %d, status_tongsuo = %d", status_window2, status_valve2, status_tongsuo);
-    
         int xiaoshu = (0x20) & ds;
         int sta =  ((0x1F) & ds);
-    NSLog(@"[GS361 debug] setPageBackground > xiaoshu = %d, sta = %d", xiaoshu, sta);
-    
-    BOOL shineng_win = (shineng_window2 == 0?NO:YES);
-    BOOL shineng_val = (shineng_valve2 == 0?NO:YES);
-    BOOL shineng_tong = (status_tongsuo == 0?NO:YES);
     
     if(mode2==0){
         [_circularSlider setMaximumValue:15];
@@ -561,10 +539,14 @@
     }
     mode = mode2;
     float fa = (sta + (xiaoshu==0?0.0f:0.5f));
-    [self setSetingTemp:fa];
-    _temp_shishi_label.text = [NSString stringWithFormat:@"%d℃",shishi_temp2 ];
-    NSLog(@"[GS361 debug] setPageBackground > currentTemp = %@", [NSString stringWithFormat:@"%d℃",shishi_temp2 ]);
-    
+    if ([self.data.status isEqualToString:@"no"]) {
+        [self setSetingTemp:5.0f];
+        _temp_shishi_label.text = [NSString stringWithFormat:@"%d℃",0];
+    }else{
+        [self setSetingTemp:fa];
+        _temp_shishi_label.text = [NSString stringWithFormat:@"%d℃",shishi_temp2 ];
+    }
+
     if(status_tongsuo==0){
         [_tongsuoimg setSelected:NO];
         [_switch_tongsuo setOn:NO];
@@ -621,26 +603,8 @@
         }
     }
     
-    if(_isSetting){
-        if(settemp_total!=0 && settemp_total == fa
-           &&shineng_win == _switch_window.isOn
-           &&shineng_val == _switch_valve.isOn
-           &&shineng_tong == _switch_tongsuo.isOn){
-           
-            [MBProgressHUD hideHUDForView:GetWindow animated:YES];
-            [MBProgressHUD showError:NSLocalizedString(@"配置成功",nil) ToView:GetWindow];
-        }else{
-            [MBProgressHUD hideHUDForView:GetWindow animated:YES];
-            [MBProgressHUD showError:NSLocalizedString(@"设置失败",nil) ToView:GetWindow];
-        }
-        if(_timer!=nil){
-            [_timer invalidate];
-        }
+
          settemp_total = 0;
-        _count = 0;
-        _isSetting = NO;
-        
-    }
 }
 
 -(void)back{
@@ -648,15 +612,12 @@
 }
 
 -(void)setSetingTemp:(float)temp{
-    NSLog(@"[GS361 debug] setSetingTemp > temp = %f", temp);
     [_circularSlider setCurrentValue:temp];
     _temp_setting_label.text = [NSString stringWithFormat:@"%0.1f℃",temp ];
 }
 
 -(void)modeselect:(UIButton *)btn{
     NSInteger tag = btn.tag;
-    NSLog(@"[GS361 debug] setPageBackground > tag = %ld", tag);
-    
     if(tag==1){
         [_circularSlider setMaximumValue:30];
         if(mode!=1){
@@ -743,8 +704,6 @@
 }
 
 -(void)save{
-    NSLog(@"[GS361 debug] save BEGIN");
-    
     NSString *command = [self getCode];
     
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
@@ -756,15 +715,15 @@
         _isSetting = YES;
         settemp_total = _circularSlider.currentValue;
         [post startWithObject:obj CompletionBlockWithSuccess:^(id data, NSError *error) {
+            [MBProgressHUD hideHUD];
             NSDictionary *dic = data;
             dic = [dic objectForKey:@"params"];
             dic = [dic objectForKey:@"data"];
             long isSuccess = [[dic objectForKey:@"answer_yes_or_no"] longValue];
-            NSLog(@"[GS361 debug] save -------------------------> isSuccess = %ld", isSuccess);
             if (isSuccess == 2) {
-                [MBProgressHUD showError:NSLocalizedString(@"设置完成,数据同步中",nil) ToView:GetWindow];
+                [MBProgressHUD showSuccess:NSLocalizedString(@"设置完成",nil) ToView:GetWindow];
             }else{
-//                [MBProgressHUD showError:NSLocalizedString(@"设置失败",nil) ToView:GetWindow];
+                [MBProgressHUD showError:NSLocalizedString(@"设置失败",nil) ToView:GetWindow];
             }
             obj = nil;
         } failure:^(id data, NSError *error) {
@@ -772,10 +731,14 @@
             _isSetting = NO;
             obj = nil;
         }];
-    
-        _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(adddone) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:_timer forMode:UITrackingRunLoopMode];
         
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (_isSetting) {
+                [MBProgressHUD hideHUDForView:GetWindow animated:YES];
+                _isSetting = NO;
+                obj = nil;
+            }
+        });
     }
     
 }
@@ -790,18 +753,6 @@
 
 }
 
--(void) adddone{
-    _count ++ ;
-    NSLog(@"超时计数：%d",_count);
-    if(_count == 20)
-    {
-        _count = 0;
-        [_timer invalidate];
-        [MBProgressHUD hideHUDForView:GetWindow animated:YES];
-        _isSetting = NO;
-        [MBProgressHUD showError:NSLocalizedString(@"设置失败",nil) ToView:GetWindow];
-    }
-}
 
 #pragma -mark delegate
 -(void)senderVlueWithNum:(float)num{

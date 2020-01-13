@@ -528,3 +528,8 @@
 "请编辑WIfI名称" = "Prosim uredi ime WiFi";
 "替换设备成功" = "Zamenjava naprave je uspela";
 "该设备只支持2.4GHz频率的路由器" = "Naprava podpira samo usmerjevalnike 2.4GHz";
+"选择切换时间" = "izberi prehod časa";
+"设定温度" = "nastavitev temperature";
+"星期" = "teden";
+"温控器安装到阀门上后,请再一次按下旋钮" = "prosim, termostat, nameščene na ventil, in potem še enkrat pritisnite na gumb za dokončanje namestitve.";
+"温控器" = "Thermostaat";

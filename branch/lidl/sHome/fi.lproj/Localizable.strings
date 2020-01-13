@@ -528,3 +528,8 @@
 "请编辑WIfI名称" = "Muokkaa WiFi- nimeä";
 "替换设备成功" = "Laitteen vaihto onnistui";
 "该设备只支持2.4GHz频率的路由器" = "Laite tukee vain 2.4GHz reitittimiä";
+"选择切换时间" = "- aika";
+"设定温度" = "lämpötila";
+"星期" = "teden";
+"温控器安装到阀门上后,请再一次按下旋钮" = "termostaatti on asennettu venttiili, ja sitten vielä kerran paina annosnuppia laitoksen valmiiksi.";
+"温控器" = "Termostaatti";

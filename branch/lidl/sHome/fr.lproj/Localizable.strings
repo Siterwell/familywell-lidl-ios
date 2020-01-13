@@ -528,3 +528,8 @@
 "请编辑WIfI名称" = "Veuillez éditer le nom WiFi";
 "替换设备成功" = "Remplacement réussi";
 "该设备只支持2.4GHz频率的路由器" = "Le dispositif ne prend en charge que des routeurs à 2,4 GHz.";
+"选择切换时间" = "Le temps de commutation de sélection";
+"设定温度" = "La température de consigne";
+"星期" = "Semaine";
+"温控器安装到阀门上后,请再一次按下旋钮" = "S'il vous plaît, thermostat monté à la soupape, puis, une fois encore, appuyez sur le bouton Terminer l'installation.";
+"温控器" = "Contrôle de la température";
