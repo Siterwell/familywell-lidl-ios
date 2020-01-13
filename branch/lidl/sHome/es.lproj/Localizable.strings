@@ -530,3 +530,8 @@
 "请编辑WIfI名称" = "Edite el nombre wifi";
 "替换设备成功" = "Dispositivo de reemplazo";
 "该设备只支持2.4GHz频率的路由器" = "El dispositivo sólo soporta un router de frecuencia 2,4 GHz.";
+"选择切换时间" = "Elegir el tiempo de cambio";
+"设定温度" = "Temperatura";
+"星期" = "Semana";
+"温控器安装到阀门上后,请再一次按下旋钮" = "Haga el favor de instalar el controlador a la válvula y luego pulse el botón para completar la instalación.";
+"温控器" = "controlador de temperatura";

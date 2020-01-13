@@ -530,3 +530,8 @@
 "请编辑WIfI名称" = "Please input WiFi name";
 "替换设备成功" = "Replace device Successfully";
 "该设备只支持2.4GHz频率的路由器" = "The device only supports 2.4GHz routers";
+"选择切换时间" = "Select switching time";
+"设定温度" = "Setting temperature";
+"星期" = "Week";
+"温控器安装到阀门上后,请再一次按下旋钮" = "Please install the thermostat to the valve, then press the knob again to complete the installation.";
+"温控器" = "Radiator Thermostat";
