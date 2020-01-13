@@ -46,14 +46,18 @@
         status = [status substringWithRange:NSMakeRange(4, 2)];
         
         if([name isEqualToString:@"温控器"]){
-            if ([status containsString:@"FF"]) {
-                return @"no";
-            } else {
-                if ([[BatterHelp getBatterFormDevice:battery] intValue] <= 15) {
-                    return @"gz";
-                } else {
-                    return @"aq";
-                }
+            int ds = [[BatterHelp numberHexString:status] intValue];
+            int xiaoshu = (0x20) & ds;
+            int sta =  ((0x1F) & ds);
+              float fa = (sta + (xiaoshu==0?0.0f:0.5f));
+            if(fa<=30.0f){
+                    if ([[BatterHelp getBatterFormDevice:battery] intValue] <= 15) {
+                        return @"gz";
+                    } else {
+                        return @"aq";
+                    }
+            }else{
+               return @"no";
             }
         }
         else if ([name isEqualToString:@"智能插座"]) {
