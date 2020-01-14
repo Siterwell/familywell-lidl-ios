@@ -500,7 +500,7 @@
 "自动模式" = "Automatisch";
 "手动模式" = "Handmatig";
 "安装模式" = "Installatie";
-"设置完成,数据同步中" = "Configuratie, data wordt gesynchroniseerd...";
+"设置完成" = "Configuratie";
 "设置失败" = "Configuratiefout";
 "开窗检测" = "Raamdetectie";
 "阀门检测" = "Klepdetectie";

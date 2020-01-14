@@ -721,7 +721,7 @@
             dic = [dic objectForKey:@"data"];
             long isSuccess = [[dic objectForKey:@"answer_yes_or_no"] longValue];
             if (isSuccess == 2) {
-                [MBProgressHUD showSuccess:NSLocalizedString(@"设置完成,数据同步中",nil) ToView:GetWindow];
+                [MBProgressHUD showSuccess:NSLocalizedString(@"设置完成",nil) ToView:GetWindow];
             }else{
                 [MBProgressHUD showError:NSLocalizedString(@"设置失败",nil) ToView:GetWindow];
             }
