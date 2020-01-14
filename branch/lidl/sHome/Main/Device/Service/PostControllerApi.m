@@ -60,7 +60,10 @@
 - (id)requestArgumentFilter {
     return @{@"action" : @"devSend",
              @"params" : @{
-                     @"devTid" : _devTid
+                     @"devTid" : _devTid,
+                     @"data" : @{
+                             @"cmdId" : @11
+                             }
                      }
              };
 }
