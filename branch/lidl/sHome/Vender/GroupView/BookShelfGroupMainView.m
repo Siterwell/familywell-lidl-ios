@@ -12,7 +12,6 @@
 #import "DeviceDetailVC.h"
 #import "SceneDetailVC.h"
 #import "LightDetailVC.h"
-#import "TempControlDetailVC.h"
 #import "TempControlDetailVC2.h"
 
 @interface BookShelfGroupMainView ()<BookShelfGroupViewDataSource, BookShelfGroupViewDelegateFlowLayout>

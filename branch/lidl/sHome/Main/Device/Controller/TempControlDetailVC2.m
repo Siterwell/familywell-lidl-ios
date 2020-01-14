@@ -582,7 +582,7 @@
         [_switch_valve setOn:NO];
     }
     
-    if(mode2==3){
+    if(mode2==3&&![self.data.status isEqualToString:@"no"]){
         _alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"提示", nil) message:NSLocalizedString(@"温控器安装到阀门上后,请再一次按下旋钮", nil) preferredStyle:UIAlertControllerStyleAlert];
         [_alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDefault handler:nil]];
         [self presentViewController:_alert animated:YES completion:^{

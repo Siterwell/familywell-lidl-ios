@@ -667,7 +667,6 @@
 		88105A6C2162EF5B0084C6D9 /* SGQRCodeObtainConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A672162EF5B0084C6D9 /* SGQRCodeObtainConfigure.m */; };
 		88105A6D2162EF5B0084C6D9 /* SGQRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A692162EF5B0084C6D9 /* SGQRCodeScanView.m */; };
 		88105A702162EF730084C6D9 /* WBQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A6F2162EF720084C6D9 /* WBQRCodeVC.m */; };
-		88105A752162EF820084C6D9 /* TempControlDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A712162EF810084C6D9 /* TempControlDetailVC.m */; };
 		88105A762162EF820084C6D9 /* TempControlSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A722162EF820084C6D9 /* TempControlSettingVC.m */; };
 		88105A792162EFDC0084C6D9 /* TempControlSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A772162EFDC0084C6D9 /* TempControlSetVC.m */; };
 		88105A842162F10C0084C6D9 /* AddCameraShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A7B2162F10A0084C6D9 /* AddCameraShareVC.m */; };
@@ -2174,9 +2173,7 @@
 		88105A692162EF5B0084C6D9 /* SGQRCodeScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGQRCodeScanView.m; sourceTree = "<group>"; };
 		88105A6E2162EF720084C6D9 /* WBQRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBQRCodeVC.h; sourceTree = "<group>"; };
 		88105A6F2162EF720084C6D9 /* WBQRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBQRCodeVC.m; sourceTree = "<group>"; };
-		88105A712162EF810084C6D9 /* TempControlDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempControlDetailVC.m; sourceTree = "<group>"; };
 		88105A722162EF820084C6D9 /* TempControlSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempControlSettingVC.m; sourceTree = "<group>"; };
-		88105A732162EF820084C6D9 /* TempControlDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempControlDetailVC.h; sourceTree = "<group>"; };
 		88105A742162EF820084C6D9 /* TempControlSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempControlSettingVC.h; sourceTree = "<group>"; };
 		88105A772162EFDC0084C6D9 /* TempControlSetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempControlSetVC.m; sourceTree = "<group>"; };
 		88105A782162EFDC0084C6D9 /* TempControlSetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempControlSetVC.h; sourceTree = "<group>"; };
@@ -3042,8 +3039,6 @@
 		05BDDC901DFFEC2F00648F69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				88105A732162EF820084C6D9 /* TempControlDetailVC.h */,
-				88105A712162EF810084C6D9 /* TempControlDetailVC.m */,
 				88105A742162EF820084C6D9 /* TempControlSettingVC.h */,
 				88105A722162EF820084C6D9 /* TempControlSettingVC.m */,
 				05BDDCC51DFFECB100648F69 /* DeviceVC.h */,
@@ -5714,7 +5709,6 @@
 				051A321D1E98BA7A00A8E7C9 /* GetAlarmsApi.m in Sources */,
 				E2A28B9922F7D72A000F05BD /* LCAlertViewController.m in Sources */,
 				01A63F952063E947004FEC2F /* VRGLViewController.mm in Sources */,
-				88105A752162EF820084C6D9 /* TempControlDetailVC.m in Sources */,
 				DD8E404E1EEFB9D300B5E433 /* TimeSceneModel.m in Sources */,
 				75E523C61DFEEF8A0093DECC /* NSException+Trace.m in Sources */,
 				75E524071DFEEF8A0093DECC /* CAAnimation+EasingEquations.m in Sources */,
