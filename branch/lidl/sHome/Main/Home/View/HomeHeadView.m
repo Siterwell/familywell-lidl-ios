@@ -12,7 +12,7 @@
 #import "DeviceDataBase.h"
 #import "ArrayTool.h"
 #import "DeviceDetailVC.h"
-#import "TempControlDetailVC.h"
+#import "TempControlDetailVC2.h"
 #import "SceneDetailVC.h"
 #import "LightDetailVC.h"
 
@@ -349,7 +349,7 @@
     ItemData *data = [self.modelSource objectAtIndex:index];
     
     if([data.title isEqualToString:@"温控器"]){
-        TempControlDetailVC *vc = [[TempControlDetailVC alloc] init];
+        TempControlDetailVC2 *vc = [[TempControlDetailVC2 alloc] init];
         vc.data = data;
         [self.subVC.navigationController pushViewController:vc animated:YES];
     }
