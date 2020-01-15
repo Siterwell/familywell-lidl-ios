@@ -1,5 +1,5 @@
 PODS:
-  - ActionSheetPicker-3.0 (2.3.0)
+  - ActionSheetPicker-3.0 (2.4.1)
   - AFNetworking (3.2.1):
     - AFNetworking/NSURLSession (= 3.2.1)
     - AFNetworking/Reachability (= 3.2.1)
@@ -24,17 +24,15 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
-  - Crashlytics (3.11.0):
-    - Fabric (~> 1.8.0)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
   - DACircularProgress (2.3.1)
-  - Fabric (1.8.0)
+  - Fabric (1.10.2)
   - FMDB/common (2.5)
   - FMDB/SQLCipher (2.5):
     - FMDB/common
     - SQLCipher
   - GTSDK (1.6.4.1)
-  - HekrSDK (3.4.1-beta):
-    - HekrSDK/Core (= 3.4.1-beta)
   - HekrSDK/Core (3.4.1-beta):
     - AFNetworking (~> 3.0)
     - CocoaAsyncSocket (~> 7.4)
@@ -44,7 +42,7 @@ PODS:
     - SHAlertViewBlocks (~> 1.2.1)
     - SocketRocket (~> 0.4)
     - ZipArchive (~> 1.4)
-  - IQKeyboardManager (6.2.0)
+  - IQKeyboardManager (6.5.4)
   - JSONModel (1.0.2)
   - LBXScan (1.1.1):
     - ZXingObjC (~> 3.0)
@@ -71,10 +69,10 @@ PODS:
   - SDWebImage/Core (3.7.6)
   - SHAlertViewBlocks (1.2.1)
   - SocketRocket (0.5.1)
-  - SQLCipher (3.4.2):
-    - SQLCipher/standard (= 3.4.2)
-  - SQLCipher/common (3.4.2)
-  - SQLCipher/standard (3.4.2):
+  - SQLCipher (4.3.0):
+    - SQLCipher/standard (= 4.3.0)
+  - SQLCipher/common (4.3.0)
+  - SQLCipher/standard (4.3.0):
     - SQLCipher/common
   - XAspect (1.0.5):
     - XAspect/Core (= 1.0.5)
@@ -84,9 +82,9 @@ PODS:
   - XAspect/Macros (1.0.5)
   - YYText (1.0.7)
   - ZipArchive (1.4.0)
-  - ZXingObjC (3.6.0):
-    - ZXingObjC/All (= 3.6.0)
-  - ZXingObjC/All (3.6.0)
+  - ZXingObjC (3.6.5):
+    - ZXingObjC/All (= 3.6.5)
+  - ZXingObjC/All (3.6.5)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
@@ -95,7 +93,7 @@ DEPENDENCIES:
   - Fabric
   - FMDB/common (~> 2.5)
   - FMDB/SQLCipher (~> 2.5)
-  - HekrSDK (from `https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global/HekrSDK.podspec`)
+  - HekrSDK/Core (from `https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global2.0/HekrSDK.podspec`)
   - IQKeyboardManager
   - JSONModel (~> 1.0.1)
   - LBXScan (~> 1.1.1)
@@ -143,20 +141,25 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   HekrSDK:
-    :podspec: https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global/HekrSDK.podspec
+    :podspec: https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global2.0/HekrSDK.podspec
+
+CHECKOUT OPTIONS:
+  HekrSDK:
+    :commit: e83fbf6a52f7fed0c247a2a03a417cab9ee3e94e
+    :git: https://github.com/HEKR-Cloud/HEKR-IOS-SDK.git
 
 SPEC CHECKSUMS:
-  ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
+  ActionSheetPicker-3.0: d236f0b663123e4b404a3bc04b338c1e805ac910
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
-  Crashlytics: 1448070c1d2731ab71ea7c3faf84ac0f69657287
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  Fabric: 4ac1cdfef3004ccd83ce0959b91eda8a6e37df72
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   GTSDK: b27e433447371587c823353d37af981e4682c008
-  HekrSDK: 66259abbbe607fe178c806c5d5c537f4caa85c0a
-  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
+  HekrSDK: 9ed4d8c230ec82d06ba08e8e9bf398a660a66516
+  IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
   JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
   LBXScan: dfb4d8ae8e4cff2aa0c9e1771e43954dce1469a9
   LCActionSheet: 4ff1ddcb7b9f071c74d29ec2302975c38905496f
@@ -170,12 +173,12 @@ SPEC CHECKSUMS:
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SHAlertViewBlocks: cf5b26019efa88190e5ce1a46878a99b545c1a62
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
-  SQLCipher: f9fcf29b2e59ced7defc2a2bdd0ebe79b40d4990
+  SQLCipher: d305a7bd9af4b64f095c79bdc1a1fa50f2a15116
   XAspect: db50bf487f92dbb8557a7a5365556966c8493af8
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
-  ZXingObjC: 1d5991f4a75418dee15705c865a8e8b2443bc2af
+  ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: 7a19ef4283e18e5110f7bfbf6a020c390cebab84
+PODFILE CHECKSUM: cc155e901fafcf991c125dae3e51ee18e89ba70d
 
 COCOAPODS: 1.5.3

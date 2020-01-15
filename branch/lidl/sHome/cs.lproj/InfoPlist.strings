@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  sHome
+
+  Created by Henry on 2020/1/15.
+  Copyright © 2020 shaop. All rights reserved.
+*/
+CFBundleDisplayName = "SilverCrest Alarm";

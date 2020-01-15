@@ -667,7 +667,6 @@
 		88105A6C2162EF5B0084C6D9 /* SGQRCodeObtainConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A672162EF5B0084C6D9 /* SGQRCodeObtainConfigure.m */; };
 		88105A6D2162EF5B0084C6D9 /* SGQRCodeScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A692162EF5B0084C6D9 /* SGQRCodeScanView.m */; };
 		88105A702162EF730084C6D9 /* WBQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A6F2162EF720084C6D9 /* WBQRCodeVC.m */; };
-		88105A752162EF820084C6D9 /* TempControlDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A712162EF810084C6D9 /* TempControlDetailVC.m */; };
 		88105A762162EF820084C6D9 /* TempControlSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A722162EF820084C6D9 /* TempControlSettingVC.m */; };
 		88105A792162EFDC0084C6D9 /* TempControlSetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A772162EFDC0084C6D9 /* TempControlSetVC.m */; };
 		88105A842162F10C0084C6D9 /* AddCameraShareVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A7B2162F10A0084C6D9 /* AddCameraShareVC.m */; };
@@ -677,6 +676,8 @@
 		88105A882162F10C0084C6D9 /* GuideAddCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A832162F10C0084C6D9 /* GuideAddCamera.m */; };
 		88105A8B2162F11E0084C6D9 /* ChooseLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8A2162F11D0084C6D9 /* ChooseLocationVC.m */; };
 		88105A8E2162F1300084C6D9 /* ChooseLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */; };
+		BA5E880423CF0C2200923381 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5E880323CF0C2200923381 /* iflyMSC.framework */; };
+		BA5E880723CF0D8100923381 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA5E880923CF0D8100923381 /* InfoPlist.strings */; };
 		BAF18C1C2226131B00AF7B5E /* JhDownProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF18C192226131B00AF7B5E /* JhDownProgressView.m */; };
 		BAF18C1D2226131B00AF7B5E /* JhDownProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF18C1A2226131B00AF7B5E /* JhDownProgressController.m */; };
 		C422E2002089E5D5000D9CE7 /* GeneralViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C422E1FE2089E5D5000D9CE7 /* GeneralViewController.mm */; };
@@ -2171,9 +2172,7 @@
 		88105A692162EF5B0084C6D9 /* SGQRCodeScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGQRCodeScanView.m; sourceTree = "<group>"; };
 		88105A6E2162EF720084C6D9 /* WBQRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBQRCodeVC.h; sourceTree = "<group>"; };
 		88105A6F2162EF720084C6D9 /* WBQRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBQRCodeVC.m; sourceTree = "<group>"; };
-		88105A712162EF810084C6D9 /* TempControlDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempControlDetailVC.m; sourceTree = "<group>"; };
 		88105A722162EF820084C6D9 /* TempControlSettingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempControlSettingVC.m; sourceTree = "<group>"; };
-		88105A732162EF820084C6D9 /* TempControlDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempControlDetailVC.h; sourceTree = "<group>"; };
 		88105A742162EF820084C6D9 /* TempControlSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempControlSettingVC.h; sourceTree = "<group>"; };
 		88105A772162EFDC0084C6D9 /* TempControlSetVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempControlSetVC.m; sourceTree = "<group>"; };
 		88105A782162EFDC0084C6D9 /* TempControlSetVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempControlSetVC.h; sourceTree = "<group>"; };
@@ -2192,6 +2191,18 @@
 		88105A8C2162F1300084C6D9 /* ChooseLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLocationCell.h; sourceTree = "<group>"; };
 		88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLocationCell.m; sourceTree = "<group>"; };
 		B02632B6F8A1220A05CD2670 /* libPods-sHome.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sHome.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5E880323CF0C2200923381 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		BA5E880823CF0D8100923381 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E880A23CF0D8A00923381 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		BA5E880B23CF0D8E00923381 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E880C23CF0D8F00923381 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E880D23CF0D9A00923381 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E880E23CF0D9D00923381 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E880F23CF0D9F00923381 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881023CF0DA100923381 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881123CF0DA300923381 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881223CF0DA400923381 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881323CF0DA600923381 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BAF18C182226131B00AF7B5E /* JhDownProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JhDownProgressController.h; sourceTree = "<group>"; };
 		BAF18C192226131B00AF7B5E /* JhDownProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhDownProgressView.m; sourceTree = "<group>"; };
 		BAF18C1A2226131B00AF7B5E /* JhDownProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhDownProgressController.m; sourceTree = "<group>"; };
@@ -2317,6 +2328,7 @@
 				18EAC7BA1EEE619F00C99854 /* UserNotifications.framework in Frameworks */,
 				18EAC7B61EEE601000C99854 /* VideoToolbox.framework in Frameworks */,
 				18EAC7B41EEE5FF100C99854 /* GLKit.framework in Frameworks */,
+				BA5E880423CF0C2200923381 /* iflyMSC.framework in Frameworks */,
 				18EAC7B21EEE5FE500C99854 /* OpenGLES.framework in Frameworks */,
 				18E808D61EF26EF1001814AB /* XMNetInterface.framework in Frameworks */,
 				18EAC7B01EEE5FDC00C99854 /* AVFoundation.framework in Frameworks */,
@@ -3034,8 +3046,6 @@
 		05BDDC901DFFEC2F00648F69 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				88105A732162EF820084C6D9 /* TempControlDetailVC.h */,
-				88105A712162EF810084C6D9 /* TempControlDetailVC.m */,
 				88105A742162EF820084C6D9 /* TempControlSettingVC.h */,
 				88105A722162EF820084C6D9 /* TempControlSettingVC.m */,
 				05BDDCC51DFFECB100648F69 /* DeviceVC.h */,
@@ -3621,6 +3631,7 @@
 				017891502064A617004F8FD7 /* sceneDeviceStatus.plist */,
 				05E466771DF4FA1A0056E6FF /* main.m */,
 				75AABC451E573BB8001529FC /* Localizable.strings */,
+				BA5E880923CF0D8100923381 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -5081,6 +5092,7 @@
 		75E523381DFEEF8A0093DECC /* Vender(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				BA5E880223CF0C2200923381 /* HekrSDK */,
 				BAF18C172226131B00AF7B5E /* JhDownProgressView */,
 				010FD08F1FC6C5E200BF8749 /* MJPhotoBrowser */,
 				015B8B6D1F4D559C00406DC9 /* FyCalendar */,
@@ -5353,6 +5365,14 @@
 			path = SGQRCode;
 			sourceTree = "<group>";
 		};
+		BA5E880223CF0C2200923381 /* HekrSDK */ = {
+			isa = PBXGroup;
+			children = (
+				BA5E880323CF0C2200923381 /* iflyMSC.framework */,
+			);
+			path = HekrSDK;
+			sourceTree = "<group>";
+		};
 		BAF18C172226131B00AF7B5E /* JhDownProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -5552,6 +5572,7 @@
 				75E523BE1DFEEF8A0093DECC /* NSDateTimeAgo.bundle in Resources */,
 				01A63F9C2063E947004FEC2F /* SVProgressHUD.bundle in Resources */,
 				E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */,
+				BA5E880723CF0D8100923381 /* InfoPlist.strings in Resources */,
 				E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */,
 				75AABC431E573BB8001529FC /* Localizable.strings in Resources */,
 				8801299E214DC7520018E4BA /* BookGroupCollectionViewCell.xib in Resources */,
@@ -5634,7 +5655,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-sHome/Pods-sHome-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/HekrSDK/JSSDK.bundle",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
 				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
 			);
@@ -5692,7 +5713,6 @@
 				051A321D1E98BA7A00A8E7C9 /* GetAlarmsApi.m in Sources */,
 				E2A28B9922F7D72A000F05BD /* LCAlertViewController.m in Sources */,
 				01A63F952063E947004FEC2F /* VRGLViewController.mm in Sources */,
-				88105A752162EF820084C6D9 /* TempControlDetailVC.m in Sources */,
 				DD8E404E1EEFB9D300B5E433 /* TimeSceneModel.m in Sources */,
 				75E523C61DFEEF8A0093DECC /* NSException+Trace.m in Sources */,
 				75E524071DFEEF8A0093DECC /* CAAnimation+EasingEquations.m in Sources */,
@@ -6498,6 +6518,24 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		BA5E880923CF0D8100923381 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA5E880823CF0D8100923381 /* English */,
+				BA5E880A23CF0D8A00923381 /* zh-Hans */,
+				BA5E880B23CF0D8E00923381 /* cs */,
+				BA5E880C23CF0D8F00923381 /* nl */,
+				BA5E880D23CF0D9A00923381 /* en */,
+				BA5E880E23CF0D9D00923381 /* fi */,
+				BA5E880F23CF0D9F00923381 /* fr */,
+				BA5E881023CF0DA100923381 /* de */,
+				BA5E881123CF0DA300923381 /* it */,
+				BA5E881223CF0DA400923381 /* sl */,
+				BA5E881323CF0DA600923381 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -6610,6 +6648,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
+					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/sHome/Resource/Global/PrefixHeader.pch";
@@ -6648,6 +6687,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
+					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/sHome/Resource/Global/PrefixHeader.pch";

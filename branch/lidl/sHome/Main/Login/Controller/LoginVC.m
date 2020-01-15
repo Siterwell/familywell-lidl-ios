@@ -135,7 +135,14 @@
     [MBProgressHUD showMessage:NSLocalizedString(@"加载中", nil) ToView:self.view];
     WS(ws)
     
-    //TODO : [RYAN] Hekr login api is not encryted
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    NSString* domain = [config objectForKey:@"hekr_domain"];
+    if(domain.length != 0 && [domain containsString:@"hekr"]){
+        
+    }else{
+        domain = @"hekreu.me";
+    }
+    [[Hekr sharedInstance] setOnlineSite:domain];
     [[Hekr sharedInstance] login:_userNameTextField.text password:_passwordTextField.text callbcak:^(id user, NSError *error) {
         if (!error) {
             NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
