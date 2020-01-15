@@ -240,7 +240,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+     [[Hekr sharedInstance] setOnlineSite:@"hekreu.me"];
     UINavigationBar.appearance.tintColor = [UIColor whiteColor];
     
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
@@ -390,6 +390,14 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSString *username = [config objectForKey:@"UserName"];
     NSString *password = [config objectForKey:@"Password"];
     if([Hekr sharedInstance].user && username.length != 0 && password.length != 0){
+        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+        NSString* domain = [config objectForKey:@"hekr_domain"];
+        if(domain.length != 0 && [domain containsString:@"hekr"]){
+            
+        }else{
+            domain = @"hekreu.me";
+        }
+        [[Hekr sharedInstance] setOnlineSite:domain];
         [[Hekr sharedInstance] login:username password:password callbcak:^(id user, NSError *error) {
 
             if (!error) {

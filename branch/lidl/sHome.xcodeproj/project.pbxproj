@@ -678,6 +678,8 @@
 		88105A8E2162F1300084C6D9 /* ChooseLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */; };
 		BA45B5A0237159A400334DEC /* CircleScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA45B59D237159A400334DEC /* CircleScaleView.m */; };
 		BA45B5A1237159A400334DEC /* ResetProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA45B59E237159A400334DEC /* ResetProgressController.m */; };
+		BA5E881623CF103D00923381 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA5E881423CF103D00923381 /* InfoPlist.strings */; };
+		BA5E882323CF10DF00923381 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5E882223CF10DE00923381 /* iflyMSC.framework */; };
 		BAF18C1C2226131B00AF7B5E /* JhDownProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF18C192226131B00AF7B5E /* JhDownProgressView.m */; };
 		BAF18C1D2226131B00AF7B5E /* JhDownProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF18C1A2226131B00AF7B5E /* JhDownProgressController.m */; };
 		C422E2002089E5D5000D9CE7 /* GeneralViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C422E1FE2089E5D5000D9CE7 /* GeneralViewController.mm */; };
@@ -2196,6 +2198,18 @@
 		BA45B59D237159A400334DEC /* CircleScaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleScaleView.m; sourceTree = "<group>"; };
 		BA45B59E237159A400334DEC /* ResetProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetProgressController.m; sourceTree = "<group>"; };
 		BA45B59F237159A400334DEC /* CircleScaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleScaleView.h; sourceTree = "<group>"; };
+		BA5E881523CF103D00923381 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881723CF104900923381 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		BA5E881823CF104C00923381 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881923CF104E00923381 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881A23CF104F00923381 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881B23CF105100923381 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881C23CF105300923381 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881D23CF105600923381 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881E23CF105800923381 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881F23CF105A00923381 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E882023CF105C00923381 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E882223CF10DE00923381 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		BAF18C182226131B00AF7B5E /* JhDownProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JhDownProgressController.h; sourceTree = "<group>"; };
 		BAF18C192226131B00AF7B5E /* JhDownProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhDownProgressView.m; sourceTree = "<group>"; };
 		BAF18C1A2226131B00AF7B5E /* JhDownProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhDownProgressController.m; sourceTree = "<group>"; };
@@ -2322,6 +2336,7 @@
 				18EAC7BA1EEE619F00C99854 /* UserNotifications.framework in Frameworks */,
 				18EAC7B61EEE601000C99854 /* VideoToolbox.framework in Frameworks */,
 				18EAC7B41EEE5FF100C99854 /* GLKit.framework in Frameworks */,
+				BA5E882323CF10DF00923381 /* iflyMSC.framework in Frameworks */,
 				18EAC7B21EEE5FE500C99854 /* OpenGLES.framework in Frameworks */,
 				18E808D61EF26EF1001814AB /* XMNetInterface.framework in Frameworks */,
 				18EAC7B01EEE5FDC00C99854 /* AVFoundation.framework in Frameworks */,
@@ -3617,6 +3632,7 @@
 		05E466761DF4FA1A0056E6FF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BA5E881423CF103D00923381 /* InfoPlist.strings */,
 				05E466871DF4FA1A0056E6FF /* Info.plist */,
 				05E466AB1DF5368F0056E6FF /* config.json */,
 				017891512064A617004F8FD7 /* deviceName.plist */,
@@ -5085,6 +5101,7 @@
 		75E523381DFEEF8A0093DECC /* Vender(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				BA5E882123CF10DE00923381 /* HekrSDK */,
 				BA45B59B237159A400334DEC /* ResetProgressView */,
 				BAF18C172226131B00AF7B5E /* JhDownProgressView */,
 				010FD08F1FC6C5E200BF8749 /* MJPhotoBrowser */,
@@ -5369,6 +5386,14 @@
 			path = ResetProgressView;
 			sourceTree = "<group>";
 		};
+		BA5E882123CF10DE00923381 /* HekrSDK */ = {
+			isa = PBXGroup;
+			children = (
+				BA5E882223CF10DE00923381 /* iflyMSC.framework */,
+			);
+			path = HekrSDK;
+			sourceTree = "<group>";
+		};
 		BAF18C172226131B00AF7B5E /* JhDownProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -5570,6 +5595,7 @@
 				E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */,
 				75AABC431E573BB8001529FC /* Localizable.strings in Resources */,
 				8801299E214DC7520018E4BA /* BookGroupCollectionViewCell.xib in Resources */,
+				BA5E881623CF103D00923381 /* InfoPlist.strings in Resources */,
 				05F62B6A1E56F1B8001104CB /* Main.storyboard in Resources */,
 				05EFFDF31E078809002C3C71 /* BookCollectionViewCell.xib in Resources */,
 				05F62B5D1E56EFB7001104CB /* LoginStoryboard.storyboard in Resources */,
@@ -5650,7 +5676,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-sHome/Pods-sHome-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/HekrSDK/JSSDK.bundle",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
 				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
 			);
@@ -6502,6 +6528,24 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		BA5E881423CF103D00923381 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA5E881523CF103D00923381 /* English */,
+				BA5E881723CF104900923381 /* zh-Hans */,
+				BA5E881823CF104C00923381 /* cs */,
+				BA5E881923CF104E00923381 /* nl */,
+				BA5E881A23CF104F00923381 /* en */,
+				BA5E881B23CF105100923381 /* fi */,
+				BA5E881C23CF105300923381 /* fr */,
+				BA5E881D23CF105600923381 /* de */,
+				BA5E881E23CF105800923381 /* it */,
+				BA5E881F23CF105A00923381 /* sl */,
+				BA5E882023CF105C00923381 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -6609,12 +6653,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
+					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/sHome/Resource/Global/PrefixHeader.pch";
@@ -6625,7 +6670,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 				);
-				MARKETING_VERSION = 2.07;
+				MARKETING_VERSION = 2.08;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.base;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -6649,12 +6694,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = DGJZCJ8DVJ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
+					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/sHome/Resource/Global/PrefixHeader.pch";
@@ -6665,7 +6711,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 				);
-				MARKETING_VERSION = 2.07;
+				MARKETING_VERSION = 2.08;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.base;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "70899942-c6bb-439f-8f6b-946475ac1471";

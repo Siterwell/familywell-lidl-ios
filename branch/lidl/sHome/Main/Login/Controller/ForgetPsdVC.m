@@ -181,6 +181,14 @@
 
 -(void)autoLoginForUnbindPush:(NSString *)email password:(NSString *)password {
     //TODO : [RYAN] Hekr login api is not encryted
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    NSString* domain = [config objectForKey:@"hekr_domain"];
+    if(domain.length != 0 && [domain containsString:@"hekr"]){
+
+    }else{
+        domain = @"hekreu.me";
+    }
+     [[Hekr sharedInstance] setOnlineSite:domain];
     [[Hekr sharedInstance] login:email password:password callbcak:^(id user, NSError *error) {
         if (!error) {
             NSLog(@"[RYAN] autoLoginForUnbindPush > success: %@",error);
