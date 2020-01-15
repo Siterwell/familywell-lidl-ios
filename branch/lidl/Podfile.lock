@@ -15,6 +15,9 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - AMapFoundation (1.6.1)
+  - AMapLocation (2.6.4):
+    - AMapFoundation (~> 1.6.1)
   - CocoaAsyncSocket (7.6.3)
   - CocoaLumberjack (2.3.0):
     - CocoaLumberjack/Default (= 2.3.0)
@@ -24,80 +27,11 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
-  - Crashlytics (3.13.4):
-    - Fabric (~> 1.10.2)
   - DACircularProgress (2.3.1)
-  - Fabric (1.10.2)
-  - Firebase (6.6.0):
-    - Firebase/Core (= 6.6.0)
-  - Firebase/Core (6.6.0):
-    - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.1.0)
-  - Firebase/CoreOnly (6.6.0):
-    - FirebaseCore (= 6.2.0)
-  - FirebaseAnalytics (6.1.0):
-    - FirebaseCore (~> 6.2)
-    - FirebaseInstanceID (~> 4.2)
-    - GoogleAppMeasurement (= 6.1.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
-    - GoogleUtilities/MethodSwizzler (~> 6.0)
-    - GoogleUtilities/Network (~> 6.0)
-    - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (~> 0.3)
-  - FirebaseAnalyticsInterop (1.3.0)
-  - FirebaseCore (6.2.0):
-    - FirebaseCoreDiagnostics (~> 1.0)
-    - FirebaseCoreDiagnosticsInterop (~> 1.0)
-    - GoogleUtilities/Environment (~> 6.2)
-    - GoogleUtilities/Logger (~> 6.2)
-  - FirebaseCoreDiagnostics (1.0.1):
-    - FirebaseCoreDiagnosticsInterop (~> 1.0)
-    - GoogleDataTransportCCTSupport (~> 1.0)
-    - GoogleUtilities/Environment (~> 6.2)
-    - GoogleUtilities/Logger (~> 6.2)
-  - FirebaseCoreDiagnosticsInterop (1.0.0)
-  - FirebaseInstanceID (4.2.3):
-    - FirebaseCore (~> 6.0)
-    - GoogleUtilities/Environment (~> 6.0)
-    - GoogleUtilities/UserDefaults (~> 6.0)
-  - FirebaseMessaging (4.1.2):
-    - FirebaseAnalyticsInterop (~> 1.3)
-    - FirebaseCore (~> 6.2)
-    - FirebaseInstanceID (~> 4.1)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
-    - GoogleUtilities/Environment (~> 6.2)
-    - GoogleUtilities/Reachability (~> 6.2)
-    - GoogleUtilities/UserDefaults (~> 6.2)
-    - Protobuf (~> 3.1)
   - FMDB/common (2.5)
-  - GoogleAppMeasurement (6.1.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
-    - GoogleUtilities/MethodSwizzler (~> 6.0)
-    - GoogleUtilities/Network (~> 6.0)
-    - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (~> 0.3)
-  - GoogleDataTransport (1.1.1)
-  - GoogleDataTransportCCTSupport (1.0.1):
-    - GoogleDataTransport (~> 1.1)
-    - nanopb
-  - GoogleUtilities/AppDelegateSwizzler (6.2.5):
-    - GoogleUtilities/Environment
-    - GoogleUtilities/Logger
-    - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.2.5)
-  - GoogleUtilities/Logger (6.2.5):
-    - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.2.5):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.2.5):
-    - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
-    - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.2.5)"
-  - GoogleUtilities/Reachability (6.2.5):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.2.5):
-    - GoogleUtilities/Logger
+  - FMDB/SQLCipher (2.5):
+    - FMDB/common
+    - SQLCipher
   - GTSDK (1.6.4.1)
   - HekrSDK (3.4.1-beta):
     - HekrSDK/Core (= 3.4.1-beta)
@@ -123,13 +57,7 @@ PODS:
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
     - "SDWebImage (!= 3.7.2, ~> 3.7)"
-  - nanopb (0.3.901):
-    - nanopb/decode (= 0.3.901)
-    - nanopb/encode (= 0.3.901)
-  - nanopb/decode (0.3.901)
-  - nanopb/encode (0.3.901)
   - pop (1.0.12)
-  - Protobuf (3.9.0)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -143,6 +71,11 @@ PODS:
   - SDWebImage/Core (3.7.6)
   - SHAlertViewBlocks (1.2.1)
   - SocketRocket (0.5.1)
+  - SQLCipher (4.3.0):
+    - SQLCipher/standard (= 4.3.0)
+  - SQLCipher/common (4.3.0)
+  - SQLCipher/standard (4.3.0):
+    - SQLCipher/common
   - XAspect (1.0.5):
     - XAspect/Core (= 1.0.5)
     - XAspect/Macros (= 1.0.5)
@@ -157,13 +90,10 @@ PODS:
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
+  - AMapLocation
   - CocoaAsyncSocket
-  - Crashlytics
-  - Fabric
-  - Firebase
-  - FirebaseCore
-  - FirebaseMessaging
   - FMDB/common (~> 2.5)
+  - FMDB/SQLCipher (~> 2.5)
   - HekrSDK (from `https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global/HekrSDK.podspec`)
   - IQKeyboardManager
   - JSONModel (~> 1.0.1)
@@ -183,24 +113,12 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ActionSheetPicker-3.0
     - AFNetworking
+    - AMapFoundation
+    - AMapLocation
     - CocoaAsyncSocket
     - CocoaLumberjack
-    - Crashlytics
     - DACircularProgress
-    - Fabric
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseAnalyticsInterop
-    - FirebaseCore
-    - FirebaseCoreDiagnostics
-    - FirebaseCoreDiagnosticsInterop
-    - FirebaseInstanceID
-    - FirebaseMessaging
     - FMDB
-    - GoogleAppMeasurement
-    - GoogleDataTransport
-    - GoogleDataTransportCCTSupport
-    - GoogleUtilities
     - GTSDK
     - IQKeyboardManager
     - JSONModel
@@ -210,14 +128,13 @@ SPEC REPOS:
     - Masonry
     - MBProgressHUD
     - MWPhotoBrowser
-    - nanopb
     - pop
-    - Protobuf
     - ReactiveCocoa
     - SAMKeychain
     - SDWebImage
     - SHAlertViewBlocks
     - SocketRocket
+    - SQLCipher
     - XAspect
     - YYText
     - ZipArchive
@@ -230,24 +147,12 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AMapFoundation: df9a0ceec845ae2b5f57bdf9884666f2ed73bf5b
+  AMapLocation: b4162db67f813508a14ee7e05c7ee4073785221d
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
-  Crashlytics: 2dfd686bcb918dc10ee0e76f7f853fe42c7bd552
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
-  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
-  Firebase: a2b5951f30ff38fd3b3bdae9c7d340f940fd3c51
-  FirebaseAnalytics: 48414ae5cbf6976d8a2f7177e0466540e5ab33ce
-  FirebaseAnalyticsInterop: 0f250d71e8741352407a8db351e6de78c5c56d35
-  FirebaseCore: 8c9e08bce0c72a3affd83927d8184cf244918bc8
-  FirebaseCoreDiagnostics: 4c04ae09d0ab027c30179828c6bb47764df1bd13
-  FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
-  FirebaseInstanceID: 8b42755db950682e7de0d167bc6fb26a57b244af
-  FirebaseMessaging: ddd74d13644ef24cc4e2d95cabd1cf408e99b7b0
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
-  GoogleAppMeasurement: 47285fa897e5a125df56b9ef8750a1d81e4598a8
-  GoogleDataTransport: ffbadce4ab93c88fb9dd8e6366c47bfcb4a32193
-  GoogleDataTransportCCTSupport: 3451e7d8ba19093e533362a6d78d6d9014c6a037
-  GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
   GTSDK: b27e433447371587c823353d37af981e4682c008
   HekrSDK: 66259abbbe607fe178c806c5d5c537f4caa85c0a
   IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
@@ -258,19 +163,18 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
-  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
-  Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SHAlertViewBlocks: cf5b26019efa88190e5ce1a46878a99b545c1a62
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  SQLCipher: d305a7bd9af4b64f095c79bdc1a1fa50f2a15116
   XAspect: db50bf487f92dbb8557a7a5365556966c8493af8
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
   ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: a2c8b71bb6555d93f829ca2ac027eaca9f3ab3d3
+PODFILE CHECKSUM: e5965eb0dd00b28d9da57243a7205907eb936a9f
 
 COCOAPODS: 1.5.3
