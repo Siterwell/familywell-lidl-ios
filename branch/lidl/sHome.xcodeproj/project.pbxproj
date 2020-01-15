@@ -689,7 +689,6 @@
 		DDA3A04A1F1709A6002DD920 /* ErrorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3A0491F1709A6002DD920 /* ErrorModel.m */; };
 		DDDB61461E9CBE4000BDEE25 /* FortgetPsdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDB61451E9CBE4000BDEE25 /* FortgetPsdCell.m */; };
 		DDDB61491E9CC57600BDEE25 /* AddDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDB61481E9CC57600BDEE25 /* AddDeviceCell.m */; };
-		E21883D721F2C29C009DDA76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E21883D621F2C29C009DDA76 /* GoogleService-Info.plist */; };
 		E2432D0D219A6B3B00A76C2C /* PrivacyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2432D0C219A6B3B00A76C2C /* PrivacyVC.m */; };
 		E2432D10219A74F400A76C2C /* privacy_english.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D0F219A74F400A76C2C /* privacy_english.html */; };
 		E2432D12219A7B3500A76C2C /* privacy_czech.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D11219A7B3500A76C2C /* privacy_czech.html */; };
@@ -2258,7 +2257,6 @@
 		E2126DE821B6771D00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2126DEE21B6812900812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/HomeStoryboard.strings; sourceTree = "<group>"; };
 		E2126DF021B6885700812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
-		E21883D621F2C29C009DDA76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E2432D0B219A6B3B00A76C2C /* PrivacyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivacyVC.h; sourceTree = "<group>"; };
 		E2432D0C219A6B3B00A76C2C /* PrivacyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrivacyVC.m; sourceTree = "<group>"; };
 		E2432D0F219A74F400A76C2C /* privacy_english.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_english.html; sourceTree = "<group>"; };
@@ -3596,7 +3594,6 @@
 		05E466751DF4FA1A0056E6FF /* sHome */ = {
 			isa = PBXGroup;
 			children = (
-				E21883D621F2C29C009DDA76 /* GoogleService-Info.plist */,
 				880129CC214DCB370018E4BA /* LaunchScreen.storyboard */,
 				753562B01E5C550A00DEA1CA /* sHome.entitlements */,
 				75E520C61DFEEF890093DECC /* Expand(拓展) */,
@@ -5420,7 +5417,6 @@
 				05E466701DF4FA170056E6FF /* Frameworks */,
 				05E466711DF4FA170056E6FF /* Resources */,
 				A30CD5EAC155873653839973 /* [CP] Copy Pods Resources */,
-				E267171F2191A09400A11F3B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -5480,7 +5476,7 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = SZKCT5EZKN;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.AccessWiFi = {
 								enabled = 1;
@@ -5583,7 +5579,6 @@
 				01A63F742063E947004FEC2F /* RecordVideoByTimeCell.xib in Resources */,
 				05E466831DF4FA1A0056E6FF /* Assets.xcassets in Resources */,
 				0586A95F1E76798000DA458A /* phonering.mp3 in Resources */,
-				E21883D721F2C29C009DDA76 /* GoogleService-Info.plist in Resources */,
 				759FD7FF1E1D321900381A6B /* EspTouchDemo-Info.plist in Resources */,
 				05BDDC8C1DFFE5AB00648F69 /* Switch.xcassets in Resources */,
 				75E524C01DFEEF8A0093DECC /* MJRefresh.bundle in Resources */,
@@ -5631,9 +5626,9 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sHome/Pods-sHome-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-sHome/Pods-sHome-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/HekrSDK/JSSDK.bundle",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
 				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
 			);
@@ -5646,21 +5641,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sHome/Pods-sHome-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sHome/Pods-sHome-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		E267171F2191A09400A11F3B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" cd6b4a01848755e804afd334d7477880ca9cd513 a9ed8fc4eacff6d794a3f574a0011ffeeb25ad2d4664ef2b2334343b7c6cc826";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -6600,10 +6582,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = SZKCT5EZKN;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 12;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6618,10 +6601,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "16e05f60-73f9-42b7-af92-23d30f93cfe1";
-				PROVISIONING_PROFILE_SPECIFIER = ELRO_developement;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -6641,6 +6625,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6656,6 +6641,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
