@@ -33,8 +33,6 @@ PODS:
     - FMDB/common
     - SQLCipher
   - GTSDK (1.6.4.1)
-  - HekrSDK (3.4.1-beta):
-    - HekrSDK/Core (= 3.4.1-beta)
   - HekrSDK/Core (3.4.1-beta):
     - AFNetworking (~> 3.0)
     - CocoaAsyncSocket (~> 7.4)
@@ -94,7 +92,7 @@ DEPENDENCIES:
   - CocoaAsyncSocket
   - FMDB/common (~> 2.5)
   - FMDB/SQLCipher (~> 2.5)
-  - HekrSDK (from `https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global/HekrSDK.podspec`)
+  - HekrSDK/Core (from `https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global2.0/HekrSDK.podspec`)
   - IQKeyboardManager
   - JSONModel (~> 1.0.1)
   - LBXScan (~> 1.1.1)
@@ -142,11 +140,11 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   HekrSDK:
-    :podspec: https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global/HekrSDK.podspec
+    :podspec: https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global2.0/HekrSDK.podspec
 
 CHECKOUT OPTIONS:
   HekrSDK:
-    :commit: ad4d7d6e4597ca0318d3e4a96c816fbcbadfdc64
+    :commit: e83fbf6a52f7fed0c247a2a03a417cab9ee3e94e
     :git: https://github.com/HEKR-Cloud/HEKR-IOS-SDK.git
 
 SPEC CHECKSUMS:
@@ -159,7 +157,7 @@ SPEC CHECKSUMS:
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   GTSDK: b27e433447371587c823353d37af981e4682c008
-  HekrSDK: 66259abbbe607fe178c806c5d5c537f4caa85c0a
+  HekrSDK: 9ed4d8c230ec82d06ba08e8e9bf398a660a66516
   IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
   JSONModel: 6ffcb4ffa3659c9e9a2e5d45d6c7705bab187c03
   LBXScan: dfb4d8ae8e4cff2aa0c9e1771e43954dce1469a9
@@ -180,6 +178,6 @@ SPEC CHECKSUMS:
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
   ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: efd0bffc950539f1e653f2f619168feaea8b843e
+PODFILE CHECKSUM: 280dbc91cf9e1727726d31a923962c6d2d3cc16f
 
 COCOAPODS: 1.5.3

@@ -3,8 +3,7 @@ platform :ios, '8.0'
 target "sHome" do
 
 #pod 'HekrSDK' :path => './HEKR-IOS-SDK-global'
-pod 'HekrSDK', :podspec => 'https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global/HekrSDK.podspec'
-
+pod 'HekrSDK', :subspecs => ['Core'] , :podspec => 'https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global2.0/HekrSDK.podspec'
 pod 'ReactiveCocoa', '~> 2.5'
 pod 'SDWebImage', '~> 3.7.5'
 pod 'JSONModel', '~> 1.0.1'

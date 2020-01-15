@@ -239,6 +239,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+     [[Hekr sharedInstance] setOnlineSite:@"hekreu.me"];
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     NSString *lan;
         NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
@@ -384,7 +385,16 @@ static void uncaughtExceptionHandler(NSException *exception) {
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     NSString *username = [config objectForKey:@"UserName"];
     NSString *password = [config objectForKey:@"Password"];
+
+     
     if([Hekr sharedInstance].user && username.length != 0 && password.length != 0){
+        NSString* domain = [config objectForKey:@"hekr_domain"];
+        if(domain.length != 0 && [domain containsString:@"hekr"]){
+
+        }else{
+            domain = @"hekreu.me";
+        }
+        [[Hekr sharedInstance] setOnlineSite:domain];
         [[Hekr sharedInstance] login:username password:password callbcak:^(id user, NSError *error) {
 
             if (!error) {

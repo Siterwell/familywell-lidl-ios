@@ -677,6 +677,8 @@
 		88105A882162F10C0084C6D9 /* GuideAddCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A832162F10C0084C6D9 /* GuideAddCamera.m */; };
 		88105A8B2162F11E0084C6D9 /* ChooseLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8A2162F11D0084C6D9 /* ChooseLocationVC.m */; };
 		88105A8E2162F1300084C6D9 /* ChooseLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */; };
+		BA5E880423CF0C2200923381 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5E880323CF0C2200923381 /* iflyMSC.framework */; };
+		BA5E880723CF0D8100923381 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA5E880923CF0D8100923381 /* InfoPlist.strings */; };
 		BAF18C1C2226131B00AF7B5E /* JhDownProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF18C192226131B00AF7B5E /* JhDownProgressView.m */; };
 		BAF18C1D2226131B00AF7B5E /* JhDownProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF18C1A2226131B00AF7B5E /* JhDownProgressController.m */; };
 		C422E2002089E5D5000D9CE7 /* GeneralViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C422E1FE2089E5D5000D9CE7 /* GeneralViewController.mm */; };
@@ -2189,6 +2191,18 @@
 		88105A8C2162F1300084C6D9 /* ChooseLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLocationCell.h; sourceTree = "<group>"; };
 		88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLocationCell.m; sourceTree = "<group>"; };
 		B02632B6F8A1220A05CD2670 /* libPods-sHome.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sHome.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5E880323CF0C2200923381 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		BA5E880823CF0D8100923381 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E880A23CF0D8A00923381 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		BA5E880B23CF0D8E00923381 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E880C23CF0D8F00923381 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E880D23CF0D9A00923381 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E880E23CF0D9D00923381 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E880F23CF0D9F00923381 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881023CF0DA100923381 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881123CF0DA300923381 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881223CF0DA400923381 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA5E881323CF0DA600923381 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BAF18C182226131B00AF7B5E /* JhDownProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JhDownProgressController.h; sourceTree = "<group>"; };
 		BAF18C192226131B00AF7B5E /* JhDownProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhDownProgressView.m; sourceTree = "<group>"; };
 		BAF18C1A2226131B00AF7B5E /* JhDownProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JhDownProgressController.m; sourceTree = "<group>"; };
@@ -2314,6 +2328,7 @@
 				18EAC7BA1EEE619F00C99854 /* UserNotifications.framework in Frameworks */,
 				18EAC7B61EEE601000C99854 /* VideoToolbox.framework in Frameworks */,
 				18EAC7B41EEE5FF100C99854 /* GLKit.framework in Frameworks */,
+				BA5E880423CF0C2200923381 /* iflyMSC.framework in Frameworks */,
 				18EAC7B21EEE5FE500C99854 /* OpenGLES.framework in Frameworks */,
 				18E808D61EF26EF1001814AB /* XMNetInterface.framework in Frameworks */,
 				18EAC7B01EEE5FDC00C99854 /* AVFoundation.framework in Frameworks */,
@@ -3616,6 +3631,7 @@
 				017891502064A617004F8FD7 /* sceneDeviceStatus.plist */,
 				05E466771DF4FA1A0056E6FF /* main.m */,
 				75AABC451E573BB8001529FC /* Localizable.strings */,
+				BA5E880923CF0D8100923381 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -5076,6 +5092,7 @@
 		75E523381DFEEF8A0093DECC /* Vender(第三方) */ = {
 			isa = PBXGroup;
 			children = (
+				BA5E880223CF0C2200923381 /* HekrSDK */,
 				BAF18C172226131B00AF7B5E /* JhDownProgressView */,
 				010FD08F1FC6C5E200BF8749 /* MJPhotoBrowser */,
 				015B8B6D1F4D559C00406DC9 /* FyCalendar */,
@@ -5348,6 +5365,14 @@
 			path = SGQRCode;
 			sourceTree = "<group>";
 		};
+		BA5E880223CF0C2200923381 /* HekrSDK */ = {
+			isa = PBXGroup;
+			children = (
+				BA5E880323CF0C2200923381 /* iflyMSC.framework */,
+			);
+			path = HekrSDK;
+			sourceTree = "<group>";
+		};
 		BAF18C172226131B00AF7B5E /* JhDownProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -5476,7 +5501,7 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = SZKCT5EZKN;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.AccessWiFi = {
 								enabled = 1;
@@ -5546,6 +5571,7 @@
 				75E523BE1DFEEF8A0093DECC /* NSDateTimeAgo.bundle in Resources */,
 				01A63F9C2063E947004FEC2F /* SVProgressHUD.bundle in Resources */,
 				E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */,
+				BA5E880723CF0D8100923381 /* InfoPlist.strings in Resources */,
 				E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */,
 				75AABC431E573BB8001529FC /* Localizable.strings in Resources */,
 				8801299E214DC7520018E4BA /* BookGroupCollectionViewCell.xib in Resources */,
@@ -6478,6 +6504,24 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		BA5E880923CF0D8100923381 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA5E880823CF0D8100923381 /* English */,
+				BA5E880A23CF0D8A00923381 /* zh-Hans */,
+				BA5E880B23CF0D8E00923381 /* cs */,
+				BA5E880C23CF0D8F00923381 /* nl */,
+				BA5E880D23CF0D9A00923381 /* en */,
+				BA5E880E23CF0D9D00923381 /* fi */,
+				BA5E880F23CF0D9F00923381 /* fr */,
+				BA5E881023CF0DA100923381 /* de */,
+				BA5E881123CF0DA300923381 /* it */,
+				BA5E881223CF0DA400923381 /* sl */,
+				BA5E881323CF0DA600923381 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -6582,15 +6626,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 64;
+				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
+					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/sHome/Resource/Global/PrefixHeader.pch";
@@ -6601,11 +6646,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 1.53;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = elro_siterwell_appstore;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -6625,12 +6670,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 64;
 				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
+					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/sHome/Resource/Global/PrefixHeader.pch";
@@ -6641,7 +6687,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 1.53;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
