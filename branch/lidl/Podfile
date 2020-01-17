@@ -4,7 +4,6 @@ xcodeproj 'sHome.xcodeproj'
 
 target "sHome" do
 
-#pod 'HekrSDK' :path => './HEKR-IOS-SDK-global'
 pod 'HekrSDK', :subspecs => ['Core'] , :podspec => 'https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global2.0/HekrSDK.podspec'
 pod 'ReactiveCocoa', '~> 2.5'
 pod 'SDWebImage', '~> 3.7.5'
