@@ -110,7 +110,7 @@
         cell.textLabel.font = [UIFont systemFontOfSize:14];
         cell.textLabel.text = NSLocalizedString(@"售后电话", nil);
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.detailTextLabel.text = @"+358 40 754 9295401";
+        cell.detailTextLabel.text = @"+358 50 302 1165";
         cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
         return cell;
     } else {
@@ -152,9 +152,10 @@
         }
         
     } else if (indexPath.row == 2) {
-        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"+358 40 754 9295401"];
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",@"+358503021165"];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
-    } else if (indexPath.row == 5) {
+        
+    } else if (indexPath.row == 3) {
         [self performSegueWithIdentifier:@"toPrivacy" sender:nil];
     }
     
