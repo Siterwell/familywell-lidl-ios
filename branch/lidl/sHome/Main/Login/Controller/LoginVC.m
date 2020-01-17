@@ -9,7 +9,8 @@
 #import "LoginVC.h"
 #import "UINavigationBar+Awesome.h"
 #import "ANTCacheManager.h"
-
+#import "ForgetPsdVC.h"
+#import "RegistVC.h"
 #define ACCOUNT_LIST @"Account_list"
 
 @interface LoginVC ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
@@ -134,6 +135,10 @@
 
 //登录事件
 - (IBAction)loginAction:(id)sender {
+    [self gotoLogin];
+}
+
+-(void)gotoLogin{
     _accountTableView.hidden = YES;
     [MBProgressHUD showMessage:NSLocalizedString(@"加载中", nil) ToView:self.view];
     WS(ws)
@@ -176,7 +181,6 @@
 
         }
     }];
-    
 }
 
 - (void)getDeviceList{
@@ -420,4 +424,37 @@
     }
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"RegistVC"]) {
+        RegistVC *vc = segue.destinationViewController;
+        vc.delegate = [RACSubject subject];
+            @weakify(self)
+        [vc.delegate subscribeNext:^(id x) {
+            //同步
+            @strongify(self)
+            NSString *user = [x objectForKey:@"user"];
+            NSString *pws = [x objectForKey:@"psw"];
+            self.userNameTextField.text = user;
+            self.passwordTextField.text = pws;
+            _accountTableView.hidden = YES;
+            [self.savePasswordBtn setSelected:YES];
+            [self gotoLogin];
+        }];
+    }else if([segue.identifier isEqualToString:@"ForgetPsdVC"]){
+        ForgetPsdVC *vc = segue.destinationViewController;
+              vc.delegate = [RACSubject subject];
+                  @weakify(self)
+              [vc.delegate subscribeNext:^(id x) {
+                  //同步
+                  @strongify(self)
+                  NSString *user = [x objectForKey:@"user"];
+                  NSString *pws = [x objectForKey:@"psw"];
+                  self.userNameTextField.text = user;
+                  self.passwordTextField.text = pws;
+                  _accountTableView.hidden = YES;
+                  [self.savePasswordBtn setSelected:YES];
+                  [self gotoLogin];
+              }];
+    }
+}
 @end

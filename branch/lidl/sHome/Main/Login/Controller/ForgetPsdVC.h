@@ -9,5 +9,5 @@
 #import "BaseTableVC.h"
 #import "NSString+CY.h"
 @interface ForgetPsdVC : BaseTableVC
-
+@property (nonatomic,strong) RACSubject *delegate;
 @end

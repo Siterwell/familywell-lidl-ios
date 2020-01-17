@@ -223,6 +223,7 @@
 
 -(void)resetPasswordCompleted {
     [MBProgressHUD hideHUDForView:self.view];
+    [self.delegate sendNext:@{@"user":self.user_textField.text,@"psw":self.pass_textField.text}];
     [MBProgressHUD showSuccess:NSLocalizedString(@"修改成功", nil) ToView:GetWindow];
     [self.navigationController popViewControllerAnimated:YES];
 }
