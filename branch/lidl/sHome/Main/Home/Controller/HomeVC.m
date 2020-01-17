@@ -878,6 +878,7 @@ BOOL flag_checkfireware = NO;
         _autoLbe.font = [UIFont systemFontOfSize:13.0f];
         _sceneName.text = @"";
         _autoLbe.textColor = RGB(40, 184, 215);
+        [_autoLbe setTextAlign:TextAlignCenter];
         [_sceneName addSubview:_autoLbe];
     }
     
