@@ -9,6 +9,6 @@
 #import "BaseTableVC.h"
 #import "Macros.h"
 @interface RegistVC : BaseTableVC
-
+@property (nonatomic,strong) RACSubject *delegate;
 @end
  

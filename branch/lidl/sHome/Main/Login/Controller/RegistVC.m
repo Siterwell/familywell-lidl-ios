@@ -262,6 +262,7 @@
         NSLog(@"%@",responseObject);
         [MBProgressHUD hideHUDForView:self.view];
         [MBProgressHUD showSuccess:NSLocalizedString(@"注册成功", nil) ToView:GetWindow];
+        [self.delegate sendNext:@{@"user":self.user_textField.text,@"psw":self.pass_textField.text}];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",error);

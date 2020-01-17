@@ -305,7 +305,7 @@
                                     <color key="titleColor" red="0.2612532695" green="0.73034664689999995" blue="0.79746986040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="yg5-0P-wiF" kind="show" id="cNU-kg-A6z"/>
+                                    <segue destination="yg5-0P-wiF" kind="show" identifier="ForgetPsdVC" id="cNU-kg-A6z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oE-6O-w9q">
@@ -315,7 +315,7 @@
                                     <color key="titleColor" red="0.2612532695" green="0.73034664689999995" blue="0.79746986040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4KX-5N-BEg" kind="show" id="7Rh-ZS-pew"/>
+                                    <segue destination="4KX-5N-BEg" kind="show" identifier="RegistVC" id="7Rh-ZS-pew"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqV-Jd-XWW">
