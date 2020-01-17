@@ -15,9 +15,6 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - AMapFoundation (1.6.1)
-  - AMapLocation (2.6.4):
-    - AMapFoundation (~> 1.6.1)
   - CocoaAsyncSocket (7.6.3)
   - CocoaLumberjack (2.3.0):
     - CocoaLumberjack/Default (= 2.3.0)
@@ -27,7 +24,10 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
   - DACircularProgress (2.3.1)
+  - Fabric (1.10.2)
   - FMDB/common (2.5)
   - FMDB/SQLCipher (2.5):
     - FMDB/common
@@ -88,8 +88,9 @@ PODS:
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
-  - AMapLocation
   - CocoaAsyncSocket
+  - Crashlytics
+  - Fabric
   - FMDB/common (~> 2.5)
   - FMDB/SQLCipher (~> 2.5)
   - HekrSDK/Core (from `https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global2.0/HekrSDK.podspec`)
@@ -111,11 +112,11 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - ActionSheetPicker-3.0
     - AFNetworking
-    - AMapFoundation
-    - AMapLocation
     - CocoaAsyncSocket
     - CocoaLumberjack
+    - Crashlytics
     - DACircularProgress
+    - Fabric
     - FMDB
     - GTSDK
     - IQKeyboardManager
@@ -150,11 +151,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: d236f0b663123e4b404a3bc04b338c1e805ac910
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  AMapFoundation: df9a0ceec845ae2b5f57bdf9884666f2ed73bf5b
-  AMapLocation: b4162db67f813508a14ee7e05c7ee4073785221d
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   GTSDK: b27e433447371587c823353d37af981e4682c008
   HekrSDK: 9ed4d8c230ec82d06ba08e8e9bf398a660a66516
@@ -178,6 +179,6 @@ SPEC CHECKSUMS:
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
   ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: bff41f8149e04d9ef225ffff98192cabe9ca75c3
+PODFILE CHECKSUM: 9ac20c4fd9c15c98cfab2aadaea5c2616cb2c0b0
 
 COCOAPODS: 1.5.3
