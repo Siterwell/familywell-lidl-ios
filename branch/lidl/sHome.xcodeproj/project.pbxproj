@@ -676,6 +676,8 @@
 		88105A882162F10C0084C6D9 /* GuideAddCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A832162F10C0084C6D9 /* GuideAddCamera.m */; };
 		88105A8B2162F11E0084C6D9 /* ChooseLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8A2162F11D0084C6D9 /* ChooseLocationVC.m */; };
 		88105A8E2162F1300084C6D9 /* ChooseLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */; };
+		BA2E5DA223D435CA0075C9E3 /* GTSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E5D9C23D435C60075C9E3 /* GTSDK.framework */; };
+		BA2E5DA323D435CA0075C9E3 /* libHekrSDKCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E5DA123D435CA0075C9E3 /* libHekrSDKCore.a */; };
 		BA45B5A0237159A400334DEC /* CircleScaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA45B59D237159A400334DEC /* CircleScaleView.m */; };
 		BA45B5A1237159A400334DEC /* ResetProgressController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA45B59E237159A400334DEC /* ResetProgressController.m */; };
 		BA5E881623CF103D00923381 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA5E881423CF103D00923381 /* InfoPlist.strings */; };
@@ -692,7 +694,6 @@
 		DDA3A04A1F1709A6002DD920 /* ErrorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA3A0491F1709A6002DD920 /* ErrorModel.m */; };
 		DDDB61461E9CBE4000BDEE25 /* FortgetPsdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDB61451E9CBE4000BDEE25 /* FortgetPsdCell.m */; };
 		DDDB61491E9CC57600BDEE25 /* AddDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDDB61481E9CC57600BDEE25 /* AddDeviceCell.m */; };
-		E23DB6AB21E306CF003D55EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E23DB6AA21E306CF003D55EE /* GoogleService-Info.plist */; };
 		E2432D0D219A6B3B00A76C2C /* PrivacyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E2432D0C219A6B3B00A76C2C /* PrivacyVC.m */; };
 		E2432D10219A74F400A76C2C /* privacy_english.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D0F219A74F400A76C2C /* privacy_english.html */; };
 		E2432D12219A7B3500A76C2C /* privacy_czech.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D11219A7B3500A76C2C /* privacy_czech.html */; };
@@ -2194,6 +2195,13 @@
 		88105A8C2162F1300084C6D9 /* ChooseLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLocationCell.h; sourceTree = "<group>"; };
 		88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLocationCell.m; sourceTree = "<group>"; };
 		B02632B6F8A1220A05CD2670 /* libPods-sHome.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sHome.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2E5D9B23D435C60075C9E3 /* HekrSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrSDK.h; sourceTree = "<group>"; };
+		BA2E5D9C23D435C60075C9E3 /* GTSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTSDK.framework; sourceTree = "<group>"; };
+		BA2E5D9D23D435C70075C9E3 /* HekrUserToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrUserToken.h; sourceTree = "<group>"; };
+		BA2E5D9E23D435C70075C9E3 /* HekrSimpleTcpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrSimpleTcpClient.h; sourceTree = "<group>"; };
+		BA2E5D9F23D435C70075C9E3 /* HekrAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrAPI.h; sourceTree = "<group>"; };
+		BA2E5DA023D435C70075C9E3 /* HekrWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrWebView.h; sourceTree = "<group>"; };
+		BA2E5DA123D435CA0075C9E3 /* libHekrSDKCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libHekrSDKCore.a; sourceTree = "<group>"; };
 		BA45B59C237159A400334DEC /* ResetProgressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetProgressController.h; sourceTree = "<group>"; };
 		BA45B59D237159A400334DEC /* CircleScaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleScaleView.m; sourceTree = "<group>"; };
 		BA45B59E237159A400334DEC /* ResetProgressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetProgressController.m; sourceTree = "<group>"; };
@@ -2278,7 +2286,6 @@
 		E2126DE821B6771D00812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E2126DEE21B6812900812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/HomeStoryboard.strings; sourceTree = "<group>"; };
 		E2126DF021B6885700812F2C /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Main.strings; sourceTree = "<group>"; };
-		E23DB6AA21E306CF003D55EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E2432D0B219A6B3B00A76C2C /* PrivacyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivacyVC.h; sourceTree = "<group>"; };
 		E2432D0C219A6B3B00A76C2C /* PrivacyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrivacyVC.m; sourceTree = "<group>"; };
 		E2432D0F219A74F400A76C2C /* privacy_english.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = privacy_english.html; sourceTree = "<group>"; };
@@ -2331,11 +2338,13 @@
 				E2A7C09923040093002C07F4 /* FunSDK.framework in Frameworks */,
 				E2526F4C22E82D44004E1703 /* libstdc++.6.0.9.tbd in Frameworks */,
 				E2526F4D22E82D45004E1703 /* libstdc++.6.tbd in Frameworks */,
+				BA2E5DA323D435CA0075C9E3 /* libHekrSDKCore.a in Frameworks */,
 				E2526F4E22E82D45004E1703 /* libstdc++.tbd in Frameworks */,
 				18EAC7BC1EEE629200C99854 /* QuartzCore.framework in Frameworks */,
 				18EAC7BA1EEE619F00C99854 /* UserNotifications.framework in Frameworks */,
 				18EAC7B61EEE601000C99854 /* VideoToolbox.framework in Frameworks */,
 				18EAC7B41EEE5FF100C99854 /* GLKit.framework in Frameworks */,
+				BA2E5DA223D435CA0075C9E3 /* GTSDK.framework in Frameworks */,
 				BA5E882323CF10DF00923381 /* iflyMSC.framework in Frameworks */,
 				18EAC7B21EEE5FE500C99854 /* OpenGLES.framework in Frameworks */,
 				18E808D61EF26EF1001814AB /* XMNetInterface.framework in Frameworks */,
@@ -3617,7 +3626,6 @@
 		05E466751DF4FA1A0056E6FF /* sHome */ = {
 			isa = PBXGroup;
 			children = (
-				E23DB6AA21E306CF003D55EE /* GoogleService-Info.plist */,
 				880129CC214DCB370018E4BA /* LaunchScreen.storyboard */,
 				753562B01E5C550A00DEA1CA /* sHome.entitlements */,
 				75E520C61DFEEF890093DECC /* Expand(拓展) */,
@@ -5389,6 +5397,13 @@
 		BA5E882123CF10DE00923381 /* HekrSDK */ = {
 			isa = PBXGroup;
 			children = (
+				BA2E5D9C23D435C60075C9E3 /* GTSDK.framework */,
+				BA2E5D9F23D435C70075C9E3 /* HekrAPI.h */,
+				BA2E5D9B23D435C60075C9E3 /* HekrSDK.h */,
+				BA2E5D9E23D435C70075C9E3 /* HekrSimpleTcpClient.h */,
+				BA2E5D9D23D435C70075C9E3 /* HekrUserToken.h */,
+				BA2E5DA023D435C70075C9E3 /* HekrWebView.h */,
+				BA2E5DA123D435CA0075C9E3 /* libHekrSDKCore.a */,
 				BA5E882223CF10DE00923381 /* iflyMSC.framework */,
 			);
 			path = HekrSDK;
@@ -5626,7 +5641,6 @@
 				01A63F742063E947004FEC2F /* RecordVideoByTimeCell.xib in Resources */,
 				05E466831DF4FA1A0056E6FF /* Assets.xcassets in Resources */,
 				0586A95F1E76798000DA458A /* phonering.mp3 in Resources */,
-				E23DB6AB21E306CF003D55EE /* GoogleService-Info.plist in Resources */,
 				759FD7FF1E1D321900381A6B /* EspTouchDemo-Info.plist in Resources */,
 				05BDDC8C1DFFE5AB00648F69 /* Switch.xcassets in Resources */,
 				75E524C01DFEEF8A0093DECC /* MJRefresh.bundle in Resources */,
@@ -5675,14 +5689,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-sHome/Pods-sHome-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/HekrSDK/JSSDK.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
 				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JSSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SAMKeychain.bundle",
@@ -6653,7 +6665,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_TEAM = DGJZCJ8DVJ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6669,6 +6681,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
+					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
 				MARKETING_VERSION = 2.08;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.base;
@@ -6694,7 +6707,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_TEAM = DGJZCJ8DVJ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6710,6 +6723,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
+					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
 				MARKETING_VERSION = 2.08;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.base;
