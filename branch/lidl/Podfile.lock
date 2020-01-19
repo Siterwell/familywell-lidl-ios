@@ -109,7 +109,7 @@ DEPENDENCIES:
   - YYText
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - ActionSheetPicker-3.0
     - AFNetworking
     - CocoaAsyncSocket
@@ -181,4 +181,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9ac20c4fd9c15c98cfab2aadaea5c2616cb2c0b0
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4
