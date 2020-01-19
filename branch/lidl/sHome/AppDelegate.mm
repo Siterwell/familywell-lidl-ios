@@ -16,7 +16,7 @@
 #import "connectWifiVC.h"
 #import "NSBundle+Language.h"
 
-#import "GeTuiSdk.h"
+#import <GTSDK/GeTuiSdk.h>
 #import "JSONHelp.h"
 #import "ScyDeviceModel.h"
 #import "DeviceModel.h"
@@ -31,7 +31,7 @@
 #import "VersionModel.h"
 #import "PostControllerApi.h"
 //#import "FunSupport.h"
-#import <HekrSimpleTcpClient.h>
+#import "HekrSimpleTcpClient.h"
 #import "DeviceListModel.h"
 #import "InitVC.h"
 
@@ -525,11 +525,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
     [[Hekr sharedInstance] didRegisterUserNotificationSettings:notificationSettings];
 }
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
-    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSLog(@"[RYAN] AppDelegate >> didRegisterForRemoteNotificationsWithDeviceToken >> %@", token);
     // 向个推服务器注册deviceToken
-    [GeTuiSdk registerDeviceToken:token];
+    [GeTuiSdk registerDeviceTokenData:deviceToken];
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {

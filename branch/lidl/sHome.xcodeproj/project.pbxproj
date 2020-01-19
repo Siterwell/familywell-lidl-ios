@@ -677,6 +677,8 @@
 		88105A882162F10C0084C6D9 /* GuideAddCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A832162F10C0084C6D9 /* GuideAddCamera.m */; };
 		88105A8B2162F11E0084C6D9 /* ChooseLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8A2162F11D0084C6D9 /* ChooseLocationVC.m */; };
 		88105A8E2162F1300084C6D9 /* ChooseLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */; };
+		BA2E5D9923D42FD90075C9E3 /* GTSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E5D9323D42FD70075C9E3 /* GTSDK.framework */; };
+		BA2E5D9A23D42FD90075C9E3 /* libHekrSDKCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2E5D9523D42FD80075C9E3 /* libHekrSDKCore.a */; };
 		BA5E880423CF0C2200923381 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5E880323CF0C2200923381 /* iflyMSC.framework */; };
 		BA5E880723CF0D8100923381 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA5E880923CF0D8100923381 /* InfoPlist.strings */; };
 		BAF18C1C2226131B00AF7B5E /* JhDownProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF18C192226131B00AF7B5E /* JhDownProgressView.m */; };
@@ -2191,6 +2193,13 @@
 		88105A8C2162F1300084C6D9 /* ChooseLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseLocationCell.h; sourceTree = "<group>"; };
 		88105A8D2162F1300084C6D9 /* ChooseLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseLocationCell.m; sourceTree = "<group>"; };
 		B02632B6F8A1220A05CD2670 /* libPods-sHome.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sHome.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2E5D9223D42FD70075C9E3 /* HekrUserToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrUserToken.h; sourceTree = "<group>"; };
+		BA2E5D9323D42FD70075C9E3 /* GTSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTSDK.framework; sourceTree = "<group>"; };
+		BA2E5D9423D42FD70075C9E3 /* HekrAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrAPI.h; sourceTree = "<group>"; };
+		BA2E5D9523D42FD80075C9E3 /* libHekrSDKCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libHekrSDKCore.a; sourceTree = "<group>"; };
+		BA2E5D9623D42FD80075C9E3 /* HekrWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrWebView.h; sourceTree = "<group>"; };
+		BA2E5D9723D42FD80075C9E3 /* HekrSimpleTcpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrSimpleTcpClient.h; sourceTree = "<group>"; };
+		BA2E5D9823D42FD80075C9E3 /* HekrSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrSDK.h; sourceTree = "<group>"; };
 		BA5E880323CF0C2200923381 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
 		BA5E880823CF0D8100923381 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BA5E880A23CF0D8A00923381 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -2323,11 +2332,13 @@
 				328F2FF82344AA0900433D9E /* FunSDK.framework in Frameworks */,
 				E2526F4C22E82D44004E1703 /* libstdc++.6.0.9.tbd in Frameworks */,
 				E2526F4D22E82D45004E1703 /* libstdc++.6.tbd in Frameworks */,
+				BA2E5D9A23D42FD90075C9E3 /* libHekrSDKCore.a in Frameworks */,
 				E2526F4E22E82D45004E1703 /* libstdc++.tbd in Frameworks */,
 				18EAC7BC1EEE629200C99854 /* QuartzCore.framework in Frameworks */,
 				18EAC7BA1EEE619F00C99854 /* UserNotifications.framework in Frameworks */,
 				18EAC7B61EEE601000C99854 /* VideoToolbox.framework in Frameworks */,
 				18EAC7B41EEE5FF100C99854 /* GLKit.framework in Frameworks */,
+				BA2E5D9923D42FD90075C9E3 /* GTSDK.framework in Frameworks */,
 				BA5E880423CF0C2200923381 /* iflyMSC.framework in Frameworks */,
 				18EAC7B21EEE5FE500C99854 /* OpenGLES.framework in Frameworks */,
 				18E808D61EF26EF1001814AB /* XMNetInterface.framework in Frameworks */,
@@ -5368,6 +5379,13 @@
 		BA5E880223CF0C2200923381 /* HekrSDK */ = {
 			isa = PBXGroup;
 			children = (
+				BA2E5D9323D42FD70075C9E3 /* GTSDK.framework */,
+				BA2E5D9423D42FD70075C9E3 /* HekrAPI.h */,
+				BA2E5D9823D42FD80075C9E3 /* HekrSDK.h */,
+				BA2E5D9723D42FD80075C9E3 /* HekrSimpleTcpClient.h */,
+				BA2E5D9223D42FD70075C9E3 /* HekrUserToken.h */,
+				BA2E5D9623D42FD80075C9E3 /* HekrWebView.h */,
+				BA2E5D9523D42FD80075C9E3 /* libHekrSDKCore.a */,
 				BA5E880323CF0C2200923381 /* iflyMSC.framework */,
 			);
 			path = HekrSDK;
@@ -5652,22 +5670,20 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-sHome/Pods-sHome-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/HekrSDK/JSSDK.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-sHome/Pods-sHome-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManager/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
 				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JSSDK.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SAMKeychain.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sHome/Pods-sHome-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sHome/Pods-sHome-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -6629,7 +6645,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 65;
 				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6645,8 +6661,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
+					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
-				MARKETING_VERSION = 1.53;
+				MARKETING_VERSION = 1.54;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -6670,7 +6687,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 64;
+				CURRENT_PROJECT_VERSION = 65;
 				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6686,8 +6703,9 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
+					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
-				MARKETING_VERSION = 1.53;
+				MARKETING_VERSION = 1.54;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
