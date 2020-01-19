@@ -16,7 +16,7 @@
 #import "connectWifiVC.h"
 #import "NSBundle+Language.h"
 
-#import "GeTuiSdk.h"
+#import <GTSDK/GeTuiSdk.h>
 #import "JSONHelp.h"
 #import "ScyDeviceModel.h"
 #import "DeviceModel.h"
@@ -31,12 +31,9 @@
 #import "VersionModel.h"
 #import "PostControllerApi.h"
 //#import "FunSupport.h"
-#import <HekrSimpleTcpClient.h>
+#import "HekrSimpleTcpClient.h"
 #import "DeviceListModel.h"
 #import "InitVC.h"
-
-#import <Fabric/Fabric.h>
-#import <Crashlytics/Crashlytics.h>
 // iOS10 及以上需导入 UserNotifications.framework
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
@@ -241,7 +238,6 @@ static void uncaughtExceptionHandler(NSException *exception) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [Fabric with:@[[Crashlytics class]]];
      [[Hekr sharedInstance] setOnlineSite:@"hekreu.me"];
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     NSString *lan;
@@ -528,10 +524,8 @@ static void uncaughtExceptionHandler(NSException *exception) {
     [[Hekr sharedInstance] didRegisterUserNotificationSettings:notificationSettings];
 }
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
-    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     // 向个推服务器注册deviceToken
-    [GeTuiSdk registerDeviceToken:token];
+    [GeTuiSdk registerDeviceTokenData:deviceToken];
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
