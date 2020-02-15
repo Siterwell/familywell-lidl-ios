@@ -257,7 +257,7 @@
                              };
     NSString *url = (_phone_reset?@"%@/register?type=phone":@"%@/register?type=email_verify_code");
     @weakify(self)
-    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:url, (ApiMap==nil?@"https://uaa-openapi.hekr.me":ApiMap[@"uaa-openapi.hekr.me"])] parameters:(_phone_reset?param1:param2) progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:url, (ApiMap==nil?@"https://uaa-openapi.hekreu.me":ApiMap[@"uaa-openapi.hekreu.me"])] parameters:(_phone_reset?param1:param2) progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         @strongify(self)
         NSLog(@"%@",responseObject);
         [MBProgressHUD hideHUDForView:self.view];
@@ -308,7 +308,7 @@
                             @"code": code};
     
     @weakify(self)
-    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/images/checkCaptcha", (ApiMap==nil?@"https://uaa-openapi.hekr.me":ApiMap[@"uaa-openapi.hekr.me"])] parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/images/checkCaptcha", (ApiMap==nil?@"https://uaa-openapi.hekreu.me":ApiMap[@"uaa-openapi.hekreu.me"])] parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         @strongify(self)
         NSString * token = responseObject[@"captchaToken"];
         [self getVerifyCode:token];
@@ -341,7 +341,7 @@
     [requestSerializer setValue:lan forHTTPHeaderField:@"Accept-Language"];
     [[Hekr sharedInstance] sessionWithDefaultAuthorization].requestSerializer = requestSerializer;
     NSString * url = (_phone_reset?@"%@/sms/getVerifyCode?phoneNumber=%@&pid=%@&token=%@&type=register":@"%@/email/getVerifyCode?email=%@&pid=%@&token=%@&type=register");
-    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:url, (ApiMap==nil?@"https://uaa-openapi.hekr.me":ApiMap[@"uaa-openapi.hekr.me"]),self.user_textField.text,HekrPid,token] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:url, (ApiMap==nil?@"https://uaa-openapi.hekreu.me":ApiMap[@"uaa-openapi.hekreu.me"]),self.user_textField.text,HekrPid,token] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD showMessage:NSLocalizedString(@"发送成功", nil) ToView:self.view RemainTime:1.1];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

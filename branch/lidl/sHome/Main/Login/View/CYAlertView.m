@@ -74,7 +74,7 @@
     
     //图形验证码
     imgWebView = [UIWebView new];
-    [imgWebView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"%@/images/getImgCaptcha?rid=%@",(ApiMap==nil?@"https://uaa-openapi.hekr.me":ApiMap[@"uaa-openapi.hekr.me"]),ramdomcode]]]];
+    [imgWebView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"%@/images/getImgCaptcha?rid=%@",(ApiMap==nil?@"https://uaa-openapi.hekreu.me":ApiMap[@"uaa-openapi.hekreu.me"]),ramdomcode]]]];
     [alertView addSubview:imgWebView];
     [imgWebView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(40);
@@ -158,7 +158,7 @@
 
 //重新加载图形验证码
 - (void)reLoadImgCaptcha {
-    [imgWebView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"%@/images/getImgCaptcha?rid=%@",(ApiMap==nil?@"https://uaa-openapi.hekr.me":ApiMap[@"uaa-openapi.hekr.me"]),ramdomcode]]]];
+    [imgWebView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"%@/images/getImgCaptcha?rid=%@",(ApiMap==nil?@"https://uaa-openapi.hekreu.me":ApiMap[@"uaa-openapi.hekreu.me"]),ramdomcode]]]];
 }
 
 @end

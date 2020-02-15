@@ -26,7 +26,7 @@
     suc.center = self.view.center;
     [self.view addSubview:suc];
     //获取设备列表。
-    NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+    NSString *https = (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]);
     flag_checkfireware = NO;
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/device", https]
  parameters:@{@"page":@(0),@"size":@(10)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -37,7 +37,7 @@
             NSMutableSet *dcs = [NSMutableSet set];
             [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 NSString *connectHost = [[obj objectForKey:@"dcInfo"] objectForKey:@"connectHost"];
-                [dcs addObject:connectHost == nil ? @"hub.hekr.me": connectHost];
+                [dcs addObject:connectHost == nil ? @"hub.hekreu.me": connectHost];
             }];
             [[Hekr sharedInstance] setCloudControlWithGlobals:dcs.allObjects];
             

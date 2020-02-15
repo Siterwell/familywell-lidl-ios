@@ -43,15 +43,15 @@ static NSString *const WEATHER_SERVERCENTER_key=@"WEATHER_SERVERCENTER";
 {
     if (self == [super init]) {
         //测试环境
-        self.develpoerDictionary=@{ACCOUNT_SERVERCENTER_Key:@"https://uaa-openapi.hekr.me",
-                                   PICTURE_SERVERCENTER_key:@"https://uaa-openapi.hekr.me",
-                                   WEATHER_SERVERCENTER_key:@"https://user-openapi.hekr.me",
+        self.develpoerDictionary=@{ACCOUNT_SERVERCENTER_Key:@"https://uaa-openapi.hekreu.me",
+                                   PICTURE_SERVERCENTER_key:@"https://uaa-openapi.hekreu.me",
+                                   WEATHER_SERVERCENTER_key:@"https://user-openapi.hekreu.me",
                                    BUSINESSLOGIC_SERVERCENTER_key:@"业务逻辑前缀",
                                    UPDATEVERSION_SERVERCENTER_key:@"http://itunes.apple.com/lookup?id=1407124703"};
         //产品环境
-        self.productDictionary=@{ACCOUNT_SERVERCENTER_Key:@"https://uaa-openapi.hekr.me",
-                                 PICTURE_SERVERCENTER_key:@"https://uaa-openapi.hekr.me",
-                                 WEATHER_SERVERCENTER_key:@"https://user-openapi.hekr.me",
+        self.productDictionary=@{ACCOUNT_SERVERCENTER_Key:@"https://uaa-openapi.hekreu.me",
+                                 PICTURE_SERVERCENTER_key:@"https://uaa-openapi.hekreu.me",
+                                 WEATHER_SERVERCENTER_key:@"https://user-openapi.hekreu.me",
                                  BUSINESSLOGIC_SERVERCENTER_key:@"业务逻辑前缀",
                                  UPDATEVERSION_SERVERCENTER_key:@"http://itunes.apple.com/lookup?id=1407124703"};
         
