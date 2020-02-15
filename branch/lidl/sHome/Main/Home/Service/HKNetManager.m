@@ -19,7 +19,7 @@
                              @"ctrlKey": ctrlKey,
                              @"type": @"WARNING"
                              };
-    return [self DELETE:[NSString stringWithFormat:@"%@%@",(ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]),kClearWarningsPath] parameters:params completionHandler:^(id responseObj, NSError *error) {
+    return [self DELETE:[NSString stringWithFormat:@"%@%@",(ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]),kClearWarningsPath] parameters:params completionHandler:^(id responseObj, NSError *error) {
         !handler ?: handler(error);
     }];
 }
@@ -28,7 +28,7 @@
     NSDictionary *params = @{@"devTid": devTid,
                              @"page"  : @(page),
                              @"size"  : @20  };
-    return [self GET:[NSString stringWithFormat:@"%@%@",(ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]),kWarningPath] parameters:params completionHandler:^(id responseObj, NSError *error) {
+    return [self GET:[NSString stringWithFormat:@"%@%@",(ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]),kWarningPath] parameters:params completionHandler:^(id responseObj, NSError *error) {
         BOOL last = [responseObj[@"last"] boolValue];
         NSArray *array = responseObj[@"content"];
         NSMutableArray *pArray = [NSMutableArray array];

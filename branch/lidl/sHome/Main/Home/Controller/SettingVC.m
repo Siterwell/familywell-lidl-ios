@@ -226,7 +226,7 @@
 
 - (void)logoutUser {
     MJWeakSelf
-    NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+    NSString *https = (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]);
     
     NSUserDefaults *config =  [NSUserDefaults standardUserDefaults];
     if ([config objectForKey:AppClientID]) {

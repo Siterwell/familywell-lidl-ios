@@ -37,14 +37,7 @@
         NSString *password = [config objectForKey:@"Password"];
         WS(ws);
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            NSString* domain2 = @"";
-            NSString* domain = [config objectForKey:@"hekr_domain"];
-            if(domain.length != 0 && [domain containsString:@"hekr"]){
-                domain2 = domain;
-            }else{
-                domain2 = @"hekreu.me";
-            }
-            [[Hekr sharedInstance] setOnlineSite:domain2];
+            [[Hekr sharedInstance] setOnlineSite:@"hekreu.me"];
             if([Hekr sharedInstance].user && username.length != 0 && password.length != 0){
                  [[Hekr sharedInstance] login:username password:password callbcak:^(id user, NSError *error) {
                     if (!error) {

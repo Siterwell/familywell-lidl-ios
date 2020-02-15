@@ -45,7 +45,7 @@
     
     
     [MBProgressHUD showMessage:NSLocalizedString(@"修改中", nil) ToView:GetWindow];
-    NSString *https = (ApiMap==nil?@"https://uaa-openapi.hekr.me":ApiMap[@"uaa-openapi.hekr.me"]);
+    NSString *https = (ApiMap==nil?@"https://uaa-openapi.hekreu.me":ApiMap[@"uaa-openapi.hekreu.me"]);
 
     @weakify(self)
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/changePassword", https] parameters:@{@"pid":HekrPid,@"newPassword":_theNewPsd.text,@"oldPassword":_theOldPsd.text} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -69,7 +69,7 @@
 
 - (void)unbindAllPush {
     MJWeakSelf
-    NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+    NSString *https = (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]);
     
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] DELETE:[NSString stringWithFormat:@"%@/user/unbindAllPushAlias", https] parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"[RYAN] unbindAllPush > success");
@@ -107,7 +107,7 @@
                               @"pushPlatform" : @"FCM",
                               @"locale" : lan
                               };
-        [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSLog(@"绑定成功！");
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

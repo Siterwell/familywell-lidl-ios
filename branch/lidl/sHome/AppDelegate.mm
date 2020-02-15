@@ -31,7 +31,6 @@
 #import "VersionModel.h"
 #import "PostControllerApi.h"
 //#import "FunSupport.h"
-#import "HekrSimpleTcpClient.h"
 #import "DeviceListModel.h"
 #import "InitVC.h"
 // iOS10 及以上需导入 UserNotifications.framework
@@ -43,8 +42,6 @@
 //extern NSDictionary * ApiMap;
 
 @interface AppDelegate ()<GeTuiSdkDelegate, UNUserNotificationCenterDelegate, UIAlertViewDelegate>
-
-@property (nonatomic) HekrSimpleTcpClient *tcpClient;
 
 @property (nonatomic) BOOL canShowAlert;
 @property (nonatomic, copy) NSString *lastAlertContent;
@@ -274,41 +271,10 @@ static void uncaughtExceptionHandler(NSException *exception) {
     
     [[Hekr sharedInstance] config:config startPage:nil launchOptions:launchOptions];
     [[Hekr sharedInstance] firstPage];
-    self.tcpClient = [[HekrSimpleTcpClient alloc] init];
-    [self.tcpClient createTcpSocket:@"info.hekr.me" onPort:91 connect:^(HekrSimpleTcpClient *client ,BOOL isConnect) {
-        if (isConnect) {
-            [client writeDict:@{@"action":@"getAppDomain"}];
-        }else{
-//            NSLog(@"get domain error:TCP连接不成功");
-            NSString* domain = [[NSUserDefaults standardUserDefaults] objectForKey:@"hekr_domain"];
-            if(domain.length != 0 && [domain containsString:@"hekr"]){
-                ApiMap = @{@"user-openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
-                           @"user.openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
-                           @"uaa-openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
-                           @"uaa.openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
-                           @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
-            }else{
-                ApiMap = @{@"user-openapi.hekr.me":@"https://user-openapi.hekreu.me",
-                           @"user.openapi.hekr.me":@"https://user-openapi.hekreu.me",
-                           @"uaa-openapi.hekr.me":@"https://uaa-openapi.hekreu.me",
-                           @"uaa.openapi.hekr.me":@"https://uaa-openapi.hekreu.me",
-                           @"console-openapi.hekr.me":@"https://console-openapi.hekreu.me"};
-            }
-        }
-    } successCallback:^(HekrSimpleTcpClient *client, NSDictionary *data) {
-        NSString* domain = [[data objectForKey:@"dcInfo"] objectForKey:@"domain"];
-    
-//        自己本地保存domain的参数
-        [[NSUserDefaults standardUserDefaults] setObject:domain forKey:@"hekr_domain"];
-        
-        ApiMap = @{@"user-openapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
-                   @"user.qopenapi.hekr.me":[@"https://user-openapi." stringByAppendingString:domain],
-                   @"uaa-openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
-                   @"uaa.openapi.hekr.me":[@"https://uaa-openapi." stringByAppendingString:domain],
-                   @"console-openapi.hekr.me":[@"https://console-openapi." stringByAppendingString:domain]};
-        
-        NSLog(@"[RYAN] application >> domain = %@", domain);
-    }];
+
+    ApiMap = @{@"user-openapi.hekreu.me":@"https://user-openapi.hekreu.me",
+               @"uaa-openapi.hekreu.me":@"https://uaa-openapi.hekreu.me",
+               @"console-openapi.hekreu.me":@"https://console-openapi.hekreu.me"};
     
     [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
     // 注册 APNs
@@ -387,13 +353,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 
      
     if([Hekr sharedInstance].user && username.length != 0 && password.length != 0){
-        NSString* domain = [config objectForKey:@"hekr_domain"];
-        if(domain.length != 0 && [domain containsString:@"hekr"]){
-
-        }else{
-            domain = @"hekreu.me";
-        }
-        [[Hekr sharedInstance] setOnlineSite:domain];
+        [[Hekr sharedInstance] setOnlineSite:@"hekreu.me"];
         [[Hekr sharedInstance] login:username password:password callbcak:^(id user, NSError *error) {
 
             if (!error) {

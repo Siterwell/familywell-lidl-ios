@@ -425,7 +425,7 @@
     manager.requestSerializer.timeoutInterval = 200.0f;
     _isConnecting = YES;
     @weakify(self)
-    NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+    NSString *https = (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]);
     [manager POST:[NSString stringWithFormat:@"%@/device", https] parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         @strongify(self)

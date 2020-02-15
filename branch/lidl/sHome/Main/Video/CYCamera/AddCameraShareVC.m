@@ -25,7 +25,7 @@
 #pragma -mark life
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+    self.https = (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]);
     self.title = NSLocalizedString(@"添加摄像机", nil);
 
     _imageview.userInteractionEnabled = YES;
