@@ -459,9 +459,9 @@
 //                                  };
 //
 //            [MBProgressHUD showLoadToView:GetWindow];
-//            [[[Hekr sharedInstance] sessionWithDefaultAuthorization] PUT:@"http://user-openapi.hekr.me/user/profile" parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//            [[[Hekr sharedInstance] sessionWithDefaultAuthorization] PUT:@"http://user-openapi.hekreu.me/user/profile" parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //
-//                [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:@"http://user-openapi.hekr.me/user/profile" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:@"http://user-openapi.hekreu.me/user/profile" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //                    [MBProgressHUD hideHUDForView:GetWindow animated:YES];
 //                    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
 //                    [config setValue:responseObject forKey:UserInfos];
@@ -537,9 +537,9 @@
 //                                  };
 //
 //            [MBProgressHUD showLoadToView:GetWindow];
-//            [[[Hekr sharedInstance] sessionWithDefaultAuthorization] PUT:@"http://user-openapi.hekr.me/user/profile" parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//            [[[Hekr sharedInstance] sessionWithDefaultAuthorization] PUT:@"http://user-openapi.hekreu.me/user/profile" parameters:dic success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //
-//                [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:@"http://user-openapi.hekr.me/user/profile" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//                [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:@"http://user-openapi.hekreu.me/user/profile" parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //                    [MBProgressHUD hideHUDForView:GetWindow animated:YES];
 //                    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
 //                    [config setValue:responseObject forKey:UserInfos];

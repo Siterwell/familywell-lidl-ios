@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+    self.https = (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]);
 
     // Do any additional setup after loading the view.
     self.ssidName.text = [NETWORKER getCurrentPhoneWifiSSID] ==nil||[[NETWORKER getCurrentPhoneWifiSSID] isEqual:[NSNull null]]?@"":[NETWORKER getCurrentPhoneWifiSSID];

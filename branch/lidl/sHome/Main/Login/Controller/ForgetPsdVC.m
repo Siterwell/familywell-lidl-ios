@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.https = (ApiMap==nil?@"https://uaa-openapi.hekr.me":ApiMap[@"uaa-openapi.hekr.me"]);
+    self.https = (ApiMap==nil?@"https://uaa-openapi.hekreu.me":ApiMap[@"uaa-openapi.hekreu.me"]);
     _clickBtn.layer.cornerRadius = 17.5f;
 
     
@@ -181,14 +181,7 @@
 
 -(void)autoLoginForUnbindPush:(NSString *)email password:(NSString *)password {
     //TODO : [RYAN] Hekr login api is not encryted
-    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-    NSString* domain = [config objectForKey:@"hekr_domain"];
-    if(domain.length != 0 && [domain containsString:@"hekr"]){
-
-    }else{
-        domain = @"hekreu.me";
-    }
-     [[Hekr sharedInstance] setOnlineSite:domain];
+     [[Hekr sharedInstance] setOnlineSite:@"hekreu.me"];
     [[Hekr sharedInstance] login:email password:password callbcak:^(id user, NSError *error) {
         if (!error) {
             NSLog(@"[RYAN] autoLoginForUnbindPush > success: %@",error);
@@ -209,7 +202,7 @@
 }
 
 - (void)unbindAllPush {
-    NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+    NSString *https = (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]);
     
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] DELETE:[NSString stringWithFormat:@"%@/user/unbindAllPushAlias", https] parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"[RYAN] unbindAllPush > success");

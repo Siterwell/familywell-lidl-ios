@@ -46,7 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+    self.https = (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]);
 
 
 }
@@ -185,7 +185,7 @@
     [alertVc addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:_deviceArray[indexPath.row] error:nil];
 
-//        NSString *url = [NSString stringWithFormat:@"http://user.openapi.hekr.me/device/%@",model.devTid];
+//        NSString *url = [NSString stringWithFormat:@"http://user.openapi.hekreu.me/device/%@",model.devTid];
         NSString *url = [NSString stringWithFormat:@"%@/device/%@", self.https, model.devTid];
 
         [[[Hekr sharedInstance] sessionWithDefaultAuthorization] DELETE:url parameters:@{@"bindKey":model.bindKey} success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

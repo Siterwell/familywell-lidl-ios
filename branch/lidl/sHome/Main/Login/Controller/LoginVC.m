@@ -142,15 +142,7 @@
     _accountTableView.hidden = YES;
     [MBProgressHUD showMessage:NSLocalizedString(@"加载中", nil) ToView:self.view];
     WS(ws)
-    
-    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
-    NSString* domain = [config objectForKey:@"hekr_domain"];
-    if(domain.length != 0 && [domain containsString:@"hekr"]){
-        
-    }else{
-        domain = @"hekreu.me";
-    }
-    [[Hekr sharedInstance] setOnlineSite:domain];
+    [[Hekr sharedInstance] setOnlineSite:@"hekreu.me"];
     [[Hekr sharedInstance] login:_userNameTextField.text password:_passwordTextField.text callbcak:^(id user, NSError *error) {
         if (!error) {
             NSLog(@"[RYAN] +++++++ login success");
@@ -187,7 +179,7 @@
     WS(ws)
     
     NSLog(@"[RYAN] +++++++ start getDeviceList");
-    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/device", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:@{@"page":@(0),@"size":@(5)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/device", (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"])] parameters:@{@"page":@(0),@"size":@(5)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         [MBProgressHUD hideHUDForView:ws.view animated:YES];
         NSArray *arr = responseObject;
@@ -195,7 +187,7 @@
         NSMutableSet *dcs = [NSMutableSet set];
         [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSString *connectHost = [[obj objectForKey:@"dcInfo"] objectForKey:@"connectHost"];
-            [dcs addObject:connectHost == nil ? @"hub.hekr.me": connectHost];
+            [dcs addObject:connectHost == nil ? @"hub.hekreu.me": connectHost];
         }];
         [[Hekr sharedInstance] setCloudControlWithGlobals:dcs.allObjects];
         
@@ -254,7 +246,7 @@
                               @"pushPlatform" : @"GETUI",
                               @"locale" : lan
                               };
-        [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/user/pushTagBind", (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"])] parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSLog(@"[RYAN] 绑定成功！");
 
             //        [self save];
@@ -286,7 +278,7 @@
 //                          };
 //    WS(ws)
 //
-//    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:@"http://user-openapi.hekr.me/user/pushTagBind" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//    [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:@"http://user-openapi.hekreu.me/user/pushTagBind" parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
 //
 //        NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
 //        if (ws.savePasswordBtn.selected) {

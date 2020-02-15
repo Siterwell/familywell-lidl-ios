@@ -163,7 +163,7 @@
 
 //获取网关信息
 - (void)getGateWayInfo {
-    NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+    NSString *https = (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]);
 
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/device", https] parameters:@{@"page":@(0),@"size":@(5)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSArray *arr = responseObject;
@@ -206,7 +206,7 @@
                           };
     
     @weakify(self)
-    NSString *https = (ApiMap==nil?@"https://console-openapi.hekr.me":ApiMap[@"console-openapi.hekr.me"]);
+    NSString *https = (ApiMap==nil?@"https://console-openapi.hekreu.me":ApiMap[@"console-openapi.hekreu.me"]);
     
     [[[Hekr sharedInstance] sessionWithDefaultAuthorization] POST:[NSString stringWithFormat:@"%@/external/device/fw/ota/check", https] parameters:@[dic] progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -261,7 +261,7 @@
     _vc.getApi = ^{
         @strongify(self)
         
-        NSString *https = (ApiMap==nil?@"https://user-openapi.hekr.me":ApiMap[@"user-openapi.hekr.me"]);
+        NSString *https = (ApiMap==nil?@"https://user-openapi.hekreu.me":ApiMap[@"user-openapi.hekreu.me"]);
         
         [[[Hekr sharedInstance] sessionWithDefaultAuthorization] GET:[NSString stringWithFormat:@"%@/device?devTid=%@&ctrlKey=%@", https,self.model.devTid,self.model.ctrlKey] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             DeviceListModel *mmodel = [[DeviceListModel alloc] initWithDictionary:responseObject[0] error:nil];
