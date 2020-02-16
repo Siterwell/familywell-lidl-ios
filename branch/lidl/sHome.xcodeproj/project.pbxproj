@@ -6642,10 +6642,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 65;
+				CURRENT_PROJECT_VERSION = 66;
 				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6663,11 +6663,11 @@
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
-				MARKETING_VERSION = 1.54;
+				MARKETING_VERSION = 1.55;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = elro_siterwell_appstore;
+				PROVISIONING_PROFILE_SPECIFIER = elro_siterwell_adhoc;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -6687,7 +6687,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 65;
+				CURRENT_PROJECT_VERSION = 66;
 				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6705,7 +6705,7 @@
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
-				MARKETING_VERSION = 1.54;
+				MARKETING_VERSION = 1.55;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
