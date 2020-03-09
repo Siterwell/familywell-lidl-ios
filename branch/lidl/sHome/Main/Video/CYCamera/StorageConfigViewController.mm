@@ -86,7 +86,7 @@
 }
 
 - (void)stopRecord:(UIButton *)sender {
-    JGeneral_General.OverWrite = "JSON_StopRecord";
+    JGeneral_General.OverWrite = "StopRecord";
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     [self requestSetConfigWithChannel:-1 andJObject:&JGeneral_General];
     [_memoryConfigView.stopBtn setSelected:YES];
@@ -94,7 +94,7 @@
 }
 
 - (void)circleRecord:(UIButton *)sender {
-    JGeneral_General.OverWrite = "JSON_OverWrite";
+    JGeneral_General.OverWrite = "OverWrite";
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     [self requestSetConfigWithChannel:-1 andJObject:&JGeneral_General];
     [_memoryConfigView.stopBtn setSelected:NO];
@@ -159,7 +159,7 @@
 }
 
 -(void)changeRecordStyle:(UISegmentedControl *)seg{
-    JGeneral_General.OverWrite = self.memoryConfigView.OverWriteSegment.selectedSegmentIndex == 0 ? "JSON_StopRecord":"JSON_OverWrite";
+    JGeneral_General.OverWrite = self.memoryConfigView.OverWriteSegment.selectedSegmentIndex == 0 ? "JSON_StopRecord":"OverWrite";
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     [self requestSetConfigWithChannel:-1 andJObject:&JGeneral_General];
 }
@@ -228,7 +228,7 @@
     
     //录像满时
     if ([config.name isEqualToString:@JK_General_General]) {
-        if ([OCSTR(JGeneral_General.OverWrite.Value()) isEqualToString:@"JSON_StopRecord"]) {
+        if ([OCSTR(JGeneral_General.OverWrite.Value()) isEqualToString:@"StopRecord"]) {
             [self.memoryConfigView.stopBtn setSelected:YES];
             [self.memoryConfigView.circleBtn setSelected:NO];
         } else {

@@ -533,3 +533,6 @@
 "星期" = "Week";
 "温控器安装到阀门上后,请再一次按下旋钮" = "Please install the thermostat to the valve, then press the knob again to complete the installation.";
 "温控器" = "Radiator Thermostat";
+"请选择切换的目标情景模式" = "Please choose target Scene";
+"请选择" = "Please Choose";
+"请输入开锁密码" = "Please enter the unlock password";

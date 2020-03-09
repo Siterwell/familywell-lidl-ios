@@ -533,3 +533,6 @@
 "星期" = "Semaine";
 "温控器安装到阀门上后,请再一次按下旋钮" = "S'il vous plaît, thermostat monté à la soupape, puis, une fois encore, appuyez sur le bouton Terminer l'installation.";
 "温控器" = "Contrôle de la température";
+"请选择切换的目标情景模式" = "Veuillez sélectionner le mode cible";
+"请选择" = "Veuillez choisir";
+"请输入开锁密码" = "Entrez le mot de passe";
