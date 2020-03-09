@@ -535,3 +535,6 @@
 "星期" = "teden";
 "温控器安装到阀门上后,请再一次按下旋钮" = "prosim, termostat, nameščene na ventil, in potem še enkrat pritisnite na gumb za dokončanje namestitve.";
 "温控器" = "Thermostaat";
+"请选择切换的目标情景模式" = "Prosim izberite ciljni profil";
+"请选择" = "Prosim izberi";
+"请输入开锁密码" = "Prosim vnesite geslo za odklepanje";

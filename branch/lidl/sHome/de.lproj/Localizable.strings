@@ -535,3 +535,6 @@
 "星期" = "Woche";
 "温控器安装到阀门上后,请再一次按下旋钮" = "Bitte DAS thermostat zu installieren, dann wieder drücken sie den Knopf installieren.";
 "温控器" = "Thermostat";
+"请选择切换的目标情景模式" = "Bitte wählen Sie das Zielprofil";
+"请选择" = "Bitte wählen";
+"请输入开锁密码" = "Bitte geben Sie das Passwort ein";

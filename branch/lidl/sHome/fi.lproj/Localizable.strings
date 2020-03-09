@@ -535,3 +535,6 @@
 "星期" = "teden";
 "温控器安装到阀门上后,请再一次按下旋钮" = "termostaatti on asennettu venttiili, ja sitten vielä kerran paina annosnuppia laitoksen valmiiksi.";
 "温控器" = "Termostaatti";
+"请选择切换的目标情景模式" = "Ole hyvä ja valitse kohdeprofiili";
+"请选择" = "Ole hyvä ja valitse";
+"请输入开锁密码" = "Ole hyvä ja anna salasana";

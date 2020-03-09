@@ -235,6 +235,24 @@
         }else{
             return NSLocalizedString(@"报警", nil);
         }
+    }else if([@"温控器" isEqualToString:[dic objectForKey:type]]){
+        
+        if ([status containsString:@"FF"] || [status containsString:@"FE"]) {
+            return NSLocalizedString(@"离线", nil);
+        } else {
+            if ([[BatterHelp getBatterFormDevice:battery] intValue] <= 15) {
+                return NSLocalizedString(@"低电压", nil);
+            } else {
+                  NSString *status2 =[statusa substringWithRange:NSMakeRange(6, 2)];
+                    int ds2 = [[BatterHelp numberHexString:status2] intValue];
+                    int  shishi_temp2= (0x3F) & (ds2>>2);
+                   return [NSString stringWithFormat:@"%d℃",shishi_temp2];
+            }
+        }
+        
+
+          
+
     }else{
         return NSLocalizedString(@"报警", nil);
     }
