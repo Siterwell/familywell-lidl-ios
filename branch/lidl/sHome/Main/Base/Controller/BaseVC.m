@@ -23,7 +23,11 @@
     [super didReceiveMemoryWarning];
 }
 -(void)viewWillAppear:(BOOL)animated{
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
+    if (@available(iOS 13.0, *)) {
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDarkContent];
+     } else {
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+     }
 }
 
 - (UIBarButtonItem *)itemWithTarget:(id)target action:(SEL)action image:(NSString *)image highImage:(NSString *)highImage withTintColor:(UIColor *)color

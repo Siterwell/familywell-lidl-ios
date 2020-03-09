@@ -46,7 +46,11 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
+    if (@available(iOS 13.0, *)) {
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDarkContent];
+     } else {
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+     }
 }
 
 - (void)dismiss{

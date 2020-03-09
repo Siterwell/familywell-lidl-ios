@@ -40,6 +40,15 @@
     [self getWarnings];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (@available(iOS 13.0, *)) {
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDarkContent];
+     } else {
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+     }
+}
+
 - (void)setupNav {
     self.view.backgroundColor = RGB(239, 239, 239);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sj_list_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(backToHome)];

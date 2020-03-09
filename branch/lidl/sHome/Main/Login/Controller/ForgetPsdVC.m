@@ -51,7 +51,11 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    if (@available(iOS 13.0, *)) {
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDarkContent];
+     } else {
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+     }
     
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor blackColor]};
 }

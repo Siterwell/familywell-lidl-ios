@@ -113,8 +113,8 @@
 //}
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.tabBarController.tabBar.alpha = 1;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
     
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
