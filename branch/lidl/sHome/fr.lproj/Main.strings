@@ -12,7 +12,7 @@
 "Epm-DB-rcw.text" = " Positionnement..";
 
 /* Class = "UITabBarItem"; title = "情景列表"; ObjectID = "IRA-Gm-9kv"; */
-"IRA-Gm-9kv.title" = "Scènes";
+"IRA-Gm-9kv.title" = "Scenario";
 
 /* Class = "UIButton"; normalTitle = "点击"; ObjectID = "NZw-mW-LqS"; */
 "NZw-mW-LqS.normalTitle" = "Cliquer";

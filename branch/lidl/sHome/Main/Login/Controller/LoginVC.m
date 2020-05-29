@@ -39,10 +39,12 @@
     _bgView.layer.borderWidth = 0.6;
     _bgView.layer.borderColor = RGB(205, 205, 205).CGColor;
     _loginBtn.layer.cornerRadius = 17.5f;
-    
+    [_loginBtn setTitle:NSLocalizedString(@"登录", nil) forState:UIControlStateNormal];
+    _userNameTextField.placeholder = NSLocalizedString(@"请输入邮箱地址", nil);
+    _passwordTextField.placeholder = NSLocalizedString(@"请输入密码", nil);
     [_savePasswordBtn setImage:[UIImage imageNamed:@"jzmm_noselect"] forState:UIControlStateNormal];
     [_savePasswordBtn setImage:[UIImage imageNamed:@"jzmm_select"] forState:UIControlStateSelected];
-    
+    [_savePasswordBtn setTitle:NSLocalizedString(@"记住密码", nil) forState:UIControlStateNormal];
     [_seePasswordBtn setImage:[UIImage imageNamed:@"close_eyes_icon"] forState:UIControlStateNormal];
     [_seePasswordBtn setImage:[UIImage imageNamed:@"eyes_icon"] forState:UIControlStateSelected];
     
