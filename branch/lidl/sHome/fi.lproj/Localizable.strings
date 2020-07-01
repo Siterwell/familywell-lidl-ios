@@ -537,3 +537,7 @@
 "请选择" = "Ole hyvä ja valitse";
 "请输入开锁密码" = "Ole hyvä ja anna salasana";
 "登录" = "Kirjaudu";
+"中国" = "Kiina";
+"欧洲" = "Eurooppa";
+"选择地区"= "Valitse alue";
+"请重启网关后重新配网" = "Käynnistä portti uudelleen ja jaa verkko uudelleen";

@@ -537,3 +537,7 @@
 "请选择" = "Elige";
 "请输入开锁密码" = "Introduzca la contraseña";
 "登录" = "Login";
+"中国" = "China";
+"欧洲" = "Europa";
+"选择地区"= "Selección de área";
+"请重启网关后重新配网" = "Reinicia el portal y Redimensiona la red.";

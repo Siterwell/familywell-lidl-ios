@@ -537,3 +537,8 @@
 "请选择" = "Please Choose";
 "请输入开锁密码" = "Please enter the unlock password";
 "登录" = "Login";
+"中国" = "China";
+"欧洲" = "Europe";
+"选择地区"= "Choose Region";
+"请重启网关后重新配网" = "Please restart the gateway and re-config the WiFi network";
+
