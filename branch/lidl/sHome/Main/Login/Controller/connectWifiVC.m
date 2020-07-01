@@ -91,6 +91,7 @@
     BOOL _isOver;
     BOOL _isConnecting;
     BOOL _isSwitchOver;
+    TestObject *objs;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -159,29 +160,29 @@
                 NSString *ipV4 = [ESP_NetUtil descriptionInetAddr4ByData:dic.ipAddrData];
                 [[NSUserDefaults standardUserDefaults] setObject:[ESP_NetUtil descriptionInetAddr4ByData:dic.ipAddrData] forKey:@"ipV4"];
                 @weakify(self)
-                __block TestObject *objs = [[TestObject alloc] init];
-                [[MyUdp shared] recvTokenObj:objs Callback:^(id obj, id data, NSError *error) {
+                __block TestObject *objs2 = [[TestObject alloc] init];
+                [[MyUdp shared] recvSwitchServerObj:objs2 Callback:^(id obj, id data, NSError *error) {
                     @strongify(self)
-                    [objs description];
-                    [self getToken:data WithObj:objs];
+                    [objs2 description];
+                    _isSwitchOver = YES;
+                    NSLog(@"切换服务器成功");
                 }];
-                
-//                __block TestObject *objs2 = [[TestObject alloc] init];
-//                [[MyUdp shared] recvSwitchServerObj:objs2 Callback:^(id obj, id data, NSError *error) {
-//                    @strongify(self)
-//                    [objs2 description];
-//                    _isSwitchOver = YES;
-//                    NSLog(@"切换服务器成功");
-//                }];
-//
-//                [[MyUdp shared] sendSwitchServer:ipV4 withDeviceID:st_devTid];
-//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                   if(_isSwitchOver == NO) [[MyUdp shared] sendSwitchServer:ipV4 withDeviceID:st_devTid];
-//                });
-//
-//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                  if(_isSwitchOver == NO) [[MyUdp shared] sendSwitchServer:ipV4 withDeviceID:st_devTid];
-//                });
+
+                [[MyUdp shared] sendSwitchServer:ipV4 withDeviceID:st_devTid];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                   if(_isSwitchOver == NO) [[MyUdp shared] sendSwitchServer:ipV4 withDeviceID:st_devTid];
+                });
+
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                  if(_isSwitchOver == NO) [[MyUdp shared] sendSwitchServer:ipV4 withDeviceID:st_devTid];
+                    objs = [[TestObject alloc] init];
+                    [[MyUdp shared] recvTokenObj:objs Callback:^(id obj, id data, NSError *error) {
+                        @strongify(self)
+                        [objs description];
+                        _isOver = YES;
+                        [self getToken:data WithObj:objs];
+                    }];
+                });
 
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(12 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [[MyUdp shared] sendGetTokenEmptynNew:ipV4 withDeviceID:st_devTid];
@@ -382,7 +383,7 @@
 
 -(void)DeviceMethod:(NSString *)bindkey{
     NSString *devTid = _devTid;
-    if (([devTid isEqualToString:@""] || [devTid isEqualToString:@"NULL"]) && !_isOver) {
+    if (([devTid isEqualToString:@""] || [devTid isEqualToString:@"NULL"]) && _isOver!=YES) {
         return;
     }
     
@@ -464,9 +465,10 @@
         @strongify(self)
         NSString* errResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
         ErrorModel *model = [[ErrorModel alloc] initWithString:errResponse error:nil];
-        
-        //如果是这个状态码。则说明绑定重复了，需要进行账号判断
-        if (model.code == 5400043 || model.code == 5400013) {
+        if(model.code == 1400022){
+            [self printError:model bindKey:bindkey];
+        }
+        else if (model.code == 5400043 || model.code == 5400013) {
             NSDictionary *parame = @{
                                   @"devTid" : devTid,
                                   @"bindKey" : bindkey
@@ -594,8 +596,8 @@
             _ctrlKey = ctrlKey;
             
             self.result9999 = result;
-            [self performSelector:@selector(DeviceMethod:) withObject:result afterDelay:5.0];
-            
+            [self performSelector:@selector(DeviceMethod:) withObject:result afterDelay:0.5];
+            objs = nil;
         }
     }else{
         if([str rangeOfString:@"NAME"].location != NSNotFound && [str rangeOfString:@"BIND"].location != NSNotFound) {
@@ -617,7 +619,8 @@
             _ctrlKey = ctrlKey;
             
             self.result9999 = result;
-            [self performSelector:@selector(DeviceMethod:) withObject:result afterDelay:5.0];
+            [self performSelector:@selector(DeviceMethod:) withObject:result afterDelay:0.5];
+            objs = nil;
         }
 
     }

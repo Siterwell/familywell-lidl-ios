@@ -538,3 +538,7 @@
 "请选择切换的目标情景模式" = "Selezionare il profilo di destinazione";
 "请选择" = "Prego, scegli";
 "请输入开锁密码" = "Inserisci la password di sblocco";
+"中国" = "Cina";
+"欧洲" = "Europa";
+"选择地区"= "Seleziona regione";
+"请重启网关后重新配网" = "Si prega di riavviare il gateway e ridistribuire la rete";

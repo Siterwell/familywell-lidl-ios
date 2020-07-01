@@ -538,3 +538,7 @@
 "请选择切换的目标情景模式" = "Veuillez sélectionner le mode cible";
 "请选择" = "Veuillez choisir";
 "请输入开锁密码" = "Entrez le mot de passe";
+"中国" = "Chine";
+"欧洲" = "Europe";
+"选择地区"= "Zone de sélection";
+"请重启网关后重新配网" = "Redémarrez le portail et reconfigurez le réseau.";
