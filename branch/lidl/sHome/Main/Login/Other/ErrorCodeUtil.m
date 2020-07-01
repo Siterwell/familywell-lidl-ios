@@ -30,6 +30,8 @@
 
 + (NSString *)getMessageWithCode:(long) code{
     switch (code) {
+        case 1400022:
+            return NSLocalizedString(@"请重启网关后重新配网", nil);
         case 3400001:
             return NSLocalizedString(@"手机号码无效", nil);
         case 3400002:

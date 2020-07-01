@@ -536,3 +536,7 @@
 "请选择切换的目标情景模式" = "Prosím vyberte cílový profil";
 "请选择" = "Prosím, vyberte si";
 "请输入开锁密码" = "Prosím zadejte heslo pro odemčení";
+"中国" = "Čínská";
+"欧洲" = "Evropa";
+"选择地区"= "Vybrat region";
+"请重启网关后重新配网" = "Prosím, restartujte bránu a přerozdělte síť.";

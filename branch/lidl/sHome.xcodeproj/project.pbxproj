@@ -699,9 +699,6 @@
 		E2432D16219A7B5800A76C2C /* privacy_french.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D15219A7B5800A76C2C /* privacy_french.html */; };
 		E2432D18219A7B6E00A76C2C /* privacy_italian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D17219A7B6E00A76C2C /* privacy_italian.html */; };
 		E2432D1A219A7B8500A76C2C /* privacy_slovenian.html in Resources */ = {isa = PBXBuildFile; fileRef = E2432D19219A7B8500A76C2C /* privacy_slovenian.html */; };
-		E2526F4C22E82D44004E1703 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BE7E911EECAE7600AC8B59 /* libstdc++.6.0.9.tbd */; };
-		E2526F4D22E82D45004E1703 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BE7E8E1EEC5DD900AC8B59 /* libstdc++.6.tbd */; };
-		E2526F4E22E82D45004E1703 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2828E61229E3C9200C3BCD8 /* libstdc++.tbd */; };
 		E28F923621D0D567008EA9EB /* privacy_finnish.html in Resources */ = {isa = PBXBuildFile; fileRef = E28F923521D0D567008EA9EB /* privacy_finnish.html */; };
 		E2A28B9622F7D4F3000F05BD /* DeviceWarningListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A28B9522F7D4F3000F05BD /* DeviceWarningListViewController.m */; };
 		E2A28B9922F7D72A000F05BD /* LCAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A28B9822F7D72A000F05BD /* LCAlertViewController.m */; };
@@ -2330,10 +2327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2A7C09923040093002C07F4 /* FunSDK.framework in Frameworks */,
-				E2526F4C22E82D44004E1703 /* libstdc++.6.0.9.tbd in Frameworks */,
-				E2526F4D22E82D45004E1703 /* libstdc++.6.tbd in Frameworks */,
 				BA2E5D9A23D42FD90075C9E3 /* libHekrSDKCore.a in Frameworks */,
-				E2526F4E22E82D45004E1703 /* libstdc++.tbd in Frameworks */,
 				18EAC7BC1EEE629200C99854 /* QuartzCore.framework in Frameworks */,
 				18EAC7BA1EEE619F00C99854 /* UserNotifications.framework in Frameworks */,
 				18EAC7B61EEE601000C99854 /* VideoToolbox.framework in Frameworks */,

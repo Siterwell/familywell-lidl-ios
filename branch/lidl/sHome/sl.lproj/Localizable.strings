@@ -536,3 +536,7 @@
 "请选择切换的目标情景模式" = "Prosim izberite ciljni profil";
 "请选择" = "Prosim izberi";
 "请输入开锁密码" = "Prosim vnesite geslo za odklepanje";
+"中国" = "Kitajska";
+"欧洲" = "Evropa";
+"选择地区"= "Izberite območje";
+"请重启网关后重新配网" = "Prosim, ponovno zaženite prehod in prerazporedite mrežo";
