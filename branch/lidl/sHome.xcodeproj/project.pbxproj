@@ -6539,7 +6539,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 68;
 				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6557,7 +6557,7 @@
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
-				MARKETING_VERSION = 1.56;
+				MARKETING_VERSION = 1.57;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -6581,7 +6581,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 67;
+				CURRENT_PROJECT_VERSION = 68;
 				DEVELOPMENT_TEAM = SZKCT5EZKN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6599,7 +6599,7 @@
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
-				MARKETING_VERSION = 1.56;
+				MARKETING_VERSION = 1.57;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

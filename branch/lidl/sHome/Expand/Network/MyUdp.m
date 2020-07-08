@@ -79,7 +79,7 @@ static MyUdp *_UDP = nil;
     }
     [_asyncUdpSocket beginReceiving:&err];
     if (deviceId) {
-        NSData *data = [[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":site07"] dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *data = [[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":ELRO02"] dataUsingEncoding:NSUTF8StringEncoding];
             NSLog(@"\n\n\n\n\n发送到了\%@\n\n\n\n\n",[AppStatusHelp getWifiIP]);
             [_asyncUdpSocket sendData:data toHost:[AppStatusHelp getWifiIP] port:1025 withTimeout:-1 tag:0x00012];
         }
@@ -108,8 +108,8 @@ static MyUdp *_UDP = nil;
         [_asyncUdpSocket bindToPort:1025 error:&err];
     }
     [_asyncUdpSocket beginReceiving:&err];
-    NSData *data = [[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":site07"] dataUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"\n\n\n\n\n发送嘿嘿%@",[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":site07"]);
+    NSData *data = [[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":ELRO02"] dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"\n\n\n\n\n发送嘿嘿%@",[[@"IOT_KEY?" stringByAppendingString:deviceId] stringByAppendingString:@":ELRO02"]);
     NSLog(@"\n\n\n\n\n发送IOT_KEY?到了\%@\n\n\n\n\n",ipaddress);
     [_asyncUdpSocket sendData:data toHost:ipaddress port:1025 withTimeout:-1 tag:0x00012];
 }
