@@ -1,0 +1,105 @@
+
+/* Class = "UIButton"; normalTitle = "周六"; ObjectID = "5sR-jt-DsY"; */
+"5sR-jt-DsY.normalTitle" = "周六";
+
+/* Class = "UIButton"; normalTitle = "周日"; ObjectID = "9gG-hP-SzD"; */
+"9gG-hP-SzD.normalTitle" = "周日";
+
+/* Class = "UILabel"; text = "title"; ObjectID = "CF4-Gk-cuf"; */
+"CF4-Gk-cuf.text" = "title";
+
+/* Class = "UILabel"; text = "卧室空调9点关"; ObjectID = "Egx-Z8-ipz"; */
+"Egx-Z8-ipz.text" = "卧室空调9点关";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FKK-ow-WMg"; */
+"FKK-ow-WMg.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "周四"; ObjectID = "K3d-Iq-8EC"; */
+"K3d-Iq-8EC.normalTitle" = "周四";
+
+/* Class = "UILabel"; text = "时/分"; ObjectID = "NLR-6H-jFV"; */
+"NLR-6H-jFV.text" = "时/分";
+
+/* Class = "UILabel"; text = "title"; ObjectID = "QDC-jK-89i"; */
+"QDC-jK-89i.text" = "title";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "RZd-CB-PdT"; */
+"RZd-CB-PdT.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "TUy-2p-BRg"; */
+"TUy-2p-BRg.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "周二"; ObjectID = "WJl-cv-VAC"; */
+"WJl-cv-VAC.normalTitle" = "周二";
+
+/* Class = "UIButton"; normalTitle = "+情景快捷键按钮"; ObjectID = "XPb-Co-ijA"; */
+"XPb-Co-ijA.normalTitle" = "+情景快捷键按钮";
+
+/* Class = "UILabel"; text = "按钮"; ObjectID = "Xcq-Ft-6Cd"; */
+"Xcq-Ft-6Cd.text" = "按钮";
+
+/* Class = "UILabel"; text = "启动条件"; ObjectID = "YdV-EZ-bU1"; */
+"YdV-EZ-bU1.text" = "启动条件";
+
+/* Class = "UIButton"; normalTitle = "编辑"; ObjectID = "aHc-4x-QG6"; */
+"aHc-4x-QG6.normalTitle" = "编辑";
+
+/* Class = "UILabel"; text = "1 键按钮"; ObjectID = "az7-jk-spl"; */
+"az7-jk-spl.text" = "1 键按钮";
+
+/* Class = "UILabel"; text = "重复"; ObjectID = "bjN-ag-FZ7"; */
+"bjN-ag-FZ7.text" = "重复";
+
+/* Class = "UIButton"; normalTitle = "周一"; ObjectID = "hPB-LA-6Oy"; */
+"hPB-LA-6Oy.normalTitle" = "周一";
+
+/* Class = "UIButton"; normalTitle = "周五"; ObjectID = "nkJ-o8-7DV"; */
+"nkJ-o8-7DV.normalTitle" = "周五";
+
+/* Class = "UILabel"; text = "01"; ObjectID = "p2r-yA-nPf"; */
+"p2r-yA-nPf.text" = "01";
+
+/* Class = "UIButton"; normalTitle = "周三"; ObjectID = "q3K-lp-AKU"; */
+"q3K-lp-AKU.normalTitle" = "周三";
+
+/* Class = "UILabel"; text = "title"; ObjectID = "r0R-vb-MbF"; */
+"r0R-vb-MbF.text" = "title";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "vDK-rL-yfM"; */
+"vDK-rL-yfM.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "分/秒"; ObjectID = "wnc-9w-XAK"; */
+"wnc-9w-XAK.text" = "分/秒";
+
+/* Class = "UILabel"; text = "选择切换时间"; ObjectID = "LdI-TD-jXM"; */
+"LdI-TD-jXM.text" = "选择切换时间";
+
+/* Class = "UILabel"; text = "选择切换模式"; ObjectID = "Mjn-aL-c04"; */
+"Mjn-aL-c04.text" = "选择切换模式";
+
+/* Class = "UILabel"; text = "切换到"; ObjectID = "GqQ-cp-EdK"; */
+"GqQ-cp-EdK.text" = "切换到";
+
+/* Class = "UILabel"; text = "重复"; ObjectID = "56H-vq-Fcx"; */
+"56H-vq-Fcx.text" = "重复";
+
+/* Class = "UIButton"; normalTitle = "周一"; ObjectID = "eON-la-cCo"; */
+"eON-la-cCo.normalTitle" = "周一";
+
+/* Class = "UIButton"; normalTitle = "周二"; ObjectID = "Lhl-kK-mni"; */
+"Lhl-kK-mni.normalTitle" = "周二";
+
+/* Class = "UIButton"; normalTitle = "周三"; ObjectID = "IaQ-MC-Iv8"; */
+"IaQ-MC-Iv8.normalTitle" = "周三";
+
+/* Class = "UIButton"; normalTitle = "周四"; ObjectID = "bJ0-t1-spx"; */
+"bJ0-t1-spx.normalTitle" = "周四";
+
+/* Class = "UIButton"; normalTitle = "周五"; ObjectID = "WoG-zO-t6b"; */
+"WoG-zO-t6b.normalTitle" = "周五";
+
+/* Class = "UIButton"; normalTitle = "周六"; ObjectID = "eUK-MU-hW3"; */
+"eUK-MU-hW3.normalTitle" = "周六";
+
+/* Class = "UIButton"; normalTitle = "周日"; ObjectID = "twu-Zf-u4E"; */
+"twu-Zf-u4E.normalTitle" = "周日";
