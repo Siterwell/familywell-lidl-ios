@@ -19,7 +19,7 @@
     NSString *_content;
     NSString *_cancelTitle;
     NSString *_determineTitle;
-    UIWebView *imgWebView;
+    WKWebView *imgWebView;
     id _target;
 }
 
@@ -73,7 +73,7 @@
     }];
     
     //图形验证码
-    imgWebView = [UIWebView new];
+    imgWebView = [WKWebView new];
     [imgWebView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"%@/images/getImgCaptcha?rid=%@",(ApiMap==nil?@"https://uaa-openapi.hekreu.me":ApiMap[@"uaa-openapi.hekreu.me"]),ramdomcode]]]];
     [alertView addSubview:imgWebView];
     [imgWebView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -25,7 +25,7 @@
 
 @implementation NSHTTPCookieStorage (FreezeDry)
 /**
- *  @brief  /Persists UIWebView cookies to disk
+ *  @brief  /Persists  cookies to disk
  */
 - (void)save {
     NSMutableArray* cookieData = [NSMutableArray new];
@@ -47,7 +47,7 @@
     [cookieData writeToFile:[self storagePath] atomically:TRUE];
 }
 /**
- *  @brief  /load UIWebView cookies from disk
+ *  @brief  /load  cookies from disk
  */
 - (void)load {
     NSMutableArray* cookies = [NSMutableArray arrayWithContentsOfFile:[self storagePath]];
