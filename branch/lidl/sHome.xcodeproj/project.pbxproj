@@ -299,12 +299,6 @@
 		1830A2B31EE92833005479A9 /* AddTimerSceneApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1830A2B21EE92833005479A9 /* AddTimerSceneApi.m */; };
 		1830A2B61EE997F5005479A9 /* TimerSceneHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1830A2B51EE997F5005479A9 /* TimerSceneHelp.m */; };
 		183A6F171F0E3A2800FB6412 /* NSString+ArryValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 183A6F161F0E3A2800FB6412 /* NSString+ArryValue.m */; };
-		183AED701EF8254900E3FC3D /* TOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AED6F1EF8254900E3FC3D /* TOWebViewController.m */; };
-		183AED771EF8277D00E3FC3D /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AED721EF8277D00E3FC3D /* TOActivityChrome.m */; };
-		183AED781EF8277D00E3FC3D /* TOActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AED741EF8277D00E3FC3D /* TOActivitySafari.m */; };
-		183AED791EF8277D00E3FC3D /* UIImage+TOWebViewControllerIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AED761EF8277D00E3FC3D /* UIImage+TOWebViewControllerIcons.m */; };
-		183AED7F1EF8294E00E3FC3D /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AED7C1EF8294E00E3FC3D /* NJKWebViewProgress.m */; };
-		183AED801EF8294E00E3FC3D /* NJKWebViewProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AED7E1EF8294E00E3FC3D /* NJKWebViewProgressView.m */; };
 		188F34B71F14630F00CA2126 /* libvrsoft.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 188F34B61F14630F00CA2126 /* libvrsoft.a */; };
 		18C78A401EE8B6F800F89651 /* TimeScenedDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C78A3F1EE8B6F800F89651 /* TimeScenedDataBase.m */; };
 		18C78A431EE8BAA600F89651 /* AddTimeSceneApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C78A421EE8BAA600F89651 /* AddTimeSceneApi.m */; };
@@ -577,15 +571,6 @@
 		75E5247E1DFEEF8A0093DECC /* UIViewController+StoreKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522C51DFEEF890093DECC /* UIViewController+StoreKit.m */; };
 		75E5247F1DFEEF8A0093DECC /* UIViewController+TopBarMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522C71DFEEF890093DECC /* UIViewController+TopBarMessage.m */; };
 		75E524801DFEEF8A0093DECC /* UIViewController+Visible.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522C91DFEEF890093DECC /* UIViewController+Visible.m */; };
-		75E524811DFEEF8A0093DECC /* UIWebView+Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522CC1DFEEF890093DECC /* UIWebView+Alert.m */; };
-		75E524821DFEEF8A0093DECC /* UIWebView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522CE1DFEEF890093DECC /* UIWebView+Blocks.m */; };
-		75E524831DFEEF8A0093DECC /* UIWebView+Canvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522D01DFEEF890093DECC /* UIWebView+Canvas.m */; };
-		75E524841DFEEF8A0093DECC /* UIWebView+JS.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522D21DFEEF890093DECC /* UIWebView+JS.m */; };
-		75E524851DFEEF8A0093DECC /* UIWebView+Load.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522D41DFEEF890093DECC /* UIWebView+Load.m */; };
-		75E524861DFEEF8A0093DECC /* UIWebView+MetaParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522D61DFEEF890093DECC /* UIWebView+MetaParser.m */; };
-		75E524871DFEEF8A0093DECC /* UIWebView+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522D81DFEEF890093DECC /* UIWebView+Style.m */; };
-		75E524881DFEEF8A0093DECC /* UIWebVIew+SwipeGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522DA1DFEEF890093DECC /* UIWebVIew+SwipeGesture.m */; };
-		75E524891DFEEF8A0093DECC /* WebView+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522DC1DFEEF890093DECC /* WebView+Debug.m */; };
 		75E5248A1DFEEF8A0093DECC /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522DF1DFEEF890093DECC /* UIWindow+Hierarchy.m */; };
 		75E5248B1DFEEF8A0093DECC /* NetWorkBaseUrlConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522EA1DFEEF890093DECC /* NetWorkBaseUrlConfig.m */; };
 		75E5248C1DFEEF8A0093DECC /* NetworkUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E522ED1DFEEF890093DECC /* NetworkUnit.m */; };
@@ -1404,18 +1389,6 @@
 		1830A2B51EE997F5005479A9 /* TimerSceneHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerSceneHelp.m; sourceTree = "<group>"; };
 		183A6F151F0E3A2800FB6412 /* NSString+ArryValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ArryValue.h"; sourceTree = "<group>"; };
 		183A6F161F0E3A2800FB6412 /* NSString+ArryValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ArryValue.m"; sourceTree = "<group>"; };
-		183AED6E1EF8254900E3FC3D /* TOWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOWebViewController.h; sourceTree = "<group>"; };
-		183AED6F1EF8254900E3FC3D /* TOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOWebViewController.m; sourceTree = "<group>"; };
-		183AED711EF8277D00E3FC3D /* TOActivityChrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityChrome.h; sourceTree = "<group>"; };
-		183AED721EF8277D00E3FC3D /* TOActivityChrome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityChrome.m; sourceTree = "<group>"; };
-		183AED731EF8277D00E3FC3D /* TOActivitySafari.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivitySafari.h; sourceTree = "<group>"; };
-		183AED741EF8277D00E3FC3D /* TOActivitySafari.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivitySafari.m; sourceTree = "<group>"; };
-		183AED751EF8277D00E3FC3D /* UIImage+TOWebViewControllerIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TOWebViewControllerIcons.h"; sourceTree = "<group>"; };
-		183AED761EF8277D00E3FC3D /* UIImage+TOWebViewControllerIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TOWebViewControllerIcons.m"; sourceTree = "<group>"; };
-		183AED7B1EF8294E00E3FC3D /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
-		183AED7C1EF8294E00E3FC3D /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
-		183AED7D1EF8294E00E3FC3D /* NJKWebViewProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgressView.h; sourceTree = "<group>"; };
-		183AED7E1EF8294E00E3FC3D /* NJKWebViewProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgressView.m; sourceTree = "<group>"; };
 		188F34B61F14630F00CA2126 /* libvrsoft.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvrsoft.a; sourceTree = "<group>"; };
 		18BE7E8E1EEC5DD900AC8B59 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 		18BE7E911EECAE7600AC8B59 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
@@ -1947,24 +1920,6 @@
 		75E522C71DFEEF890093DECC /* UIViewController+TopBarMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TopBarMessage.m"; sourceTree = "<group>"; };
 		75E522C81DFEEF890093DECC /* UIViewController+Visible.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Visible.h"; sourceTree = "<group>"; };
 		75E522C91DFEEF890093DECC /* UIViewController+Visible.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Visible.m"; sourceTree = "<group>"; };
-		75E522CB1DFEEF890093DECC /* UIWebView+Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Alert.h"; sourceTree = "<group>"; };
-		75E522CC1DFEEF890093DECC /* UIWebView+Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Alert.m"; sourceTree = "<group>"; };
-		75E522CD1DFEEF890093DECC /* UIWebView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Blocks.h"; sourceTree = "<group>"; };
-		75E522CE1DFEEF890093DECC /* UIWebView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Blocks.m"; sourceTree = "<group>"; };
-		75E522CF1DFEEF890093DECC /* UIWebView+Canvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Canvas.h"; sourceTree = "<group>"; };
-		75E522D01DFEEF890093DECC /* UIWebView+Canvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Canvas.m"; sourceTree = "<group>"; };
-		75E522D11DFEEF890093DECC /* UIWebView+JS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+JS.h"; sourceTree = "<group>"; };
-		75E522D21DFEEF890093DECC /* UIWebView+JS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+JS.m"; sourceTree = "<group>"; };
-		75E522D31DFEEF890093DECC /* UIWebView+load.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+load.h"; sourceTree = "<group>"; };
-		75E522D41DFEEF890093DECC /* UIWebView+Load.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Load.m"; sourceTree = "<group>"; };
-		75E522D51DFEEF890093DECC /* UIWebView+MetaParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+MetaParser.h"; sourceTree = "<group>"; };
-		75E522D61DFEEF890093DECC /* UIWebView+MetaParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+MetaParser.m"; sourceTree = "<group>"; };
-		75E522D71DFEEF890093DECC /* UIWebView+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+Style.h"; sourceTree = "<group>"; };
-		75E522D81DFEEF890093DECC /* UIWebView+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+Style.m"; sourceTree = "<group>"; };
-		75E522D91DFEEF890093DECC /* UIWebVIew+SwipeGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebVIew+SwipeGesture.h"; sourceTree = "<group>"; };
-		75E522DA1DFEEF890093DECC /* UIWebVIew+SwipeGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebVIew+SwipeGesture.m"; sourceTree = "<group>"; };
-		75E522DB1DFEEF890093DECC /* WebView+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WebView+Debug.h"; sourceTree = "<group>"; };
-		75E522DC1DFEEF890093DECC /* WebView+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WebView+Debug.m"; sourceTree = "<group>"; };
 		75E522DE1DFEEF890093DECC /* UIWindow+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Hierarchy.h"; sourceTree = "<group>"; };
 		75E522DF1DFEEF890093DECC /* UIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Hierarchy.m"; sourceTree = "<group>"; };
 		75E522E11DFEEF890093DECC /* MBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBConstants.h; sourceTree = "<group>"; };
@@ -3712,33 +3667,6 @@
 			path = KYCircleMenu;
 			sourceTree = "<group>";
 		};
-		183AED6D1EF8254900E3FC3D /* TOWebView */ = {
-			isa = PBXGroup;
-			children = (
-				183AED7A1EF8294E00E3FC3D /* NJKWebViewProgress */,
-				183AED711EF8277D00E3FC3D /* TOActivityChrome.h */,
-				183AED721EF8277D00E3FC3D /* TOActivityChrome.m */,
-				183AED731EF8277D00E3FC3D /* TOActivitySafari.h */,
-				183AED741EF8277D00E3FC3D /* TOActivitySafari.m */,
-				183AED751EF8277D00E3FC3D /* UIImage+TOWebViewControllerIcons.h */,
-				183AED761EF8277D00E3FC3D /* UIImage+TOWebViewControllerIcons.m */,
-				183AED6E1EF8254900E3FC3D /* TOWebViewController.h */,
-				183AED6F1EF8254900E3FC3D /* TOWebViewController.m */,
-			);
-			path = TOWebView;
-			sourceTree = "<group>";
-		};
-		183AED7A1EF8294E00E3FC3D /* NJKWebViewProgress */ = {
-			isa = PBXGroup;
-			children = (
-				183AED7B1EF8294E00E3FC3D /* NJKWebViewProgress.h */,
-				183AED7C1EF8294E00E3FC3D /* NJKWebViewProgress.m */,
-				183AED7D1EF8294E00E3FC3D /* NJKWebViewProgressView.h */,
-				183AED7E1EF8294E00E3FC3D /* NJKWebViewProgressView.m */,
-			);
-			path = NJKWebViewProgress;
-			sourceTree = "<group>";
-		};
 		18E808D21EF26B94001814AB /* FunSdks */ = {
 			isa = PBXGroup;
 			children = (
@@ -4401,7 +4329,6 @@
 				75E5228D1DFEEF890093DECC /* UITextView */,
 				75E522941DFEEF890093DECC /* UIView */,
 				75E522B71DFEEF890093DECC /* UIViewController */,
-				75E522CA1DFEEF890093DECC /* UIWebView */,
 				75E522DD1DFEEF890093DECC /* UIWindow */,
 			);
 			path = UIKit;
@@ -4834,31 +4761,6 @@
 			path = UIViewController;
 			sourceTree = "<group>";
 		};
-		75E522CA1DFEEF890093DECC /* UIWebView */ = {
-			isa = PBXGroup;
-			children = (
-				75E522CB1DFEEF890093DECC /* UIWebView+Alert.h */,
-				75E522CC1DFEEF890093DECC /* UIWebView+Alert.m */,
-				75E522CD1DFEEF890093DECC /* UIWebView+Blocks.h */,
-				75E522CE1DFEEF890093DECC /* UIWebView+Blocks.m */,
-				75E522CF1DFEEF890093DECC /* UIWebView+Canvas.h */,
-				75E522D01DFEEF890093DECC /* UIWebView+Canvas.m */,
-				75E522D11DFEEF890093DECC /* UIWebView+JS.h */,
-				75E522D21DFEEF890093DECC /* UIWebView+JS.m */,
-				75E522D31DFEEF890093DECC /* UIWebView+load.h */,
-				75E522D41DFEEF890093DECC /* UIWebView+Load.m */,
-				75E522D51DFEEF890093DECC /* UIWebView+MetaParser.h */,
-				75E522D61DFEEF890093DECC /* UIWebView+MetaParser.m */,
-				75E522D71DFEEF890093DECC /* UIWebView+Style.h */,
-				75E522D81DFEEF890093DECC /* UIWebView+Style.m */,
-				75E522D91DFEEF890093DECC /* UIWebVIew+SwipeGesture.h */,
-				75E522DA1DFEEF890093DECC /* UIWebVIew+SwipeGesture.m */,
-				75E522DB1DFEEF890093DECC /* WebView+Debug.h */,
-				75E522DC1DFEEF890093DECC /* WebView+Debug.m */,
-			);
-			path = UIWebView;
-			sourceTree = "<group>";
-		};
 		75E522DD1DFEEF890093DECC /* UIWindow */ = {
 			isa = PBXGroup;
 			children = (
@@ -5091,7 +4993,6 @@
 				BAF18C172226131B00AF7B5E /* JhDownProgressView */,
 				010FD08F1FC6C5E200BF8749 /* MJPhotoBrowser */,
 				015B8B6D1F4D559C00406DC9 /* FyCalendar */,
-				183AED6D1EF8254900E3FC3D /* TOWebView */,
 				18E808D21EF26B94001814AB /* FunSdks */,
 				182DBA571EE6C96D00C74E18 /* KYCircleMenu */,
 				182DBA401EE55FD400C74E18 /* ANTCacheManager */,
@@ -5503,7 +5404,7 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = SZKCT5EZKN;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.AccessWiFi = {
 								enabled = 1;
@@ -5693,7 +5594,6 @@
 				75E523CD1DFEEF8A0093DECC /* NSNotificationCenter+MainThread.m in Sources */,
 				755165461E90E0D800D83C03 /* AppStatusHelp.m in Sources */,
 				75E523B21DFEEF8A0093DECC /* NSData+Encrypt.m in Sources */,
-				75E524871DFEEF8A0093DECC /* UIWebView+Style.m in Sources */,
 				75E524411DFEEF8A0093DECC /* UILabel+AutoSize.m in Sources */,
 				01A63F5B2063E947004FEC2F /* RecordConfigView.mm in Sources */,
 				051A321D1E98BA7A00A8E7C9 /* GetAlarmsApi.m in Sources */,
@@ -5704,7 +5604,6 @@
 				75E524071DFEEF8A0093DECC /* CAAnimation+EasingEquations.m in Sources */,
 				014606B6206B6F8F000B027D /* SliderProgressView.m in Sources */,
 				75E5243E1DFEEF8A0093DECC /* UIImageView+Letters.m in Sources */,
-				75E524831DFEEF8A0093DECC /* UIWebView+Canvas.m in Sources */,
 				182888361EE3082100EC6EBB /* SelectScenePickerCell.m in Sources */,
 				0123D0F21F5954700039C2BB /* SelectTimePickerCell.m in Sources */,
 				75E524A61DFEEF8A0093DECC /* UITapImageView.m in Sources */,
@@ -5768,7 +5667,6 @@
 				05D353861E125B5D0047197D /* ChangePsdCell.m in Sources */,
 				011230B91FBC123D000853B9 /* HomeVC.m in Sources */,
 				75E523D91DFEEF8A0093DECC /* NSObject+GCD.m in Sources */,
-				75E524821DFEEF8A0093DECC /* UIWebView+Blocks.m in Sources */,
 				05A0292F1E14EE0600E98005 /* ArrayTool.m in Sources */,
 				75E524751DFEEF8A0093DECC /* UIView+Toast.m in Sources */,
 				DDDB61491E9CC57600BDEE25 /* AddDeviceCell.m in Sources */,
@@ -5795,7 +5693,6 @@
 				75E1D3661EAB3460000C9DC2 /* UpdateDeviceApi.m in Sources */,
 				0178914E20648E9A004F8FD7 /* HKNetManager.m in Sources */,
 				75E524BA1DFEEF8A0093DECC /* MJRefreshBackGifFooter.m in Sources */,
-				75E524891DFEEF8A0093DECC /* WebView+Debug.m in Sources */,
 				75E524251DFEEF8A0093DECC /* UIDevice+Hardware.m in Sources */,
 				75E523B01DFEEF8A0093DECC /* NSData+APNSToken.m in Sources */,
 				75E524231DFEEF8A0093DECC /* UIControl+ActionBlocks.m in Sources */,
@@ -5829,7 +5726,6 @@
 				75E523E81DFEEF8A0093DECC /* NSString+MIME.m in Sources */,
 				010FD0A31FC6C5E200BF8749 /* MJPhotoView.m in Sources */,
 				75E523B61DFEEF8A0093DECC /* NSData+zlib.m in Sources */,
-				75E524841DFEEF8A0093DECC /* UIWebView+JS.m in Sources */,
 				75E5247F1DFEEF8A0093DECC /* UIViewController+TopBarMessage.m in Sources */,
 				75E523F71DFEEF8A0093DECC /* NSURLConnection+SelfSigned.m in Sources */,
 				01A63F9D2063E947004FEC2F /* SVProgressHUD.m in Sources */,
@@ -5861,11 +5757,9 @@
 				75E5240C1DFEEF8A0093DECC /* UIAlertView+Block.m in Sources */,
 				75E524671DFEEF8A0093DECC /* UIView+Animation.m in Sources */,
 				1828882D1EE2F0F000EC6EBB /* TimeSwitchCell.m in Sources */,
-				183AED801EF8294E00E3FC3D /* NJKWebViewProgressView.m in Sources */,
 				75E523AC1DFEEF8A0093DECC /* CLLocationManager+Blocks.m in Sources */,
 				0586A95C1E7678BB00DA458A /* VoiceHelp.m in Sources */,
 				18E808E41EF271B7001814AB /* NSSDKObject.mm in Sources */,
-				183AED771EF8277D00E3FC3D /* TOActivityChrome.m in Sources */,
 				75E523D61DFEEF8A0093DECC /* NSObject+AutoCoding.m in Sources */,
 				05CD99AB1E153C3A007D569E /* GetDeviceStatusApi.m in Sources */,
 				01A63F512063E947004FEC2F /* CustomAlertView.m in Sources */,
@@ -5998,7 +5892,6 @@
 				75E523FE1DFEEF8A0093DECC /* MKMapView+ZoomLevel.m in Sources */,
 				75E524491DFEEF8A0093DECC /* UINavigationController+StackManager.m in Sources */,
 				75E5240E1DFEEF8A0093DECC /* UIApplication+KeyboardFrame.m in Sources */,
-				75E524811DFEEF8A0093DECC /* UIWebView+Alert.m in Sources */,
 				75E524B41DFEEF8A0093DECC /* MJRefreshComponent.m in Sources */,
 				75E523F01DFEEF8A0093DECC /* NSString+UrlEncode.m in Sources */,
 				01A63F942063E947004FEC2F /* VideoShowWindow.mm in Sources */,
@@ -6116,7 +6009,6 @@
 				01E1A19C1F62953D00CDBB75 /* AboutVC.m in Sources */,
 				75E524431DFEEF8A0093DECC /* UILabel+SuggestSize.m in Sources */,
 				05E466781DF4FA1A0056E6FF /* main.m in Sources */,
-				75E524851DFEEF8A0093DECC /* UIWebView+Load.m in Sources */,
 				75E523A61DFEEF8A0093DECC /* NSManagedObjectContext+Extensions.m in Sources */,
 				75E523BB1DFEEF8A0093DECC /* NSDate+Reporting.m in Sources */,
 				18EB1E971F0F5EC0008B7A2B /* NSArray+JSONString.m in Sources */,
@@ -6125,7 +6017,6 @@
 				05D84CB91E3723DB002366F5 /* executeSceneItemVC.m in Sources */,
 				88105A702162EF730084C6D9 /* WBQRCodeVC.m in Sources */,
 				01A63F4E2063E947004FEC2F /* AlarmConfigView.mm in Sources */,
-				183AED701EF8254900E3FC3D /* TOWebViewController.m in Sources */,
 				01A63F792063E947004FEC2F /* FunctionScrollView.m in Sources */,
 				75E524C61DFEEF8A0093DECC /* QBAssetsCollectionFooterView.m in Sources */,
 				E2A28B9622F7D4F3000F05BD /* DeviceWarningListViewController.m in Sources */,
@@ -6133,7 +6024,6 @@
 				75E524AD1DFEEF8A0093DECC /* GVUserDefaults.m in Sources */,
 				75E5246D1DFEEF8A0093DECC /* UIView+FDCollapsibleConstraints.m in Sources */,
 				75E523E11DFEEF8A0093DECC /* NSString+Base64.m in Sources */,
-				183AED781EF8277D00E3FC3D /* TOActivitySafari.m in Sources */,
 				75E523C91DFEEF8A0093DECC /* NSHTTPCookieStorage+FreezeDry.m in Sources */,
 				75E523DB1DFEEF8A0093DECC /* NSObject+MKBlockTimer.m in Sources */,
 				75E523C31DFEEF8A0093DECC /* NSDictionary+SafeAccess.m in Sources */,
@@ -6158,13 +6048,11 @@
 				75E523AB1DFEEF8A0093DECC /* CLLocation+CH1903.m in Sources */,
 				05F1213D1E29C81B0075D364 /* DeviceModel.m in Sources */,
 				75E524B81DFEEF8A0093DECC /* MJRefreshAutoNormalFooter.m in Sources */,
-				75E524861DFEEF8A0093DECC /* UIWebView+MetaParser.m in Sources */,
 				0178914B20648ACE004F8FD7 /* UIScrollView+EmptyDataSet.m in Sources */,
 				75E5243C1DFEEF8A0093DECC /* UIImageView+FaceAwareFill.m in Sources */,
 				75E1D3631EAB2E01000C9DC2 /* GatewayVersionModel.m in Sources */,
 				75E524931DFEEF8A0093DECC /* YTKNetworkConfig.m in Sources */,
 				75E523E71DFEEF8A0093DECC /* NSString+Matcher.m in Sources */,
-				183AED791EF8277D00E3FC3D /* UIImage+TOWebViewControllerIcons.m in Sources */,
 				75E5248B1DFEEF8A0093DECC /* NetWorkBaseUrlConfig.m in Sources */,
 				05D8979F1E541A7000889C21 /* AddSystemSceneApi.m in Sources */,
 				C475017C20D24B6400F6255E /* InitVC.m in Sources */,
@@ -6201,7 +6089,6 @@
 				75E524B31DFEEF8A0093DECC /* MJRefreshBackFooter.m in Sources */,
 				01A63F572063E947004FEC2F /* MemoryConfigView.m in Sources */,
 				75E523B41DFEEF8A0093DECC /* NSData+Hash.m in Sources */,
-				183AED7F1EF8294E00E3FC3D /* NJKWebViewProgress.m in Sources */,
 				75E524D51DFEEF8A0093DECC /* XAInjectionTemplate.cpp in Sources */,
 				05BDDC7E1DFFBA3D00648F69 /* MPRequstFailedHelper.m in Sources */,
 				75E524CE1DFEEF8A0093DECC /* QBImagePickerGroupCell.m in Sources */,
@@ -6304,7 +6191,6 @@
 				75E524191DFEEF8A0093DECC /* UIButton+CountDown.m in Sources */,
 				75E5242A1DFEEF8A0093DECC /* UIImage+Alpha.m in Sources */,
 				75E524141DFEEF8A0093DECC /* UIBezierPath+LxThroughPointsBezier.m in Sources */,
-				75E524881DFEEF8A0093DECC /* UIWebVIew+SwipeGesture.m in Sources */,
 				05CD99B71E154DE1007D569E /* addSceneApi.m in Sources */,
 				05D3537A1E123CBA0047197D /* AirApi.m in Sources */,
 				182888481EE4557C00EC6EBB /* colorItemCell.m in Sources */,
@@ -6616,11 +6502,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 69;
-				DEVELOPMENT_TEAM = SZKCT5EZKN;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6641,7 +6527,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = elro_siterwell_appstore;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -6658,11 +6544,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 69;
-				DEVELOPMENT_TEAM = SZKCT5EZKN;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6683,7 +6569,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.elro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = elro_siterwell_appstore;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
