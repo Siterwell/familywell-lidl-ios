@@ -13,7 +13,7 @@
 @end
 
 @implementation PrivacyVC {
-    UIWebView *webView;
+    WKWebView *webView;
 }
 
 
@@ -24,8 +24,7 @@
     
     self.title = NSLocalizedString(@"隐私政策", nil);
     
-    webView = [UIWebView new];
-    webView.scalesPageToFit = YES;
+    webView = [WKWebView new];
     webView.autoresizesSubviews = YES;
 
     
