@@ -542,3 +542,8 @@
 "欧洲" = "Europe";
 "选择地区"= "Choose Region";
 "请重启网关后重新配网" = "Please restart the gateway and re-config the WiFi network";
+"确定下载到手机" = "Are you sure to download to your phone";
+"正在下载" = "Downloading";
+"下载失败" = "Download failed";
+"下载成功" = "Download successful";
+"查看" = "See";

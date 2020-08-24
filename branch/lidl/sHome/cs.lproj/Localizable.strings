@@ -542,3 +542,8 @@
 "欧洲" = "Evropa";
 "选择地区"= "Vybrat region";
 "请重启网关后重新配网" = "Prosím, restartujte bránu a přerozdělte síť.";
+"确定下载到手机" = "Jste si jisti, že si ke stažení do telefonu";
+"正在下载" = "Stahování";
+"下载失败" = "Stahování selhalo";
+"下载成功" = "Stahování úspěšné";
+"查看" = "viz";

@@ -542,3 +542,8 @@
 "欧洲" = "Eurooppa";
 "选择地区"= "Valitse alue";
 "请重启网关后重新配网" = "Käynnistä portti uudelleen ja jaa verkko uudelleen";
+"确定下载到手机" = "Oletko varma, että lataat sen puhelimeesi?";
+"正在下载" = "Ladataan";
+"下载失败" = "Lataus epäonnistui";
+"下载成功" = "Lataus onnistui";
+"查看" = "Katso";

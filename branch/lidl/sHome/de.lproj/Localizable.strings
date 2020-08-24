@@ -542,3 +542,8 @@
 "欧洲" = "Europa";
 "选择地区"= "Region auswählen";
 "请重启网关后重新配网" = "Bitte starten Sie das Gateway neu und verteilen Sie das Netzwerk";
+"确定下载到手机" = "Sind Sie sicher, auf Ihr Telefon herunterzuladen";
+"正在下载" = "Herunterladen";
+"下载失败" = "Herunterladen fehlgeschlagen";
+"下载成功" = "Herunterladen erfolgreich";
+"查看" = "Siehe";

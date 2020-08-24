@@ -542,3 +542,8 @@
 "欧洲" = "Europa";
 "选择地区"= "Selección de área";
 "请重启网关后重新配网" = "Reinicia el portal y Redimensiona la red.";
+"确定下载到手机" = "Descargar en el teléfono";
+"正在下载" = "Descargando";
+"下载失败" = "Fallo de descarga";
+"下载成功" = "Descarga exitosa";
+"查看" = "Ver";
