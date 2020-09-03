@@ -72,8 +72,8 @@
     if (![week isEqualToString:@"00"]) {
         SceneListItemData *timeItem = [[SceneListItemData alloc] init];
         timeItem.week = week;
-        timeItem.hour = [NSString stringWithFormat:@"%ld",strtoul([hour UTF8String],0,16)];
-        timeItem.minute = [NSString stringWithFormat:@"%ld",strtoul([minute UTF8String],0,16)];
+        timeItem.hour = [NSString stringWithFormat:@"%02ld",strtoul([hour UTF8String],0,16)];
+        timeItem.minute = [NSString stringWithFormat:@"%02ld",strtoul([minute UTF8String],0,16)];
         timeItem.image = @"blue_clock_icon";
         timeItem.title = [NSString stringWithFormat:@"%@:%@",timeItem.hour,timeItem.minute];
         [array addObject:timeItem];
@@ -151,8 +151,8 @@
 
         if (![minute isEqualToString:@"00"] || ![second isEqualToString:@"00"]) {
             SceneListItemData *delyItem = [[SceneListItemData alloc] init];
-            delyItem.minute = [NSString stringWithFormat:@"%ld",strtoul([minute UTF8String],0,16)];
-            delyItem.second = [NSString stringWithFormat:@"%ld",strtoul([second UTF8String],0,16)];
+            delyItem.minute = [NSString stringWithFormat:@"%02ld",strtoul([minute UTF8String],0,16)];
+            delyItem.second = [NSString stringWithFormat:@"%02ld",strtoul([second UTF8String],0,16)];
             delyItem.image = @"blue_ys_icon";
             delyItem.title = [NSString stringWithFormat:@"%@:%@",delyItem.minute,delyItem.second];
             [array addObject:delyItem];
