@@ -1,20 +1,5 @@
 PODS:
   - ActionSheetPicker-3.0 (2.4.1)
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
-    - AFNetworking/NSURLSession
   - CocoaAsyncSocket (7.6.3)
   - CocoaLumberjack (3.6.0):
     - CocoaLumberjack/Core (= 3.6.0)
@@ -61,7 +46,6 @@ PODS:
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
-  - AFNetworking
   - CocoaAsyncSocket
   - CocoaLumberjack
   - FMDB/common (~> 2.5)
@@ -84,7 +68,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - ActionSheetPicker-3.0
-    - AFNetworking
     - CocoaAsyncSocket
     - CocoaLumberjack
     - DACircularProgress
@@ -109,7 +92,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: d236f0b663123e4b404a3bc04b338c1e805ac910
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaLumberjack: 78b0c238666f4f58db069738ec176f4519557516
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
@@ -132,6 +114,6 @@ SPEC CHECKSUMS:
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
   ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb
 
-PODFILE CHECKSUM: 6976cbb8bb4f60fed1c633b0b06ade359b24213b
+PODFILE CHECKSUM: e8c4fdd2df1caf8fab5fcb37153936f705cd1bad
 
 COCOAPODS: 1.9.1

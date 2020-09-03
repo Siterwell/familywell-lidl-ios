@@ -3,7 +3,6 @@ platform :ios, '8.0'
 target "sHome" do
 
 #pod 'HekrSDK', :subspecs => ['Core'] , :podspec => 'https://raw.githubusercontent.com/HEKR-Cloud/HEKR-IOS-SDK/global2.0/HekrSDK.podspec'
-pod 'AFNetworking'
 pod 'CocoaLumberjack'
 pod 'ReactiveCocoa', '~> 2.5'
 pod 'SDWebImage', '~> 3.7.5'

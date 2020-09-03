@@ -15,7 +15,7 @@
 #ifdef __OBJC__
 #import <DDLog.h>
 #import <CocoaLumberjack.h>
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking.h"
 #import <Masonry/Masonry.h>
 #import <YYText/YYText.h>
 #import <JSONModel/JSONModel.h>
