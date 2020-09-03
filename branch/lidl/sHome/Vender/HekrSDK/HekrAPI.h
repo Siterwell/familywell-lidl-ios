@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFHTTPSessionManager.h>
+#import "AFHTTPSessionManager.h"
 #import "HekrSDK.h"
 
 typedef NS_ENUM(NSUInteger, HekrLocalControl) {
