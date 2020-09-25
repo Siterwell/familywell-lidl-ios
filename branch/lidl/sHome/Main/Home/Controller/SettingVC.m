@@ -201,8 +201,19 @@
             [self performSegueWithIdentifier:@"toAbout" sender:nil];
         }else{
                 
+            NSString *url;
+            NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+            NSString *languageName = [appLanguages objectAtIndex:0];
+            if ([languageName containsString:@"de"]) {
+                url = @"https://www.elro.eu/de/elro-connects-app-upgrade";
+            }else if ([languageName containsString:@"nl"]) {
+                url = @"https://www.elro.eu/nl/elro-connects-app-upgrade";
+            }else {
+                url = @"https://www.elro.eu/en/elro-connects-app-upgrade";
+            }
+            
                 UIApplication *application = [UIApplication sharedApplication];
-                NSURL *URL = [NSURL URLWithString:@"https://www.elro.eu/elro-connects-k1-connector-sf40ga#faqs"];
+                NSURL *URL = [NSURL URLWithString:url];
                 
                 if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
                     [application openURL:URL options:@{}

@@ -541,4 +541,4 @@
 "欧洲" = "Europe";
 "选择地区"= "Choose Region";
 "请重启网关后重新配网" = "Please restart the gateway and re-config the WiFi network";
-
+"设备名称过长" = "Device name too long";

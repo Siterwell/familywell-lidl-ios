@@ -541,3 +541,4 @@
 "欧洲" = "Eurooppa";
 "选择地区"= "Valitse alue";
 "请重启网关后重新配网" = "Käynnistä portti uudelleen ja jaa verkko uudelleen";
+"设备名称过长" = "Laitteen nimi on liian pitkä";

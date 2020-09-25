@@ -541,3 +541,4 @@
 "欧洲" = "Europa";
 "选择地区"= "Region auswählen";
 "请重启网关后重新配网" = "Bitte starten Sie das Gateway neu und verteilen Sie das Netzwerk";
+"设备名称过长" = "Gerätename zu lang";

@@ -27,6 +27,13 @@
 }
 
 - (void)rightItem{
+    
+    NSInteger count = [self textLength:self.textField.text];
+    if(count>15){
+        [MBProgressHUD showError:NSLocalizedString(@"设备名称过长",nil) ToView:self.view];
+        return;
+    }
+    
     NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
     DeviceListModel *model = [[DeviceListModel alloc] initWithDictionary:[config objectForKey:DeviceInfo] error:nil];
     RenameDeviceApi *api = [[RenameDeviceApi alloc] initWithDevTid:model.devTid CtrlKey:model.ctrlKey DeviceId:[_deviceId intValue] DeviceName:_textField.text];
@@ -97,5 +104,26 @@
     return cell;
 }
 
+
+#pragma mark -method
+-(NSUInteger)textLength: (NSString *)text{
+
+        NSUInteger asciiLength =0;
+
+
+
+        for (NSUInteger i =0; i < text.length; i++) {
+
+        unichar uc = [text characterAtIndex: i];
+
+        // 判断是否是ascii编码
+
+        asciiLength += isascii(uc) ?1 : 2;
+
+        }
+        NSUInteger unicodeLength = asciiLength;
+         return unicodeLength;
+
+}
 
 @end
