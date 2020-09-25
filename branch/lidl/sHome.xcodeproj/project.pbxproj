@@ -2167,7 +2167,6 @@
 		BA2E5D9723D42FD80075C9E3 /* HekrSimpleTcpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrSimpleTcpClient.h; sourceTree = "<group>"; };
 		BA2E5D9823D42FD80075C9E3 /* HekrSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HekrSDK.h; sourceTree = "<group>"; };
 		BA5E880323CF0C2200923381 /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
-		BA5E880823CF0D8100923381 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BA5E880A23CF0D8A00923381 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		BA5E880B23CF0D8E00923381 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BA5E880C23CF0D8F00923381 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -6519,7 +6518,6 @@
 		BA5E880923CF0D8100923381 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BA5E880823CF0D8100923381 /* English */,
 				BA5E880A23CF0D8A00923381 /* zh-Hans */,
 				BA5E880B23CF0D8E00923381 /* cs */,
 				BA5E880C23CF0D8F00923381 /* nl */,
