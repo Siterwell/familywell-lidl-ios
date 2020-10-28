@@ -6,3 +6,4 @@
   Copyright © 2020 shaop. All rights reserved.
 */
 CFBundleDisplayName = "ELRO Connects";
+NSLocalNetworkUsageDescription = "Réseau WiFi";
