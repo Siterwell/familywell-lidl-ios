@@ -5534,7 +5534,7 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = DGJZCJ8DVJ;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.AccessWiFi = {
 								enabled = 1;
@@ -6658,9 +6658,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = DGJZCJ8DVJ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6678,11 +6678,11 @@
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
-				MARKETING_VERSION = 2.10;
+				MARKETING_VERSION = 2.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.base;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Base_AppStore;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -6699,9 +6699,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = sHome/sHome.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 28;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 29;
 				DEVELOPMENT_TEAM = DGJZCJ8DVJ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -6719,11 +6719,11 @@
 					"$(PROJECT_DIR)/sHome/Vender/FunSdks",
 					"$(PROJECT_DIR)/sHome/Vender/HekrSDK",
 				);
-				MARKETING_VERSION = 2.10;
+				MARKETING_VERSION = 2.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosa.base;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Base_AppStore;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

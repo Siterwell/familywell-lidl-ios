@@ -212,7 +212,6 @@
     _type_qiang = NO;
     _deviceSn = vInfo.devid;
     [XMSingleton sharedXM].vInfo = vInfo;
-    FUN_DevGetConfig_Json(SELF,CSTR(_deviceSn),"SystemInfo",0);
     self.title = self.vInfo.name;
     
     _stateBarShow = NO;
