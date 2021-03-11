@@ -205,11 +205,9 @@
             NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
             NSString *languageName = [appLanguages objectAtIndex:0];
             if ([languageName containsString:@"de"]) {
-                url = @"https://www.elro.eu/de/elro-connects-app-upgrade";
-            }else if ([languageName containsString:@"nl"]) {
-                url = @"https://www.elro.eu/nl/elro-connects-app-upgrade";
+                url = @"https://protect-au.mimecast.com/s/cbR1CE8wmrt3JKxn7cwA07Y?domain=elro.eu";
             }else {
-                url = @"https://www.elro.eu/en/elro-connects-app-upgrade";
+                url = @"https://protect-au.mimecast.com/s/T86MCD1vlpT5KQAM9FWLfVr?domain=elro.eu";
             }
             
                 UIApplication *application = [UIApplication sharedApplication];
